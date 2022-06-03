@@ -1,9 +1,9 @@
 local ok, hop = pcall(require, "hop")
 if not ok then
-  return
+    return
 end
 
 hop.setup {
-  keys = "wertzuiopghyxcvbnmalskdjf",
-  extend_visual = true,
+    keys = "wertzuiopghyxcvbnmalskdjf",
+    extend_visual = true,
 }

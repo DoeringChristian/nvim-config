@@ -1,8 +1,8 @@
-return{
+return {
     settings = {
         ["rust-analyzer"] = {
             assist = {
-              importPrefix = "self",
+                importPrefix = "self",
             },
             procMacro = {
                 enable = true
@@ -10,4 +10,3 @@ return{
         },
     },
 }
-

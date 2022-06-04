@@ -74,3 +74,8 @@ vim.keymap.set({"n", "v"}, "<leader>w", "<cmd>HopWord<CR>", opts)
 vim.keymap.set({"n", "v"}, "<leader>b", "<cmd>HopWordBC<CR>", opts)
 vim.keymap.set({"n", "v"}, "<leader>j", "<cmd>HopLineAC<CR>", opts)
 vim.keymap.set({"n", "v"}, "<leader>k", "<cmd>HopLineBC<CR>", opts)
+
+-- MiniYank --
+vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
+vim.keymap.set({"n", "v"}, "P", "<Plug>(miniyank-autoPut)", opts)
+vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)

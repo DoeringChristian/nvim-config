@@ -42,6 +42,12 @@ M.setup = function()
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
     })
+
+    -- Set the background color of hover window to same as rest of document.
+    vim.cmd[[
+        hi NormalFloat guibg = Normal
+    ]]
+
 end
 
 local function lsp_highlight_document(client)

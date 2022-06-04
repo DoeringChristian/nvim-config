@@ -95,9 +95,35 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+
+    -- GIT --
     use {
         'lewis6991/gitsigns.nvim',
         -- tag = 'release' -- To use the latest release
+    }
+
+    -- Impatient --
+    use 'lewis6991/impatient.nvim'
+
+    -- BufferLine --
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+
+    -- Lualine --
+    use "nvim-lualine/lualine.nvim"
+
+    -- Which Key --
+    use {
+        "folke/which-key.nvim",
+    }
+
+    -- Neo Clip --
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            -- you'll need at least one of these
+            {'nvim-telescope/telescope.nvim'},
+            -- {'ibhagwan/fzf-lua'},
+        }
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

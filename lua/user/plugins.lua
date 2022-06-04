@@ -55,6 +55,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completions
+    use "f3fora/cmp-spell"
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -121,9 +122,27 @@ return packer.startup(function(use)
         "AckslD/nvim-neoclip.lua",
         requires = {
             -- you'll need at least one of these
-            {'nvim-telescope/telescope.nvim'},
+            { 'nvim-telescope/telescope.nvim' },
             -- {'ibhagwan/fzf-lua'},
         }
+    }
+
+    -- Indent Blankline --
+    use "lukas-reineke/indent-blankline.nvim"
+
+    -- Debugging --
+    use {
+        'Pocco81/DAPInstall.nvim',
+        branch = "dev",
+    }
+    use {
+        "mfussenegger/nvim-dap",
+        requires = {
+            "theHamsta/nvim-dap-virtual-text",
+            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap-python",
+            "nvim-telescope/telescope-dap.nvim",
+        },
     }
 
     -- Automatically set up your configuration after cloning packer.nvim

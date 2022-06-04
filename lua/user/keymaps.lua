@@ -69,8 +69,8 @@ keymap("n", "<leader><Tab>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Hop --
-keymap("n", "<leader>f", "<cmd>HopChar1MW<CR>", opts)
-keymap("n", "<leader>w", "<cmd>HopWord<CR>", opts)
-keymap("n", "<leader>b", "<cmd>HopWordBC<CR>", opts)
-keymap("n", "<leader>j", "<cmd>HopLineAC<CR>", opts)
-keymap("n", "<leader>k", "<cmd>HopLineBC<CR>", opts)
+vim.keymap.set({"n", "v"}, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
+vim.keymap.set({"n", "v"}, "<leader>w", "<cmd>HopWord<CR>", opts)
+vim.keymap.set({"n", "v"}, "<leader>b", "<cmd>HopWordBC<CR>", opts)
+vim.keymap.set({"n", "v"}, "<leader>j", "<cmd>HopLineAC<CR>", opts)
+vim.keymap.set({"n", "v"}, "<leader>k", "<cmd>HopLineBC<CR>", opts)

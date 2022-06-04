@@ -96,6 +96,7 @@ M.on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri", ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
         -- TODO: Figure out why this won't work.
         require("rust-tools.inlay_hints").set_inlay_hints()
+        require("rust-tools.inlay_hints").set_inlay_hints()
     end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)

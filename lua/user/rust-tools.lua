@@ -16,9 +16,9 @@ rust_tools.setup({
             show_parameter_hints = true,
         },
         inlay_hints = {
-            parameter_hints_prefix = "◄ ",
-            other_hints_prefix = "➜ ",
-            highlight = "Conceal",
+            parameter_hints_prefix = "⯇ ",
+            other_hints_prefix = "🠊 ",
+            --highlight = "Conceal",
         },
     },
     dap = {

@@ -14,10 +14,13 @@ toggleterm.setup {
 
 function _G.set_terminal_keymaps()
     local opts = { noremap = true }
-    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-t>]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-a>', [[<C-t>]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+
+
 
 local ok, terminal = pcall(require, 'toggleterm.terminal')
 if not ok then
@@ -26,15 +29,10 @@ end
 
 local Terminal = terminal.Terminal
 
-
 ----------------------------------
 -- Set Custom terminals.
 ----------------------------------
--- Prefix is <leader>t
-
-
-
-local gitui = Terminal:new({ 
+local gitui = Terminal:new({
     cmd = "gitui",
     hidden = false,
 })

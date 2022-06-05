@@ -68,6 +68,10 @@ keymap("n", "<leader><Tab>", "<cmd>Telescope live_grep<cr>", opts)
 -- Yank History (Yanky)--
 keymap("n", "<leader>p", "<cmd>Telescope yank_history initial_mode=normal<cr>", opts)
 
+-- vim-bookmarks
+keymap("n", "ml", "<cmd>Telescope vim_bookmarks all<CR>", opts)
+keymap("n", "mf", "<cmd>Telescope vim_bookmarks current_file initial_mode=normal<CR>", opts)
+
 -- Yanky --
 -- paste
 vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
@@ -113,3 +117,4 @@ keymap("n", "<leader>tcb", "<cmd>lua _CARGO_BUILD_TOGGLE()<CR>", opts)
 keymap("n", "<leader>tcr", "<cmd>lua _CARGO_RUN_TOGGLE()<CR>", opts)
 keymap("n", "<leader>tct", "<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>", opts)
 
+-- Bookmarks --

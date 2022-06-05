@@ -19,6 +19,7 @@ end
 --telescope.load_extension("neoclip")
 telescope.load_extension("yank_history")
 telescope.load_extension("hop")
+telescope.load_extension("vim_bookmarks")
 
 local actions = require "telescope.actions"
 
@@ -91,6 +92,8 @@ telescope.setup {
 
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
+
+                ["<leader>k"] = R("telescope").extensions.hop.hop,
 
                 ["?"] = actions.which_key,
             },

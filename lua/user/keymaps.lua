@@ -87,5 +87,3 @@ keymap("n", "<leader>tb", "<cmd>lua _BOTTOM_TOGGLE()<CR>", opts)
 keymap("n", "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>td", "<cmd>lua _DUST_TOGGLE()<CR>", opts)
 keymap("n", "<leader>th", "<cmd>lua _HTOP_TOGGLE()<CR>", opts)
--- not sure if that is a good idea.
-keymap("t", "<esc>", "<cmd>ToggleTerm<CR>", opts)

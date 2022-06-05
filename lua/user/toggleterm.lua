@@ -29,6 +29,18 @@ end
 
 local Terminal = terminal.Terminal
 
+function _G.set_terminal_keymaps()
+    local opts = { noremap = true }
+    -- Terminal Mode
+    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts) -- go to normal mode with escape
+    --vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n>k]], opts)
+    --vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n>j]], opts)
+    -- Normal Mode
+    vim.api.nvim_buf_set_keymap(0, 'n', '<esc>', "<cmd>ToggleTerm<CR>", opts) -- close terminal on escape
+end
+
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
 ----------------------------------
 -- Set Custom terminals.
 ----------------------------------

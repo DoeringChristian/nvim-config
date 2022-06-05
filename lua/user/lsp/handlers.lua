@@ -43,6 +43,12 @@ M.setup = function()
         border = "rounded",
     })
 
+    vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
+
+    --vim.lsp.handlers["textDocument/references"] = vim.lsp.with(vim.lsp.handlers["textDocument/references"], {
+        --loclist = true,
+    --})
+
     -- Set the background color of hover window to same as rest of document.
     vim.cmd[[
         hi NormalFloat guibg = Normal
@@ -87,6 +93,7 @@ local function lsp_keymaps(bufnr)
     )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 

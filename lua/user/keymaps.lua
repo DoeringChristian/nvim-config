@@ -19,10 +19,10 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", '<C-h>', "<C-w>h", opts)
+keymap("n", '<C-j>', "<C-w>j", opts)
+keymap("n", '<C-k>', "<C-w>k", opts)
+keymap("n", '<C-l>', "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
@@ -65,6 +65,28 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader><Tab>", "<cmd>Telescope live_grep<cr>", opts)
 -- keymap("n", "<C-f>", "<cmd>Telescope file_browser<cr>", opts)
 
+-- Yank History (Yanky)--
+keymap("n", "<leader>p", "<cmd>Telescope yank_history initial_mode=normal<cr>", opts)
+
+-- Yanky --
+-- paste
+vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
+vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
+vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
+vim.keymap.set("x", "P", "<Plug>(YankyPutBefore)", {})
+vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
+vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
+vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
+vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
+
+-- cycle navigation
+vim.api.nvim_set_keymap("n", "<c-n>", "<Plug>(YankyCycleBackward)", {})
+vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
+
+-- keep cursor position
+vim.keymap.set("n", "y", "<Plug>(YankyYank)", {})
+vim.keymap.set("x", "y", "<Plug>(YankyYank)", {})
+
 -- NvimTree --
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
 
@@ -76,9 +98,9 @@ vim.keymap.set({"n", "v"}, "<leader>j", "<cmd>HopLineAC<CR>", opts)
 vim.keymap.set({"n", "v"}, "<leader>k", "<cmd>HopLineBC<CR>", opts)
 
 -- MiniYank --
-vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
-vim.keymap.set({"n", "v"}, "P", "<Plug>(miniyank-autoPut)", opts)
-vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)
+--vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
+--vim.keymap.set({"n", "v"}, "P", "<Plug>(miniyank-autoPut)", opts)
+--vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)
 
 -- Terminal --
 keymap("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)

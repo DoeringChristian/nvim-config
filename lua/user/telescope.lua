@@ -5,7 +5,8 @@ end
 
 --telescope.load_extension('media_files')
 -- telescope.load_extension("file_browser")
-telescope.load_extension("neoclip")
+--telescope.load_extension("neoclip")
+telescope.load_extension("yank_history")
 
 local actions = require "telescope.actions"
 

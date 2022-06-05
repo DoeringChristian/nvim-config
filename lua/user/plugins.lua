@@ -72,6 +72,7 @@ return packer.startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
     }
+    use "gbprod/yanky.nvim"
 
     -- Rust --
     use "simrat39/rust-tools.nvim"
@@ -148,7 +149,7 @@ return packer.startup(function(use)
     }
 
     -- MiniYank --
-    use "bfredl/nvim-miniyank"
+    -- use "bfredl/nvim-miniyank"
 
     -- Toggleterm --
     use "akinsho/toggleterm.nvim"

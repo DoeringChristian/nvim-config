@@ -155,6 +155,9 @@ return packer.startup(function(use)
     -- Toggleterm --
     use "akinsho/toggleterm.nvim"
 
+    -- vim-surround --
+    use "tpope/vim-surround"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

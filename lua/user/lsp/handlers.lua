@@ -45,10 +45,6 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
 
-    --vim.lsp.handlers["textDocument/references"] = vim.lsp.with(vim.lsp.handlers["textDocument/references"], {
-        --loclist = true,
-    --})
-
     -- Set the background color of hover window to same as rest of document.
     vim.cmd[[
         hi NormalFloat guibg = Normal

@@ -33,6 +33,7 @@ function _G.set_terminal_keymaps()
     local opts = { noremap = true }
     -- Terminal Mode
     vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts) -- go to normal mode with escape
+    vim.api.nvim_buf_set_keymap(0, 't', '<C-n>', [[<C-\><C-n>]], opts) -- go to normal mode with escape
     --vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n>k]], opts)
     --vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n>j]], opts)
     -- Normal Mode
@@ -63,6 +64,10 @@ end
 local lazygit = Terminal:new({
     cmd = "lazygit",
     hidden = false,
+    on_open = function (term)
+        -- remove escape for lazygit
+        vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
+    end
 })
 function _LAZYGIT_TOGGLE()
     lazygit:toggle()

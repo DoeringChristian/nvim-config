@@ -1,9 +1,13 @@
-local ok, autopairs = pcall(require, "nvim-autopairs")
+local ok, npairs = pcall(require, "nvim-autopairs")
+if not ok then
+    return
+end
+local ok, Rule = pcall(require, "nvim-autopairs.rule")
 if not ok then
     return
 end
 
-autopairs.setup {
+npairs.setup {
     check_ts = true,
     ts_config = {
         lua = { "string", "source" },
@@ -22,6 +26,32 @@ autopairs.setup {
         highlight = "PmenuSel",
         highlight_grey = "LineNr",
     },
+}
+
+npairs.add_rules {
+  Rule(' ', ' ')
+    :with_pair(function (opts)
+      local pair = opts.line:sub(opts.col - 1, opts.col)
+      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+    end),
+  Rule('( ', ' )')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%)') ~= nil
+      end)
+      :use_key(')'),
+  Rule('{ ', ' }')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%}') ~= nil
+      end)
+      :use_key('}'),
+  Rule('[ ', ' ]')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%]') ~= nil
+      end)
+      :use_key(']')
 }
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"

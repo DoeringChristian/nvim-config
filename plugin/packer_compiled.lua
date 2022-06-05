@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
+  ["telescope-hop.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/telescope-hop.nvim",
+    url = "https://github.com/nvim-telescope/telescope-hop.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/telescope.nvim",

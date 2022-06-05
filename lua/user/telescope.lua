@@ -3,10 +3,22 @@ if not status_ok then
     return
 end
 
+local ok, plenary = pcall(require, "plenary")
+if not ok then
+    return
+end
+
+local R = function (name)
+    local RELOAD = require("plenary.reload").reload_module
+    RELOAD(name)
+    return require(name)
+end
+
 --telescope.load_extension('media_files')
 -- telescope.load_extension("file_browser")
 --telescope.load_extension("neoclip")
 telescope.load_extension("yank_history")
+telescope.load_extension("hop")
 
 local actions = require "telescope.actions"
 
@@ -21,6 +33,7 @@ telescope.setup {
             i = {
                 ["<C-n>"] = actions.cycle_history_next,
                 ["<C-p>"] = actions.cycle_history_prev,
+                ["<C-h>"] = R("telescope").extensions.hop.hop,
 
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
@@ -98,5 +111,14 @@ telescope.setup {
         --   extension_config_key = value,
         -- }
         -- please take a look at the readme of the extension you want to configure
+        hop = {
+            keys = { "w", "e", "r", "t",
+                "z", "u", "i", "o",
+                "p", "g", "h", "y",
+                "x", "c", "v", "b",
+                "n", "m", "a", "l",
+                "s", "k", "d", "j", "f", },
+            sign_hl = { "WarningMsg", "Title" },
+        }
     },
 }

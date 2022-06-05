@@ -73,6 +73,7 @@ return packer.startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } },
     }
     use "gbprod/yanky.nvim"
+    use "nvim-telescope/telescope-hop.nvim"
 
     -- Rust --
     use "simrat39/rust-tools.nvim"

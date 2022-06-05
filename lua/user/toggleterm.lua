@@ -71,6 +71,7 @@ end
 local dust = Terminal:new({
     cmd = "dust",
     hidden = false,
+    close_on_exit = false,
 })
 function _DUST_TOGGLE()
     dust:toggle()
@@ -82,4 +83,31 @@ local htop = Terminal:new({
 })
 function _HTOP_TOGGLE()
     htop:toggle()
+end
+
+local cargo_build = Terminal:new({
+    cmd = "clear && cargo build",
+    hidden = false,
+    close_on_exit = false,
+})
+function _CARGO_BUILD_TOGGLE()
+    cargo_build:toggle()
+end
+
+local cargo_run = Terminal:new({
+    cmd = "clear && cargo run",
+    hidden = false,
+    close_on_exit = false,
+})
+function _CARGO_RUN_TOGGLE()
+    cargo_run:toggle()
+end
+
+local cargo_run_trace = Terminal:new({
+    cmd = "clear && export RUST_BACKTRACE=1 && export RUST_LOG=trace && cargo run",
+    hidden = false,
+    close_on_exit = false,
+})
+function _CARGO_RUN_TRACE_TOGGLE()
+    cargo_run_trace:toggle()
 end

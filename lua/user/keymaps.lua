@@ -79,3 +79,11 @@ vim.keymap.set({"n", "v"}, "<leader>k", "<cmd>HopLineBC<CR>", opts)
 vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
 vim.keymap.set({"n", "v"}, "P", "<Plug>(miniyank-autoPut)", opts)
 vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)
+
+-- Terminal --
+keymap("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>lua _GITUI_TOGGLE()<CR>", opts)
+keymap("n", "<leader>tb", "<cmd>lua _BOTTOM_TOGGLE()<CR>", opts)
+keymap("n", "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>td", "<cmd>lua _DUST_TOGGLE()<CR>", opts)
+keymap("n", "<leader>th", "<cmd>lua _HTOP_TOGGLE()<CR>", opts)

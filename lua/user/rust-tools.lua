@@ -14,8 +14,6 @@ rust_tools.setup({
         inlay_hints = {
             only_current_line = false,
             show_parameter_hints = true,
-        },
-        inlay_hints = {
             parameter_hints_prefix = "⯇ ",
             other_hints_prefix = "🠊 ",
             --highlight = "Conceal",

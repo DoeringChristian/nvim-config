@@ -43,7 +43,16 @@ function _bottom_toggle()
     bottom:toggle()
 end
 
+local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = false,
+})
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
 vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>ToggleTerm<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _gitui_toggle()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tb", "<cmd>lua _bottom_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>tl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 

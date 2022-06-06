@@ -94,6 +94,10 @@ local cargo_build = Terminal:new({
     cmd = "clear && cargo build",
     hidden = false,
     close_on_exit = false,
+    on_open = function (term)
+        -- remove escape for lazygit
+        --vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "iq", {n})
+    end
 })
 function _CARGO_BUILD_TOGGLE()
     cargo_build:toggle()
@@ -112,6 +116,10 @@ local cargo_run_trace = Terminal:new({
     cmd = "clear && export RUST_BACKTRACE=1 && export RUST_LOG=trace && cargo run",
     hidden = false,
     close_on_exit = false,
+    on_open = function (term)
+        -- remove escape for lazygit
+        --vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "iq")
+    end
 })
 function _CARGO_RUN_TRACE_TOGGLE()
     cargo_run_trace:toggle()

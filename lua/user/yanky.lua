@@ -15,7 +15,7 @@ yanky.setup({
         sync_with_ring = true,
     },
     preserver_cursor_position = {
-        enabled = true,
+        enabled = false,
     },
     picker = {
         select = {

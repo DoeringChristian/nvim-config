@@ -88,8 +88,8 @@ vim.api.nvim_set_keymap("n", "<c-n>", "<Plug>(YankyCycleBackward)", {})
 vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
 
 -- keep cursor position
-vim.keymap.set("n", "y", "<Plug>(YankyYank)", {})
-vim.keymap.set("x", "y", "<Plug>(YankyYank)", {})
+--vim.keymap.set("n", "y", "<Plug>(YankyYank)", {})
+--vim.keymap.set("x", "y", "<Plug>(YankyYank)", {})
 
 -- NvimTree --
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)

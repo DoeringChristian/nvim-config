@@ -110,6 +110,9 @@ telescope.setup {
         lsp_references = {
             initial_mode = "normal",
         },
+        lsp_definitions = {
+            initial_mode = "normal",
+        },
     },
     extensions = {
         -- Your extension configuration goes here:

@@ -53,10 +53,10 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
 
-    vim.lsp.handlers["callHeirarchy/incommingCalls"] = vim.lsp.with(
+    vim.lsp.handlers["callHierarchy/incomingCalls"] = vim.lsp.with(
         require('litee.calltree.handlers').ch_lsp_handler("from"), {}
     )
-    vim.lsp.handlers["callHeirarchy/outgoingCalls"] = vim.lsp.with(
+    vim.lsp.handlers["callHierarchy/outgoingCalls"] = vim.lsp.with(
         require('litee.calltree.handlers').ch_lsp_handler("to"), {}
     )
 
@@ -92,8 +92,9 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>i", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
     --vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)

@@ -67,6 +67,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "weilbith/nvim-code-action-menu"
+    use "j-hui/fidget.nvim"
 
     -- Telescope --
     use {
@@ -162,6 +163,11 @@ return packer.startup(function(use)
 
     -- Vim-Bookmarks --
     use "MattesGroeger/vim-bookmarks"
+
+    -- Litee --
+    use "ldelossa/litee.nvim"
+    use "ldelossa/litee-symboltree.nvim"
+    use "ldelossa/litee-calltree.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

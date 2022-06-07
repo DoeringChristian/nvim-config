@@ -53,6 +53,13 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
 
+    vim.lsp.handlers["callHeirarchy/incommingCalls"] = vim.lsp.with(
+        require('litee.calltree.handlers').ch_lsp_handler("from"), {}
+    )
+    vim.lsp.handlers["callHeirarchy/outgoingCalls"] = vim.lsp.with(
+        require('litee.calltree.handlers').ch_lsp_handler("to"), {}
+    )
+
     -- Set the background color of hover window to same as rest of document.
     vim.cmd[[
         hi NormalFloat guibg = Normal

@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -148,6 +153,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["litee-calltree.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee-calltree.nvim",
+    url = "https://github.com/ldelossa/litee-calltree.nvim"
+  },
+  ["litee-symboltree.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee-symboltree.nvim",
+    url = "https://github.com/ldelossa/litee-symboltree.nvim"
+  },
+  ["litee.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee.nvim",
+    url = "https://github.com/ldelossa/litee.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,

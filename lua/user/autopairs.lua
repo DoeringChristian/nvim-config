@@ -13,6 +13,8 @@ end
 
 npairs.setup {
     check_ts = true,
+    -- Ignore these chars: w, %, ', [, ., -, +, *, /
+    ignored_next_char = [=[[%w%%%'%[%"%.%-%+%/%*]]=],
     ts_config = {
         lua = { "string", "source" },
         javascript = { "string", "template_string" },
@@ -32,30 +34,58 @@ npairs.setup {
     },
 }
 
+npairs.add_rules({
+    Rule("$", "$", { "tex", "latex" })
+        -- don't add a pair if the next character is %
+        :with_pair(cond.not_after_regex("%%"))
+        -- don't add a pair if  the previous character is xxx
+        :with_pair(cond.not_before_regex("xxx", 3))
+        -- don't move right when repeat character
+        :with_move(cond.none())
+        -- don't delete if the next character is xx
+        :with_del(cond.not_after_regex("xx"))
+        -- disable adding a newline when you press <cr>
+        :with_cr(cond.none())
+},
+    -- disable for .vim files, but it work for another filetypes
+    Rule("a", "a", "-vim")
+)
+npairs.add_rules({
+  Rule("$$","$$","tex")
+    :with_pair(function(opts)
+        print(vim.inspect(opts))
+        if opts.line=="aa $$" then
+        -- don't add pair on that line
+          return false
+        end
+    end)
+   }
+)
+
 npairs.add_rules {
-  Rule(' ', ' ')
-    :with_pair(function (opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-  Rule('( ', ' )')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%)') ~= nil
-      end)
-      :use_key(')'),
-  Rule('{ ', ' }')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%}') ~= nil
-      end)
-      :use_key('}'),
-  Rule('[ ', ' ]')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%]') ~= nil
-      end)
-      :use_key(']'),
+    Rule(' ', ' ')
+        :with_pair(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+        end),
+    Rule('( ', ' )')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%)') ~= nil
+        end)
+        :use_key(')'),
+    Rule('{ ', ' }')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%}') ~= nil
+        end)
+        :use_key('}'),
+    Rule('[ ', ' ]')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%]') ~= nil
+        end)
+        :use_key(']'),
     Rule('=', '')
         :with_pair(cond.not_inside_quote())
         :with_pair(function(opts)

@@ -170,11 +170,19 @@ return packer.startup(function(use)
     use "ldelossa/litee-calltree.nvim"
 
     -- Better Escape --
-    use {'jdhao/better-escape.vim', event = 'InsertEnter'}
+    use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     -- Nabla --
     use 'jbyuki/nabla.nvim'
 
+    -- cmp-pandoc --
+    use {
+        'aspeddro/cmp-pandoc.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'jbyuki/nabla.nvim' -- optional
+        }
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

@@ -111,6 +111,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
+  ["cmp-pandoc.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-pandoc.nvim",
+    url = "https://github.com/aspeddro/cmp-pandoc.nvim"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-path",

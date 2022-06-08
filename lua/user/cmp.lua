@@ -109,6 +109,7 @@ cmp.setup {
                 spell = "[Spell]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                cmp_pandoc = "[Pandoc]",
             })[entry.source.name]
             return vim_item
         end,
@@ -118,6 +119,7 @@ cmp.setup {
         --{ name = "nvim_lua" },
         { name = "luasnip" },
         { name = "buffer" },
+        { name = "cmp_pandoc" },
         { name = "spell" },
         { name = "path" },
         { name = 'nvim_lsp_signature_help' },

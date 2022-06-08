@@ -35,7 +35,7 @@ npairs.setup {
 }
 
 npairs.add_rules({
-    Rule("$", "$", { "tex", "latex" })
+    Rule("$", "$", { "tex", "latex", "markdown" })
         -- don't add a pair if the next character is %
         :with_pair(cond.not_after_regex("%%"))
         -- don't add a pair if  the previous character is xxx
@@ -50,6 +50,22 @@ npairs.add_rules({
     -- disable for .vim files, but it work for another filetypes
     Rule("a", "a", "-vim")
 )
+
+-- $|$ (<Space>)-> $ | $ in tex, latex, markdown
+-- $ | $ ($)-> $  $|
+npairs.add_rules({
+    Rule(" ", " ", { "tex", "latex", "markdown" })
+        :with_pair(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({ '$$' }, pair)
+        end),
+    Rule('$ ', ' $')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%$') ~= nil
+        end)
+        :use_key('$'),
+})
 npairs.add_rules({
   Rule("$$","$$","tex")
     :with_pair(function(opts)
@@ -62,6 +78,7 @@ npairs.add_rules({
    }
 )
 
+-- {|} -> { | }
 npairs.add_rules {
     Rule(' ', ' ')
         :with_pair(function(opts)

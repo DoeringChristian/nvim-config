@@ -118,4 +118,8 @@ keymap("n", "<leader>tcr", "<cmd>lua _CARGO_RUN_TOGGLE()<CR>", opts)
 keymap("n", "<leader>tct", "<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>", opts)
 
 -- Nabla --
-keymap("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>', opts)
+--keymap("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>', opts)
+-- Pandoc --
+keymap("n", "<leader>pr", '<cmd>lua _PANDOC_RENDER()<CR>', opts)
+keymap("n", "<leader>pm", '<cmd>lua _PANDOC_MAKE()<CR>', opts)
+keymap("n", "<leader>pe", '<cmd>lua _NABLA_SHOW()<CR>', opts)

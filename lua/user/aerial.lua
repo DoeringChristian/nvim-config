@@ -8,5 +8,12 @@ aerial.setup{
     open_automatic = true,
     placement_editor_edge = true,
     close_behavior = "global",
+    show_guides = true,
+    highlight_on_hover = true,
+    ignore = {
+        filetypes = {
+            "lua",
+        }
+    }
 }
 

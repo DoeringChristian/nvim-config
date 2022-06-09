@@ -20,6 +20,7 @@ end
 telescope.load_extension("yank_history")
 telescope.load_extension("hop")
 telescope.load_extension("vim_bookmarks")
+telescope.load_extension("aerial")
 
 local actions = require "telescope.actions"
 
@@ -66,8 +67,10 @@ telescope.setup {
             n = {
                 ["q"] = actions.close,
                 ["<esc>"] = actions.close,
-                ["jk"] = actions.close,
+                --["jk"] = actions.close,
                 ["<CR>"] = actions.select_default,
+                ["l"] = actions.select_default,
+                ["h"] = actions.close,
                 ["<C-x>"] = actions.select_horizontal,
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
@@ -114,6 +117,9 @@ telescope.setup {
         lsp_definitions = {
             initial_mode = "normal",
         },
+        lsp_implementations = {
+            initial_mode = "normal",
+        },
     },
     extensions = {
         -- Your extension configuration goes here:
@@ -129,6 +135,9 @@ telescope.setup {
                 "n", "m", "a", "l",
                 "s", "k", "d", "j", "f", },
             sign_hl = { "WarningMsg", "Title" },
-        }
+        },
+        aerial = {
+            show_nexting = true,
+        },
     },
 }

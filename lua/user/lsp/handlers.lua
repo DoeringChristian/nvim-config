@@ -53,9 +53,12 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
 
+    vim.lsp.handlers["textDocument/implementation"] = require("telescope.builtin").lsp_implementations
+
     vim.lsp.handlers["callHierarchy/incomingCalls"] = vim.lsp.with(
         require('litee.calltree.handlers').ch_lsp_handler("from"), {}
     )
+
     vim.lsp.handlers["callHierarchy/outgoingCalls"] = vim.lsp.with(
         require('litee.calltree.handlers').ch_lsp_handler("to"), {}
     )

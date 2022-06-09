@@ -71,7 +71,7 @@ return packer.startup(function(use)
     use "j-hui/fidget.nvim"
     use {
         "smjonas/inc-rename.nvim",
-        cond = function ()
+        cond = function()
             return vim.fn.has('nvim-0.8')
         end
     }
@@ -103,7 +103,10 @@ return packer.startup(function(use)
     }
 
     -- Autopairs --
-    use "windwp/nvim-autopairs"
+    --use "windwp/nvim-autopairs"
+
+    -- SmartPairs --
+    --use "ZhiyuanLck/smart-pairs"
 
     -- TreeSitter --
     use {

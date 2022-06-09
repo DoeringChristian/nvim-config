@@ -15,6 +15,9 @@ local options = {
     smartcase = true, -- smart case
     autoindent = true,
     smartindent = true, -- make indenting smarter again
+    cindent = false,
+    expandtab = true, -- convert tabs to spaces
+    smarttab = false,
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
@@ -23,7 +26,6 @@ local options = {
     undofile = true, -- enable persistent undo
     updatetime = 300, -- faster completion (4000ms default)
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-    expandtab = true, -- convert tabs to spaces
     shiftwidth = 4, -- the number of spaces inserted for each indentation
     tabstop = 4, -- insert 2 spaces for a tab
     cursorline = true, -- highlight the current line
@@ -38,6 +40,10 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+vim.cmd [[
+filetype plugin indent on
+syntax on
+]]
 
 for k, v in pairs(options) do
     vim.opt[k] = v

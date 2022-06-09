@@ -193,6 +193,9 @@ return packer.startup(function(use)
     -- Sniprun --
     use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
+    -- Easy Align --
+    use "junegunn/vim-easy-align"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

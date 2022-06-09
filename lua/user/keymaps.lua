@@ -95,11 +95,11 @@ vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Hop --
-vim.keymap.set({"n", "v"}, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
-vim.keymap.set({"n", "v"}, "<leader>w", "<cmd>HopWord<CR>", opts)
-vim.keymap.set({"n", "v"}, "<leader>b", "<cmd>HopWordBC<CR>", opts)
-vim.keymap.set({"n", "v"}, "<leader>j", "<cmd>HopLineAC<CR>", opts)
-vim.keymap.set({"n", "v"}, "<leader>k", "<cmd>HopLineBC<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>b", "<cmd>HopWordBC<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>j", "<cmd>HopLineAC<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>k", "<cmd>HopLineBC<CR>", opts)
 
 -- MiniYank --
 --vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
@@ -123,3 +123,7 @@ keymap("n", "<leader>tct", "<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>", opts)
 keymap("n", "<leader>pr", '<cmd>lua _PANDOC_RENDER()<CR>', opts)
 keymap("n", "<leader>pm", '<cmd>lua _PANDOC_MAKE()<CR>', opts)
 keymap("n", "<leader>pe", '<cmd>lua _NABLA_SHOW()<CR>', opts)
+
+-- Align --
+keymap("x", "ga", "<Plug>(EasyAlign)", opts)
+keymap("n", "ga", "<Plug>(EasyAlign)", opts)

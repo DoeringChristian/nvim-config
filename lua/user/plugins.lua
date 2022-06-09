@@ -188,6 +188,9 @@ return packer.startup(function(use)
     -- Pandoc.Nvim --
     use "aspeddro/pandoc.nvim"
 
+    -- Ariel --
+    use "stevearc/aerial.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

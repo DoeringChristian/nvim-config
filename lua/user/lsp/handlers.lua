@@ -63,6 +63,7 @@ M.setup = function()
     -- Set the background color of hover window to same as rest of document.
     vim.cmd[[
         hi NormalFloat guibg = Normal
+        hi FloatBorder guibg = Normal
     ]]
 
 end

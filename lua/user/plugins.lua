@@ -103,7 +103,7 @@ return packer.startup(function(use)
     }
 
     -- Autopairs --
-    --use "windwp/nvim-autopairs"
+    use "windwp/nvim-autopairs"
 
     -- SmartPairs --
     --use "ZhiyuanLck/smart-pairs"

@@ -6,3 +6,5 @@ end
 notify.setup{
 
 }
+
+vim.notify = notify

@@ -94,7 +94,7 @@ local function lsp_keymaps(bufnr)
     -- Use Inc-Rename --
     vim.keymap.set("n", "<leader>rn", function()
         return ":IncRename " .. vim.fn.expand("<cword>")
-    end, { expr = true, buffer = bufnr})
+    end, { expr = true, buffer = bufnr })
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -112,12 +112,14 @@ local function lsp_keymaps(bufnr)
     )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rl", "<cmd>LspRestart<CR>", opts)
+
+    -- F for format
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
-    -- Auto format on safe
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+    -- Auto format on safe (version dependent)
+    vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
 end
 
 M.on_attach = function(client, bufnr)

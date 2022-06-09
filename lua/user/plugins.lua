@@ -69,7 +69,12 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "weilbith/nvim-code-action-menu"
     use "j-hui/fidget.nvim"
-    use "smjonas/inc-rename.nvim"
+    use {
+        "smjonas/inc-rename.nvim",
+        cond = function ()
+            return vim.fn.has('nvim-0.8')
+        end
+    }
 
     -- Telescope --
     use {

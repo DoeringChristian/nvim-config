@@ -69,6 +69,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "weilbith/nvim-code-action-menu"
     use "j-hui/fidget.nvim"
+    use "smjonas/inc-rename.nvim"
 
     -- Telescope --
     use {

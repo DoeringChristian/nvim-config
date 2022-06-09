@@ -47,7 +47,8 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
 
     -- Colorschemes
-    use "morhetz/gruvbox"
+    --use "morhetz/gruvbox"
+    use "luisiacc/gruvbox-baby"
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin

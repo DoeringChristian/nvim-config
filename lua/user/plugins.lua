@@ -165,11 +165,6 @@ return packer.startup(function(use)
     -- Vim-Bookmarks --
     use "MattesGroeger/vim-bookmarks"
 
-    -- Litee --
-    use "ldelossa/litee.nvim"
-    use "ldelossa/litee-symboltree.nvim"
-    use "ldelossa/litee-calltree.nvim"
-
     -- Better Escape --
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
@@ -190,6 +185,12 @@ return packer.startup(function(use)
 
     -- Ariel --
     use "stevearc/aerial.nvim"
+
+    -- Notify --
+    use "rcarriga/nvim-notify"
+
+    -- Sniprun --
+    use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -17,7 +17,7 @@ M.setup = function()
 
     local config = {
         -- set virtual text
-        virtual_text = true,
+        virtual_text = false,
         -- show signs
         signs = {
             active = signs,
@@ -55,13 +55,9 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/implementation"] = require("telescope.builtin").lsp_implementations
 
-    vim.lsp.handlers["callHierarchy/incomingCalls"] = vim.lsp.with(
-        require('litee.calltree.handlers').ch_lsp_handler("from"), {}
-    )
+    vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
 
-    vim.lsp.handlers["callHierarchy/outgoingCalls"] = vim.lsp.with(
-        require('litee.calltree.handlers').ch_lsp_handler("to"), {}
-    )
+    vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions
 
     -- Set the background color of hover window to same as rest of document.
     vim.cmd[[
@@ -113,7 +109,10 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rl", "<cmd>LspRestart<CR>", opts)
+    -- :Format command
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    -- Auto format on safe
+    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 end
 
 M.on_attach = function(client, bufnr)

@@ -171,21 +171,6 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["litee-calltree.nvim"] = {
-    loaded = true,
-    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee-calltree.nvim",
-    url = "https://github.com/ldelossa/litee-calltree.nvim"
-  },
-  ["litee-symboltree.nvim"] = {
-    loaded = true,
-    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee-symboltree.nvim",
-    url = "https://github.com/ldelossa/litee-symboltree.nvim"
-  },
-  ["litee.nvim"] = {
-    loaded = true,
-    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/litee.nvim",
-    url = "https://github.com/ldelossa/litee.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -246,6 +231,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
     url = "https://github.com/AckslD/nvim-neoclip.lua"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -285,6 +275,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  sniprun = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/sniprun",
+    url = "https://github.com/michaelb/sniprun"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,

@@ -26,7 +26,7 @@ lsp_installer.on_server_ready(function(server)
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
     end
 
-    if server.name == "rust_analyzer" then
+    if server.name == "rust-analyzer" then
         local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
         opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
     end

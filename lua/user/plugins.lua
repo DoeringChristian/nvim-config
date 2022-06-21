@@ -84,7 +84,7 @@ return packer.startup(function(use)
     use "gbprod/yanky.nvim"
     use "nvim-telescope/telescope-hop.nvim"
     use "tom-anders/telescope-vim-bookmarks.nvim"
-    use "ggandor/lightspeed.nvim"
+    --use "ggandor/lightspeed.nvim"
 
     -- Rust --
     use "simrat39/rust-tools.nvim"
@@ -204,6 +204,9 @@ return packer.startup(function(use)
 
     -- Easy Align --
     use "junegunn/vim-easy-align"
+
+    -- Leap --
+    use "ggandor/leap.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

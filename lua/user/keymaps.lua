@@ -95,7 +95,7 @@ vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Hop --
---vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>b", "<cmd>HopWordBC<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>j", "<cmd>HopLineAC<CR>", opts)
@@ -128,5 +128,5 @@ keymap('n', '<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', opts)
 keymap("x", "ga", "<Plug>(EasyAlign)", opts)
 keymap("n", "ga", "<Plug>(EasyAlign)", opts)
 
--- Lightspeed --
-keymap("n", "<leader>f", "<Plug>Lightspeed_omni_s", opts)
+-- Leap --
+vim.keymap.set("n", "<leader>f", leap_all_windows, opts)

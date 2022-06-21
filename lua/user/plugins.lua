@@ -84,6 +84,7 @@ return packer.startup(function(use)
     use "gbprod/yanky.nvim"
     use "nvim-telescope/telescope-hop.nvim"
     use "tom-anders/telescope-vim-bookmarks.nvim"
+    use "ggandor/lightspeed.nvim"
 
     -- Rust --
     use "simrat39/rust-tools.nvim"

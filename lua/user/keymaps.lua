@@ -19,22 +19,22 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- window navigation
-keymap("n", '<C-h>', "<C-w>h", opts)
-keymap("n", '<C-j>', "<C-w>j", opts)
-keymap("n", '<C-k>', "<C-w>k", opts)
-keymap("n", '<C-l>', "<C-w>l", opts)
+keymap("n", '<C-h>', '<C-w>h', opts)
+keymap("n", '<C-j>', '<C-w>j', opts)
+keymap("n", '<C-k>', '<C-w>k', opts)
+keymap("n", '<C-l>', '<C-w>l', opts)
 
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", '<C-Up>', ':resize +2<CR>', opts)
+keymap("n", '<C-Down>', ':resize -2<CR>', opts)
+keymap("n", '<C-Left>', ':vertical resize -2<CR>', opts)
+keymap("n", '<C-Right>', ':vertical resize +2<CR>', opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", '<S-l>', ":bnext<CR>", opts)
+keymap("n", '<S-h>', ":bprevious<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -42,8 +42,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", '<A-j>', ':m .+1<CR>==', opts)
+keymap("v", '<A-k>', ':m .-2<CR>==', opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
@@ -95,7 +95,7 @@ vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
 keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Hop --
-vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
+--vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>b", "<cmd>HopWordBC<CR>", opts)
 vim.keymap.set({ "n", "v" }, "<leader>j", "<cmd>HopLineAC<CR>", opts)
@@ -107,23 +107,26 @@ vim.keymap.set({ "n", "v" }, "<leader>k", "<cmd>HopLineBC<CR>", opts)
 --vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)
 
 -- Terminal --
-keymap("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)
-keymap("n", "<leader>tg", "<cmd>lua _GITUI_TOGGLE()<CR>", opts)
-keymap("n", "<leader>tb", "<cmd>lua _BOTTOM_TOGGLE()<CR>", opts)
-keymap("n", "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-keymap("n", "<leader>td", "<cmd>lua _DUST_TOGGLE()<CR>", opts)
-keymap("n", "<leader>th", "<cmd>lua _HTOP_TOGGLE()<CR>", opts)
-keymap("n", "<leader>tcb", "<cmd>lua _CARGO_BUILD_TOGGLE()<CR>", opts)
-keymap("n", "<leader>tcr", "<cmd>lua _CARGO_RUN_TOGGLE()<CR>", opts)
-keymap("n", "<leader>tct", "<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>", opts)
+keymap('n', '<leader>tt', '<cmd>ToggleTerm<CR>', opts)
+keymap('n', '<leader>tg', '<cmd>lua _GITUI_TOGGLE()<CR>', opts)
+keymap('n', '<leader>tb', '<cmd>lua _BOTTOM_TOGGLE()<CR>', opts)
+keymap('n', '<leader>tl', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
+keymap('n', '<leader>td', '<cmd>lua _DUST_TOGGLE()<CR>', opts)
+keymap('n', '<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', opts)
+keymap('n', '<leader>tcb', '<cmd>lua _CARGO_BUILD_TOGGLE()<CR>', opts)
+keymap('n', '<leader>tcr', '<cmd>lua _CARGO_RUN_TOGGLE()<CR>', opts)
+keymap('n', '<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', opts)
 
 -- Nabla --
 --keymap("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>', opts)
 -- Pandoc --
-keymap("n", "<leader>pr", '<cmd>lua _PANDOC_RENDER()<CR>', opts)
-keymap("n", "<leader>pm", '<cmd>lua _PANDOC_MAKE()<CR>', opts)
-keymap("n", "<leader>pe", '<cmd>lua _NABLA_SHOW()<CR>', opts)
+keymap('n', '<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', opts)
+keymap('n', '<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', opts)
+keymap('n', '<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', opts)
 
 -- Align --
 keymap("x", "ga", "<Plug>(EasyAlign)", opts)
 keymap("n", "ga", "<Plug>(EasyAlign)", opts)
+
+-- Lightspeed --
+keymap("n", "<leader>f", "<Plug>Lightspeed_omni_s", opts)

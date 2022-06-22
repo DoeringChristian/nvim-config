@@ -90,11 +90,11 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     -- Use Inc-Rename --
-    vim.keymap.set("n", "<leader>rn", function()
-        return ":IncRename " .. vim.fn.expand("<cword>")
-    end, { expr = true, buffer = bufnr })
+    --vim.keymap.set("n", "<leader>rn", function()
+    --return ":IncRename " .. vim.fn.expand("<cword>")
+    --end, { expr = true, buffer = bufnr })
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -129,10 +129,14 @@ M.on_attach = function(client, bufnr)
     if client.name == "rust_analyzer" then
         local opts = { noremap = true, silent = true }
         -- Rust Tools --
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra", ":lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri", ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod", ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>"
+            , opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra",
+            ":lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri",
+            ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
+            ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
         -- TODO: Figure out why this won't work.
         require("rust-tools.inlay_hints").set_inlay_hints()
         require("rust-tools.inlay_hints").set_inlay_hints()

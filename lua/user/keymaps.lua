@@ -130,3 +130,17 @@ keymap("n", "ga", "<Plug>(EasyAlign)", opts)
 
 -- Leap --
 vim.keymap.set("n", "<leader>f", leap_all_windows, opts)
+
+-- GUI font size --
+vim.cmd [[
+nnoremap <C-+> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)+1)',
+ \ '')<CR>
+nnoremap <C--> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)-1)',
+ \ '')<CR>
+]]

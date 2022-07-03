@@ -3,7 +3,8 @@ if not rust_tools_status_ok then
     return
 end
 
-local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
+--local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
+local extension_path = "~/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
@@ -18,6 +19,24 @@ rust_tools.setup({
             other_hints_prefix = "🠊 ",
             --highlight = "Conceal",
         },
+    },
+    hover_actions = {
+        -- the border that is used for the hover window
+        -- see vim.api.nvim_open_win()
+        border = {
+            { "╭", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╰", "FloatBorder" },
+            { "│", "FloatBorder" },
+        },
+
+        -- whether the hover action window gets automatically focused
+        -- default: false
+        auto_focus = false,
     },
     dap = {
         adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),

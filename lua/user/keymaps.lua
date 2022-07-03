@@ -144,3 +144,10 @@ nnoremap <C--> :silent! let &guifont = substitute(
  \ '\=eval(submatch(0)-1)',
  \ '')<CR>
 ]]
+
+-- Dap --
+keymap("n", '<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>", opts)
+keymap("n", '<F6>', "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", '<F10>', "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)

@@ -142,6 +142,12 @@ M.on_attach = function(client, bufnr)
         require("rust-tools.inlay_hints").set_inlay_hints()
         require("rust-tools.inlay_hints").set_inlay_hints()
     end
+    if client.name == "clangd" then
+        local opts = { noremap = true, silent = true }
+
+        vim.opt.shiftwidth = 2
+        vim.opt.tabstop = 2
+    end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
 end

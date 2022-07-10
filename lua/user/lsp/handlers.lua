@@ -120,7 +120,10 @@ local function lsp_keymaps(bufnr)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     -- Auto format on safe (version dependent)
-    vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
+    -- vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
+    vim.cmd [[
+    autocmd BufWritePre * lua vim.lsp.buf.format() 
+    ]]
 end
 
 M.on_attach = function(client, bufnr)

@@ -4,8 +4,8 @@ if not ok then
 end
 
 
-aerial.setup{
-    open_automatic = true,
+aerial.setup {
+    --open_automatic = true,
     placement_editor_edge = true,
     close_behavior = "global",
     show_guides = true,
@@ -16,4 +16,3 @@ aerial.setup{
         }
     }
 }
-

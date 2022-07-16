@@ -41,10 +41,10 @@ M.setup = function()
     vim.o.updatetime = 250
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable = false})]]
 
-    --vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    --border = "rounded",
-    --})
-    vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+    })
+    --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
@@ -120,7 +120,10 @@ local function lsp_keymaps(bufnr)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     -- Auto format on safe (version dependent)
-    vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
+    -- vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
+    vim.cmd [[
+    autocmd BufWritePre * lua vim.lsp.buf.format() 
+    ]]
 end
 
 M.on_attach = function(client, bufnr)
@@ -143,8 +146,6 @@ M.on_attach = function(client, bufnr)
         require("rust-tools.inlay_hints").set_inlay_hints()
     end
     if client.name == "clangd" then
-        local opts = { noremap = true, silent = true }
-
         vim.opt.shiftwidth = 2
         vim.opt.tabstop = 2
     end

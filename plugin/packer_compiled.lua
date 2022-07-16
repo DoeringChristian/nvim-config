@@ -172,7 +172,7 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["inc-rename.nvim"] = {
-    cond = { "\27LJ\2\n/\0\0\3\0\4\0\0056\0\0\0009\0\1\0009\0\2\0'\2\3\0D\0\2\0\rnvim-0.8\bhas\afn\bvim\0" },
+    cond = { "\27LJ\2\2/\0\0\2\0\4\0\0056\0\0\0009\0\1\0009\0\2\0'\1\3\0D\0\2\0\rnvim-0.8\bhas\afn\bvim\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = true,

@@ -4,6 +4,6 @@ return{
             analysis = {
                 typeCheckingMode = "on"
             }
-        }
+        },
     },
 }

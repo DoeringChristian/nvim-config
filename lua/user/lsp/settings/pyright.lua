@@ -1,8 +1,9 @@
-return{
+return {
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "on"
+                typeCheckingMode = "on",
+                disableOrganizeImports = true,
             }
         },
     },

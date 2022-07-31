@@ -66,7 +66,12 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    --use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    -- Mason
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+    }
     use "weilbith/nvim-code-action-menu"
     use "j-hui/fidget.nvim"
     use {

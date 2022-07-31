@@ -172,7 +172,7 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["inc-rename.nvim"] = {
-    cond = { "\27LJ\2\2/\0\0\2\0\4\0\0056\0\0\0009\0\1\0009\0\2\0'\1\3\0D\0\2\0\rnvim-0.8\bhas\afn\bvim\0" },
+    cond = { "\27LJ\2\n/\0\0\3\0\4\0\0056\0\0\0009\0\1\0009\0\2\0'\2\3\0D\0\2\0\rnvim-0.8\bhas\afn\bvim\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = true,
@@ -193,6 +193,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   ["nabla.nvim"] = {
     loaded = true,
@@ -233,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

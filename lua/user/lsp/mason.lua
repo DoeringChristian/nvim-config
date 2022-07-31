@@ -28,7 +28,7 @@ local function default_handler(server_name)
 
 end
 
-mason_lspconfig.setup_handlers {
+lspconfig.setup_handlers {
     default_handler,
     ["rust_analyzer"] = function()
     end

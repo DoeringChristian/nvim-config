@@ -12,27 +12,34 @@ mason.setup {}
 mason_lspconfig.setup {}
 
 local function default_handler(server_name)
-    print(server_name)
+    --print(server_name)
     local lspconfig = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-    local setup = {
+    local setup_config = {
         capabilities = capabilities,
         on_attach = require("user.lsp.handlers").on_attach,
     }
 
-    local ok, config = pcall(require, "user.lsp.settings." .. server_name)
+    local ok, config = pcall(require, "user.lsp.settings." .. server_name .. ".lua")
     if ok then
-        setup = vim.tbl_deep_extend("force", setup, config)
+        setup_config = vim.tbl_deep_extend("force", setup_config, config)
     end
 
-    lspconfig[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach
-    }
+    lspconfig[server_name].setup(setup_config)
+
 end
 
 mason_lspconfig.setup_handlers {
-    default_handler
+    default_handler,
+    ["rust_analyzer"] = function()
+        require("lspconfig")["rust_analyzer"].setup {
+            on_attach = function(client, bufnr)
+                vim.notify("test", "info")
+                print("test")
+            end,
+            capabilities = require("user.lsp.handlers").capabilities
+        }
+    end
 }

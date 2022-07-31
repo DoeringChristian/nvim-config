@@ -14,11 +14,8 @@ mason_lspconfig.setup {}
 local function default_handler(server_name)
     --print(server_name)
     local lspconfig = require("lspconfig")
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
     local setup_config = {
-        capabilities = capabilities,
+        capabilities = require("user.lsp.handlers").capabilities,
         on_attach = require("user.lsp.handlers").on_attach,
     }
 

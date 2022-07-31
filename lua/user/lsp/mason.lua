@@ -33,13 +33,4 @@ end
 
 mason_lspconfig.setup_handlers {
     default_handler,
-    ["rust_analyzer"] = function()
-        require("lspconfig")["rust_analyzer"].setup {
-            on_attach = function(client, bufnr)
-                vim.notify("test", "info")
-                print("test")
-            end,
-            capabilities = require("user.lsp.handlers").capabilities
-        }
-    end
 }

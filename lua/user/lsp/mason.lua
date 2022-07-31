@@ -30,4 +30,6 @@ end
 
 mason_lspconfig.setup_handlers {
     default_handler,
+    ["rust_analyzer"] = function()
+    end
 }

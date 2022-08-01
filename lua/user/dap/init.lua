@@ -7,6 +7,11 @@ if not ok then
     return
 end
 
+local mason_dir = vim.fn.stdpath("data") .. "/mason"
+local extension_path = mason_dir .. "/packages/codelldb/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local lldb_path = extension_path .. "lldb/bin/lldb"
+
 local function configure()
 
     local dap_breakpoint = {
@@ -35,9 +40,9 @@ local function configure()
     vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
 
     dap.adapters.lldb = {
-        type = 'executable',
-        command = '/usr/bin/lldb-vscode',
-        name = 'lldb',
+        type = "executable",
+        command = codelldb_path,
+        name = "lldb"
     }
 
     dap.configurations.cpp = {
@@ -59,16 +64,6 @@ local function configure()
 end
 
 local function configure_exts()
-    dapui.setup {}
-    dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-    end
-    dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-    end
-    dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-    end
     dapui.setup({
         icons = { expanded = "▾", collapsed = "▸" },
         mappings = {
@@ -124,6 +119,15 @@ local function configure_exts()
             max_type_length = nil, -- Can be integer or nil.
         }
     })
+    dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+    end
+    dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+    end
+    dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+    end
 end
 
 local function configure_debuggers()

@@ -11,6 +11,7 @@ local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 rust_tools.setup({
     tools = {
+        executor = require("rust-tools/executors").toggleterm,
         hover_with_actions = true,
         autoSetHints = true,
         inlay_hints = {

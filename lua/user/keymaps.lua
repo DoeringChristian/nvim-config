@@ -113,8 +113,6 @@ keymap('n', '<leader>tb', '<cmd>lua _BOTTOM_TOGGLE()<CR>', opts)
 keymap('n', '<leader>tl', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
 keymap('n', '<leader>td', '<cmd>lua _DUST_TOGGLE()<CR>', opts)
 keymap('n', '<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', opts)
-keymap('n', '<leader>tcb', '<cmd>lua _CARGO_BUILD_TOGGLE()<CR>', opts)
-keymap('n', '<leader>tcr', '<cmd>lua _CARGO_RUN_TOGGLE()<CR>', opts)
 keymap('n', '<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', opts)
 
 -- Nabla --

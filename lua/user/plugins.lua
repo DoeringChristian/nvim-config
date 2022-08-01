@@ -155,10 +155,6 @@ return packer.startup(function(use)
 
     -- Debugging --
     use {
-        'Pocco81/DAPInstall.nvim',
-        branch = "dev",
-    }
-    use {
         "mfussenegger/nvim-dap",
         requires = {
             "theHamsta/nvim-dap-virtual-text",

@@ -2,15 +2,12 @@ local ok, dap = pcall(require, "dap")
 if not ok then
     return
 end
+local ok, dapui = pcall(require, "dapui")
+if not ok then
+    return
+end
 
 local function configure()
-    local ok, dap_install = pcall(require, "dap-install")
-    if not ok then
-        return
-    end
-    dap_install.setup {
-        installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
-    }
 
     local dap_breakpoint = {
         error = {
@@ -57,28 +54,20 @@ local function configure()
         }
     }
 
-    dap.configurations.rust = {
-        {
-            name = 'Launch',
-            type = 'lldb',
-            request = 'launch',
-            program = function()
-                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-            end,
-            cwd = '${workspaceFolder}',
-            stopOnEntry = false,
-            args = {},
-        }
-    }
-
     require("user.dap.keymaps").setup()
 
 end
 
 local function configure_exts()
-    local ok, dapui = pcall(require, "dapui")
-    if not ok then
-        return
+    dapui.setup {}
+    dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+    end
+    dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+    end
+    dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
     end
     dapui.setup({
         icons = { expanded = "▾", collapsed = "▸" },
@@ -144,4 +133,4 @@ end
 configure()
 configure_exts()
 configure_debuggers()
-require("user.dap.keymaps").setup()
+--require("user.dap.keymaps").setup()

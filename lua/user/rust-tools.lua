@@ -4,9 +4,10 @@ if not rust_tools_status_ok then
 end
 
 --local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
-local extension_path = "~/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/"
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local mason_dir = vim.fn.stdpath("data") .. "/mason"
+local extension_path = mason_dir .. "/packages/codelldb/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 rust_tools.setup({
     tools = {

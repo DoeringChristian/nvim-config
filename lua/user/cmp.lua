@@ -122,7 +122,7 @@ cmp.setup {
         { name = "cmp_pandoc" },
         { name = "spell" },
         { name = "path" },
-        { name = 'nvim_lsp_signature_help' },
+        --{ name = 'nvim_lsp_signature_help' },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

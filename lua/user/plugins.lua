@@ -57,7 +57,8 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-    use "hrsh7th/cmp-nvim-lsp-signature-help" -- Signature completions
+    --use "hrsh7th/cmp-nvim-lsp-signature-help" -- Signature completions
+    use "ray-x/lsp_signature.nvim"
     use "f3fora/cmp-spell" -- Spelllang completions
 
     -- snippets

@@ -3,15 +3,27 @@ if not ok then
     return
 end
 
-leap.setup{
-    case_insensitive = true,
-}
 require('leap').set_default_keymaps()
+leap.setup {
+    case_insensitive = true,
+    labels = { "s", "f", "n",
+        "j", "k", "l", "o", "d", "w", "e", "h", "m", "v", "g",
+        "u", "t",
+        "c", ".", "z",
+        "F", "L", "N", "H", "G", "M", "U", "T", "Z" },
+    safe_labels = { "s", "f", "n",
+        "u", "t",
+        "F", "L", "N", "H", "G", "M", "U", "T", "Z" },
+}
 function leap_all_windows()
-  require'leap'.leap {
-    ['target-windows'] = vim.tbl_filter(
-      function (win) return vim.api.nvim_win_get_config(win).focusable end,
-      vim.api.nvim_tabpage_list_wins(0)
-    )
-  }
+    require 'leap'.leap {
+        ['target-windows'] = vim.tbl_filter(
+            function(win) return vim.api.nvim_win_get_config(win).focusable end,
+            vim.api.nvim_tabpage_list_wins(0)
+        )
+    }
+end
+
+function LEAP_ALL_WINDOWS()
+    require 'leap'.leap { target_windows = { vim.fn.win_getid() } }
 end

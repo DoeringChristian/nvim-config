@@ -8,7 +8,7 @@ if not ok then
     return
 end
 
-local R = function (name)
+local R = function(name)
     local RELOAD = require("plenary.reload").reload_module
     RELOAD(name)
     return require(name)
@@ -20,7 +20,7 @@ end
 telescope.load_extension("yank_history")
 telescope.load_extension("hop")
 telescope.load_extension("vim_bookmarks")
-telescope.load_extension("aerial")
+--telescope.load_extension("aerial")
 
 local actions = require "telescope.actions"
 

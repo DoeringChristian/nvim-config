@@ -110,6 +110,8 @@ cmp.setup {
                 buffer = "[Buffer]",
                 path = "[Path]",
                 cmp_pandoc = "[Pandoc]",
+                rg = "[RipGrep]",
+                latex_symbols = "[LaTeX-Symbols]"
             })[entry.source.name]
             return vim_item
         end,
@@ -118,7 +120,9 @@ cmp.setup {
         { name = "nvim_lsp" };
         --{ name = "nvim_lua" },
         { name = "luasnip" },
+        { name = "latex_symbols" },
         { name = "buffer" },
+        --{ name = "rg" },
         { name = "cmp_pandoc" },
         { name = "spell" },
         { name = "path" },

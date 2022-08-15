@@ -57,6 +57,8 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completions
+    use "lukas-reineke/cmp-rg"
+    use "kdheepak/cmp-latex-symbols"
     --use "hrsh7th/cmp-nvim-lsp-signature-help" -- Signature completions
     use "ray-x/lsp_signature.nvim"
     use "f3fora/cmp-spell" -- Spelllang completions
@@ -196,7 +198,7 @@ return packer.startup(function(use)
     use "aspeddro/pandoc.nvim"
 
     -- Ariel --
-    use "stevearc/aerial.nvim"
+    -- use "stevearc/aerial.nvim"
 
     -- Notify --
     use "rcarriga/nvim-notify"

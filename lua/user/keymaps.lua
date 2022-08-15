@@ -121,6 +121,7 @@ keymap('n', '<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', opts)
 keymap('n', '<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', opts)
 keymap('n', '<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', opts)
 keymap('n', '<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', opts)
+keymap('n', '<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>', opts)
 
 -- Align --
 keymap("x", "ga", "<Plug>(EasyAlign)", opts)

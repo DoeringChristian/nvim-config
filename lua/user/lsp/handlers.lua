@@ -127,6 +127,8 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+    lsp_keymaps(bufnr)
+    lsp_highlight_document(client)
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
     end
@@ -141,16 +143,12 @@ M.on_attach = function(client, bufnr)
             ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
             ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
-        -- TODO: Figure out why this won't work.
-        --require("rust-tools.inlay_hints").set_inlay_hints()
-        --require("rust-tools.inlay_hints").set_inlay_hints()
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
     end
     if client.name == "clangd" then
         vim.opt.shiftwidth = 2
         vim.opt.tabstop = 2
     end
-    lsp_keymaps(bufnr)
-    lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

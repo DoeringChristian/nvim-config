@@ -15,15 +15,14 @@ leap.setup {
         "u", "t",
         "F", "L", "N", "H", "G", "M", "U", "T", "Z" },
 }
-function leap_all_windows()
-    require 'leap'.leap {
-        ['target-windows'] = vim.tbl_filter(
-            function(win) return vim.api.nvim_win_get_config(win).focusable end,
-            vim.api.nvim_tabpage_list_wins(0)
-        )
-    }
-end
 
 function LEAP_ALL_WINDOWS()
-    require 'leap'.leap { target_windows = { vim.fn.win_getid() } }
+    require('leap').leap { target_windows = vim.tbl_filter(
+        function(win) return vim.api.nvim_win_get_config(win).focusable end,
+        vim.api.nvim_tabpage_list_wins(0)
+    ) }
+end
+
+function LEAP_BIDIRECTIONAL()
+    require('leap').leap { target_windows = { vim.fn.win_getid() } }
 end

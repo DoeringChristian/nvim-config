@@ -97,7 +97,7 @@ npairs.add_rules {
         :use_key(']'),
     Rule('=', '')
         :with_pair(cond.not_inside_quote())
-        :with_pair(cond.not_filetypes({ "sh" }))
+        :with_pair(cond.not_filetypes({ "sh", "make" }))
         :with_pair(function(opts)
             local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
             if last_char:match('[%w%=%s]') then

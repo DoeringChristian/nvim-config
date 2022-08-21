@@ -74,18 +74,16 @@ local function lsp_highlight_document(client)
     if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_exec(
             [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]       ,
-            false
-        )
+                augroup lsp_document_highlight
+                    autocmd! * <buffer>
+                    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                augroup END
+            ]], false)
     end
 end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(client, bufnr)
     local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -122,13 +120,16 @@ local function lsp_keymaps(bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     -- Auto format on safe (version dependent)
     -- vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
-    vim.cmd [[
-    autocmd BufWritePre * lua pcall(vim.lsp.buf.format, {async=false} )
-    ]]
+    if client.server_capabilities.documentFormattingProvider then
+        vim.notify("formatting enabled")
+        vim.cmd([[
+            autocmd BufWritePre <buffer=]] .. bufnr .. [[> lua pcall(vim.lsp.buf.format, {async=false} )
+            ]])
+    end
 end
 
 M.on_attach = function(client, bufnr)
-    lsp_keymaps(bufnr)
+    lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
     if client.name == "tsserver" then
         --client.resolved_capabilities.document_formatting = false

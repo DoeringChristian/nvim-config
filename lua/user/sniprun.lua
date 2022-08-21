@@ -4,5 +4,6 @@ if not ok then
 end
 
 sniprun.setup {
-    repl_enable = { 'Rust_original', 'C_original', 'Python3_original' }
+    repl_enable = { 'Python3_jupyter', 'Rust_original', 'C_original' },
+    selected_interpreters = { 'Python3_original' },
 }

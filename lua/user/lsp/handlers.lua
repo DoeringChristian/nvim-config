@@ -117,7 +117,7 @@ local function lsp_keymaps(client, bufnr)
     -- F for format
     vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     -- :Format command
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
     -- Auto format on safe (version dependent)
     -- vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
     if client.server_capabilities.documentFormattingProvider then

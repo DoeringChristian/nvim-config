@@ -121,7 +121,7 @@ local function lsp_keymaps(client, bufnr)
     -- Auto format on safe (version dependent)
     -- vim.cmd [[autocmd BufWritePre * lua if not vim.fn.has('nvim-0.8') then vim.lsp.buf.format() else vim.lsp.buf.formatting_sync() end]]
     if client.server_capabilities.documentFormattingProvider then
-        vim.notify("formatting enabled")
+        -- vim.notify("formatting enabled")
         vim.cmd([[
             autocmd BufWritePre <buffer=]] .. bufnr .. [[> lua pcall(vim.lsp.buf.format, {async=false} )
             ]])

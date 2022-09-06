@@ -3,6 +3,9 @@ if not status_ok then
     return
 end
 
+-- LSPs excluded from Auto Formatting
+AUTO_FORMAT_EXCLUDED = {}
+
 -- Functions for enabling/disabling auto formatting
 
 function disable_formatting(bufnr)

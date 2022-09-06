@@ -119,8 +119,7 @@ local function lsp_keymaps(client, bufnr)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
     -- Auto format on safe (version dependent)
-    if client.server_capabilities.documentFormattingProvider then
-        -- vim.notify("formatting enabled")
+    if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil then
         enable_formatting(bufnr)
     end
 end
@@ -149,6 +148,7 @@ M.on_attach = function(client, bufnr)
         --vim.opt.shiftwidth = 2
         --vim.opt.tabstop = 2
     end
+    vim.notify("LSP Client: "..client.name)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

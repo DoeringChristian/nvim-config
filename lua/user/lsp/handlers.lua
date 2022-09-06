@@ -146,8 +146,8 @@ M.on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
     end
     if client.name == "clangd" then
-        vim.opt.shiftwidth = 2
-        vim.opt.tabstop = 2
+        --vim.opt.shiftwidth = 2
+        --vim.opt.tabstop = 2
     end
 end
 

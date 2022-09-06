@@ -218,6 +218,14 @@ return packer.startup(function(use)
         run = function() vim.fn['firenvim#install'](0) end
     }
 
+    -- Local Nvim Config
+    use {
+        "klen/nvim-config-local",
+        config = function()
+            require('config-local').setup {}
+        end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

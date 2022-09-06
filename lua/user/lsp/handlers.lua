@@ -119,7 +119,7 @@ local function lsp_keymaps(client, bufnr)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
     -- Auto format on safe (version dependent)
-    if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil then
+    if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nill then
         enable_formatting(bufnr)
     end
 end

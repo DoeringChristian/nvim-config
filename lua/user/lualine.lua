@@ -3,10 +3,15 @@ if not ok then
     return
 end
 
+function ESCAPE_STATUS()
+    local ok, m = pcall(require, "better_escape")
+    return ok and m.waiting and '✺' or ""
+end
+
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'gruvbox_dark',
         component_separators = { left = '\\', right = '\\' },
         section_separators = { left = '◣', right = '◥' },
         disabled_filetypes = { "NvimTree", "aerial" },
@@ -27,7 +32,7 @@ lualine.setup {
                 path = 1,
             }
         },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'ESCAPE_STATUS()', 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
     },

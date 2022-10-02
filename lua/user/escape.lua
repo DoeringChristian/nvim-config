@@ -5,4 +5,5 @@ end
 
 escape.setup {
     mapping = { "jk", "kj", "jj" },
+    timeout = vim.o.timeoutlen,
 }

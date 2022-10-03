@@ -116,18 +116,23 @@ cmp.setup {
             return vim_item
         end,
     },
-    sources = {
-        { name = "nvim_lsp" };
-        --{ name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "latex_symbols" },
-        { name = "buffer" },
-        --{ name = "rg" },
-        { name = "cmp_pandoc" },
-        { name = "spell" },
-        { name = "path" },
-        --{ name = 'nvim_lsp_signature_help' },
-    },
+    sources = cmp.config.sources(
+        {
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "latex_symbols" },
+            { name = "cmp_pandoc" },
+            { name = "spell" },
+            { name = "path" },
+        },
+        {
+            { name = "buffer" },
+            { name = "latex_symbols" },
+            { name = "cmp_pandoc" },
+            { name = "spell" },
+            { name = "path" },
+        }
+    ),
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
@@ -144,5 +149,8 @@ cmp.setup {
             cmp.config.compare.score,
             cmp.config.compare.offset,
         }
+    },
+    matching = {
+        disallow_fuzzy_matching = false,
     },
 }

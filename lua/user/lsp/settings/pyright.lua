@@ -2,8 +2,11 @@ return {
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "Off",
+                typeCheckingMode = "basic",
                 disableOrganizeImports = true,
+                diagnosticSeverityOverrides = {
+                    reportGeneralTypeIssues = "warning",
+                }
             }
         },
     },

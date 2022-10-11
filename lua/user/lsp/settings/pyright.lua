@@ -5,7 +5,7 @@ return {
                 typeCheckingMode = "basic",
                 disableOrganizeImports = true,
                 diagnosticSeverityOverrides = {
-                    reportGeneralTypeIssues = "warning",
+                    reportGeneralTypeIssues = "information",
                 }
             }
         },

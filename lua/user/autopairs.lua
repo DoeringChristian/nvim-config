@@ -10,11 +10,10 @@ local ok, cond = pcall(require, "nvim-autopairs.conds")
 if not ok then
     return
 end
-
 npairs.setup {
     check_ts = true,
-    -- Ignore these chars: w, %, ', [, ., -, +, *, /
-    ignored_next_char = [=[[%w%%%'%[%"%.%-%+%/%*]]=],
+    -- Ignore these chars: w, %, ', [, (, ., -, +, *, /
+    ignored_next_char = [=[[%w%%%'%[%(%"%.%-%+%/%*]]=],
     ts_config = {
         lua = { "string", "source" },
         javascript = { "string", "template_string" },

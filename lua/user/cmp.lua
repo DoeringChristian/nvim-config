@@ -120,14 +120,14 @@ cmp.setup {
         {
             { name = "nvim_lsp" },
             { name = "luasnip" },
-            { name = "latex_symbols" },
+            --{ name = "latex_symbols" },
             { name = "cmp_pandoc" },
             { name = "spell" },
             { name = "path" },
         },
         {
             { name = "buffer" },
-            { name = "latex_symbols" },
+            --{ name = "latex_symbols" },
             { name = "cmp_pandoc" },
             { name = "spell" },
             { name = "path" },

@@ -23,5 +23,14 @@ return {
                 modifyLineBreaks = false
             }
         }
+    },
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    snippetSupport = true
+                }
+            }
+        }
     }
 }

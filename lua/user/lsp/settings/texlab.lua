@@ -18,7 +18,8 @@ return {
             forwardSearch = {
                 args = {}
             },
-            latexFormatter = "latexindent",
+            --latexFormatter = "latexindent",
+            latexFormatter = "texlab",
             latexindent = {
                 modifyLineBreaks = false
             }

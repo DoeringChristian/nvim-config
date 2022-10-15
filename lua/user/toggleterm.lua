@@ -56,6 +56,9 @@ end
 local bottom = Terminal:new({
     cmd = "btm",
     hidden = false,
+    on_open = function(term)
+        vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
+    end
 })
 function _BOTTOM_TOGGLE()
     bottom:toggle()

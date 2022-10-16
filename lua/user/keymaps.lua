@@ -151,3 +151,6 @@ keymap("n", '<F6>', "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", '<F10>', "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
+
+-- LuaSnippet --
+keymap("n", '<leader>lse', '<cmd>LuaSnipEdit<CR>', opts)

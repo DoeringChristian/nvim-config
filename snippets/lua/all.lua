@@ -16,7 +16,6 @@ local types = require "luasnip.util.types"
 local r = ls.restore_node
 local l = require("luasnip.extras").lambda
 local rep = require("luasnip.extras").rep
-local rep = require("luasnip.extras").rep
 local m = require("luasnip.extras").match
 local n = require("luasnip.extras").nonempty
 local dl = require("luasnip.extras").dynamic_lambda
@@ -27,6 +26,9 @@ local snippets = {
     s({ trig = 'ymd', name = "Current date", desc = 'Insert the current date in ymd format' }, {
         p(os.date, "%Y-%m-%d"),
     }),
+    s("choice", {
+        c(1, { t "choice 1", t "choice 2", t "choice 3" })
+    })
 }
 
 return snippets

@@ -15,6 +15,13 @@ null_ls.setup {
 local M = {}
 
 M.builtins = {
+    cspell = {
+        null_ls.builtins.diagnostics.cspell,
+        null_ls.builtins.code_actions.cspell
+    },
+    refactoring = {
+        null_ls.builtins.code_actions.refactoring
+    },
     yapf = {
         null_ls.builtins.formatting.yapf
     },

@@ -14,23 +14,23 @@ local configs = {
 
         " For dark version.
         set background=dark
-
-        " Set contrast.
-        " This configuration option should be placed before `colorscheme gruvbox-material`.
-        " Available values: 'hard', 'medium'(default), 'soft'
-        let g:gruvbox_material_background = 'hard'
-
-        let g:gruvbox_material_foreground = 'original'
-
-        " For better performance
-        let g:gruvbox_material_better_performance = 1
-
-        let g:gruvbox_material_ui_contrast = 'high'
-
-        let g:gruvbox_material_show_eob = 'false'
-
-        colorscheme gruvbox-material
         ]]
+
+        --" Set contrast.
+        --" This configuration option should be placed before `colorscheme gruvbox-material`.
+        --" Available values: 'hard', 'medium'(default), 'soft'
+        vim.g.gruvbox_material_background = 'hard'
+
+        vim.g.gruvbox_material_foreground = 'original'
+
+        --" For better performance
+        vim.g.gruvbox_material_better_performance = 1
+
+        vim.g.gruvbox_material_ui_contrast = 'high'
+
+        vim.g.gruvbox_material_show_eob = 'false'
+
+        vim.cmd[[colorscheme gruvbox-material]]
     end
 }
 

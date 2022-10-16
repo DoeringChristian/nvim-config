@@ -161,6 +161,8 @@ if not status_ok then
     return
 end
 
-M.capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.capabilities = cmp_nvim_lsp.default_capabilities()
+M.capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), M.capabilities)
+--print(dump(M.capabilities))
 
 return M

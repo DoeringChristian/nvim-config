@@ -41,7 +41,7 @@ tex.in_text = function()
     return not tex.in_mathzone()
 end
 
-table_node = function(args)
+local table_node = function(args)
     local tabs = {}
     local count
     table = args[1][1]:gsub("%s", ""):gsub("|", "")
@@ -57,13 +57,19 @@ table_node = function(args)
     return sn(nil, tabs)
 end
 
-rec_table = function()
+local rec_table = function()
     return sn(nil, {
         c(1, {
             t({ "" }),
             sn(nil, { t { "\\\\", "" }, d(1, table_node, { ai[1] }), d(2, rec_table, { ai[1] }) })
         }),
     });
+end
+
+local rec_cols = function()
+    return sn(nil, {
+
+    })
 end
 
 local snippets = {
@@ -88,9 +94,15 @@ local snippets = {
         t { "", "\\end{tabular}" }
     }),
     s("columns", {
-        t { "\\begin{columns}\n",
-            "   " },
-        t("    \\column")
+        t { "\\begin{columns}",
+            "\t" },
+        t("\t\\column{"),
+        i(1),
+        t("\\textwidth}"),
+        t {
+            "",
+            "\\end{columns}"
+        }
     })
 }
 

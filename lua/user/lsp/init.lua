@@ -36,5 +36,6 @@ vim.cmd [[command! NFm execute 'lua disable_formatting()']]
 vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
 
 --require "user.lsp.lsp-installer"
-require("user.lsp.handlers").setup()
+require "user.lsp.handlers".setup()
 require "user.lsp.fidget"
+require "user.lsp.null-ls"

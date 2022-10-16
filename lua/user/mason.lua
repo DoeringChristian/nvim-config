@@ -28,7 +28,9 @@ end
 
 mason.setup {}
 mason_lspconfig.setup {}
-mason_null_ls.setup {}
+mason_null_ls.setup {
+    automatic_installation = true
+}
 
 
 -- LSP Setup Handlers:
@@ -62,11 +64,13 @@ local function null_ls_default_handler(source_name)
         vim.notify("Error missing null-ls!")
         return
     end
-    vim.notify("Null-ls server " .. source_name .. " registered.")
+    --vim.notify("Null-ls server " .. source_name .. " registered.")
 
-    local ok, register = pcall(require, "user.lsp.null_ls." .. source_name)
-    if ok then
-        register()
+    builtins = require "user.lsp.null-ls".builtins[source_name]
+    if builtins ~= nil then
+        for k, builtin in pairs(builtins) do
+            null_ls.register(builtin)
+        end
     else
         -- Unfortunately this generates a warning
         -- Register builtin formatters
@@ -86,8 +90,6 @@ local function null_ls_default_handler(source_name)
             null_ls.register(null_ls.builtins.hover[source_name])
         end
     end
-
-
 end
 
 mason_null_ls.setup_handlers {

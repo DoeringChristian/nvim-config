@@ -135,24 +135,23 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
-    -- Auto format on safe (version dependent)
-    if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and
-        AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nill then
-        enable_formatting(bufnr)
-    end
 end
 
 -- On attach function is called once a lsp server is attached
 M.on_attach = function(client, bufnr)
     lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
+
+    -- Client dependent settings
     if client.name == "tsserver" then
         --client.resolved_capabilities.document_formatting = false
         client.server_capabilities['document_formatting'] = false
     end
-    if client.name == "clangd" then
-        --vim.opt.shiftwidth = 2
-        --vim.opt.tabstop = 2
+
+    -- Auto format on safe (version dependent)
+    if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and
+        AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nil then
+        enable_formatting(bufnr)
     end
     vim.notify("LSP Client: " .. client.name)
 end
@@ -162,6 +161,6 @@ if not status_ok then
     return
 end
 
-M.capabilities = cmp_nvim_lsp.default_capabilities()
+M.capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 return M

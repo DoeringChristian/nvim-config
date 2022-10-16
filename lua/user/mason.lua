@@ -27,7 +27,15 @@ local function dump(o)
 end
 
 mason.setup {}
-mason_lspconfig.setup {}
+mason_lspconfig.setup {
+    ensure_installed = {
+        'rust-analyzer',
+        'ltex-ls',
+        'lua-language-server',
+        'pyright',
+        'texlab'
+    }
+}
 mason_null_ls.setup {
     automatic_installation = true
 }

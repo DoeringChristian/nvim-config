@@ -21,12 +21,12 @@ ls.config.setup {
     ext_opts = {
         [types.choiceNode] = {
             active = {
-                virt_text = { { "●", "Bool" } }
+                virt_text = { { "●", "Boolean" } }
             }
         },
         [types.insertNode] = {
             active = {
-                virt_text = { { "●", "String" } }
+                virt_text = { { "●", "StorageClass" } }
             }
         }
     },

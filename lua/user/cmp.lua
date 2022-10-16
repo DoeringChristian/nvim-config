@@ -64,7 +64,26 @@ cmp.setup {
         },
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm { select = false },
+        --["<CR>"] = cmp.mapping.confirm { select = false },
+        ["<C-l>"] = cmp.mapping {
+            i = function(fallback)
+                if luasnip.choice_active() then
+                    luasnip.change_choice(1)
+                else
+                    fallback()
+                end
+            end,
+        },
+        ["<CR>"] = cmp.mapping {
+            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+            c = function(fallback)
+                if cmp.visible() then
+                    cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+                else
+                    fallback()
+                end
+            end,
+        },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -93,15 +112,6 @@ cmp.setup {
             "i",
             "s",
         }),
-        ["<C-l>"] = cmp.mapping {
-            i = function(fallback)
-                if luasnip.choice_active() then
-                    luasnip.change_choice(1)
-                else
-                    fallback()
-                end
-            end,
-        },
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },

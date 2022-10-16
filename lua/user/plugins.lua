@@ -49,6 +49,7 @@ return packer.startup(function(use)
     -- Colorschemes
     --use "morhetz/gruvbox"
     use "luisiacc/gruvbox-baby"
+    use "sainnhe/gruvbox-material"
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin

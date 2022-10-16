@@ -18,9 +18,6 @@ end
 -- telescope.load_extension("file_browser")
 --telescope.load_extension("neoclip")
 --telescope.load_extension("aerial")
-telescope.load_extension("yank_history")
-telescope.load_extension("hop")
-telescope.load_extension("vim_bookmarks")
 
 local actions = require "telescope.actions"
 
@@ -153,4 +150,7 @@ telescope.setup {
         }
     },
 }
---telescope.load_extension("ui-select")
+telescope.load_extension("yank_history")
+telescope.load_extension("hop")
+telescope.load_extension("vim_bookmarks")
+telescope.load_extension("ui-select")

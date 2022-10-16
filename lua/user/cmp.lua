@@ -3,12 +3,10 @@ if not cmp_status_ok then
     return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+local ok, luasnip = pcall(require, "luasnip")
+if not ok then
     return
 end
-
-require('luasnip/loaders/from_vscode').lazy_load()
 
 local check_backspace = function()
     local col = vim.fn.col "." - 1
@@ -95,6 +93,15 @@ cmp.setup {
             "i",
             "s",
         }),
+        ["<C-l>"] = cmp.mapping {
+            i = function(fallback)
+                if luasnip.choice_active() then
+                    luasnip.change_choice(1)
+                else
+                    fallback()
+                end
+            end,
+        },
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },

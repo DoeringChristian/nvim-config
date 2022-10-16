@@ -8,6 +8,11 @@ if not ok then
     return
 end
 
+local ok, mason_null_ls = pcall(require, "mason-null-ls")
+if not ok then
+    return
+end
+
 local function dump(o)
     if type(o) == 'table' then
         local s = '{ '
@@ -23,26 +28,42 @@ end
 
 mason.setup {}
 mason_lspconfig.setup {}
+mason_null_ls.setup {}
 
-local function default_handler(server_name)
+-- LSP Setup Handlers:
+local function lsp_default_handler(server_name)
     --print(server_name)
     local lspconfig = require("lspconfig")
-    local setup_config = {
+    local config = {
         capabilities = require("user.lsp.handlers").capabilities,
         on_attach = require("user.lsp.handlers").on_attach,
     }
 
-    local ok, config = pcall(require, "user.lsp.settings." .. server_name)
+    local ok, settings_config = pcall(require, "user.lsp.settings." .. server_name)
     if ok then
-        setup_config = vim.tbl_deep_extend("force", setup_config, config)
+        config = vim.tbl_deep_extend("force", config, settings_config)
     end
 
-    lspconfig[server_name].setup(setup_config)
+    lspconfig[server_name].setup(config)
 
 end
 
 mason_lspconfig.setup_handlers {
-    default_handler,
+    lsp_default_handler,
     ["rust_analyzer"] = function()
     end
+}
+
+-- NULL-LS Setup Handlers
+local function null_ls_default_handler(source_name)
+    local null_ls = pcall(require, "null-ls")
+    if not ok then
+        return
+    end
+
+    null_ls.register(null_ls.builtins.formatting[source_name])
+end
+
+mason_null_ls.setup_handlers {
+    null_ls_default_handler
 }

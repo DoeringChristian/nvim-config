@@ -30,6 +30,7 @@ mason.setup {}
 mason_lspconfig.setup {}
 mason_null_ls.setup {}
 
+
 -- LSP Setup Handlers:
 local function lsp_default_handler(server_name)
     --print(server_name)
@@ -63,7 +64,30 @@ local function null_ls_default_handler(source_name)
     end
     vim.notify("Null-ls server " .. source_name .. " registered.")
 
-    null_ls.register(null_ls.builtins.formatting[source_name])
+    local ok, register = pcall(require, "user.lsp.null_ls." .. source_name)
+    if ok then
+        register()
+    else
+        -- Unfortunately this generates a warning
+        -- Register builtin formatters
+        if null_ls.builtins.formatting[source_name] ~= nil then
+            null_ls.register(null_ls.builtins.formatting[source_name])
+        end
+        -- Register builtin code actions
+        if null_ls.builtins.code_actions[source_name] ~= nil then
+            null_ls.register(null_ls.builtins.code_actions[source_name])
+        end
+        -- Register builtin diagnostics
+        if null_ls.builtins.diagnostics[source_name] ~= nil then
+            null_ls.register(null_ls.builtins.diagnostics[source_name])
+        end
+        -- Register builtin diagnostics
+        if null_ls.builtins.hover[source_name] ~= nil then
+            null_ls.register(null_ls.builtins.hover[source_name])
+        end
+    end
+
+
 end
 
 mason_null_ls.setup_handlers {

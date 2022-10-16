@@ -3,7 +3,12 @@ if not ok then
     return
 end
 
+vim.cmd[[hi IndentBlanklineIndent guifg = #282828]]
+
 indent_blankline.setup {
     show_current_contenxt = true,
     show_current_contenxt_start = true,
+    char_highlight_list = {
+        "IndentBlanklineIndent"
+    }
 }

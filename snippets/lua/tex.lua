@@ -87,6 +87,11 @@ local snippets = {
         d(3, rec_table, { 1 }),
         t { "", "\\end{tabular}" }
     }),
+    s("columns", {
+        t { "\\begin{columns}\n",
+            "   " },
+        t("    \\column")
+    })
 }
 
 return snippets

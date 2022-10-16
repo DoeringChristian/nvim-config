@@ -14,4 +14,4 @@ require 'luasnip.loaders.from_lua'.lazy_load {
 }
 
 --vim.cmd [[command! LuaSnipEdit :lua require('luasnip.folders.from_snipmate').edit_snippet_files()]]
-vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
+vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders").edit_snippet_files()]]

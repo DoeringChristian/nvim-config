@@ -17,10 +17,10 @@ end
 --telescope.load_extension('media_files')
 -- telescope.load_extension("file_browser")
 --telescope.load_extension("neoclip")
+--telescope.load_extension("aerial")
 telescope.load_extension("yank_history")
 telescope.load_extension("hop")
 telescope.load_extension("vim_bookmarks")
---telescope.load_extension("aerial")
 
 local actions = require "telescope.actions"
 
@@ -126,6 +126,9 @@ telescope.setup {
         lsp_type_definitions = {
             initial_mode = "normal",
         },
+        topts = {
+            initial_mode = "normal",
+        },
     },
     extensions = {
         -- Your extension configuration goes here:
@@ -145,5 +148,9 @@ telescope.setup {
         aerial = {
             show_nexting = true,
         },
+        ['ui-select'] = {
+            initial_mode = "normal"
+        }
     },
 }
+telescope.load_extension("ui-select")

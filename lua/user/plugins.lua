@@ -94,6 +94,7 @@ return packer.startup(function(use)
     use "gbprod/yanky.nvim"
     use "nvim-telescope/telescope-hop.nvim"
     use "tom-anders/telescope-vim-bookmarks.nvim"
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
     --use "ggandor/lightspeed.nvim"
 
     -- Rust --

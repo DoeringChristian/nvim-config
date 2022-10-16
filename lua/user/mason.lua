@@ -56,10 +56,12 @@ mason_lspconfig.setup_handlers {
 
 -- NULL-LS Setup Handlers
 local function null_ls_default_handler(source_name)
-    local null_ls = pcall(require, "null-ls")
+    local ok, null_ls = pcall(require, "null-ls")
     if not ok then
+        vim.notify("Error missing null-ls!")
         return
     end
+    vim.notify("Null-ls server " .. source_name .. " registered.")
 
     null_ls.register(null_ls.builtins.formatting[source_name])
 end

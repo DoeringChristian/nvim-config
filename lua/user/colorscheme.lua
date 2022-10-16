@@ -31,6 +31,9 @@ local configs = {
         vim.g.gruvbox_material_show_eob = 'false'
 
         vim.cmd[[colorscheme gruvbox-material]]
+        
+        vim.cmd[[hi IndentBlanklineIndent guifg = #282828]]
+
     end
 }
 

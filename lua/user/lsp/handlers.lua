@@ -1,6 +1,6 @@
 local M = {}
 
--- TODO: backfill this to template
+-- This function configures the common lsp frontend
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
@@ -41,11 +41,13 @@ M.setup = function()
     vim.o.updatetime = 250
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable = false})]]
 
+    -- Configure hover window
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
     })
     --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
+    -- Configure signature help window
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
     })
@@ -70,7 +72,6 @@ end
 
 local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
-    --print(client.server_capabilities)
     if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_exec(
             [[
@@ -112,9 +113,25 @@ local function lsp_keymaps(client, bufnr)
     )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rl", "<cmd>LspRestart<CR>", opts)
 
-    -- F for format
+
+    -- Lsp keymaps
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+
+    -- Client specific maps
+    if client.name == "rust_analyzer" then
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>"
+            , opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra",
+            ":lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri",
+            ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
+            ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
+    end
+
+    -- Formatting
     vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     -- :Format command
     vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
@@ -125,25 +142,13 @@ local function lsp_keymaps(client, bufnr)
     end
 end
 
+-- On attach function is called once a lsp server is attached
 M.on_attach = function(client, bufnr)
     lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
     if client.name == "tsserver" then
         --client.resolved_capabilities.document_formatting = false
         client.server_capabilities['document_formatting'] = false
-    end
-    if client.name == "rust_analyzer" then
-        local opts = { noremap = true, silent = true }
-        -- Rust Tools --
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>"
-            , opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra",
-            ":lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri",
-            ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
-            ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
     end
     if client.name == "clangd" then
         --vim.opt.shiftwidth = 2

@@ -29,9 +29,9 @@ end
 mason.setup {}
 mason_lspconfig.setup {
     ensure_installed = {
-        'rust-analyzer',
-        'ltex-ls',
-        'lua-language-server',
+        'rust_analyzer',
+        'ltex',
+        'sumneko_lua',
         'pyright',
         'texlab'
     }

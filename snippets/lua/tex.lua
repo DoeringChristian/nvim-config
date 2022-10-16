@@ -33,13 +33,28 @@ rec_ls = function()
     });
 end
 
+local tex = {}
+tex.in_mathzone = function()
+        return vim.fn['vimtex#syntax#in_mathzone']() == 1
+end
+tex.in_text = function()
+        return not tex.in_mathzone()
+end
+
+
 
 local snippets = {
     s("ls", {
         t({ "\\begin{itemize}",
             "\t\\item " }), i(1), d(2, rec_ls, {}),
         t({ "", "\\end{itemize}" }), i(0)
-    })
+    }),
+    
+    s("dm", {
+        t({ "\\[", "\t" }),
+        i(1),
+        t({ "", "\\]" }),
+    }, { condition = tex.in_text })
 }
 
 return snippets

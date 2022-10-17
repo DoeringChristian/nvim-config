@@ -7,7 +7,7 @@ return {
                 args = { "%f" },
                 executable = "tectonic",
                 forwardSearchAfter = false,
-                onSave = false
+                onSave = true
             },
             chktex = {
                 onEdit = false,

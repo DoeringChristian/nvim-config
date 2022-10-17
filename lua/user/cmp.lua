@@ -67,7 +67,7 @@ cmp.setup {
         },
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        --["<CR>"] = cmp.mapping.confirm { select = false },
+        ["<CR>"] = cmp.mapping.confirm { select = false },
         ["<C-j>"] = cmp.mapping {
             i = function(fallback)
                 if luasnip.choice_active() then
@@ -87,6 +87,7 @@ cmp.setup {
             end,
         },
         ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+        --[[
         ["<CR>"] = cmp.mapping {
             i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
             c = function(fallback)
@@ -97,6 +98,7 @@ cmp.setup {
                 end
             end,
         },
+        --]]
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()

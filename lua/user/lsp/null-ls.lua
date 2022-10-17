@@ -33,6 +33,9 @@ M.builtins = {
     },
     black = {
         null_ls.builtins.formatting.black
+    },
+    cbfmt = {
+        null_ls.builtins.formatting.cbfmt
     }
 }
 

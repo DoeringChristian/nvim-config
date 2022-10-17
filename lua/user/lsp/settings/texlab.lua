@@ -4,8 +4,8 @@ return {
             auxDirectory = ".",
             bibtexFormatter = "texlab",
             build = {
-                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-                executable = "latexmk",
+                args = { "%f" },
+                executable = "tectonic",
                 forwardSearchAfter = false,
                 onSave = false
             },

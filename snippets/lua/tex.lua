@@ -78,6 +78,10 @@ local snippets = {
             "\t\\item " }), i(1), d(2, rec_ls, {}),
         t({ "", "\\end{itemize}" }), i(0)
     }),
+    s("\\item ", {
+        t("\\item "),
+        d(1, rec_ls, {}),
+    }),
 
     s("dm", {
         t({ "\\[", "\t" }),

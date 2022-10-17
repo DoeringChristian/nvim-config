@@ -149,7 +149,10 @@ cmp.setup {
     sources = cmp.config.sources(
         {
             { name = "nvim_lsp" },
-            { name = "luasnip" },
+            {
+                name = "luasnip",
+                max_item_count = 4,
+            },
             --{ name = "latex_symbols" },
             --{ name = "cmp_pandoc" },
             --{ name = "spell" },

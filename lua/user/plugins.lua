@@ -104,7 +104,7 @@ return packer.startup(function(use)
     -- Hop --
     use {
         "phaazon/hop.nvim",
-        branch = "v1",
+        branch = "v2",
     }
 
     -- NvimTree --

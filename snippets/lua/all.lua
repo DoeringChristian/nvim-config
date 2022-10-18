@@ -26,9 +26,6 @@ local snippets = {
     s({ trig = 'ymd', name = "Current date", desc = 'Insert the current date in ymd format' }, {
         p(os.date, "%Y-%m-%d"),
     }),
-    s("choice", {
-        c(1, { t "choice 1", t "choice 2", t "choice 3" })
-    })
 }
 
 return snippets

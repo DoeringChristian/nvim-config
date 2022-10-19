@@ -22,13 +22,14 @@ npairs.setup {
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
     fast_wrap = {
         map = "<C-e>",
-        chars = { "{", "[", "(", '"', "'" },
+        chars = { "{", "[", "(", '"', "'" }, -- IMPORTANT: must match the characters in cmp.lua check_bracket
         pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
         offset = 0, -- Offset from pattern match
         end_key = "$",
-        keys = "qwertyuiopzxcvbnmasdfghjkl",
+        keys = "wertzuiopghyxcvbnmalskdjf",
         check_comma = true,
-        highlight = "PmenuSel",
+        highlight = "DiagnosticError",
+        --highlight = "PmenuSel",
         highlight_grey = "LineNr",
     },
 }

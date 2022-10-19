@@ -25,7 +25,7 @@ npairs.setup {
         chars = { "{", "[", "(", '"', "'" }, -- IMPORTANT: must match the characters in cmp.lua check_bracket
         pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
         offset = 0, -- Offset from pattern match
-        end_key = "$",
+        end_key = "\t",
         keys = "wertzuiopghyxcvbnmalskdjf",
         check_comma = true,
         highlight = "DiagnosticError",

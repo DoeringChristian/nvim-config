@@ -16,7 +16,8 @@ end
 local check_bracket = function()
     local col = vim.fn.col '.' - 1
     print(vim.fn.getline('.'):sub(1, col))
-    --return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']%s*$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
+    local before = vim.fn.getline('.'):sub(1, col)
+    local after = vim.fn.getline('.'):sub(col + 1, -1)
     return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
 end
 

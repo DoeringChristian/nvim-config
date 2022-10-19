@@ -15,7 +15,9 @@ end
 
 local check_bracket = function()
     local col = vim.fn.col '.' - 1
-    return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']%s-$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
+    print(vim.fn.getline('.'):sub(1, col))
+    --return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']%s*$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
+    return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
 end
 
 --   פּ ﯟ   some other good icons
@@ -102,7 +104,7 @@ cmp.setup {
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif check_bracket() then
+            elseif check_bracket() ~= nil then
                 require('nvim-autopairs.fastwrap').show()
             elseif luasnip.expandable() then
                 luasnip.expand()

@@ -76,7 +76,10 @@ return packer.startup(function(use)
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+    }
+    use {
         "jayp0521/mason-null-ls.nvim",
+        branch = 'sourcesLsp'
     }
     use "weilbith/nvim-code-action-menu"
     use "j-hui/fidget.nvim"

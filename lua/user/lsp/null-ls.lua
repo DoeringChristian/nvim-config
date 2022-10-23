@@ -14,29 +14,3 @@ null_ls.setup {
         null_ls.builtins.code_actions.gitsigns
     }
 }
-
-local M = {}
-
-M.builtins = {
-    cspell = {
-        null_ls.builtins.diagnostics.cspell,
-        null_ls.builtins.code_actions.cspell
-    },
-    refactoring = {
-        null_ls.builtins.code_actions.refactoring
-    },
-    yapf = {
-        null_ls.builtins.formatting.yapf
-    },
-    autopep8 = {
-        null_ls.builtins.formatting.autopep8
-    },
-    black = {
-        null_ls.builtins.formatting.black
-    },
-    cbfmt = {
-        null_ls.builtins.formatting.cbfmt
-    }
-}
-
-return M

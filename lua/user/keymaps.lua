@@ -17,8 +17,9 @@ keymap("n", 'w', 'vw', opts)
 keymap("n", 'b', 'vb', opts)
 keymap("n", 'e', 've', opts)
 
-vmap("w", "<esc>vw")
-vmap("b", "<esc>vb")
+vmap("w", "bw<esc>ve")
+--vmap("w", "<esc>ve")
+vmap("b", "be<esc>vb")
 vmap("e", "<esc>ve")
 
 vmap('h', '<esc>h')

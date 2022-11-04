@@ -11,6 +11,13 @@ return {
             procMacro = {
                 enable = true
             },
+            completion = {
+                snippets = {
+                    custom = {
+
+                    }
+                }
+            }
         },
     },
 }

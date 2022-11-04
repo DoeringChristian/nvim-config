@@ -11,12 +11,10 @@ leap.setup {
     case_sensitive = false,
     equivalence_classes = { ' \t\r\n', },
     substitute_chars = {},
-    labels = { "s", "f", "n",
+    labels = { "s", "f", "n", "u", "t", "r",
         "j", "k", "l", "o", "d", "w", "e", "h", "m", "v", "g",
-        "u", "t",
         "c", ".", "z" },
-    safe_labels = { "s", "f", "n",
-        "u", "t", "q", "r" },
+    safe_labels = { "s", "f", "n", "u", "t", "r" },
     --"F", "L", "N", "H", "G", "M", "U", "T", "Z" },
     special_keys = {
         repeat_search = '<enter>',
@@ -28,8 +26,8 @@ leap.setup {
         multi_accept = '<enter>',
         multi_revert = '<backspace>',
     },
-
 }
+vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = 'grey' })
 
 function LEAP_ALL_WINDOWS()
     require('leap').leap { target_windows = vim.tbl_filter(

@@ -3,6 +3,9 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
+local vmap = function(from, to)
+    vim.cmd("xnoremap <expr> " .. from .. ' mode() ==# "v" ? "' .. to .. '" : "' .. from .. '"')
+end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -13,17 +16,19 @@ vim.g.maplocalleader = " "
 keymap("n", 'w', 'vw', opts)
 keymap("n", 'b', 'vb', opts)
 keymap("n", 'e', 've', opts)
-keymap("v", 'w', '<esc>vw', opts)
-keymap("v", 'b', '<esc>vb', opts)
-keymap("v", 'e', '<esc>ve', opts)
 
-keymap("v", 'h', '<esc>h', opts)
-keymap("v", 'j', '<esc>j', opts)
-keymap("v", 'k', '<esc>k', opts)
-keymap("v", 'l', '<esc>l', opts)
-keymap("v", 'i', '<esc>i', opts)
-keymap("v", 'a', '<esc>a', opts)
-keymap("v", ':', '<esc><cmd>', opts)
+vmap("w", "<esc>vw")
+vmap("b", "<esc>vb")
+vmap("e", "<esc>ve")
+
+vmap('h', '<esc>h')
+vmap('j', '<esc>j')
+vmap('k', '<esc>k')
+vmap('l', '<esc>l')
+vmap('i', '<esc>i')
+vmap('a', '<esc>a')
+vmap(':', '<esc>:')
+vmap('<cmd>', '<esc><cmd>')
 
 
 keymap("v", '<leader>m', '<esc><leader>m', opts)

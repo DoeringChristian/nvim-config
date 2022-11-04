@@ -9,6 +9,26 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Kak maps
+keymap("n", 'w', 'vw', opts)
+keymap("n", 'b', 'vb', opts)
+keymap("n", 'e', 've', opts)
+keymap("v", 'w', '<esc>vw', opts)
+keymap("v", 'b', '<esc>vb', opts)
+keymap("v", 'e', '<esc>ve', opts)
+
+keymap("v", 'h', '<esc>h', opts)
+keymap("v", 'j', '<esc>j', opts)
+keymap("v", 'k', '<esc>k', opts)
+keymap("v", 'l', '<esc>l', opts)
+keymap("v", 'i', '<esc>i', opts)
+keymap("v", 'a', '<esc>a', opts)
+keymap("v", ':', '<esc><cmd>', opts)
+
+
+keymap("v", '<leader>m', '<esc><leader>m', opts)
+
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",

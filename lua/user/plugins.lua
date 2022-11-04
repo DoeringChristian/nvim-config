@@ -215,6 +215,7 @@ return packer.startup(function(use)
 
     -- Leap --
     use "ggandor/leap.nvim"
+    use "ggandor/flit.nvim"
 
     -- Firenvim --
     use {

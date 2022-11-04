@@ -129,7 +129,7 @@ keymap("n", "ga", "<Plug>(EasyAlign)", opts)
 
 -- Leap --
 vim.keymap.set("n", "<leader>f", LEAP_ALL_WINDOWS, opts)
-vim.keymap.set("n", "f", LEAP_BIDIRECTIONAL, opts)
+--vim.keymap.set("n", "f", LEAP_BIDIRECTIONAL, opts)
 
 -- GUI font size --
 vim.cmd [[

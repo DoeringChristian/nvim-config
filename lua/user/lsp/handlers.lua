@@ -86,16 +86,14 @@ end
 
 local function lsp_keymaps(client, bufnr)
     local opts = { noremap = true, silent = true }
+    -- TODO: automate visual keymaps
+    -- NORMAL --
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    -- Use Inc-Rename --
-    --vim.keymap.set("n", "<leader>rn", function()
-    --return ":IncRename " .. vim.fn.expand("<cword>")
-    --end, { expr = true, buffer = bufnr })
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -118,8 +116,38 @@ local function lsp_keymaps(client, bufnr)
     -- Lsp keymaps
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
 
+    -- VISUAL --
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "gD", "<esc><cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "gd", "<esc><cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "K", "<esc><cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "gi", "<esc><cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "<C-k>", "<esc><cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>rn", "<esc><cmd>lua vim.lsp.buf.rename()<CR>", opts)
+
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "gr", "<esc><cmd>lua vim.lsp.buf.references()<CR>", opts)
+    --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>a", "<esc><cmd>CodeActionMenu<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>i", "<esc><cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "[d", '<esc><cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+        opts)
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "gl",
+        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+        opts
+    )
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<esc><cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
+        opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<esc><cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+    -- Lsp keymaps
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<esc><cmd>LspRestart<CR>", opts)
+
     -- Client specific maps
     if client.name == "rust_analyzer" then
+        -- NORMAL --
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>"
             , opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra",
@@ -129,6 +157,17 @@ local function lsp_keymaps(client, bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
             ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
+        -- VISUAL --
+        vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>m",
+            "<esc>:lua require'rust-tools.expand_macro'.expand_macro() <CR>"
+            , opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>ra",
+            "<esc>:lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>ri",
+            "<esc>:lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>rod",
+            "<esc>:lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "v", "K", '<esc><cmd>RustHoverActions<CR>', opts)
     end
 
     -- Formatting

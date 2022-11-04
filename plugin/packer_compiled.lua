@@ -192,6 +192,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["leap-spooky.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/leap-spooky.nvim",
+    url = "https://github.com/ggandor/leap-spooky.nvim"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/leap.nvim",

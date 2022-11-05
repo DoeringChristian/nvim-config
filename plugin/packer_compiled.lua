@@ -179,14 +179,6 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["inc-rename.nvim"] = {
-    cond = { "\27LJ\2\n/\0\0\3\0\4\0\0056\0\0\0009\0\1\0009\0\2\0'\2\3\0D\0\2\0\rnvim-0.8\bhas\afn\bvim\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = true,
-    path = "/home/doeringc/.local/share/nvim/site/pack/packer/opt/inc-rename.nvim",
-    url = "https://github.com/smjonas/inc-rename.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -328,6 +320,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["renamer.nvim"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/renamer.nvim",
+    url = "https://github.com/filipdutescu/renamer.nvim"
+  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
@@ -405,10 +402,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-config-local]], true)
 try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17config-local\frequire\0", "config", "nvim-config-local")
 time([[Config for nvim-config-local]], false)
--- Conditional loads
-time([[Conditional loading of inc-rename.nvim]], true)
-  require("packer.load")({"inc-rename.nvim"}, {}, _G.packer_plugins)
-time([[Conditional loading of inc-rename.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

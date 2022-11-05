@@ -81,10 +81,9 @@ return packer.startup(function(use)
     use "weilbith/nvim-code-action-menu"
     use "j-hui/fidget.nvim"
     use {
-        "smjonas/inc-rename.nvim",
-        cond = function()
-            return vim.fn.has('nvim-0.8')
-        end
+        'filipdutescu/renamer.nvim',
+        branch = 'master',
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     -- Telescope --

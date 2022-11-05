@@ -338,6 +338,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/sniprun",
     url = "https://github.com/michaelb/sniprun"
   },
+  ["syntax-tree-surfer"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/syntax-tree-surfer",
+    url = "https://github.com/ziontee113/syntax-tree-surfer"
+  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",

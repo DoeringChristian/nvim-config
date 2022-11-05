@@ -154,3 +154,53 @@ keymap("n", '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
 
 -- LuaSnippet --
 keymap("n", '<leader>lse', '<cmd>LuaSnipEdit<CR>', opts)
+
+-- Syntax Tree Surfer --
+local ok, sts = pcall(require, "syntax-tree-surfer")
+if not ok then
+    return
+end
+
+-- Syntax Tree Surfer V2 Mappings
+-- Targeted Jump with virtual_text
+vim.keymap.set("n", "gv", function() -- only jump to variable_declarations
+    sts.targeted_jump({ "variable_declaration" })
+end, opts)
+vim.keymap.set("n", "gfn", function() -- only jump to functions
+    sts.targeted_jump({ "function", "arrrow_function", "function_definition" })
+    --> In this example, the Lua language schema uses "function",
+    --  when the Python language uses "function_definition"
+    --  we include both, so this keymap will work on both languages
+end, opts)
+vim.keymap.set("n", "gif", function() -- only jump to if_statements
+    sts.targeted_jump({ "if_statement" })
+end, opts)
+vim.keymap.set("n", "gfo", function() -- only jump to for_statements
+    sts.targeted_jump({ "for_statement" })
+end, opts)
+vim.keymap.set("n", "gj", function() -- jump to all that you specify
+    sts.targeted_jump({
+        "function",
+        "if_statement",
+        "else_clause",
+        "else_statement",
+        "elseif_statement",
+        "for_statement",
+        "while_statement",
+        "switch_statement",
+    })
+end, opts)
+
+-- Visual Selection from Normal Mode
+vim.keymap.set("n", "vx", '<cmd>STSSelectMasterNode<cr>', opts)
+vim.keymap.set("n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts)
+
+-- Select Nodes in Visual Mode
+vim.keymap.set("x", "J", '<cmd>STSSelectNextSiblingNode<cr>', opts)
+vim.keymap.set("x", "K", '<cmd>STSSelectPrevSiblingNode<cr>', opts)
+vim.keymap.set("x", "H", '<cmd>STSSelectParentNode<cr>', opts)
+vim.keymap.set("x", "L", '<cmd>STSSelectChildNode<cr>', opts)
+
+-- Swapping Nodes in Visual Mode
+vim.keymap.set("x", "<A-j>", '<cmd>STSSwapNextVisual<cr>', opts)
+vim.keymap.set("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', opts)

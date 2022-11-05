@@ -127,6 +127,9 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
 
+    --
+    use "ziontee113/syntax-tree-surfer"
+
     -- GIT --
     use {
         'lewis6991/gitsigns.nvim',

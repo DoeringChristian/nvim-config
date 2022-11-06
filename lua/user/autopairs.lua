@@ -23,7 +23,8 @@ npairs.setup {
     fast_wrap = {
         map = "<C-e>",
         chars = { "{", "[", "(", '"', "'" }, -- IMPORTANT: must match the characters in cmp.lua check_bracket
-        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,%=] ]], "%s+", ""),
+        --pattern = [=[[%'%"%)%>%]%)%}%,%=]]=],
         offset = 0, -- Offset from pattern match
         end_key = "\t",
         keys = "wertzuiopghyxcvbnmalskdjf",

@@ -5,7 +5,6 @@ end
 
 escape.setup {
     mapping = { "jk", "JK", "Jk", "kj", "KJ", "Kj" },
-    --timeout = vim.o.timeoutlen,
-    timeout = 100,
+    timeout = vim.o.timeoutlen,
     keys = "<esc>",
 }

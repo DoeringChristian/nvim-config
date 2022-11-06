@@ -51,6 +51,8 @@ local function lsp_default_handler(server_name)
     }
 
     local ok, settings_config = pcall(require, "user.lsp.settings." .. server_name)
+
+
     if ok then
         config = vim.tbl_deep_extend("force", config, settings_config)
     end

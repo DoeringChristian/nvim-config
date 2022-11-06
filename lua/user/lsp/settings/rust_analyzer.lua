@@ -14,10 +14,18 @@ return {
             completion = {
                 snippets = {
                     custom = {
-
                     }
                 }
             }
         },
     },
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    snippetSupport = false
+                }
+            }
+        }
+    }
 }

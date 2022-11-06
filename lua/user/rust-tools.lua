@@ -53,6 +53,8 @@ rust_tools.setup({
     },
     server = {
         on_attach = require("user.lsp.handlers").on_attach,
-        capabilities = require("user.lsp.handlers").capabilities,
+        capabilities = vim.tbl_deep_extend("force", require "user.lsp.handlers".capabilities,
+            require "user.lsp.settings.rust_analyzer".capabilities),
+        settings = require "user.lsp.settings.rust_analyzer".settings,
     }
 })

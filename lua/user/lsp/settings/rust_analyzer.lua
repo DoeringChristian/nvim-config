@@ -12,6 +12,9 @@ return {
                 enable = true
             },
             completion = {
+                postfix = {
+                    enable = false,
+                },
                 snippets = {
                     custom = {
                     }
@@ -23,7 +26,7 @@ return {
         textDocument = {
             completion = {
                 completionItem = {
-                    snippetSupport = false
+                    snippetSupport = true
                 }
             }
         }

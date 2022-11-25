@@ -60,6 +60,7 @@ npairs.add_rules({
         end)
         :use_key('$'),
 })
+--[[
 npairs.add_rules({
     Rule("$$", "$$", "tex")
         :with_pair(function(opts)
@@ -70,6 +71,7 @@ npairs.add_rules({
             end
         end)
 })
+--]]
 
 -- {|} -> { | }
 npairs.add_rules {

@@ -39,8 +39,11 @@ npairs.add_rules({
     Rule("$", "$", { "tex", "latex", "markdown" })
         -- don't add a pair if the next character is %
         :with_pair(cond.not_after_regex("%%"))
+        :with_move(function(opts)
+            return opts.prev_char:match('%$') ~= nil
+        end)
         -- don't move right when repeat character
-        :with_move(cond.none())
+        --:with_move(cond.none())
         -- disable adding a newline when you press <cr>
         :with_cr(cond.none())
 })
@@ -53,13 +56,8 @@ npairs.add_rules({
             local pair = opts.line:sub(opts.col - 1, opts.col)
             return vim.tbl_contains({ '$$' }, pair)
         end),
-    Rule('$ ', ' $')
-        :with_pair(function() return false end)
-        :with_move(function(opts)
-            return opts.prev_char:match('.%$') ~= nil
-        end)
-        :use_key('$'),
 })
+--[[
 npairs.add_rules({
     Rule("$$", "$$", "tex")
         :with_pair(function(opts)
@@ -70,6 +68,7 @@ npairs.add_rules({
             end
         end)
 })
+--]]
 
 -- {|} -> { | }
 npairs.add_rules {

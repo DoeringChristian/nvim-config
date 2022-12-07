@@ -107,12 +107,12 @@ cmp.setup {
                 cmp.select_next_item()
             elseif check_bracket() ~= nil then
                 require('nvim-autopairs.fastwrap').show()
+            elseif check_backspace() then
+                fallback()
             elseif luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-            elseif check_backspace() then
-                fallback()
             else
                 fallback()
             end

@@ -186,7 +186,8 @@ return packer.startup(function(use)
     use "MattesGroeger/vim-bookmarks"
 
     -- Better Escape --
-    use { 'max397574/better-escape.nvim' }
+    --use { 'max397574/better-escape.nvim' }
+    use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     -- Nabla --
     use 'jbyuki/nabla.nvim'

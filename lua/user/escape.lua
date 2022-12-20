@@ -1,3 +1,6 @@
+vim.g.better_escape_shortcut = "jk"
+vim.g.better_escape_intervall = 200
+
 local ok, escape = pcall(require, "better_escape")
 if not ok then
     return

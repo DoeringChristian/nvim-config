@@ -1,6 +1,7 @@
 return {
     settings = {
         ["rust-analyzer"] = {
+            inlayHints = { locationLinks = false },
             assist = {
                 importGranularity = "module",
                 importPrefix = "self",

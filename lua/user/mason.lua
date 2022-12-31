@@ -33,11 +33,14 @@ mason_lspconfig.setup {
         'ltex',
         'sumneko_lua',
         'pyright',
-        'texlab'
+        'texlab',
     }
 }
 mason_null_ls.setup {
-    automatic_installation = true
+    automatic_installation = true,
+    ensure_installed = {
+        'black',
+    }
 }
 
 

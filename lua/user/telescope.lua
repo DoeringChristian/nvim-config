@@ -94,7 +94,8 @@ telescope.setup {
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
 
-                ["<leader>k"] = R("telescope").extensions.hop.hop,
+                ["s"] = R("telescope").extensions.hop.hop,
+                ["S"] = R("telescope").extensions.hop.hop,
 
                 ["?"] = actions.which_key,
             },
@@ -119,6 +120,15 @@ telescope.setup {
         },
         lsp_document_symbols = {
             --initial_mode = "normal",
+        },
+        lsp_incoming_calls = {
+            initial_mode = "normal",
+        },
+        lsp_outgoing_calls = {
+            initial_mode = "normal",
+        },
+        diagnostics = {
+            initial_mode = "normal",
         },
         lsp_type_definitions = {
             initial_mode = "normal",

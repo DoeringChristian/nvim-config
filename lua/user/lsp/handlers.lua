@@ -52,6 +52,8 @@ M.setup = function()
         border = "rounded",
     })
 
+    -- Configure use of telescope for lsp actions
+
     vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
 
     vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
@@ -61,6 +63,15 @@ M.setup = function()
     vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
 
     vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions
+
+    vim.lsp.handlers["callHierarchy/incomingCalls"] = require("telescope.builtin").lsp_incoming_calls
+
+    vim.lsp.handlers["callHierarchy/outgoingCalls"] = require("telescope.builtin").lsp_outgoing_calls
+
+    vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
+
+    vim.lsp.handlers["workspace/symbol"] = require("telescope.builtin").lsp_dynamic_workspace_symbols
+
 
     -- Set the background color of hover window to same as rest of document.
     vim.cmd [[
@@ -86,24 +97,28 @@ end
 
 local function lsp_keymaps(client, bufnr)
     local opts = { noremap = true, silent = true }
+
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
-
+    -- LSP Goto functions prefixed with 'g'
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gO", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+
+    -- LSP <leader> prefixed commands
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
+
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>i", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ds",
-        "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ws",
-        "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
-        opts)
+
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua require'telescope.builtin'.diagnostics()<CR>", opts)
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(

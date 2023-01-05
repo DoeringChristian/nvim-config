@@ -118,7 +118,7 @@ telescope.setup {
             initial_mode = "normal",
         },
         lsp_document_symbols = {
-            initial_mode = "normal",
+            --initial_mode = "normal",
         },
         lsp_type_definitions = {
             initial_mode = "normal",

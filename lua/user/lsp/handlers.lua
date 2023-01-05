@@ -99,8 +99,11 @@ local function lsp_keymaps(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>i", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ds", require("telescope.builtin").lsp_document_symbols)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ds", require("telescope.builtin").lsp_dynamic_workspace_symbols)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ds",
+        "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ws",
+        "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
+        opts)
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(

@@ -47,12 +47,12 @@ M.setup = function()
     })
     --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
-    -- Configure signature help window
+    -- Configure signatureHelp handlers
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
     })
 
-    -- Configure use of telescope for lsp actions
+    -- Configure Telescope for lsp handlers
 
     vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
 

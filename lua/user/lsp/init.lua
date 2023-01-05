@@ -3,6 +3,8 @@ if not status_ok then
     return
 end
 
+-- NOTE: lsp settings are loaded by mason (rust-analyzer is handled by rust-tools)
+
 -- LSPs excluded from Auto Formatting
 AUTO_FORMAT_EXCLUDED = {}
 

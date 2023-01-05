@@ -46,16 +46,17 @@ mason_null_ls.setup {
 
 -- LSP Setup Handlers:
 local function lsp_default_handler(server_name)
-    --print(server_name)
     local lspconfig = require("lspconfig")
     local config = {
         capabilities = require("user.lsp.handlers").capabilities,
         on_attach = require("user.lsp.handlers").on_attach,
     }
 
+    -- Load settings from usr/lsp/settings/$server_name
     local ok, settings_config = pcall(require, "user.lsp.settings." .. server_name)
 
 
+    -- Deep extend settings with custom lsp server settings
     if ok then
         config = vim.tbl_deep_extend("force", config, settings_config)
     end

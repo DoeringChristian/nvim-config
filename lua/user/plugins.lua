@@ -58,11 +58,11 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-    use "lukas-reineke/cmp-rg"
-    use "kdheepak/cmp-latex-symbols"
+    use "lukas-reineke/cmp-rg" -- ripgrep completions
+    use "kdheepak/cmp-latex-symbols" -- latex symbol completions
     --use "hrsh7th/cmp-nvim-lsp-signature-help" -- Signature completions
-    use "ray-x/lsp_signature.nvim"
-    use "f3fora/cmp-spell" -- Spelllang completions
+    use "ray-x/lsp_signature.nvim" -- function signature completions
+    use "f3fora/cmp-spell" -- vim spelling completions
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -70,16 +70,21 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "jose-elias-alvarez/null-ls.nvim"
-    --use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "jose-elias-alvarez/null-ls.nvim" -- null-ls handles formatters etc.
+
     -- Mason
+    -- > Handles LSPs and formatters
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "jayp0521/mason-null-ls.nvim",
     }
+    -- Improved code action menu
+    -- > shows diffs and other stuff
     use "weilbith/nvim-code-action-menu"
+    -- Shows LSP-Status live (useful for rust)
     use "j-hui/fidget.nvim"
+    -- Better rename window
     use {
         'filipdutescu/renamer.nvim',
         branch = 'master',
@@ -87,17 +92,23 @@ return packer.startup(function(use)
     }
 
     -- Telescope --
+    -- > Search engine and menus
     use {
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
     }
-    use "gbprod/yanky.nvim"
+    -- Allows use of hop commands in telescope
     use "nvim-telescope/telescope-hop.nvim"
+    -- Allows searching bookmarks
     use "tom-anders/telescope-vim-bookmarks.nvim"
+    -- Allows vim ui selection via telescope
     use { 'nvim-telescope/telescope-ui-select.nvim' }
-    --use "ggandor/lightspeed.nvim"
 
-    -- Rust --
+    -- Yank ring like plugin allows for pasting previous yank
+    use "gbprod/yanky.nvim"
+
+    -- Rust-Tools --
+    -- > Needed for extra features of rust-analyzer
     use "simrat39/rust-tools.nvim"
 
     -- Hop --
@@ -107,6 +118,7 @@ return packer.startup(function(use)
     }
 
     -- NvimTree --
+    -- > File manager
     use {
         "kyazdani42/nvim-tree.lua",
         requires = {
@@ -116,9 +128,6 @@ return packer.startup(function(use)
 
     -- Autopairs --
     use "windwp/nvim-autopairs"
-
-    -- SmartPairs --
-    --use "ZhiyuanLck/smart-pairs"
 
     -- TreeSitter --
     use {

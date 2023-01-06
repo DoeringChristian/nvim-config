@@ -20,7 +20,6 @@ nvim_tree.setup {
 }
 
 -- Autoclose
---[[
 vim.api.nvim_create_autocmd("BufEnter", {
     nested = true,
     callback = function()
@@ -30,4 +29,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end
 })
-]] --

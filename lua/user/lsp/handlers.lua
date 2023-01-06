@@ -134,7 +134,7 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
     vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
-    nmap("<leader>di", require 'telescope.builtin'.diagnostics, "[D][i]agnostics")
+    nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[D][i]agnostics")
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(

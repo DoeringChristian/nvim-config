@@ -229,6 +229,9 @@ return packer.startup(function(use)
         run = function() vim.fn['firenvim#install'](0) end
     }
 
+    -- Detect indents heuristically
+    use 'tpope/vim-sleuth'
+
     -- Local Nvim Config
     use {
         "klen/nvim-config-local",

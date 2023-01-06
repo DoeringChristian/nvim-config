@@ -134,7 +134,7 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
     vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
-    nmap("<leader>d", require 'telescope.builtin'.diagnostics, "[D]iagnostics")
+    nmap("<leader>di", require 'telescope.builtin'.diagnostics, "[D][i]agnostics")
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(
@@ -154,6 +154,10 @@ local function lsp_keymaps(client, bufnr)
     -- Client specific maps
     if client.name == "rust_analyzer" then
         nmap("K", "<cmd>RustHoverActions<CR>", "Hover Documentation")
+        nmap('<F5>', function()
+            require 'hydra'.spawn('dap-hydra')
+            vim.cmd [[RustDebuggables]]
+        end, "Debug Start")
         nmap("<leader>m", require 'rust-tools.expand_macro'.expand_macro, "Expand [M]acro")
         nmap("<leader>ra", require 'rust-tools.hover_actions'.hover_actions, "[R]ust Hover [A]ctions")
         nmap("<leader>rod", require 'rust-tools.external_docs'.open_external_docs, "[R]ust [O]pen External [D]ocs")

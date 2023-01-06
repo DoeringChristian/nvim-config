@@ -232,6 +232,12 @@ return packer.startup(function(use)
     -- Detect indents heuristically
     use 'tpope/vim-sleuth'
 
+    -- Hydra for navigation
+    use 'anuvyklack/hydra.nvim'
+
+    -- For drawing diagrams
+    use "jbyuki/venn.nvim"
+
     -- Local Nvim Config
     use {
         "klen/nvim-config-local",

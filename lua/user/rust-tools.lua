@@ -49,7 +49,8 @@ rust_tools.setup({
         auto_focus = false,
     },
     dap = {
-        adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
     },
     server = {
         on_attach = require("user.lsp.handlers").on_attach,

@@ -129,9 +129,14 @@ nnoremap <C--> :silent! let &guifont = substitute(
 ]]
 
 -- Dap --
-nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
-nmap('<F6>', "<cmd>lua require'dapui'.toggle()<cr>")
-nmap('<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+nmap('<F5>', function()
+    require 'hydra'.spawn('dap-hydra')
+    require 'dapui'.open()
+    require 'dap'.run()
+end, "Debug Start")
+--nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
+nmap('<F6>', require 'dapui'.toggle)
+nmap('<F9>', require 'dap'.toggle_breakpoint)
 nmap('<F10>', "<cmd>lua require'dap'.step_over()<cr>")
 nmap('<F11>', "<cmd>lua require'dap'.step_into()<cr>")
 

@@ -102,7 +102,6 @@ local function lsp_keymaps(client, bufnr)
         if desc then
             desc = 'LSP: ' .. desc
         end
-        --vim.api.nvim_buf_set_keymap(bufnr, "n", keys, func, { noremap = true, silent = true, desc = desc })
         vim.keymap.set(mode, keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
     end
 
@@ -153,10 +152,10 @@ local function lsp_keymaps(client, bufnr)
 
     -- Client specific maps
     if client.name == "rust_analyzer" then
+        nmap("K", "<cmd>RustHoverActions<CR>", "Hover Documentation")
         nmap("<leader>m", require 'rust-tools.expand_macro'.expand_macro, "Expand [M]acro")
         nmap("<leader>ra", require 'rust-tools.hover_actions'.hover_actions, "[R]ust Hover [A]ctions")
         nmap("<leader>rod", require 'rust-tools.external_docs'.open_external_docs, "[R]ust [O]pen External [D]ocs")
-        nmap("K", "<cmd>RustHoverActions<CR>", "Hover Documentation")
     end
 
     -- Formatting

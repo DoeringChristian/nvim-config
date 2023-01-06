@@ -4,6 +4,21 @@ local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
+local function map(mode, keys, func, desc)
+    if desc then
+        desc = desc
+    end
+    vim.keymap.set(mode, keys, func, { noremap = true, silent = true, desc = desc })
+end
+
+local function nmap(keys, func, desc)
+    map('n', keys, func, desc)
+end
+
+local function vmap(keys, func, desc)
+    map('v', keys, func, desc)
+end
+
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -19,58 +34,45 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- window navigation
-keymap("n", '<C-h>', '<C-w>h', opts)
-keymap("n", '<C-j>', '<C-w>j', opts)
-keymap("n", '<C-k>', '<C-w>k', opts)
-keymap("n", '<C-l>', '<C-w>l', opts)
-
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+nmap("<C-h>", "<C-w>h", "Move to Buffer to the left")
+nmap("<C-j>", "<C-w>j", "Move to Buffer to the bottom")
+nmap("<C-k>", "<C-w>k", "Move to Buffer to the top")
+nmap("<C-l>", "<C-w>l", "Move to Buffer to the right")
 
 -- Resize with arrows
-keymap("n", '<C-Up>', ':resize +2<CR>', opts)
-keymap("n", '<C-Down>', ':resize -2<CR>', opts)
-keymap("n", '<C-Left>', ':vertical resize -2<CR>', opts)
-keymap("n", '<C-Right>', ':vertical resize +2<CR>', opts)
+nmap('<C-Up>', ':resize +2<CR>', "Increase vertical size of current Buffer")
+nmap('<C-Down>', ':resize -2<CR>', "Decrease vertical size of current Buffer")
+nmap('<C-Right>', ':vertical resize +2<CR>', "Increase horizontal size of current Buffer")
+nmap('<C-Left>', ':vertical resize -2<CR>', "Decrease horizontal size of current Buffer")
 
 -- Navigate buffers
-keymap("n", '<S-l>', ":bnext<CR>", opts)
-keymap("n", '<S-h>', ":bprevious<CR>", opts)
+nmap('<S-l>', ":bnext<CR>", "Go one Buffer left")
+nmap('<S-h>', ":bprevious<CR>", "Go one Buffer right")
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vmap("<", "<gv")
+vmap(">", ">gv")
 
 -- Move text up and down
-keymap("v", '<A-j>', ':m .+1<CR>==', opts)
-keymap("v", '<A-k>', ':m .-2<CR>==', opts)
-keymap("v", "p", '"_dP', opts)
+vmap('<A-j>', ':m .+1<CR>', "Move Line Down")
+vmap('<A-k>', ':m .-2<CR>', "Move Line Up")
+vmap("p", '"_dP')
 
 -- Visual Block --
 -- Move text up and down
---keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
---keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", "Move Line Down")
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", "Move Line Up")
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")
+map("t", "<C-j>", "<C-\\><C-N><C-w>j", "Move out of Terminal")
+map("t", "<C-k>", "<C-\\><C-N><C-w>k", "Move out of Terminal")
+map("t", "<C-l>", "<C-\\><C-N><C-w>l", "Move out of Terminal")
 
 -- Telescope --
---keymap("n", "<C-f>", "<cmd>Telescope
-keymap("n", "<leader><Tab>", "<cmd>Telescope live_grep<cr>", opts)
--- keymap("n", "<C-f>", "<cmd>Telescope file_browser<cr>", opts)
-
--- Yank History (Yanky)--
---keymap("n", "<leader>p", "<cmd>Telescope yank_history initial_mode=normal<cr>", opts)
-
--- vim-bookmarks
-keymap("n", "ml", "<cmd>Telescope vim_bookmarks all<CR>", opts)
-keymap("n", "mf", "<cmd>Telescope vim_bookmarks current_file initial_mode=normal<CR>", opts)
+nmap("<leader><Tab>", "<cmd>Telescope live_grep<cr>", "Live Grep")
 
 -- Yanky --
 -- paste
@@ -84,52 +86,38 @@ vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
 vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
 
 -- cycle navigation
-vim.api.nvim_set_keymap("n", "<c-n>", "<Plug>(YankyCycleBackward)", {})
-vim.api.nvim_set_keymap("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
-
--- keep cursor position
---vim.keymap.set("n", "y", "<Plug>(YankyYank)", {})
---vim.keymap.set("x", "y", "<Plug>(YankyYank)", {})
+nmap("<c-n>", "<Plug>(YankyCycleBackward)", "Next Paste Element")
+nmap("<c-p>", "<Plug>(YankyCycleForward)", "Previous Paste Element")
 
 -- NvimTree --
-keymap("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", opts)
+nmap("<C-f>", "<cmd>NvimTreeToggle<CR>", "Toggle file manager")
 
 -- Hop --
-vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>HopChar1MW<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>b", "<cmd>HopWordBC<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>j", "<cmd>HopLineAC<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>k", "<cmd>HopLineBC<CR>", opts)
-
--- MiniYank --
---vim.keymap.set({"n", "v"}, "p", "<Plug>(miniyank-autoput)", opts)
---vim.keymap.set({"n", "v"}, "P", "<Plug>(miniyank-autoPut)", opts)
---vim.keymap.set({"n", "v"}, "<C-p>", "<Plug>(miniyank-cycle)", opts)
+map({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", "Jump to [W]ord")
 
 -- Terminal --
-keymap('n', '<leader>tt', '<cmd>ToggleTerm<CR>', opts)
-keymap('n', '<leader>tg', '<cmd>lua _GITUI_TOGGLE()<CR>', opts)
-keymap('n', '<leader>tb', '<cmd>lua _BOTTOM_TOGGLE()<CR>', opts)
-keymap('n', '<leader>tl', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
-keymap('n', '<leader>td', '<cmd>lua _DUST_TOGGLE()<CR>', opts)
-keymap('n', '<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', opts)
-keymap('n', '<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', opts)
+nmap('<leader>tt', '<cmd>ToggleTerm<CR>', "[T]oggle [T]erminal")
+nmap('<leader>tg', '<cmd>lua _GITUI_TOGGLE()<CR>', "[T]erminal [G]it UI")
+nmap('<leader>tb', '<cmd>lua _BOTTOM_TOGGLE()<CR>', "[T]erminal [B]ottom (Taks Manager)")
+nmap('<leader>tl', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', "[T]erminal [L]azyGit")
+nmap('<leader>td', '<cmd>lua _DUST_TOGGLE()<CR>', "[T]erminal [D]ust")
+nmap('<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', "[T]erminal [H]TOP (Taks Manager)")
+nmap('<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', "[T]erminal [C]argo Run with [T]race")
 
 -- Nabla --
---keymap("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>', opts)
 -- Pandoc --
-keymap('n', '<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', opts)
-keymap('n', '<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', opts)
-keymap('n', '<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', opts)
-keymap('n', '<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>', opts)
+nmap('<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', "[P]andoc [R]ender")
+nmap('<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', "[P]andoc [M]ake Document")
+nmap('<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', "[P]andoc Show [E]quations")
+nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>',
+    "[P]andoc Reenable [V]irtual Equations")
 
 -- Align --
-keymap("x", "ga", "<Plug>(EasyAlign)", opts)
-keymap("n", "ga", "<Plug>(EasyAlign)", opts)
+map("x", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
+map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
 
 -- Leap --
-vim.keymap.set("n", "<leader>s", LEAP_ALL_WINDOWS, opts)
---vim.keymap.set("n", "f", LEAP_BIDIRECTIONAL, opts)
+nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")
 
 -- GUI font size --
 vim.cmd [[
@@ -153,7 +141,7 @@ keymap("n", '<F10>', "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
 
 -- LuaSnippet --
-keymap("n", '<leader>lse', '<cmd>LuaSnipEdit<CR>', opts)
+nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")
 
 -- Syntax Tree Surfer --
 local ok, sts = pcall(require, "syntax-tree-surfer")
@@ -163,22 +151,22 @@ end
 
 -- Syntax Tree Surfer V2 Mappings
 -- Targeted Jump with virtual_text
-vim.keymap.set("n", "gv", function() -- only jump to variable_declarations
+nmap("gv", function() -- only jump to variable_declarations
     sts.targeted_jump({ "variable_declaration" })
-end, opts)
-vim.keymap.set("n", "gfn", function() -- only jump to functions
+end, "[G]oto [V]ariable Declaration")
+nmap("gfn", function() -- only jump to functions
     sts.targeted_jump({ "function", "arrrow_function", "function_definition" })
     --> In this example, the Lua language schema uses "function",
     --  when the Python language uses "function_definition"
     --  we include both, so this keymap will work on both languages
-end, opts)
-vim.keymap.set("n", "gif", function() -- only jump to if_statements
+end, "[G]oto [F]unction")
+nmap("gif", function() -- only jump to if_statements
     sts.targeted_jump({ "if_statement" })
-end, opts)
-vim.keymap.set("n", "gfo", function() -- only jump to for_statements
+end, "[G]oto [If] Statement")
+nmap("gfo", function() -- only jump to for_statements
     sts.targeted_jump({ "for_statement" })
-end, opts)
-vim.keymap.set("n", "gj", function() -- jump to all that you specify
+end, "[G]oto [Fo]r statement")
+nmap("gj", function() -- jump to all that you specify
     sts.targeted_jump({
         "function",
         "if_statement",
@@ -189,18 +177,18 @@ vim.keymap.set("n", "gj", function() -- jump to all that you specify
         "while_statement",
         "switch_statement",
     })
-end, opts)
+end, "[G]oto target")
 
 -- Visual Selection from Normal Mode
-vim.keymap.set("n", "vx", '<cmd>STSSelectMasterNode<cr>', opts)
-vim.keymap.set("n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts)
+nmap("vx", '<cmd>STSSelectMasterNode<cr>', "[V]isual Select Master Node")
+nmap("vn", '<cmd>STSSelectCurrentNode<cr>', "[V]isual Select Current Node")
 
 -- Select Nodes in Visual Mode
-vim.keymap.set("x", "H", '<cmd>STSSelectParentNode<cr>', opts)
-vim.keymap.set("x", "J", '<cmd>STSSelectNextSiblingNode<cr>', opts)
-vim.keymap.set("x", "K", '<cmd>STSSelectPrevSiblingNode<cr>', opts)
-vim.keymap.set("x", "L", '<cmd>STSSelectChildNode<cr>', opts)
+map("x", "H", '<cmd>STSSelectParentNode<cr>', "Parent Node")
+map("x", "J", '<cmd>STSSelectNextSiblingNode<cr>', "Next Sibling Node")
+map("x", "K", '<cmd>STSSelectPrevSiblingNode<cr>', "Previous Sibling Node")
+map("x", "L", '<cmd>STSSelectChildNode<cr>', "Child Node")
 
 -- Swapping Nodes in Visual Mode
-vim.keymap.set("x", "<A-j>", '<cmd>STSSwapNextVisual<cr>', opts)
-vim.keymap.set("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', opts)
+map("x", "<A-j>", '<cmd>STSSwapNextVisual<cr>', "Swap with Next Node")
+map("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', "Swap with Previous Node")

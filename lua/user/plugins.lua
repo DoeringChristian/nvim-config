@@ -103,6 +103,9 @@ return packer.startup(function(use)
     use "tom-anders/telescope-vim-bookmarks.nvim"
     -- Allows vim ui selection via telescope
     use { 'nvim-telescope/telescope-ui-select.nvim' }
+    -- Allows search using fzf
+    use { 'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Yank ring like plugin allows for pasting previous yank
     use "gbprod/yanky.nvim"

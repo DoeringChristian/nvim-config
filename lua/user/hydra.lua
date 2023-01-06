@@ -90,12 +90,14 @@ local hint = [[
                  _f_: files       _m_: marks
    🭇🬭🬭🬭🬭🬭🬭🬭🬭🬼    _o_: old files   _g_: live grep
   🭉🭁🭠🭘    🭣🭕🭌🬾   _p_: projects    _/_: search in file
-  🭅█ ▁     █🭐
-  ██🬿      🭊██   _r_: resume      _u_: undotree
- 🭋█🬝🮄🮄🮄🮄🮄🮄🮄🮄🬆█🭀  _h_: vim help    _c_: execute command
- 🭤🭒🬺🬹🬱🬭🬭🬭🬭🬵🬹🬹🭝🭙  _k_: keymaps     _;_: commands history 
+  🭅█ ▁     █🭐   _z_: fzf
+  ██🬿      🭊██   
+ 🭋█🬝🮄🮄🮄🮄🮄🮄🮄🮄🬆█🭀  _r_: resume      _u_: undotree
+ 🭤🭒🬺🬹🬱🬭🬭🬭🬭🬵🬹🬹🭝🭙  _h_: vim help    _c_: execute command
+                 _k_: keymaps     _;_: commands history
                  _O_: options     _?_: search history
  ^
+ 
                  _<Enter>_: Telescope           _<Esc>_
 ]]
 
@@ -116,6 +118,7 @@ Hydra({
     heads = {
         { 'f', cmd 'Telescope find_files' },
         { 'g', cmd 'Telescope live_grep' },
+        { 'z', cmd 'Telescope fzf' },
         { 'o', cmd 'Telescope oldfiles', { desc = 'recently opened files' } },
         { 'h', cmd 'Telescope help_tags', { desc = 'vim help' } },
         { 'm', cmd 'MarksListBuf', { desc = 'marks' } },

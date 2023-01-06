@@ -98,27 +98,43 @@ end
 local function lsp_keymaps(client, bufnr)
     local opts = { noremap = true, silent = true }
 
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    local function map(mode, keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+        --vim.api.nvim_buf_set_keymap(bufnr, "n", keys, func, { noremap = true, silent = true, desc = desc })
+        vim.keymap.set(mode, keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
+    end
+
+    local function nmap(keys, func, desc)
+        map('n', keys, func, desc)
+    end
+
+    local function vmap(keys, func, desc)
+        map('v', keys, func, desc)
+    end
+
+    nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+    nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     -- LSP Goto functions prefixed with 'g'
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gO", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
+    nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+    nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+    nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+    nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+    nmap("gI", vim.lsp.buf.incoming_calls, "[G]oto [I]ncoming Calls")
+    nmap("gO", vim.lsp.buf.outgoing_calls, "[G]oto [O]utgoing Calls")
+    nmap("gs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
+    nmap("gws", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
 
     -- LSP <leader> prefixed commands
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>rn", "<cmd>lua require('renamer').rename()<cr>", opts)
+    nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
+    vmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
 
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>a", "<cmd>CodeActionMenu<CR>", opts)
+    nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
+    vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua require'telescope.builtin'.diagnostics()<CR>", opts)
+    nmap("<leader>d", require 'telescope.builtin'.diagnostics, "[D]iagnostics")
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(
@@ -133,23 +149,18 @@ local function lsp_keymaps(client, bufnr)
 
 
     -- Lsp keymaps
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+    nmap("<leader>lr", "<cmd>LspRestart<CR>", "[L]SP [R]estart")
 
     -- Client specific maps
     if client.name == "rust_analyzer" then
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", ":lua require'rust-tools.expand_macro'.expand_macro() <CR>"
-            , opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra",
-            ":lua require'rust-tools.hover_actions'.hover_actions() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ri",
-            ":lua require'rust-tools.inlay_hints'.toggle_inlay_hints() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rod",
-            ":lua require'rust-tools.external_docs'.open_external_docs() <CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "K", '<cmd>RustHoverActions<CR>', opts)
+        nmap("<leader>m", require 'rust-tools.expand_macro'.expand_macro, "Expand [M]acro")
+        nmap("<leader>ra", require 'rust-tools.hover_actions'.hover_actions, "[R]ust Hover [A]ctions")
+        nmap("<leader>rod", require 'rust-tools.external_docs'.open_external_docs, "[R]ust [O]pen External [D]ocs")
+        nmap("K", "<cmd>RustHoverActions<CR>", "Hover Documentation")
     end
 
     -- Formatting
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    nmap("F", vim.lsp.buf.format, "[F]ormat buffer")
     -- :Format command
     vim.cmd [[ command! Format execute 'lua pcall(vim.lsp.buf.format, {async=false})' ]]
 end

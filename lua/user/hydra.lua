@@ -37,7 +37,7 @@ Hydra({
 })
 
 local hint = [[
- _J_: step over   _s_: Continue/Start   _b_: Breakpoint     _K_: Eval
+ _J_: step over   _r_: Continue/Start   _b_: Breakpoint     _K_: Eval
  _L_: step into   _x_: Quit             ^ ^                 ^ ^
  _H_: step out    _X_: Stop             ^ ^
  _c_: to cursor   _C_: Close UI
@@ -65,7 +65,7 @@ local dap_hydra = Hydra({
         { 'L', dap.step_into, { silent = true } },
         { 'H', dap.step_out, { silent = true } },
         { 'c', dap.run_to_cursor, { silent = true } },
-        { 's', dap.continue, { silent = true } },
+        { 'r', dap.continue, { silent = true } },
         { 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
         { 'X', dap.close, { silent = true } },
         { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },

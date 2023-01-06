@@ -132,7 +132,7 @@ nnoremap <C--> :silent! let &guifont = substitute(
 nmap('<F5>', function()
     require 'hydra'.spawn('dap-hydra')
     require 'dapui'.open()
-    require 'dap'.run()
+    require 'dap'.continue()
 end, "Debug Start")
 --nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
 nmap('<F6>', require 'dapui'.toggle)

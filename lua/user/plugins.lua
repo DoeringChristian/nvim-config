@@ -182,6 +182,7 @@ return packer.startup(function(use)
             "rcarriga/nvim-dap-ui",
             "mfussenegger/nvim-dap-python",
             "nvim-telescope/telescope-dap.nvim",
+            "jayp0521/mason-nvim-dap.nvim",
         },
     }
 

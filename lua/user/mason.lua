@@ -1,15 +1,24 @@
 local ok, mason = pcall(require, "mason")
 if not ok then
+    vim.notify("Mason: mason not installed!", "error")
     return
 end
 
 local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not ok then
+    vim.notify("Mason: mason-lspconfig not installed!", "error")
     return
 end
 
 local ok, mason_null_ls = pcall(require, "mason-null-ls")
 if not ok then
+    vim.notify("Mason: mason-null-ls not installed!", "error")
+    return
+end
+
+local ok, mason_nvim_dap = pcall(require, "mason-nvim-dap")
+if not ok then
+    vim.notify("Mason: mason-nvim-dap not installed!", "error")
     return
 end
 
@@ -87,4 +96,38 @@ end
 
 mason_null_ls.setup_handlers {
     null_ls_default_handler
+}
+
+-- Setup Mason Dap
+mason_nvim_dap.setup {
+    automatic_setup = true,
+}
+mason_nvim_dap.setup_handlers {
+    function(source_name)
+        -- all sources with no handler get passed here
+
+
+        -- Keep original functionality of `automatic_setup = true`
+        require 'mason-nvim-dap.automatic_setup' (source_name)
+    end,
+    python = function(source_name)
+        local dap = require 'dap'
+        dap.adapters.python = {
+            type = "executable",
+            command = "/usr/bin/python3",
+            args = {
+                "-m",
+                "debugpy.adapter",
+            },
+        }
+
+        dap.configurations.python = {
+            {
+                type = "python",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}", -- This configuration will launch the current file if used.
+            },
+        }
+    end,
 }

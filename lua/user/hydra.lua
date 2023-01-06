@@ -68,7 +68,13 @@ local dap_hydra = Hydra({
         { 'H', dap.step_out, { silent = true } },
         { 'c', dap.run_to_cursor, { silent = true } },
         { 'r', dap.continue, { silent = true } },
-        { 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
+        --{ 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
+        { 'x', function()
+            dap.disconnect({ terminateDebuggee = false })
+            dap.close()
+            require 'dapui'.toggle() -- Close causes problems with NvimTree
+            require 'dapui'.close()
+        end, { exit = true, silent = true } },
         { 'X', dap.close, { silent = true } },
         { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
         { 'b', dap.toggle_breakpoint, { silent = true } },
@@ -78,7 +84,6 @@ local dap_hydra = Hydra({
 })
 Hydra.spawn = function(head)
     if head == 'dap-hydra' then
-        vim.notify("test")
         dap_hydra:activate()
     end
 end

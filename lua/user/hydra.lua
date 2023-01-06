@@ -22,9 +22,10 @@ Hydra({
         on_enter = function()
             vim.o.virtualedit = 'all'
         end,
+        desc = 'Hydra: [D]ia[g]ram',
     },
     mode = 'n',
-    body = '<leader>g',
+    body = '<leader>dg',
     heads = {
         { 'H', '<C-v>h:VBox<CR>' },
         { 'J', '<C-v>j:VBox<CR>' },
@@ -56,6 +57,7 @@ local dap_hydra = Hydra({
             position = 'bottom',
             border = 'rounded'
         },
+        desc = 'Hydra: Debugger',
     },
     name = 'dap',
     mode = { 'n', 'x' },

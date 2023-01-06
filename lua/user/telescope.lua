@@ -152,9 +152,6 @@ telescope.setup {
                 "s", "k", "d", "j", "f", },
             sign_hl = { "WarningMsg", "Title" },
         },
-        aerial = {
-            show_nexting = true,
-        },
         ['ui-select'] = {
             initial_mode = "normal"
         },
@@ -171,5 +168,5 @@ telescope.setup {
 telescope.load_extension("yank_history")
 telescope.load_extension("hop")
 telescope.load_extension("vim_bookmarks")
-require('telescope').load_extension('fzf')
+telescope.load_extension("fzf")
 --telescope.load_extension("ui-select")

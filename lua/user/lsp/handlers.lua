@@ -98,6 +98,7 @@ end
 local function lsp_keymaps(client, bufnr)
     local opts = { noremap = true, silent = true }
 
+    -- Declare functions for mapping in current buffer
     local function map(mode, keys, func, desc)
         if desc then
             desc = 'LSP: ' .. desc

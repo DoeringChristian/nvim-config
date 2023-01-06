@@ -1,9 +1,4 @@
-local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
-local keymap = vim.api.nvim_set_keymap
-
+-- Declare functions for mapping
 local function map(mode, keys, func, desc)
     if desc then
         desc = desc
@@ -20,7 +15,7 @@ local function vmap(keys, func, desc)
 end
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -134,11 +129,11 @@ nnoremap <C--> :silent! let &guifont = substitute(
 ]]
 
 -- Dap --
-keymap("n", '<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>", opts)
-keymap("n", '<F6>', "<cmd>lua require'dapui'.toggle()<cr>", opts)
-keymap("n", '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", '<F10>', "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
+nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
+nmap('<F6>', "<cmd>lua require'dapui'.toggle()<cr>")
+nmap('<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+nmap('<F10>', "<cmd>lua require'dap'.step_over()<cr>")
+nmap('<F11>', "<cmd>lua require'dap'.step_into()<cr>")
 
 -- LuaSnippet --
 nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")

@@ -134,6 +134,10 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+    use { -- Additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
+    }
 
     --
     use "ziontee113/syntax-tree-surfer"
@@ -182,9 +186,6 @@ return packer.startup(function(use)
         },
     }
 
-    -- MiniYank --
-    -- use "bfredl/nvim-miniyank"
-
     -- Toggleterm --
     use "akinsho/toggleterm.nvim"
 
@@ -195,7 +196,6 @@ return packer.startup(function(use)
     use "MattesGroeger/vim-bookmarks"
 
     -- Better Escape --
-    --use { 'max397574/better-escape.nvim' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     -- Nabla --
@@ -212,9 +212,6 @@ return packer.startup(function(use)
 
     -- Pandoc.Nvim --
     use "aspeddro/pandoc.nvim"
-
-    -- Ariel --
-    -- use "stevearc/aerial.nvim"
 
     -- Notify --
     use "rcarriga/nvim-notify"

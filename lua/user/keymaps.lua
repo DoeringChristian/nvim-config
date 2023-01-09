@@ -14,6 +14,10 @@ local function vmap(keys, func, desc)
     map('v', keys, func, desc)
 end
 
+local function xmap(keys, func, desc)
+    map('x', keys, func, desc)
+end
+
 --Remap space as leader key
 map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
@@ -113,6 +117,22 @@ map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
 
 -- Leap --
 nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")
+
+-- Surround --
+-- Need to remap surround.vim mappings to not conflict with leap.nvmi
+vim.g.surround_no_mappings = 1
+
+nmap("ds", "<Plug>Dsurround", "[D]elete [S]urround")
+nmap("cs", "<Plug>Csurround", "[C]hange [S]urround")
+nmap("cS", "<Plug>CSurround", "[C]hange [S]urround with Newline")
+nmap("ys", "<Plug>Ysurround", "Insert  Surround")
+nmap("yS", "<Plug>YSurround", "Insert Surround wiht Newline")
+nmap("yss", "<Plug>Yssurround", "Insert Surround Line")
+nmap("ySs", "<Plug>YSsurround", "Insert Surround Line wiht Newline")
+nmap("ySS", "<Plug>YSsurround", "Insert Surround Line with Newline and Indent")
+
+xmap("gs", "<Plug>VSurround", "Surround Visual")
+xmap("gS", "<Plug>VgSurround", "Surround Visual with Newline")
 
 -- GUI font size --
 vim.cmd [[

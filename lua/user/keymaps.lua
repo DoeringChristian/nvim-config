@@ -18,6 +18,10 @@ local function xmap(keys, func, desc)
     map('x', keys, func, desc)
 end
 
+local function imap(keys, func, desc)
+    map('i', keys, func, desc)
+end
+
 --Remap space as leader key
 map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "

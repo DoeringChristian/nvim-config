@@ -156,6 +156,7 @@ cmp.setup {
     sources = cmp.config.sources(
         {
             { name = "nvim_lsp" },
+            { name = 'nvim_lsp_signature_help' },
             { name = "luasnip" },
         },
         {
@@ -213,3 +214,13 @@ cmp.setup {
         disallow_fuzzy_matching = false,
     },
 }
+
+
+cmp.setup.cmdline('/', {
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp_document_symbol' }
+    }, {
+        { name = 'buffer' }
+    }),
+    mapping = cmp.mapping.preset.cmdline(),
+})

@@ -18,6 +18,12 @@ require 'luasnip.loaders.from_lua'.lazy_load {
 vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
 
 ls.config.setup {
+    -- This one is cool cause if you have dynamic snippets, it updates as you type!
+    updateevents = "TextChanged,TextChangedI",
+
+    -- Autosnippets:
+    enable_autosnippets = true,
+
     ext_opts = {
         [types.choiceNode] = {
             active = {

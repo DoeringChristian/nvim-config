@@ -80,9 +80,9 @@ local function replace_match(live)
 
 end
 
-local au_grp = vim.api.nvim_create_augroup("Editor", { clear = true })
+local au_grp = vim.api.nvim_create_augroup("LatexLiveEnd", { clear = true })
 vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
+    pattern = "*.tex",
     callback = function()
         replace_match(false)
     end,

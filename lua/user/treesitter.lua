@@ -66,6 +66,7 @@ treesitter.setup {
         "proto",
         "pug",
         "python",
+        "query",
         "r",
         "rasi",
         "regex",

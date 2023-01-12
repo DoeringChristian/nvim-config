@@ -96,6 +96,11 @@ _G.packer_plugins = {
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-clippy"] = {
+    loaded = true,
+    path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-clippy",
+    url = "https://github.com/vappolinario/cmp-clippy"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/doeringc/.local/share/nvim/site/pack/packer/start/cmp-cmdline",

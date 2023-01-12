@@ -63,6 +63,7 @@ return packer.startup(function(use)
     --use "hrsh7th/cmp-nvim-lsp-signature-help" -- Signature completions
     use "ray-x/lsp_signature.nvim" -- function signature completions
     use "f3fora/cmp-spell" -- vim spelling completions
+    use "vappolinario/cmp-clippy"
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine

@@ -147,6 +147,7 @@ cmp.setup {
                 buffer = "[Buffer]",
                 path = "[Path]",
                 cmp_pandoc = "[Pandoc]",
+                cmp_clippy = "[AI]",
                 rg = "[RipGrep]",
                 latex_symbols = "[LaTeX-Symbols]"
             })[entry.source.name]

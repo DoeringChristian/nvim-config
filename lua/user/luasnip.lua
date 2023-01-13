@@ -14,8 +14,8 @@ require 'luasnip.loaders.from_lua'.lazy_load {
     paths = snipdir .. '/lua'
 }
 
---vim.cmd [[command! LuaSnipEdit :lua require('luasnip.folders.from_snipmate').edit_snippet_files()]]
-vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
+vim.cmd [[command! LuaSnipEdit :lua require('luasnip.folders.from_snipmate').edit_snippet_files()]]
+--vim.cmd [[command! LuaSnipEdit :lua require("luasnip.loaders.from_lua").edit_snippet_files()]]
 
 ls.config.setup {
     -- This one is cool cause if you have dynamic snippets, it updates as you type!

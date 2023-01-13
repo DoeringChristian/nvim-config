@@ -60,7 +60,7 @@ vmap(">", ">gv")
 -- Move text up and down
 vmap('<A-j>', ':m .+1<CR>', "Move Line Down")
 vmap('<A-k>', ':m .-2<CR>', "Move Line Up")
-vmap("p", '"_dP')
+--vmap("p", '"_dP')
 
 -- Visual Block --
 -- Move text up and down

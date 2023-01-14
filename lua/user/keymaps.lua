@@ -216,3 +216,7 @@ map("x", "L", '<cmd>STSSelectChildNode<cr>', "Child Node")
 -- Swapping Nodes in Visual Mode
 map("x", "<A-j>", '<cmd>STSSwapNextVisual<cr>', "Swap with Next Node")
 map("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', "Swap with Previous Node")
+
+-- Leap search for operator pending mode (remove if causes issues)
+map("o", "s", "<Plug>(leap-forward)")
+map("o", "S", "<Plug>(leap-backward)")

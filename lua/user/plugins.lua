@@ -258,6 +258,9 @@ return packer.startup(function(use)
         requires = 'anuvyklack/keymap-amend.nvim',
     }
 
+    -- Comment.nvim
+    use "numToStr/Comment.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

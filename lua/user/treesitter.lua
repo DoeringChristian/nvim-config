@@ -112,8 +112,3 @@ treesitter.setup {
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
-    command = "normal zR",
-    pattern = "*"
-})

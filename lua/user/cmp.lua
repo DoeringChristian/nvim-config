@@ -165,7 +165,7 @@ cmp.setup {
         {
             { name = "path" },
             { name = "buffer", keyword_length = 5 },
-            { name = "spell" },
+            --{ name = "spell" },
         }
     ),
     confirm_opts = {

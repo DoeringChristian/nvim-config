@@ -30,12 +30,11 @@ local configs = {
 
         vim.g.gruvbox_material_show_eob = 'false'
 
-        vim.cmd[[colorscheme gruvbox-material]]
-
+        vim.cmd [[colorscheme gruvbox-material]]
     end
 }
 
 -- Global highlights
-vim.cmd[[hi IndentBlanklineIndent guifg = #282828]]
+vim.cmd [[hi IndentBlanklineIndent guifg = #282828]]
 
 configs[colorscheme]()

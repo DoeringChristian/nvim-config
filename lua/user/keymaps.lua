@@ -23,7 +23,7 @@ local function imap(keys, func, desc)
 end
 
 --Remap space as leader key
-map("", "<Space>", "<Nop>")
+-- map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

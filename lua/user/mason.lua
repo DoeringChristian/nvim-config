@@ -71,7 +71,6 @@ local function lsp_default_handler(server_name)
     end
 
     lspconfig[server_name].setup(config)
-
 end
 
 mason_lspconfig.setup_handlers {
@@ -108,7 +107,7 @@ mason_nvim_dap.setup_handlers {
 
 
         -- Keep original functionality of `automatic_setup = true`
-        require 'mason-nvim-dap.automatic_setup' (source_name)
+        require 'mason-nvim-dap.automatic_setup'(source_name)
     end,
     python = function(source_name)
         local dap = require 'dap'

@@ -1,7 +1,7 @@
 return {
     'tpope/vim-sleuth',
     "tpope/vim-surround",
-    { "jbyuki/venn.nvim",        opts = {} },
+    "jbyuki/venn.nvim",
     { "numToStr/Comment.nvim",   opts = {} },
     { "lewis6991/gitsigns.nvim", opts = {} },
     { "folke/which-key.nvim",    opts = {} },

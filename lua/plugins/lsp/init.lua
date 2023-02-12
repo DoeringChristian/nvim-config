@@ -25,9 +25,9 @@ function enable_formatting(bufnr)
 end
 
 return {
-    "ray-x/lsp_signature.nvim", -- function signature completions
     "neovim/nvim-lspconfig",
     dependencies = {
+        "ray-x/lsp_signature.nvim", -- function signature completions
         "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         "j-hui/fidget.nvim",

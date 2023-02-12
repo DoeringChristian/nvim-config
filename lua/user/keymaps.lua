@@ -1,25 +1,25 @@
 -- Declare functions for mapping
 local function map(mode, keys, func, desc)
-    if desc then
-        desc = desc
-    end
-    vim.keymap.set(mode, keys, func, { noremap = true, silent = true, desc = desc })
+        if desc then
+                desc = desc
+        end
+        vim.keymap.set(mode, keys, func, { noremap = true, silent = true, desc = desc })
 end
 
 local function nmap(keys, func, desc)
-    map('n', keys, func, desc)
+        map('n', keys, func, desc)
 end
 
 local function vmap(keys, func, desc)
-    map('v', keys, func, desc)
+        map('v', keys, func, desc)
 end
 
 local function xmap(keys, func, desc)
-    map('x', keys, func, desc)
+        map('x', keys, func, desc)
 end
 
 local function imap(keys, func, desc)
-    map('i', keys, func, desc)
+        map('i', keys, func, desc)
 end
 
 --Remap space as leader key
@@ -154,9 +154,9 @@ nnoremap <C--> :silent! let &guifont = substitute(
 
 -- Dap --
 nmap('<F5>', function()
-    require 'hydra'.spawn('dap-hydra')
-    require 'dapui'.open()
-    require 'dap'.continue()
+        require 'hydra'.spawn('dap-hydra')
+        require 'dapui'.open()
+        require 'dap'.continue()
 end, "Debug Start")
 --nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
 nmap('<F6>', require 'dapui'.toggle)
@@ -170,37 +170,37 @@ nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")
 -- Syntax Tree Surfer --
 local ok, sts = pcall(require, "syntax-tree-surfer")
 if not ok then
-    return
+        return
 end
 
 -- Syntax Tree Surfer V2 Mappings
 -- Targeted Jump with virtual_text
 nmap("gv", function() -- only jump to variable_declarations
-    sts.targeted_jump({ "variable_declaration" })
+        sts.targeted_jump({ "variable_declaration" })
 end, "[G]oto [V]ariable Declaration")
 nmap("gfn", function() -- only jump to functions
-    sts.targeted_jump({ "function", "arrrow_function", "function_definition" })
-    --> In this example, the Lua language schema uses "function",
-    --  when the Python language uses "function_definition"
-    --  we include both, so this keymap will work on both languages
+        sts.targeted_jump({ "function", "arrrow_function", "function_definition" })
+        --> In this example, the Lua language schema uses "function",
+        --  when the Python language uses "function_definition"
+        --  we include both, so this keymap will work on both languages
 end, "[G]oto [F]unction")
 nmap("gif", function() -- only jump to if_statements
-    sts.targeted_jump({ "if_statement" })
+        sts.targeted_jump({ "if_statement" })
 end, "[G]oto [If] Statement")
 nmap("gfo", function() -- only jump to for_statements
-    sts.targeted_jump({ "for_statement" })
+        sts.targeted_jump({ "for_statement" })
 end, "[G]oto [Fo]r statement")
 nmap("gj", function() -- jump to all that you specify
-    sts.targeted_jump({
-        "function",
-        "if_statement",
-        "else_clause",
-        "else_statement",
-        "elseif_statement",
-        "for_statement",
-        "while_statement",
-        "switch_statement",
-    })
+        sts.targeted_jump({
+            "function",
+            "if_statement",
+            "else_clause",
+            "else_statement",
+            "elseif_statement",
+            "for_statement",
+            "while_statement",
+            "switch_statement",
+        })
 end, "[G]oto target")
 
 -- Visual Selection from Normal Mode

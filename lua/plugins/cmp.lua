@@ -3,6 +3,7 @@ return {
     version = false,
     event = "InsertEnter",
     dependencies = {
+        "L3MON4D3/LuaSnip",
         "hrsh7th/cmp-buffer", -- buffer completions
         "hrsh7th/cmp-path", -- path completions
         "hrsh7th/cmp-cmdline", -- cmdline completions
@@ -12,6 +13,7 @@ return {
     },
     opts = function()
         local cmp = require "cmp"
+        local luasnip = require "luasnip"
 
         local check_backspace = function()
             local col = vim.fn.col "." - 1

@@ -25,12 +25,12 @@ function enable_formatting(bufnr)
 end
 
 return {
-    "ray-x/lsp_signature.nvim", -- function signature completions
     "neovim/nvim-lspconfig",
     dependencies = {
         "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         "j-hui/fidget.nvim",
+        "ray-x/lsp_signature.nvim", -- function signature completions
     },
     config = function()
         -- NOTE: lsp settings are loaded by mason (rust-analyzer is handled by rust-tools)
@@ -44,9 +44,8 @@ return {
         vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]] --wgsl fix
 
         --require "user.lsp.lsp-installer"
-        require "user.lsp.handlers".setup()
+        require "plugins.lsp.handlers".setup()
 
         require "fidget".setup {}
     end
 }
-

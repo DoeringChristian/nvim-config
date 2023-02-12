@@ -1,3 +1,4 @@
+require "user.autocmds"
 require "user.impatient"
 require "user.options"
 require "user.plugins"

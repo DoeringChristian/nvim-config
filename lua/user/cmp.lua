@@ -179,7 +179,7 @@ cmp.setup {
         ghost_text = true,
         native_menu = false,
     },
-    sorting_ = {
+    sorting = {
         comparators = {
             cmp.config.compare.score,
             cmp.config.compare.offset,

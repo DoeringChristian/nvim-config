@@ -116,8 +116,8 @@ nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require
     "[P]andoc Reenable [V]irtual Equations")
 
 -- Align --
-map("x", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
-map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
+-- map("x", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
+-- map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
 
 -- Leap --
 nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")

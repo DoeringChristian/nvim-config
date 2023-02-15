@@ -1,7 +1,4 @@
-function ESCAPE_STATUS()
-    local ok, m = pcall(require, "better_escape")
-    return ok and m.waiting and '✺' or ""
-end
+local icons = require "user.icons"
 
 return {
     "nvim-lualine/lualine.nvim",
@@ -10,7 +7,7 @@ return {
             icons_enabled = true,
             --theme = 'gruvbox_dark',
             theme = 'gruvbox-material',
-            component_separators = { left = '\\', right = '\\' },
+            component_separators = { left = '╲', right = '╲' },
             section_separators = { left = '◣', right = '◥' },
             disabled_filetypes = { "NvimTree", "aerial" },
             always_divide_middle = true,
@@ -21,16 +18,29 @@ return {
             lualine_b = {
                 'branch',
                 'diff',
-                'diagnostics',
+                {
+                    'diagnostics',
+                    symbols = {
+                        error = icons.diagnostics.Error,
+                        warn = icons.diagnostics.Warn,
+                        info = icons.diagnostics.Info,
+                        hint = icons.diagnostics.Hint,
+                    }
+                },
             },
             lualine_c = {
                 {
                     'filename',
                     file_status = true,
                     path = 1,
+                },
+                {
+                    function()
+                        return require "nvim-navic".get_location()
+                    end
                 }
             },
-            lualine_x = { 'ESCAPE_STATUS()', 'encoding', 'fileformat', 'filetype' },
+            lualine_x = { 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
         },

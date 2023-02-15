@@ -1,5 +1,5 @@
 return {
-    'tpope/vim-sleuth',
+    "tpope/vim-sleuth",
     "tpope/vim-surround",
     "jbyuki/venn.nvim",
     { "numToStr/Comment.nvim",   opts = {} },

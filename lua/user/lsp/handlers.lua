@@ -1,12 +1,13 @@
 local M = {}
+local icons = require "user.icons"
 
 -- This function configures the common lsp frontend
 M.setup = function()
     local signs = {
-        { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn",  text = "" },
-        { name = "DiagnosticSignHint",  text = "" },
-        { name = "DiagnosticSignInfo",  text = "" },
+        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+        { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warn },
+        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
     }
 
     for _, sign in ipairs(signs) do
@@ -43,14 +44,14 @@ M.setup = function()
 
     -- Configure hover window
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
+        border = "rounded",
+    })
     --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
     -- Configure signatureHelp handlers
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = "rounded",
-        })
+        border = "rounded",
+    })
 
     -- Configure Telescope for lsp handlers
 

@@ -19,7 +19,7 @@ return {
             ensure_installed = {
                 'rust_analyzer',
                 'ltex',
-                'sumneko_lua',
+                'lua-language-server',
                 'pyright',
                 'texlab',
             }
@@ -86,7 +86,7 @@ return {
 
 
                 -- Keep original functionality of `automatic_setup = true`
-                require 'mason-nvim-dap.automatic_setup'(source_name)
+                require 'mason-nvim-dap.automatic_setup' (source_name)
             end,
             python = function(source_name)
                 local dap = require 'dap'

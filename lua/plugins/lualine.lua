@@ -37,6 +37,9 @@ return {
                 {
                     function()
                         return require "nvim-navic".get_location()
+                    end,
+                    cond = function()
+                        return require "nvim-navic".is_available()
                     end
                 }
             },

@@ -3,15 +3,9 @@ local icons = require "user.icons"
 
 -- This function configures the common lsp frontend
 M.setup = function()
-    local signs = {
-        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warn },
-        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
-    }
-
-    for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    for name, icon in pairs(icons.diagnostics) do
+        name = "DiagnosticSign" .. name
+        vim.fn.sign_define(name, { texthl = name, text = icon, numhl = "" })
     end
 
     vim.g.code_action_menu_window_border = "rounded"
@@ -55,23 +49,23 @@ M.setup = function()
 
     -- Configure Telescope for lsp handlers
 
-    vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
+    vim.lsp.handlers["textDocument/references"] = require "telescope.builtin".lsp_references
 
-    vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
+    vim.lsp.handlers["textDocument/definition"] = require "telescope.builtin".lsp_definitions
 
-    vim.lsp.handlers["textDocument/implementation"] = require("telescope.builtin").lsp_implementations
+    vim.lsp.handlers["textDocument/implementation"] = require "telescope.builtin".lsp_implementations
 
-    vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
+    vim.lsp.handlers["textDocument/documentSymbol"] = require "telescope.builtin".lsp_document_symbols
 
-    vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions
+    vim.lsp.handlers["textDocument/typeDefinition"] = require "telescope.builtin".lsp_type_definitions
 
-    vim.lsp.handlers["callHierarchy/incomingCalls"] = require("telescope.builtin").lsp_incoming_calls
+    vim.lsp.handlers["callHierarchy/incomingCalls"] = require "telescope.builtin".lsp_incoming_calls
 
-    vim.lsp.handlers["callHierarchy/outgoingCalls"] = require("telescope.builtin").lsp_outgoing_calls
+    vim.lsp.handlers["callHierarchy/outgoingCalls"] = require "telescope.builtin".lsp_outgoing_calls
 
-    vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
+    vim.lsp.handlers["textDocument/documentSymbol"] = require "telescope.builtin".lsp_document_symbols
 
-    vim.lsp.handlers["workspace/symbol"] = require("telescope.builtin").lsp_dynamic_workspace_symbols
+    vim.lsp.handlers["workspace/symbol"] = require "telescope.builtin".lsp_dynamic_workspace_symbols
 
 
     -- Set the background color of hover window to same as rest of document.
@@ -174,12 +168,6 @@ M.on_attach = function(client, bufnr)
     lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
 
-    -- Client dependent settings
-    if client.name == "tsserver" then
-        --client.resolved_capabilities.document_formatting = false
-        client.server_capabilities['document_formatting'] = false
-    end
-
     -- Auto format on safe (version dependent)
     if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and
         AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nil then
@@ -188,13 +176,22 @@ M.on_attach = function(client, bufnr)
     vim.notify("LSP Client: " .. client.name)
 end
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-    return
-end
+M.config = function(server_name)
+    local config = {
+        capabilities = require "cmp_nvim_lsp".default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        on_attach = M.on_attach,
+    }
 
-M.capabilities = cmp_nvim_lsp.default_capabilities()
-M.capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), M.capabilities)
---print(dump(M.capabilities))
+    -- Load settings from usr/lsp/settings/$server_name
+    local ok, server_config = pcall(require, "user.lsp.settings." .. server_name)
+
+
+    -- Deep extend settings with custom lsp server settings
+    if ok then
+        config = vim.tbl_deep_extend("force", config, server_config)
+    end
+
+    return config
+end
 
 return M

@@ -46,6 +46,10 @@ return {
         --require "user.lsp.lsp-installer"
         require "user.lsp.handlers".setup()
 
-        require "fidget".setup {}
+        require "fidget".setup {
+            text = {
+                spinner = "pipe"
+            }
+        }
     end
 }

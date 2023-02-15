@@ -120,7 +120,7 @@ nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require
 -- map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
 
 -- Leap --
-nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")
+--nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")
 
 -- Surround --
 -- Need to remap surround.vim mappings to not conflict with leap.nvmi

@@ -1,6 +1,13 @@
 return {
     "stevearc/dressing.nvim",
     lazy = true,
+    opts = {
+        select = {
+            telescope = {
+                initial_mode = "normal",
+            }
+        }
+    },
     init = function()
         ---@diagnostic disable-next-line: duplicate-set-field
         vim.ui.select = function(...)

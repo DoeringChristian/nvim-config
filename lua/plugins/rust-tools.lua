@@ -1,5 +1,8 @@
 return {
     "simrat39/rust-tools.nvim",
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp", -- lsp completions
+    },
     config = function()
         local rust_tools = require "rust-tools"
         --local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
@@ -51,12 +54,7 @@ return {
                 adapter = require('rust-tools.dap').get_codelldb_adapter(
                     codelldb_path, liblldb_path)
             },
-            server = {
-                on_attach = require("user.lsp.handlers").on_attach,
-                capabilities = vim.tbl_deep_extend("force", require "user.lsp.handlers".capabilities,
-                    require "user.lsp.settings.rust_analyzer".capabilities),
-                settings = require "user.lsp.settings.rust_analyzer".settings,
-            }
+            server = require "user.lsp.handlers".config("rust_analyzer"),
         })
     end
 }

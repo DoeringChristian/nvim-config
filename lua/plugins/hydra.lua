@@ -49,39 +49,39 @@ return {
         local dap = require 'dap'
 
         local dap_hydra = Hydra({
-                hint = hint,
-                config = {
-                    color = 'pink',
-                    invoke_on_body = true,
-                    hint = {
-                        position = 'bottom',
-                        border = 'rounded'
-                    },
-                    desc = 'Hydra: Debugger',
+            hint = hint,
+            config = {
+                color = 'pink',
+                invoke_on_body = true,
+                hint = {
+                    position = 'bottom',
+                    border = 'rounded'
                 },
-                name = 'dap',
-                mode = { 'n', 'x' },
-                body = '<leader>dh',
-                heads = {
-                    { 'J', dap.step_over,     { silent = true } },
-                    { 'L', dap.step_into,     { silent = true } },
-                    { 'H', dap.step_out,      { silent = true } },
-                    { 'c', dap.run_to_cursor, { silent = true } },
-                    { 'r', dap.continue,      { silent = true } },
-                    --{ 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
-                    { 'x', function()
-                        dap.disconnect({ terminateDebuggee = false })
-                        dap.close()
-                        require 'dapui'.toggle() -- Close causes problems with NvimTree
-                        require 'dapui'.close()
-                    end, { exit = true, silent = true } },
-                    { 'X', dap.close,                                                          { silent = true } },
-                    { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
-                    { 'b', dap.toggle_breakpoint,                                              { silent = true } },
-                    { 'K', ":lua require('dap.ui.widgets').hover()<CR>",                       { silent = true } },
-                    { 'q', nil,                                                                { exit = true, nowait = true } },
-                }
-            })
+                desc = 'Hydra: Debugger',
+            },
+            name = 'dap',
+            mode = { 'n', 'x' },
+            body = '<leader>dh',
+            heads = {
+                { 'J', dap.step_over,     { silent = true } },
+                { 'L', dap.step_into,     { silent = true } },
+                { 'H', dap.step_out,      { silent = true } },
+                { 'c', dap.run_to_cursor, { silent = true } },
+                { 'r', dap.continue,      { silent = true } },
+                --{ 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
+                { 'x', function()
+                    dap.disconnect({ terminateDebuggee = false })
+                    dap.close()
+                    require 'dapui'.toggle() -- Close causes problems with NvimTree
+                    require 'dapui'.close()
+                end, { exit = true, silent = true } },
+                { 'X', dap.close,                                                          { silent = true } },
+                { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
+                { 'b', dap.toggle_breakpoint,                                              { silent = true } },
+                { 'K', ":lua require('dap.ui.widgets').hover()<CR>",                       { silent = true } },
+                { 'q', nil,                                                                { exit = true, nowait = true } },
+            }
+        })
         Hydra.spawn = function(head)
             if head == 'dap-hydra' then
                 dap_hydra:activate()

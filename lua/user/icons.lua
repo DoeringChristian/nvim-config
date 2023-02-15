@@ -31,5 +31,13 @@ return {
         Event = "",
         Operator = "",
         TypeParameter = "",
+    },
+    todo = {
+        todo = " ",
+        hack = " ",
+        warn = " ",
+        perf = " ",
+        note = " ",
+        test = "⏲ ",
     }
 }

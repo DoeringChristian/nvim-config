@@ -1,4 +1,4 @@
-local util = require"util"
+local util = require "util"
 
 return {
     "SmiteshP/nvim-navic",
@@ -16,7 +16,7 @@ return {
             separator = " ",
             --highlight = true,
             depth_limit = 5,
-            icons = require"user.icons".kinds,
+            icons = require "user.icons".kinds,
         }
     end,
 }

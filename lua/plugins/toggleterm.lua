@@ -1,8 +1,8 @@
 return {
     "akinsho/toggleterm.nvim",
     config = function()
-        local toggleterm = require"toggleterm"
-        
+        local toggleterm = require "toggleterm"
+
         toggleterm.setup {
             open_mapping = [[<C-t>]],
             terminal_mappings = true,
@@ -46,62 +46,62 @@ return {
         -- Set Custom terminals.
         ----------------------------------
         local gitui = Terminal:new({
-                cmd = "gitui",
-                hidden = false,
-            })
+            cmd = "gitui",
+            hidden = false,
+        })
         function _GITUI_TOGGLE()
             gitui:toggle()
         end
 
         local bottom = Terminal:new({
-                cmd = "btm",
-                hidden = false,
-                on_open = function(term)
-                    vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
-                end
-            })
+            cmd = "btm",
+            hidden = false,
+            on_open = function(term)
+                vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
+            end
+        })
         function _BOTTOM_TOGGLE()
             bottom:toggle()
         end
 
         local lazygit = Terminal:new({
-                cmd = "lazygit",
-                hidden = false,
-                on_open = function(term)
-                    -- remove escape for lazygit
-                    vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
-                end
-            })
+            cmd = "lazygit",
+            hidden = false,
+            on_open = function(term)
+                -- remove escape for lazygit
+                vim.api.nvim_buf_del_keymap(term.bufnr, "t", "<esc>")
+            end
+        })
         function _LAZYGIT_TOGGLE()
             lazygit:toggle()
         end
 
         local dust = Terminal:new({
-                cmd = "dust",
-                hidden = false,
-                close_on_exit = false,
-            })
+            cmd = "dust",
+            hidden = false,
+            close_on_exit = false,
+        })
         function _DUST_TOGGLE()
             dust:toggle()
         end
 
         local htop = Terminal:new({
-                cmd = "htop",
-                hidden = false,
-            })
+            cmd = "htop",
+            hidden = false,
+        })
         function _HTOP_TOGGLE()
             htop:toggle()
         end
 
         local cargo_run_trace = Terminal:new({
-                cmd = "clear && export RUST_BACKTRACE=1 && export RUST_LOG=trace && cargo run",
-                hidden = false,
-                close_on_exit = false,
-                on_open = function(term)
-                    -- remove escape for lazygit
-                    --vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "iq")
-                end
-            })
+            cmd = "clear && export RUST_BACKTRACE=1 && export RUST_LOG=trace && cargo run",
+            hidden = false,
+            close_on_exit = false,
+            on_open = function(term)
+                -- remove escape for lazygit
+                --vim.api.nvim_buf_set_keymap(term.bufnr, "t", "q", "iq")
+            end
+        })
         function _CARGO_RUN_TRACE_TOGGLE()
             cargo_run_trace:toggle()
         end

@@ -58,6 +58,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "74c7d28cb50b0713c881ef69bcb6cdd77d8907d1" },
   "toggleterm.nvim": { "branch": "main", "commit": "19aad0f41f47affbba1274f05e3c067e6d718e1e" },
   "venn.nvim": { "branch": "main", "commit": "c114563960b8fb1197695d42798d1f3e7190b798" },
+  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "which-key.nvim": { "branch": "main", "commit": "5224c261825263f46f6771f1b644cae33cd06995" },

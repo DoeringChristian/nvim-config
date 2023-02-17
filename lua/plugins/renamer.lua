@@ -4,6 +4,7 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
+    event = "VeryLazy",
     config = function()
         local renamer = require "renamer"
         local mappings_utils = require('renamer.mappings.utils')

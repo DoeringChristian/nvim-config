@@ -1,6 +1,6 @@
 return {
     "luisiacc/gruvbox-baby",
-    priority = 100,
+    priority = 1000,
     config = function()
         local colorscheme = 'gruvbox-baby'
 

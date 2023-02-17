@@ -3,6 +3,15 @@ return {
     keys = {
         { "<leader>tt", "<cmd>lua _TERM_TOGGLE()<cr>",    desc = "[T]oggle [T]erminal" },
         { "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "[T]erminal [L]azyGit" },
+        { "<leader>tp", "<cmd>lua _IPYTHON_TOGGLE()<cr>", desc = "[T]erminal [P]ython" },
+    },
+    cmd = {
+        "ToggleTerm",
+        "TermExec",
+        "ToggleTermToggleAll",
+        "ToggleTermSendCurrentLine",
+        "ToggleTermSendVisualLines",
+        "ToggleTermSendVisualSelection",
     },
     config = function()
         local toggleterm = require "toggleterm"
@@ -53,6 +62,24 @@ return {
         }
         function _LAZYGIT_TOGGLE()
             lazygit:toggle()
+        end
+
+        -- TODO: ipython
+        local ipython = Terminal:new {
+            cmd = "python -m IPython",
+            hidden = true,
+            direction = "horizontal",
+        }
+        _IPYTHON = ipython
+        function _IPYTHON_TOGGLE()
+            ipython:toggle()
+        end
+
+        function _IPYTHON_SEND_CURRENT_LINE()
+            if not ipython:is_open() then
+                ipython:toggle()
+            end
+            vim.cmd("ToggleTermSendCurrentLine " .. ipython.id .. " open=0")
         end
     end
 }

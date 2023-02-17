@@ -98,15 +98,6 @@ nmap("<C-f>", "<cmd>NvimTreeToggle<CR>", "Toggle file manager")
 -- Hop --
 map({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", "Jump to [W]ord")
 
--- Terminal --
-nmap('<leader>tt', '<cmd>ToggleTerm<CR>', "[T]oggle [T]erminal")
-nmap('<leader>tg', '<cmd>lua _GITUI_TOGGLE()<CR>', "[T]erminal [G]it UI")
-nmap('<leader>tb', '<cmd>lua _BOTTOM_TOGGLE()<CR>', "[T]erminal [B]ottom (Taks Manager)")
-nmap('<leader>tl', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', "[T]erminal [L]azyGit")
-nmap('<leader>td', '<cmd>lua _DUST_TOGGLE()<CR>', "[T]erminal [D]ust")
-nmap('<leader>th', '<cmd>lua _HTOP_TOGGLE()<CR>', "[T]erminal [H]TOP (Taks Manager)")
-nmap('<leader>tct', '<cmd>lua _CARGO_RUN_TRACE_TOGGLE()<CR>', "[T]erminal [C]argo Run with [T]race")
-
 -- Nabla --
 -- Pandoc --
 nmap('<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', "[P]andoc [R]ender")

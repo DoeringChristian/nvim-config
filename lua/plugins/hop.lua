@@ -1,6 +1,9 @@
 return {
     "phaazon/hop.nvim",
     branch = "v2",
+    keys = {
+        { "<leader>w", "<cmd>HopWord<CR>", mode = { "n", "v" }, desc = "Jump to [W]ord" },
+    },
     config = function()
         local hop = require "hop"
         -- Hop highlight

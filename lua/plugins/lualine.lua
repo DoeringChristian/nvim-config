@@ -2,6 +2,9 @@ local icons = require "user.icons"
 
 return {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "folke/noice.nvim",
+    },
     opts = {
         options = {
             icons_enabled = true,
@@ -14,7 +17,18 @@ return {
             globalstatus = false,
         },
         sections = {
-            lualine_a = { 'mode' },
+            lualine_a = {
+                'mode',
+                {
+                    function()
+                        return require "noice".api.statusline.mode.get()
+                    end,
+                    cond = function()
+                        return require "noice".api.statusline.mode.has()
+                    end,
+                    color = { fg = "#ff9e64" },
+                }
+            },
             lualine_b = {
                 'branch',
                 'diff',

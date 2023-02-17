@@ -79,32 +79,32 @@ nmap("<leader><Tab>", "<cmd>Telescope live_grep<cr>", "Live Grep")
 
 -- Yanky --
 -- paste
-vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
-vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
-vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
-vim.keymap.set("x", "P", "<Plug>(YankyPutBefore)", {})
-vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
-vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
-vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
-vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
+-- vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
+-- vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
+-- vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
+-- vim.keymap.set("x", "P", "<Plug>(YankyPutBefore)", {})
+-- vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
+-- vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
+-- vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
+-- vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
 
 -- cycle navigation
-nmap("<c-n>", "<Plug>(YankyCycleBackward)", "Next Paste Element")
-nmap("<c-p>", "<Plug>(YankyCycleForward)", "Previous Paste Element")
+-- nmap("<c-n>", "<Plug>(YankyCycleBackward)", "Next Paste Element")
+-- nmap("<c-p>", "<Plug>(YankyCycleForward)", "Previous Paste Element")
 
 -- NvimTree --
-nmap("<C-f>", "<cmd>NvimTreeToggle<CR>", "Toggle file manager")
+--nmap("<C-f>", "<cmd>NvimTreeToggle<CR>", "Toggle file manager")
 
 -- Hop --
-map({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", "Jump to [W]ord")
+-- map({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", "Jump to [W]ord")
 
 -- Nabla --
 -- Pandoc --
-nmap('<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', "[P]andoc [R]ender")
-nmap('<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', "[P]andoc [M]ake Document")
-nmap('<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', "[P]andoc Show [E]quations")
-nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>',
-    "[P]andoc Reenable [V]irtual Equations")
+-- nmap('<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', "[P]andoc [R]ender")
+-- nmap('<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', "[P]andoc [M]ake Document")
+-- nmap('<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', "[P]andoc Show [E]quations")
+-- nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>',
+--     "[P]andoc Reenable [V]irtual Equations")
 
 -- Align --
 -- map("x", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
@@ -144,16 +144,16 @@ nnoremap <C--> :silent! let &guifont = substitute(
 ]]
 
 -- Dap --
-nmap('<F5>', function()
-    require 'hydra'.spawn('dap-hydra')
-    require 'dapui'.open()
-    require 'dap'.continue()
-end, "Debug Start")
---nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
-nmap('<F6>', require 'dapui'.toggle)
-nmap('<F9>', require 'dap'.toggle_breakpoint)
-nmap('<F10>', "<cmd>lua require'dap'.step_over()<cr>")
-nmap('<F11>', "<cmd>lua require'dap'.step_into()<cr>")
+-- nmap('<F5>', function()
+--     require 'hydra'.spawn('dap-hydra')
+--     require 'dapui'.open()
+--     require 'dap'.continue()
+-- end, "Debug Start")
+-- --nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
+-- nmap('<F6>', require 'dapui'.toggle)
+-- nmap('<F9>', require 'dap'.toggle_breakpoint)
+-- nmap('<F10>', "<cmd>lua require'dap'.step_over()<cr>")
+-- nmap('<F11>', "<cmd>lua require'dap'.step_into()<cr>")
 
 -- LuaSnippet --
 nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")

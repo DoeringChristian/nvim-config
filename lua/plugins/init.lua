@@ -6,11 +6,8 @@ return {
     { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
     { "numToStr/Comment.nvim",          opts = {} },
     { "lewis6991/gitsigns.nvim",        opts = {} },
-    { "folke/which-key.nvim",           opts = {} },
     { "akinsho/toggleterm.nvim",        opts = {} },
-    { "echasnovski/mini.align", version = false, config = function()
-        require('mini.align').setup {}
-    end },
+    { "ray-x/lsp_signature.nvim",       config = { noice = true } },
     {
         "klen/nvim-config-local",
         config = function()

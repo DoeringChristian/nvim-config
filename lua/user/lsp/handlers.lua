@@ -36,7 +36,7 @@ M.setup = function()
     vim.o.updatetime = 250
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable = false})]]
 
-    -- Configure hover window
+    -- Configure hover window NOTE: Gets overriden by noice.nvim
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
     })
@@ -73,6 +73,7 @@ M.setup = function()
         hi NormalFloat guibg = Normal
         hi FloatBorder guibg = Normal
     ]]
+    vim.notify("lsp")
 end
 
 local function lsp_highlight_document(client)

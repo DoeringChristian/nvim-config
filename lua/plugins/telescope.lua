@@ -7,6 +7,9 @@ return {
         "nvim-telescope/telescope-ui-select.nvim",
         "gbprod/yanky.nvim",
     },
+    keys = {
+        { "<leader><Tab>", "<cmd>Telescope live_grep<cr>", desc = "Live Greph" },
+    },
     config = function()
         local telescope = require "telescope"
         local plenary = require "plenary"

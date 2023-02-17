@@ -7,6 +7,22 @@ return {
         "nvim-telescope/telescope-dap.nvim",
         "jayp0521/mason-nvim-dap.nvim",
     },
+    keys = {
+        { "<F5>", function()
+            require 'hydra'.spawn('dap-hydra')
+            require 'dapui'.open()
+            require 'dap'.continue()
+        end, desc = "Debug Start" },
+        { "<F6>", function()
+            require "dapui".toggle()
+        end, desc = "Toggle Debug Interface" },
+        { "<leader>di", function()
+            require "dapui".toggle()
+        end, desc = "Toggle Debug Interface" },
+        { "<F9>", function()
+            require "dap".toggle_breakpoint()
+        end, desc = "Toggle Breakpoint" },
+    },
     config = function()
         local dap = require "dap"
         local dapui = require "dapui"

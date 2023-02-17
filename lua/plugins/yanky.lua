@@ -3,10 +3,19 @@ return {
     dependencies = {
         "nvim-telescope/telescope.nvim",
     },
+    event = "VeryLazy",
+    keys = {
+        { "p",     "<Plug>(YankyPutAfter)",      mode = { "n", "x" }, desc = "[P]aste After" },
+        { "P",     "<Plug>(YankyPutBefore)",     mode = { "n", "x" }, desc = "[P]aste Before" },
+        { "gp",    "<Plug>(YankyGPutAfter)",     mode = { "n", "x" }, desc = "[G]oto end [P]aste After" },
+        { "gP",    "<Plug>(YankyGPutBefore)",    mode = { "n", "x" }, desc = "[G]oto end [P]aste Before" },
+        { "<c-n>", "<Plug>(YankyCycleBackward)", mode = "n",          desc = "Next Paste Element" },
+        { "<c-p>", "<Plug>(YankyCycleForward)",  mode = "n",          desc = "Previous Paste Element" },
+    },
     config = function()
         local yanky = require "yanky"
 
-        local mapping = require("yanky.telescope.mapping")
+        local mapping = require "yanky.telescope.mapping"
 
         yanky.setup({
             ring = {

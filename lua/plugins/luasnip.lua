@@ -47,7 +47,6 @@ return {
             require 'luasnip.loaders'.edit_snippet_files {
                 format = format_snipmate,
                 edit = function(file)
-                    vim.notify("test")
                     vim.cmd("vsplit " .. file)
                 end
             }

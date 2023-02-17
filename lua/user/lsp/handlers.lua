@@ -73,7 +73,6 @@ M.setup = function()
         hi NormalFloat guibg = Normal
         hi FloatBorder guibg = Normal
     ]]
-    vim.notify("lsp")
 end
 
 local function lsp_highlight_document(client)

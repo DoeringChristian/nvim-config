@@ -6,6 +6,23 @@ return {
     },
     event = "VeryLazy",
     opts = {
+        routes = {
+            {
+                filter = {
+                    event = "msg_show",
+                    kind = "",
+                    find = "written",
+                },
+                view = "mini",
+            },
+            {
+                filter = {
+                    event = "msg_show",
+                    kind = "search_count",
+                },
+                opts = { skip = true },
+            },
+        },
         lsp = {
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

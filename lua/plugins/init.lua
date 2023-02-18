@@ -1,5 +1,5 @@
 return {
-    "jbyuki/venn.nvim",
+    { "jbyuki/venn.nvim",               event = "VeryLazy" },
     { "tpope/vim-sleuth",               event = "VeryLazy" },
     { "tpope/vim-surround",             event = "VeryLazy" },
     { "tpope/vim-repeat",               event = "VeryLazy" },

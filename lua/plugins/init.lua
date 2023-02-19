@@ -7,7 +7,7 @@ return {
     { "numToStr/Comment.nvim",          opts = {} },
     { "lewis6991/gitsigns.nvim",        opts = {} },
     { "akinsho/toggleterm.nvim",        opts = {} },
-    { "ray-x/lsp_signature.nvim",       config = { noice = true } },
+    { "ray-x/lsp_signature.nvim",       config = { noice = false } },
     {
         "klen/nvim-config-local",
         config = function()

@@ -20,7 +20,7 @@ return {
             ensure_installed = {
                 'rust_analyzer',
                 'ltex',
-                'lua-language-server',
+                'lua_ls',
                 'pyright',
                 'texlab',
             }

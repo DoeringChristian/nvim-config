@@ -37,10 +37,10 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- window navigation
-nmap("<C-h>", "<C-w>h", "Move to Buffer to the left")
-nmap("<C-j>", "<C-w>j", "Move to Buffer to the bottom")
-nmap("<C-k>", "<C-w>k", "Move to Buffer to the top")
-nmap("<C-l>", "<C-w>l", "Move to Buffer to the right")
+-- nmap("<C-h>", "<C-w>h", "Move to Buffer to the left")
+-- nmap("<C-j>", "<C-w>j", "Move to Buffer to the bottom")
+-- nmap("<C-k>", "<C-w>k", "Move to Buffer to the top")
+-- nmap("<C-l>", "<C-w>l", "Move to Buffer to the right")
 
 -- Resize with arrows
 nmap('<C-Up>', ':resize +2<CR>', "Increase vertical size of current Buffer")

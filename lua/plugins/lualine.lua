@@ -1,15 +1,5 @@
 local icons = require "user.icons"
 
-local ns = vim.api.nvim_create_namespace('showcmd_msg')
-local showcmd_msg
-vim.ui_attach(ns, { ext_messages = true }, function(event, ...)
-    --print(...)
-    if event == 'msg_showcmd' then
-        local content = ...
-        showcmd_msg = #content > 0 and content[1][2] or ''
-    end
-end)
-
 local function fg(name)
     return function()
         ---@type {foreground?:number}?
@@ -21,7 +11,7 @@ end
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
-        "folke/noice.nvim",
+        -- "folke/noice.nvim",
     },
     opts = {
         options = {
@@ -74,18 +64,18 @@ return {
                 }
             },
             lualine_x = {
-                -- stylua: ignore
-                {
-                    function() return require("noice").api.status.command.get() end,
-                    cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-                    color = fg("Statement")
-                },
-                -- stylua: ignore
-                {
-                    function() return require("noice").api.status.mode.get() end,
-                    cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-                    color = fg("Constant"),
-                },
+                -- -- stylua: ignore
+                -- {
+                --     function() return require("noice").api.status.command.get() end,
+                --     cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+                --     color = fg("Statement")
+                -- },
+                -- -- stylua: ignore
+                -- {
+                --     function() return require("noice").api.status.mode.get() end,
+                --     cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+                --     color = fg("Constant"),
+                -- },
                 'encoding', 'fileformat', 'filetype'
             },
             lualine_y = { 'progress' },

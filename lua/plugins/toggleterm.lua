@@ -29,12 +29,24 @@ return {
         local Terminal = require "toggleterm.terminal".Terminal
 
         function _G.set_terminal_keymaps()
-            local opts = { noremap = true }
+            local function map(mode, keys, func, desc)
+                if desc then
+                    desc = desc
+                end
+                vim.api.nvim_buf_set_keymap(0, mode, keys, func, { noremap = true, silent = true, desc = desc })
+            end
+
             -- Terminal Mode
-            vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts) -- go to normal mode with escape
-            vim.api.nvim_buf_set_keymap(0, 't', '<C-n>', [[<C-\><C-n>]], opts) -- go to normal mode with escape
+            map('t', '<Esc>', [[<C-\><C-n>]], "Exit Insert Mode") -- go to normal mode with escape
+            map('t', '<C-n>', [[<C-\><C-n>]], "Exit Insert Mode") -- go to normal mode with escape
             -- Normal Mode
-            vim.api.nvim_buf_set_keymap(0, 'n', '<esc>', "<cmd>close<CR>", opts) -- close terminal on escape
+            map('n', '<esc>', "<cmd>close<cr>", "Exit Terminal") -- close terminal on escape
+
+            -- Navigating out of Terminal:
+            map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")
+            map("t", "<C-j>", "<C-\\><C-N><C-w>j", "Move out of Terminal")
+            map("t", "<C-k>", "<C-\\><C-N><C-w>k", "Move out of Terminal")
+            map("t", "<C-l>", "<C-\\><C-N><C-w>l", "Move out of Terminal")
         end
 
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -45,7 +57,6 @@ return {
         local test = Terminal:new {
             hidden = true,
             on_open = function(term)
-                -- remove escape for lazygit
             end
         }
         function _TERM_TOGGLE()

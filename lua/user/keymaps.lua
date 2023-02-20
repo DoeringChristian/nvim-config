@@ -69,10 +69,10 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv", "Move Line Up")
 
 -- Terminal --
 -- Better terminal navigation
-map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")
-map("t", "<C-j>", "<C-\\><C-N><C-w>j", "Move out of Terminal")
-map("t", "<C-k>", "<C-\\><C-N><C-w>k", "Move out of Terminal")
-map("t", "<C-l>", "<C-\\><C-N><C-w>l", "Move out of Terminal")
+-- map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")
+-- map("t", "<C-j>", "<C-\\><C-N><C-w>j", "Move out of Terminal")
+-- map("t", "<C-k>", "<C-\\><C-N><C-w>k", "Move out of Terminal")
+-- map("t", "<C-l>", "<C-\\><C-N><C-w>l", "Move out of Terminal")
 
 -- Telescope --
 nmap("<leader><Tab>", "<cmd>Telescope live_grep<cr>", "Live Grep")

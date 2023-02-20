@@ -109,7 +109,7 @@ local function lsp_keymaps(client, bufnr)
     end
 
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-    nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+    -- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     -- LSP Goto functions prefixed with 'g'
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")

@@ -68,6 +68,15 @@ return {
         cmdline = {
             enabled = false, -- enables the Noice cmdline UI
         },
+        views = {
+            mini = {
+                position = {
+                    row = -2,
+                    col = "100%",
+                    -- col = 0,
+                },
+            }
+        },
     },
     -- stylua: ignore
     keys = {

@@ -128,18 +128,11 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
     vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
-    nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[D][i]agnostics")
+    nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
 
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    vim.api.nvim_buf_set_keymap(
-        bufnr,
-        "n",
-        "gl",
-        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-        opts
-    )
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
+    nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
+    nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
 
     -- Lsp keymaps

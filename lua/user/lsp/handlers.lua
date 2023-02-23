@@ -125,7 +125,6 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
 
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
-    vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
     nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
 

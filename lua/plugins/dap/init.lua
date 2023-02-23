@@ -13,6 +13,11 @@ return {
             require 'dapui'.open()
             require 'dap'.continue()
         end, desc = "Debug Start" },
+        { "<leader>db", function()
+            require 'hydra'.spawn('dap-hydra')
+            require 'dapui'.open()
+            require 'dap'.continue()
+        end, desc = "Debug Start" },
         { "<F6>", function()
             require "dapui".toggle()
         end, desc = "Toggle Debug Interface" },

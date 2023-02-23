@@ -123,7 +123,6 @@ local function lsp_keymaps(client, bufnr)
 
     -- LSP <leader> prefixed commands
     nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
-    vmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
 
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
     vmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")

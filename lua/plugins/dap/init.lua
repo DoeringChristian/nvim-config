@@ -124,10 +124,14 @@ return {
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
+                require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
+                require "nvim-tree".toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
+                require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
+                require "nvim-tree".toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end

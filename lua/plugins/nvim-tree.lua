@@ -1,11 +1,3 @@
-vim.api.nvim_create_autocmd("WinClosed", {
-    callback = function()
-        local winnr = tonumber(vim.fn.expand("<amatch>"))
-        vim.schedule_wrap(tab_win_closed(winnr))
-    end,
-    nested = true
-})
-
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
@@ -39,11 +31,10 @@ return {
                     min = vim.diagnostic.severity.WARN,
                     max = vim.diagnostic.severity.ERROR,
                 },
+            },
+            filters = {
+                dotfiles = true,
             }
-            -- diagnostic = {
-            --     enable = true,
-            --     show_on_dirs = true,
-            -- },
         }
     end
 }

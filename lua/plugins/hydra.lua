@@ -48,7 +48,7 @@ return {
 
         local dap = require 'dap'
 
-        local dap_hydra = Hydra({
+        _dap_hydra = Hydra({
             hint = hint,
             config = {
                 color = 'pink',
@@ -84,7 +84,7 @@ return {
         })
         Hydra.spawn = function(head)
             if head == 'dap-hydra' then
-                dap_hydra:activate()
+                _dap_hydra:activate()
             end
         end
 

@@ -9,12 +9,11 @@ return {
     },
     keys = {
         { "<F5>", function()
-            require 'hydra'.spawn('dap-hydra')
+            -- require 'hydra'.spawn('dap-hydra')
             require 'dapui'.open()
             require 'dap'.continue()
         end, desc = "Debug Start" },
         { "<leader>db", function()
-            require 'hydra'.spawn('dap-hydra')
             require 'dapui'.open()
             require 'dap'.continue()
         end, desc = "Debug Start" },
@@ -121,12 +120,15 @@ return {
                 }
             })
             dap.listeners.after.event_initialized["dapui_config"] = function()
+                _dap_hydra:activate()
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
+                _dap_hydra:exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
+                _dap_hydra:exit()
                 dapui.close()
             end
         end

@@ -13,7 +13,6 @@ local codelldb_path = extension_path .. "adapter/codelldb"
 local lldb_path = extension_path .. "lldb/bin/lldb"
 
 local function configure()
-
     local dap_breakpoint = {
         error = {
             text = "🟥",
@@ -38,7 +37,6 @@ local function configure()
     vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
     vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
     vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-
 end
 
 local function configure_exts()

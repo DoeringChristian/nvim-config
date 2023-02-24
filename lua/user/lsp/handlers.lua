@@ -12,10 +12,12 @@ M.setup = function()
 
     local config = {
         -- set virtual text
-        virtual_text = false,
+        virtual_text = {
+            severity = vim.diagnostic.severity.ERROR,
+        },
         -- show signs
         signs = {
-            active = signs,
+            priority = 5,
         },
         update_in_insert = true,
         underline = true,

@@ -2,7 +2,7 @@ return {
     "akinsho/bufferline.nvim",
     --tag = "v2.*",
     dependencies = {
-        "kyazdani42/nvim-web-devicons",
+        "nvim-tree/nvim-web-devicons",
     },
     opts = {
         options = {

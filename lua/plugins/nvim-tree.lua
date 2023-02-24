@@ -1,5 +1,13 @@
+vim.api.nvim_create_autocmd("WinClosed", {
+    callback = function()
+        local winnr = tonumber(vim.fn.expand("<amatch>"))
+        vim.schedule_wrap(tab_win_closed(winnr))
+    end,
+    nested = true
+})
+
 return {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
@@ -23,17 +31,19 @@ return {
                     },
                 },
             },
+            diagnostics = {
+                enable = true,
+                show_on_dirs = false,
+                show_on_open_dirs = true,
+                severity = {
+                    min = vim.diagnostic.severity.WARN,
+                    max = vim.diagnostic.severity.ERROR,
+                },
+            }
+            -- diagnostic = {
+            --     enable = true,
+            --     show_on_dirs = true,
+            -- },
         }
-
-        -- Autoclose
-        vim.api.nvim_create_autocmd("BufEnter", {
-            nested = true,
-            callback = function()
-                if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
-                    print("quit")
-                    vim.cmd "quit"
-                end
-            end
-        })
     end
 }

@@ -17,7 +17,7 @@ M.setup = function()
         },
         -- show signs
         signs = {
-            priority = 5,
+            priority = 8, -- Is 8 so that errors can overwrite debug breakpoints
         },
         update_in_insert = true,
         underline = true,
@@ -47,6 +47,14 @@ M.setup = function()
     -- Configure signatureHelp handlers
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
+    })
+
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Enable underline, use default values
+        underline = true,
+        -- Disable a feature
+        update_in_insert = false,
     })
 
     -- Configure Telescope for lsp handlers

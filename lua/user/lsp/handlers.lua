@@ -12,9 +12,10 @@ M.setup = function()
 
     local config = {
         -- set virtual text
-        virtual_text = {
-            severity = vim.diagnostic.severity.ERROR,
-        },
+        virtual_text = false,
+        -- virtual_text = {
+        --     severity = vim.diagnostic.severity.ERROR,
+        -- },
         -- show signs
         signs = {
             priority = 8, -- Is 8 so that errors can overwrite debug breakpoints

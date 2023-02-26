@@ -5,7 +5,7 @@ return {
     { "tpope/vim-repeat",               event = "VeryLazy" },
     { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
     { "numToStr/Comment.nvim",          opts = {} },
-    { "lewis6991/gitsigns.nvim",        opts = {} },
+    { "lewis6991/gitsigns.nvim",        opts = { sign_priority = 1 } },
     { "akinsho/toggleterm.nvim",        opts = {} },
     { "ray-x/lsp_signature.nvim",       config = { noice = false } },
     {

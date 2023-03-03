@@ -8,24 +8,50 @@ return {
         "jayp0521/mason-nvim-dap.nvim",
     },
     keys = {
-        { "<F5>", function()
-            -- require 'hydra'.spawn('dap-hydra')
-            require 'dapui'.open()
-            require 'dap'.continue()
-        end, desc = "Debug Start" },
-        { "<leader>db", function()
-            require 'dapui'.open()
-            require 'dap'.continue()
-        end, desc = "Debug Start" },
-        { "<F6>", function()
-            require "dapui".toggle()
-        end, desc = "Toggle Debug Interface" },
-        { "<leader>di", function()
-            require "dapui".toggle()
-        end, desc = "Toggle Debug Interface" },
-        { "<F9>", function()
-            require "dap".toggle_breakpoint()
-        end, desc = "Toggle Breakpoint" },
+        {
+            "<F5>",
+            function()
+                -- require 'hydra'.spawn('dap-hydra')
+                require 'dapui'.open()
+                require 'dap'.continue()
+            end,
+            desc = "Debug Start"
+        },
+        {
+            "<leader>db",
+            function()
+                require 'dapui'.open()
+                require 'dap'.continue()
+            end,
+            desc = "Debug Start"
+        },
+        {
+            "<leader>dt",
+            function()
+                require "dap".toggle_breakpoint()
+            end
+        },
+        {
+            "<F6>",
+            function()
+                require "dapui".toggle()
+            end,
+            desc = "Toggle Debug Interface"
+        },
+        {
+            "<leader>di",
+            function()
+                require "dapui".toggle()
+            end,
+            desc = "Toggle Debug Interface"
+        },
+        {
+            "<F9>",
+            function()
+                require "dap".toggle_breakpoint()
+            end,
+            desc = "Toggle Breakpoint"
+        },
     },
     config = function()
         local dap = require "dap"
@@ -107,8 +133,8 @@ return {
                     },
                 },
                 floating = {
-                    max_height = nil, -- These can be integers or a float between 0 and 1.
-                    max_width = nil, -- Floats will be treated as percentage of your screen.
+                    max_height = nil,  -- These can be integers or a float between 0 and 1.
+                    max_width = nil,   -- Floats will be treated as percentage of your screen.
                     border = "single", -- Border style. Can be "single", "double" or "rounded"
                     mappings = {
                         close = { "q", "<Esc>" },

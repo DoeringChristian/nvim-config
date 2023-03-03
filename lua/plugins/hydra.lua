@@ -54,7 +54,7 @@ return {
                 color = 'pink',
                 invoke_on_body = true,
                 hint = {
-                    position = 'bottom',
+                    position = 'top-right',
                     border = 'rounded'
                 },
                 desc = 'Hydra: Debugger',

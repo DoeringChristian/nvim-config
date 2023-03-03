@@ -4,11 +4,11 @@ return {
     event = "InsertEnter",
     dependencies = {
         "L3MON4D3/LuaSnip",
-        "hrsh7th/cmp-buffer", -- buffer completions
-        "hrsh7th/cmp-path", -- path completions
-        "hrsh7th/cmp-cmdline", -- cmdline completions
+        "hrsh7th/cmp-buffer",       -- buffer completions
+        "hrsh7th/cmp-path",         -- path completions
+        "hrsh7th/cmp-cmdline",      -- cmdline completions
         "saadparwaiz1/cmp_luasnip", -- snippet completions
-        "hrsh7th/cmp-nvim-lsp", -- lsp completions
+        "hrsh7th/cmp-nvim-lsp",     -- lsp completions
         "ray-x/lsp_signature.nvim", -- function signature completions
     },
     opts = function()
@@ -41,18 +41,18 @@ return {
                 end,
             },
             mapping = {
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
-                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-                ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                ["<C-e>"] = cmp.mapping {
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                    ["<C-e>"] = cmp.mapping {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 },
                 -- Accept currently selected item. If none selected, `select` first item.
                 -- Set `select` to `false` to only confirm explicitly selected items.
-                ["<CR>"] = cmp.mapping.confirm { select = false },
-                ["<C-j>"] = cmp.mapping {
+                    ["<CR>"] = cmp.mapping.confirm { select = false },
+                    ["<C-j>"] = cmp.mapping {
                     i = function(fallback)
                         if luasnip.choice_active() then
                             luasnip.change_choice(1)
@@ -61,7 +61,7 @@ return {
                         end
                     end,
                 },
-                ["<C-l>"] = cmp.mapping {
+                    ["<C-l>"] = cmp.mapping {
                     i = function(fallback)
                         if luasnip.jumpable() then
                             luasnip.jump(1) -- Need to jump forward
@@ -72,7 +72,7 @@ return {
                         end
                     end,
                 },
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+                    ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
                 --[[
         ["<CR>"] = cmp.mapping {
             i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
@@ -85,7 +85,7 @@ return {
             end,
         },
         --]]
-                ["<Tab>"] = cmp.mapping(function(fallback)
+                    ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
                     elseif check_bracket() ~= nil then
@@ -103,11 +103,11 @@ return {
                     "i",
                     "s",
                 }),
-                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable( -1) then
-                        luasnip.jump( -1)
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
                     else
                         fallback()
                     end

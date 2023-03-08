@@ -36,14 +36,14 @@ return {
             -- The keymaps available while in the `renamer` buffer. The example below
             -- overrides the default values, but you can add others as well.
             mappings = {
-                ['<c-i>'] = mappings_utils.set_cursor_to_start,
-                ['<c-a>'] = mappings_utils.set_cursor_to_end,
-                ['<c-e>'] = mappings_utils.set_cursor_to_word_end,
-                ['<c-b>'] = mappings_utils.set_cursor_to_word_start,
-                ['<c-c>'] = mappings_utils.clear_line,
-                ['<c-u>'] = mappings_utils.undo,
-                ['<c-r>'] = mappings_utils.redo,
-                ['jk'] = function()
+                    ['<c-i>'] = mappings_utils.set_cursor_to_start,
+                    ['<c-a>'] = mappings_utils.set_cursor_to_end,
+                    ['<c-e>'] = mappings_utils.set_cursor_to_word_end,
+                    ['<c-b>'] = mappings_utils.set_cursor_to_word_start,
+                    ['<c-c>'] = mappings_utils.clear_line,
+                    ['<c-u>'] = mappings_utils.undo,
+                    ['<c-r>'] = mappings_utils.redo,
+                    ['jk'] = function()
                     vim.api.nvim_input('<esc>')
                 end
             },

@@ -21,7 +21,7 @@ return {
                 'rust_analyzer',
                 'ltex',
                 'lua_ls',
-                'pyright',
+                -- 'pyright',
                 'texlab',
             }
         }

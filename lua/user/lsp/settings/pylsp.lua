@@ -7,11 +7,11 @@ return {
                 pylint = { enabled = true, executable = "pylint" },
                 pyflakes = { enabled = true },
                 pycodestyle = { enabled = true },
-                pyls_isort = { enabled = true },
-                pylsp_mypy = { enabled = true },
-                pyls_flake8 = { enabled = true },
-                yapf = { enabled = true },
-                autopep8 = { enabled = true }
+                pyls_isort = { enabled = false },
+                pylsp_mypy = { enabled = false },
+                pyls_flake8 = { enabled = false },
+                yapf = { enabled = false },
+                autopep8 = { enabled = false }
             },
         },
     },

@@ -60,6 +60,7 @@ return {
                 "norg",
                 "ocaml",
                 "ocamllex",
+                "org",
                 "perl",
                 "pioasm",
                 "prisma",

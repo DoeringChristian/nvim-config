@@ -44,18 +44,18 @@ return {
                 end,
             },
             mapping = {
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-                ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                ["<C-e>"] = cmp.mapping {
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+                    ["<C-e>"] = cmp.mapping {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 },
                 -- Accept currently selected item. If none selected, `select` first item.
                 -- Set `select` to `false` to only confirm explicitly selected items.
-                ["<CR>"] = cmp.mapping.confirm { select = false },
-                ["<C-j>"] = cmp.mapping {
+                    ["<CR>"] = cmp.mapping.confirm { select = false },
+                    ["<C-j>"] = cmp.mapping {
                     i = function(fallback)
                         if luasnip.choice_active() then
                             luasnip.change_choice(1)
@@ -64,7 +64,7 @@ return {
                         end
                     end,
                 },
-                ["<C-l>"] = cmp.mapping {
+                    ["<C-l>"] = cmp.mapping {
                     i = function(fallback)
                         if luasnip.jumpable() then
                             luasnip.jump(1) -- Need to jump forward
@@ -75,7 +75,7 @@ return {
                         end
                     end,
                 },
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+                    ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
                 --[[
         ["<CR>"] = cmp.mapping {
             i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
@@ -88,7 +88,7 @@ return {
             end,
         },
         --]]
-                ["<Tab>"] = cmp.mapping(function(fallback)
+                    ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
                     elseif check_bracket() ~= nil then
@@ -106,7 +106,7 @@ return {
                     "i",
                     "s",
                 }),
-                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
                     elseif luasnip.jumpable(-1) then
@@ -126,17 +126,17 @@ return {
                     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
                     -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
                     vim_item.menu = ({
-                        nvim_lsp = "[LSP]",
-                        nvim_lua = "[NVIM_LUA]",
-                        luasnip = "[Snippet]",
-                        spell = "[Spell]",
-                        buffer = "[Buffer]",
-                        path = "[Path]",
-                        cmp_pandoc = "[Pandoc]",
-                        cmp_clippy = "[AI]",
-                        rg = "[RipGrep]",
-                        latex_symbols = "[LaTeX-Symbols]"
-                    })[entry.source.name]
+                            nvim_lsp = "[LSP]",
+                            nvim_lua = "[NVIM_LUA]",
+                            luasnip = "[Snippet]",
+                            spell = "[Spell]",
+                            buffer = "[Buffer]",
+                            path = "[Path]",
+                            cmp_pandoc = "[Pandoc]",
+                            cmp_clippy = "[AI]",
+                            rg = "[RipGrep]",
+                            latex_symbols = "[LaTeX-Symbols]"
+                        })[entry.source.name]
 
 
                     -- Truncate label
@@ -158,6 +158,9 @@ return {
                     { name = "path" },
                     { name = "buffer", keyword_length = 5 },
                     --{ name = "spell" },
+                },
+                {
+                    { name = 'orgmode' }
                 }
             ),
             confirm_opts = {

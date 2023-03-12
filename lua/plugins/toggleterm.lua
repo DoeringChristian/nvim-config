@@ -40,7 +40,7 @@ return {
             map('t', '<Esc>', [[<C-\><C-n>]], "Exit Insert Mode") -- go to normal mode with escape
             map('t', '<C-n>', [[<C-\><C-n>]], "Exit Insert Mode") -- go to normal mode with escape
             -- Normal Mode
-            map('n', '<esc>', "<cmd>close<cr>", "Exit Terminal") -- close terminal on escape
+            map('n', '<esc>', "<cmd>close<cr>", "Exit Terminal")  -- close terminal on escape
 
             -- Navigating out of Terminal:
             map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")

@@ -24,6 +24,7 @@ return {
                 'pylsp',
                 -- 'pyright',
                 'texlab',
+                'ruff_lsp',
             }
         }
         mason_null_ls.setup {

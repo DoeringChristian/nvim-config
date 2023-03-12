@@ -5,7 +5,7 @@ return {
             plugins = {
                 jedi_completion = { fuzzy = false },
                 pylint = { enabled = true, executable = "pylint" },
-                pyflakes = { enabled = true },
+                pyflakes = { enabled = false },
                 pycodestyle = { enabled = true },
                 pyls_isort = { enabled = false },
                 pylsp_mypy = { enabled = false },

@@ -3,6 +3,7 @@ return {
     { "tpope/vim-sleuth",               event = "VeryLazy" },
     { "tpope/vim-surround",             event = "VeryLazy" },
     { "tpope/vim-repeat",               event = "VeryLazy" },
+    { "kevinhwang91/nvim-hlslens",      event = "VeryLazy" },
     { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
     { "numToStr/Comment.nvim",          opts = {} },
     { "lewis6991/gitsigns.nvim",        opts = { sign_priority = 1 } },

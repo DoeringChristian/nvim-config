@@ -38,7 +38,7 @@ return {
         })
 
         local hint = [[
- _J_: step over   _r_: Continue/Start   _b_: Breakpoint     _K_: Eval
+ _J_: step over   _r_: Continue/Start   _B_: Breakpoint     _K_: Eval
  _L_: step into   _x_: Quit             ^ ^                 ^ ^
  _H_: step out    _X_: Stop             ^ ^
  _c_: to cursor   _C_: Close UI
@@ -77,7 +77,7 @@ return {
                 end, { exit = true, silent = true } },
                 { 'X', dap.close,                                                          { silent = true } },
                 { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
-                { 'b', dap.toggle_breakpoint,                                              { silent = true } },
+                { 'B', dap.toggle_breakpoint,                                              { silent = true } },
                 { 'K', ":lua require('dap.ui.widgets').hover()<CR>",                       { silent = true } },
                 { 'q', nil,                                                                { exit = true, nowait = true } },
             }

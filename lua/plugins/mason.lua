@@ -21,7 +21,7 @@ return {
                 'rust_analyzer',
                 'ltex',
                 'lua_ls',
-                'pylsp',
+                -- 'pylsp',
                 -- 'pyright',
                 'texlab',
                 'ruff_lsp',

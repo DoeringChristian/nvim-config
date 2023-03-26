@@ -4,7 +4,7 @@ return {
             configurationSources = { "pylint" },
             plugins = {
                 jedi_completion = { fuzzy = false },
-                pylint = { enabled = true, executable = "pylint" },
+                pylint = { enabled = false, executable = "pylint" },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = true },
                 pyls_isort = { enabled = false },

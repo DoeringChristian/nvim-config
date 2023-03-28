@@ -138,6 +138,9 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
     nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
+    nmap("<leader>ge", function()
+        require 'telescope.builtin'.diagnostics { severity = "error" }
+    end, "[G]oto [D]iagnostics")
 
     nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
     nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')

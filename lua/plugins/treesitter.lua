@@ -111,7 +111,7 @@ return {
             indent = { enable = true, disable = { "yaml", "lua", "rust", "c", "cpp", "python", "latex" } },
         }
 
-        vim.opt.foldmethod = "expr"
-        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+        -- vim.opt.foldmethod = "expr"
+        -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end
 }

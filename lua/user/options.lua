@@ -43,7 +43,7 @@ vim.opt.shortmess:append "c"
 vim.cmd [[
 filetype plugin indent on
 syntax on
-set nofoldenable
+" set nofoldenable
 ]]
 
 for k, v in pairs(options) do

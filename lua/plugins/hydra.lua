@@ -121,7 +121,7 @@ return {
             heads = {
                 { 'f',       cmd 'Telescope find_files' },
                 { 'g',       cmd 'Telescope live_grep' },
-                { 'z',       cmd 'Telescope fzf' },
+                { 'z',       function() return require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' } end},
                 { 'o',       cmd 'Telescope oldfiles',                  { desc = 'recently opened files' } },
                 { 'h',       cmd 'Telescope help_tags',                 { desc = 'vim help' } },
                 { 'm',       cmd 'MarksListBuf',                        { desc = 'marks' } },

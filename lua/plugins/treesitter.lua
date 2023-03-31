@@ -28,7 +28,7 @@ return {
                 "foam",
                 "fusion",
                 "gdscript",
-                "gleam",
+                -- "gleam",
                 "glsl",
                 "gomod",
                 "gowork",

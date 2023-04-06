@@ -142,9 +142,14 @@ local function lsp_keymaps(client, bufnr)
         require 'telescope.builtin'.diagnostics { severity = "error" }
     end, "[G]oto [D]iagnostics")
 
-    nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
-    nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
+    nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Next [D]iagnostic")
+    nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Previous [D]iagnostic")
     nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
+
+    nmap("]e", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", severity = "error" })<CR>',
+        "Next [E]rror")
+    nmap("[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded", severity = "error" })<CR>',
+        "Previous [E]rror")
 
 
     -- Lsp keymaps

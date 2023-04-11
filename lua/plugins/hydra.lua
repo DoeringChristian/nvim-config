@@ -37,14 +37,29 @@ return {
             }
         })
 
-        local hint = [[
- _J_: step over   _r_: Continue/Start   _B_: Breakpoint     _K_: Eval
- _L_: step into   _x_: Quit             ^ ^                 ^ ^
- _H_: step out    _X_: Stop             ^ ^
- _c_: to cursor   _C_: Close UI
+        function interp(str, vars)
+            -- Allow replace_vars{str, vars} syntax as well as replace_vars(str, {vars})
+            if not vars then
+                vars = str
+                str = vars[1]
+            end
+            return (str:gsub("({([^}]+)})",
+                function(whole, i)
+                    return vars[i] or whole
+                end))
+        end
+
+        local icons = require "user.icons"
+        local hint = interp([[
+ _J_: {step_over}  _r_: {play}  _B_: {breakpoint}
+ _L_: {step_into}  _x_: {terminate}  _K_: {eval}
+ _H_: {step_out}  _c_: {play}ⵊ _p_: {pause}
+
  ^
- ^ ^              _q_: exit
-]]
+ _q_: 
+]], icons.dbg)
+
+        vim.notify(hint)
 
         local dap = require 'dap'
 
@@ -68,18 +83,18 @@ return {
                 { 'H', dap.step_out,      { silent = true } },
                 { 'c', dap.run_to_cursor, { silent = true } },
                 { 'r', dap.continue,      { silent = true } },
-                --{ 'x', ":lua require'dap'.disconnect({ terminateDebuggee = false })<CR>", { exit = true, silent = true } },
                 { 'x', function()
                     dap.disconnect({ terminateDebuggee = false })
                     dap.close()
                     require 'dapui'.toggle() -- Close causes problems with NvimTree
                     require 'dapui'.close()
                 end, { exit = true, silent = true } },
-                { 'X', dap.close,                                                          { silent = true } },
-                { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
-                { 'B', dap.toggle_breakpoint,                                              { silent = true } },
-                { 'K', ":lua require('dap.ui.widgets').hover()<CR>",                       { silent = true } },
-                { 'q', nil,                                                                { exit = true, nowait = true } },
+                -- { 'X', dap.close,                                                          { silent = true } },
+                -- { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
+                { 'p', dap.pause,                                    { silent = true } },
+                { 'B', dap.toggle_breakpoint,                        { silent = true } },
+                { 'K', ":lua require('dap.ui.widgets').hover()<CR>", { silent = true } },
+                { 'q', nil,                                          { exit = true, nowait = true } },
             }
         })
         Hydra.spawn = function(head)

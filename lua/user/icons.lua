@@ -39,5 +39,22 @@ return {
         perf = " ",
         note = " ",
         test = "⏲ ",
+    },
+    dbg = {
+        disconnect = "",
+        pause = "",
+        play = "",
+        run_last = "",
+        step_back = "",
+        step_into = "",
+        step_out = "",
+        step_over = "",
+        terminate = "",
+        expanded = "▾",
+        collapsed = "▸",
+        breakpoint = "",
+        rejected = "",
+        stopped = "",
+        eval = "",
     }
 }

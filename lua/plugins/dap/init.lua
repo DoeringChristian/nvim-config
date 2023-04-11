@@ -62,36 +62,37 @@ return {
         local codelldb_path = extension_path .. "adapter/codelldb"
         local lldb_path = extension_path .. "lldb/bin/lldb"
 
+        local icons = require "user.icons"
         local function configure()
             local dap_breakpoint = {
-                error = {
-                    text = "🟥",
-                    texthl = "LspDiagnosticsSignError",
+                breakpoint = {
+                    text = icons.dbg.breakpoint,
+                    texthl = "DiagnosticError",
                     linehl = "",
                     numhl = "",
                 },
                 rejected = {
-                    text = "",
-                    texthl = "LspDiagnosticsSignHint",
+                    text = icons.dbg.rejected,
+                    texthl = "DiagnosticSignHint",
                     linehl = "",
                     numhl = "",
                 },
                 stopped = {
-                    text = "⭐️",
-                    texthl = "LspDiagnosticsSignInformation",
+                    text = icons.dbg.stopped,
+                    texthl = "DiagnosticWarn",
                     linehl = "DiagnosticUnderlineInfo",
                     numhl = "LspDiagnosticsSignInformation",
                 },
             }
 
-            vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+            vim.fn.sign_define("DapBreakpoint", dap_breakpoint.breakpoint)
             vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
             vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
         end
 
         local function configure_exts()
             dapui.setup({
-                icons = { expanded = "▾", collapsed = "▸" },
+                icons = require "user.icons".dbg,
                 mappings = {
                     -- Use a table to apply multiple mappings
                     expand = { "<CR>", "<2-LeftMouse>" },
@@ -150,14 +151,14 @@ return {
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
-                require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
-                require "nvim-tree".toggle { focus = false }
+                -- require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
+                -- require "nvim-tree".toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
-                require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
-                require "nvim-tree".toggle { focus = false }
+                -- require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
+                -- require "nvim-tree".toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end

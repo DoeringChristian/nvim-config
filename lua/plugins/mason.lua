@@ -27,11 +27,19 @@ return {
                 'ruff_lsp',
             }
         }
+        local function null_ls_default_handler(source_name, methods)
+            local null_ls = require "null-ls"
+
+            for k, v in pairs(methods) do
+                null_ls.register(null_ls.builtins[v][source_name])
+            end
+        end
         mason_null_ls.setup {
             automatic_installation = true,
             ensure_installed = {
                 'black',
-            }
+            },
+            handlers = { null_ls_default_handler },
         }
 
 
@@ -46,51 +54,40 @@ return {
             end
         }
 
-        -- NULL-LS Setup Handlers
-        local function null_ls_default_handler(source_name, methods)
-            local null_ls = require "null-ls"
-
-            for k, v in pairs(methods) do
-                null_ls.register(null_ls.builtins[v][source_name])
-            end
-        end
-
-        mason_null_ls.setup_handlers {
-            null_ls_default_handler
-        }
-
         -- Setup Mason Dap
         mason_nvim_dap.setup {
             automatic_setup = true,
-        }
-        mason_nvim_dap.setup_handlers {
-            function(source_name)
-                -- all sources with no handler get passed here
+            handlers = {
+                function(config)
+                    -- all sources with no handler get passed here
 
 
-                -- Keep original functionality of `automatic_setup = true`
-                require 'mason-nvim-dap.automatic_setup' (source_name)
-            end,
-            python = function(source_name)
-                local dap = require 'dap'
-                dap.adapters.python = {
-                    type = "executable",
-                    command = "/usr/bin/python3",
-                    args = {
-                        "-m",
-                        "debugpy.adapter",
-                    },
-                }
+                    -- Keep original functionality of `automatic_setup = true`
+                    require 'mason-nvim-dap.automatic_setup' (config)
+                    require "mason-nvim-dap".default_setup(config)
+                end,
+                python = function(config)
+                    local dap = require 'dap'
+                    dap.adapters.python = {
+                        type = "executable",
+                        command = "/usr/bin/python3",
+                        args = {
+                            "-m",
+                            "debugpy.adapter",
+                        },
+                    }
 
-                dap.configurations.python = {
-                    {
-                        type = "python",
-                        request = "launch",
-                        name = "Launch file",
-                        program = "${file}", -- This configuration will launch the current file if used.
-                    },
-                }
-            end,
+                    dap.configurations.python = {
+                        {
+                            type = "python",
+                            request = "launch",
+                            name = "Launch file",
+                            program = "${file}", -- This configuration will launch the current file if used.
+                        },
+                    }
+                    require "mason-nvim-dap".default_setup(config)
+                end,
+            }
         }
     end
 }

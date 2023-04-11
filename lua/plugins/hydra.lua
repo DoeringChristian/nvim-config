@@ -119,23 +119,60 @@ return {
             mode = 'n',
             body = '<leader>f',
             heads = {
-                { 'f',       cmd 'Telescope find_files' },
-                { 'g',       cmd 'Telescope live_grep' },
-                { 'z',       function() return require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' } end},
-                { 'o',       cmd 'Telescope oldfiles',                  { desc = 'recently opened files' } },
-                { 'h',       cmd 'Telescope help_tags',                 { desc = 'vim help' } },
-                { 'm',       cmd 'MarksListBuf',                        { desc = 'marks' } },
-                { 'k',       cmd 'Telescope keymaps' },
-                { 'O',       cmd 'Telescope vim_options' },
-                { 'r',       cmd 'Telescope resume' },
-                { 'p',       cmd 'Telescope projects',                  { desc = 'projects' } },
-                { '/',       cmd 'Telescope current_buffer_fuzzy_find', { desc = 'search in file' } },
-                { '?',       cmd 'Telescope search_history',            { desc = 'search history' } },
-                { ';',       cmd 'Telescope command_history',           { desc = 'command-line history' } },
-                { 'c',       cmd 'Telescope commands',                  { desc = 'execute command' } },
-                { 'u',       cmd 'silent! %foldopen! | UndotreeToggle', { desc = 'undotree' } },
-                { '<Enter>', cmd 'Telescope',                           { exit = true, desc = 'list all pickers' } },
-                { '<Esc>',   nil,                                       { exit = true, nowait = true } },
+                { 'f', cmd 'Telescope find_files' },
+                { 'g', cmd 'Telescope live_grep' },
+                { 'z',
+                    function()
+                        return require 'telescope.builtin'.grep_string { shorten_path = true, word_match =
+                        "-w", only_sort_text = true, search = '' }
+                    end },
+                { 'o', cmd 'Telescope oldfiles', {
+                    desc =
+                    'recently opened files'
+                } },
+                { 'h', cmd 'Telescope help_tags', {
+                    desc =
+                    'vim help'
+                } },
+                { 'm', cmd 'MarksListBuf', {
+                    desc =
+                    'marks'
+                } },
+                { 'k', cmd 'Telescope keymaps' },
+                { 'O', cmd 'Telescope vim_options' },
+                { 'r', cmd 'Telescope resume' },
+                { 'p', cmd 'Telescope projects', {
+                    desc =
+                    'projects'
+                } },
+                { '/', cmd 'Telescope current_buffer_fuzzy_find', {
+                    desc =
+                    'search in file'
+                } },
+                { '?', cmd 'Telescope search_history', {
+                    desc =
+                    'search history'
+                } },
+                { ';', cmd 'Telescope command_history', {
+                    desc =
+                    'command-line history'
+                } },
+                { 'c', cmd 'Telescope commands', {
+                    desc =
+                    'execute command'
+                } },
+                { 'u', cmd 'silent! %foldopen! | UndotreeToggle', {
+                    desc =
+                    'undotree'
+                } },
+                { '<Enter>', cmd 'Telescope', {
+                    exit = true,
+                    desc = 'list all pickers'
+                } },
+                { '<Esc>', nil, {
+                    exit = true,
+                    nowait = true
+                } },
             }
         })
     end

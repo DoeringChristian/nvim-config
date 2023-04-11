@@ -147,18 +147,19 @@ return {
                 }
             })
             dap.listeners.after.event_initialized["dapui_config"] = function()
+                require "nvim-tree.api".tree.close() -- Close Nvim-Tree
                 _dap_hydra:activate()
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
-                -- require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
-                -- require "nvim-tree".toggle { focus = false }
+                require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
+                require "nvim-tree.api".tree.toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
-                -- require "nvim-tree".toggle { focus = false } -- Refresh Nvim-Tree
-                -- require "nvim-tree".toggle { focus = false }
+                require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
+                require "nvim-tree.api".tree.toggle { focus = false }
                 _dap_hydra:exit()
                 dapui.close()
             end

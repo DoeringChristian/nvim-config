@@ -35,13 +35,6 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
--- window navigation
--- nmap("<C-h>", "<C-w>h", "Move to Buffer to the left")
--- nmap("<C-j>", "<C-w>j", "Move to Buffer to the bottom")
--- nmap("<C-k>", "<C-w>k", "Move to Buffer to the top")
--- nmap("<C-l>", "<C-w>l", "Move to Buffer to the right")
-
 -- Resize with arrows
 nmap('<C-Up>', ':resize +2<CR>', "Increase vertical size of current Buffer")
 nmap('<C-Down>', ':resize -2<CR>', "Decrease vertical size of current Buffer")
@@ -67,51 +60,8 @@ vmap('<A-k>', ':m .-2<CR>', "Move Line Up")
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", "Move Line Down")
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", "Move Line Up")
 
--- Terminal --
--- Better terminal navigation
--- map("t", "<C-h>", "<C-\\><C-N><C-w>h", "Move out of Terminal")
--- map("t", "<C-j>", "<C-\\><C-N><C-w>j", "Move out of Terminal")
--- map("t", "<C-k>", "<C-\\><C-N><C-w>k", "Move out of Terminal")
--- map("t", "<C-l>", "<C-\\><C-N><C-w>l", "Move out of Terminal")
-
 -- Telescope --
 nmap("<leader><Tab>", "<cmd>Telescope live_grep<cr>", "Live Grep")
-
--- Yanky --
--- paste
--- vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
--- vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
--- vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
--- vim.keymap.set("x", "P", "<Plug>(YankyPutBefore)", {})
--- vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
--- vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
--- vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
--- vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
-
--- cycle navigation
--- nmap("<c-n>", "<Plug>(YankyCycleBackward)", "Next Paste Element")
--- nmap("<c-p>", "<Plug>(YankyCycleForward)", "Previous Paste Element")
-
--- NvimTree --
---nmap("<C-f>", "<cmd>NvimTreeToggle<CR>", "Toggle file manager")
-
--- Hop --
--- map({ "n", "v" }, "<leader>w", "<cmd>HopWord<CR>", "Jump to [W]ord")
-
--- Nabla --
--- Pandoc --
--- nmap('<leader>pr', '<cmd>lua _PANDOC_RENDER()<CR>', "[P]andoc [R]ender")
--- nmap('<leader>pm', '<cmd>lua _PANDOC_MAKE()<CR>', "[P]andoc [M]ake Document")
--- nmap('<leader>pe', '<cmd>lua _NABLA_SHOW()<CR>', "[P]andoc Show [E]quations")
--- nmap('<leader>pv', '<cmd>lua require"nabla".disable_virt() <CR> <cmd>lua require"nabla".enable_virt()<CR>',
---     "[P]andoc Reenable [V]irtual Equations")
-
--- Align --
--- map("x", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
--- map("n", "ga", "<Plug>(EasyAlign)", "Easy [A]lign")
-
--- Leap --
---nmap("<leader>s", LEAP_ALL_WINDOWS, "Leap [S]earch all Buffers")
 
 -- Surround --
 -- Need to remap surround.vim mappings to not conflict with leap.nvmi

@@ -50,16 +50,18 @@ return {
         end
 
         local icons = require "user.icons"
-        local hint = interp([[
- _J_: {step_over}  _r_: {play}  _B_: {breakpoint}
- _L_: {step_into}  _x_: {terminate}  _K_: {eval}
- _H_: {step_out}  _c_: {play}ⵊ _p_: {pause}
-
- ^
- _q_: 
-]], icons.dbg)
-
-        vim.notify(hint)
+        local hint =
+            "  _H_: " .. icons.dbg.step_out ..
+            "  _J_: " .. icons.dbg.step_over ..
+            "  _L_: " .. icons.dbg.step_into ..
+            "  _r_: " .. icons.dbg.play ..
+            "  _c_: " .. icons.dbg.play .. "ⵊ" ..
+            "  _p_: " .. icons.dbg["pause"] ..
+            "  _B_: " .. icons.dbg.breakpoint ..
+            "  _K_: " .. icons.dbg.eval ..
+            "  _d_: " .. icons.dbg.disconnect ..
+            "  _x_: " .. icons.dbg.terminate ..
+            "  _q_: "
 
         local dap = require 'dap'
 
@@ -69,8 +71,9 @@ return {
                 color = 'pink',
                 invoke_on_body = true,
                 hint = {
-                    position = 'top-right',
-                    border = 'rounded'
+                    type = "cmdline",
+                    -- position = 'top-right',
+                    -- border = 'rounded'
                 },
                 desc = 'Hydra: Debugger',
             },
@@ -78,22 +81,27 @@ return {
             mode = { 'n', 'x' },
             body = '<leader>dh',
             heads = {
-                { 'J', dap.step_over,     { silent = true } },
-                { 'L', dap.step_into,     { silent = true } },
-                { 'H', dap.step_out,      { silent = true } },
-                { 'c', dap.run_to_cursor, { silent = true } },
-                { 'r', dap.continue,      { silent = true } },
-                { 'x', function()
+                { 'J', dap.step_over,         { silent = true } },
+                { 'L', dap.step_into,         { silent = true } },
+                { 'H', dap.step_out,          { silent = true } },
+                { 'c', dap.run_to_cursor,     { silent = true } },
+                { 'r', dap.continue,          { silent = true } },
+                { 'p', dap.pause,             { silent = true } },
+                { 'B', dap.toggle_breakpoint, { silent = true } },
+                { 'd', function()
                     dap.disconnect({ terminateDebuggee = false })
                     dap.close()
                     require 'dapui'.toggle() -- Close causes problems with NvimTree
                     require 'dapui'.close()
                 end, { exit = true, silent = true } },
-                -- { 'X', dap.close,                                                          { silent = true } },
-                -- { 'C', ":lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<CR>", { silent = true } },
-                { 'p', dap.pause,                                    { silent = true } },
-                { 'B', dap.toggle_breakpoint,                        { silent = true } },
-                { 'K', ":lua require('dap.ui.widgets').hover()<CR>", { silent = true } },
+                { 'x', function()
+                    -- dap.disconnect({ terminateDebuggee = false })
+                    dap.terminate()
+                    dap.close()
+                    require 'dapui'.toggle() -- Close causes problems with NvimTree
+                    require 'dapui'.close()
+                end, { exit = true, silent = true } },
+                { 'K', ":lua require('dap.ui.widgets').hover()<CR>", { exit = true, silent = true } },
                 { 'q', nil,                                          { exit = true, nowait = true } },
             }
         })

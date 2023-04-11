@@ -92,7 +92,7 @@ return {
 
         local function configure_exts()
             dapui.setup({
-                icons = require "user.icons".dbg,
+                icons = icons.dbg,
                 mappings = {
                     -- Use a table to apply multiple mappings
                     expand = { "<CR>", "<2-LeftMouse>" },

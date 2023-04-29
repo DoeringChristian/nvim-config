@@ -14,7 +14,7 @@ return {
                     "--keep-intermediates"
                 },
                 forwardSearchAfter = true,
-                onSave = true
+                onSave = false
             },
             chktex = {
                 onEdit = false,

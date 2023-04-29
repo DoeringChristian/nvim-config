@@ -60,6 +60,26 @@ M.setup = function()
 
     -- Configure Telescope for lsp handlers
 
+    -- Overwrite handlers for formatting to write buffer after async formatting
+    vim.lsp.handlers["textDocument/formatting"] = function(_, result, ctx, _)
+        local util = require('vim.lsp.util')
+        if not result then
+            return
+        end
+        local client = vim.lsp.get_client_by_id(ctx.client_id)
+        util.apply_text_edits(result, ctx.bufnr, client.offset_encoding)
+        vim.cmd("let buf = bufnr('%') | exec '" .. ctx.bufnr .. "bufdo :w' | exec 'b' buf") -- Save the correct buffer
+    end
+
+    vim.lsp.handlers['textDocument/rangeFormatting'] = function(_, result, ctx, _)
+        if not result then
+            return
+        end
+        local client = vim.lsp.get_client_by_id(ctx.client_id)
+        util.apply_text_edits(result, ctx.bufnr, client.offset_encoding)
+        vim.cmd("let buf = bufnr('%') | exec '" .. ctx.bufnr .. "bufdo :w' | exec 'b' buf") -- Save the correct buffer
+    end
+
     vim.lsp.handlers["textDocument/references"] = require "telescope.builtin".lsp_references
 
     vim.lsp.handlers["textDocument/definition"] = require "telescope.builtin".lsp_definitions

@@ -62,6 +62,7 @@ M.setup = function()
 
     -- Overwrite handlers for formatting to write buffer after async formatting
     vim.lsp.handlers["textDocument/formatting"] = function(_, result, ctx, _)
+        vim.bo[ctx.bufnr].modifiable = true -- Re-enable modifiable before applying changes
         local util = require('vim.lsp.util')
         if not result then
             return
@@ -72,6 +73,7 @@ M.setup = function()
     end
 
     vim.lsp.handlers['textDocument/rangeFormatting'] = function(_, result, ctx, _)
+        vim.bo[ctx.bufnr].modifiable = true -- Re-enable modifiable before applying changes
         if not result then
             return
         end

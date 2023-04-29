@@ -16,11 +16,18 @@ function enable_formatting(bufnr)
     if not (type(bufnr) == "int") then
         bufnr = vim.fn.bufnr('%')
     end
-    vim.cmd([[
-    augroup Format
-    autocmd BufWritePre <buffer=]] .. bufnr .. [[> lua pcall(vim.lsp.buf.format, {async=true} )
-    augroup END
-    ]])
+    local ag = vim.api.nvim_create_augroup("Format", {
+        clear = false
+    })
+
+    vim.api.nvim_create_autocmd({ "BufWritePre", "BufWinEnter" }, {
+        group = ag,
+        buffer = bufnr,
+        callback = function(ev)
+            pcall(vim.lsp.buf.format, { async = true })
+            vim.bo[bufnr].modifiable = false -- Disable modifiable so we cannot have desyncs
+        end
+    })
     vim.notify("Formatting enabled, buffer: " .. bufnr)
 end
 

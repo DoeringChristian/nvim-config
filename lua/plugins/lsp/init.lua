@@ -18,7 +18,7 @@ function enable_formatting(bufnr)
     end
     vim.cmd([[
     augroup Format
-    autocmd BufWritePre <buffer=]] .. bufnr .. [[> lua pcall(vim.lsp.buf.format, {async=false} )
+    autocmd BufWritePre <buffer=]] .. bufnr .. [[> lua pcall(vim.lsp.buf.format, {async=true} )
     augroup END
     ]])
     vim.notify("Formatting enabled, buffer: " .. bufnr)
@@ -27,7 +27,7 @@ end
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "ray-x/lsp_signature.nvim", -- function signature completions
+        "ray-x/lsp_signature.nvim",        -- function signature completions
         "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         "j-hui/fidget.nvim",

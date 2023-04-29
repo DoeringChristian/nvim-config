@@ -14,8 +14,30 @@ return {
         }
     },
     keys = {
-        { "gt",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-        { "gT",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-        { "<leader>gt", "<cmd>TodoTelescope<cr>",                            desc = "[G]oto [T]odo" },
+        {
+            "gt",
+            function() require("todo-comments").jump_next() end,
+            desc =
+            "Next Special comment"
+        },
+        {
+            "]t",
+            function() require("todo-comments").jump_next { keywords = { "TODO" } } end,
+            desc =
+            "Next TODO comment"
+        },
+        {
+            "gT",
+            function() require("todo-comments").jump_prev() end,
+            desc =
+            "Previous special comment"
+        },
+        {
+            "[t",
+            function() require("todo-comments").jump_prev { keywords = { "TODO" } } end,
+            desc =
+            "Previous TODO comment"
+        },
+        { "<leader>gt", "<cmd>TodoTelescope<cr>", desc = "[G]oto [T]odo" },
     },
 }

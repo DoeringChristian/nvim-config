@@ -43,6 +43,7 @@
   "nvim-navic": { "branch": "master", "commit": "83dc174da915f9dbc9b51169e9b62a2e0d42b527" },
   "nvim-notify": { "branch": "master", "commit": "159c6cf1be25a933f35e97499314c9faab55c98f" },
   "nvim-spectre": { "branch": "master", "commit": "46b9883c0760db6547f152dc97a651611ba6486d" },
+  "nvim-texlabconfig": { "branch": "master", "commit": "52d9153f870e92444ca901ee30c1853751be0747" },
   "nvim-tree.lua": { "branch": "master", "commit": "d8b154c5f0981886fc2b0f1e52d6172e7fdd13e4" },
   "nvim-treesitter": { "branch": "master", "commit": "1ca9b938c1c3d8b2c64a168f6a5419b8f3870410" },
   "nvim-web-devicons": { "branch": "master", "commit": "4ec26d67d419c12a4abaea02f1b6c57b40c08d7e" },

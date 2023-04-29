@@ -4,9 +4,16 @@ return {
             auxDirectory = ".",
             bibtexFormatter = "texlab",
             build = {
-                args = { "%f" },
                 executable = "tectonic",
-                forwardSearchAfter = false,
+                args = {
+                    "-X",
+                    "compile",
+                    "%f",
+                    "--synctex",
+                    "--keep-logs",
+                    "--keep-intermediates"
+                },
+                forwardSearchAfter = true,
                 onSave = true
             },
             chktex = {
@@ -15,9 +22,13 @@ return {
             },
             diagnosticsDelay = 300,
             formatterLineLength = 80,
+
+            -- Zathura config
             forwardSearch = {
-                args = {}
+                executable = "zathura",
+                args = { "--synctex-forward", "%l:1:%f", "%p" }
             },
+
             --latexFormatter = "latexindent",
             latexFormatter = "texlab",
             latexindent = {

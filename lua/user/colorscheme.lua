@@ -36,4 +36,4 @@ local configs = {
 -- Global highlights
 vim.cmd [[hi IndentBlanklineIndent guifg = #282828]]
 
-configs[colorscheme]()
+-- configs[colorscheme]()

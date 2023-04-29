@@ -125,6 +125,10 @@ return {
                 topts = {
                     initial_mode = "normal",
                 },
+                colorscheme = {
+                    initial_mode = "normal",
+                    enable_preview = true,
+                },
             },
             extensions = {
                 -- Your extension configuration goes here:
@@ -153,7 +157,7 @@ return {
                 -- },
             },
         }
-        require "telescope".load_extension("fzf")
+        -- require "telescope".load_extension("fzf")
         require "telescope".load_extension("yank_history")
         require "telescope".load_extension("hop")
         require "telescope".load_extension("vim_bookmarks")

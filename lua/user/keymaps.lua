@@ -44,6 +44,8 @@ nmap('<C-Left>', ':vertical resize -2<CR>', "Decrease horizontal size of current
 -- Navigate buffers
 nmap('<S-l>', ":bnext<CR>", "Go one Buffer left")
 nmap('<S-h>', ":bprevious<CR>", "Go one Buffer right")
+nmap('<leader>bc', "<cmd>BufferLinePickClose<CR>", "[B]uffer [C]lose")
+nmap('<leader>sb', "<cmd>BufferLinePick<CR>", "[S]elect [B]uffer")
 
 -- Visual --
 -- Stay in indent mode

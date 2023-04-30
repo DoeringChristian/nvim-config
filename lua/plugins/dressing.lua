@@ -3,6 +3,8 @@ return {
     lazy = true,
     opts = {
         select = {
+            enabled = true,
+            backend = "builtin", -- Telescope is brocken atm.
             telescope = {
                 initial_mode = "normal",
             }

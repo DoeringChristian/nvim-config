@@ -4,7 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-hop.nvim",
         "tom-anders/telescope-vim-bookmarks.nvim",
-        "nvim-telescope/telescope-ui-select.nvim",
+        -- "nvim-telescope/telescope-ui-select.nvim",
         "gbprod/yanky.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
@@ -145,9 +145,9 @@ return {
                         "s", "k", "d", "j", "f", },
                     sign_hl = { "WarningMsg", "Title" },
                 },
-                ['ui-select'] = {
-                    initial_mode = "normal"
-                },
+                -- ['ui-select'] = {
+                --     initial_mode = "normal"
+                -- },
                 -- fzf = {
                 --     fuzzy = true,                   -- false will only do exact matching
                 --     override_generic_sorter = true, -- override the generic sorter

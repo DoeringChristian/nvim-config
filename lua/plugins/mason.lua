@@ -15,7 +15,13 @@ return {
         local mason_null_ls = require "mason-null-ls"
         local mason_nvim_dap = require "mason-nvim-dap"
 
-        mason.setup {}
+        mason.setup {
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:DoeringChristian/mason-registry",
+                -- "github:DoeringChristian/mason-registry",
+            },
+        }
         mason_lspconfig.setup {
             ensure_installed = {
                 'rust_analyzer',
@@ -53,6 +59,16 @@ return {
             ["rust_analyzer"] = function()
             end
         }
+
+        -- Slang setup:
+
+        -- local configs = require "lspconfig.configs"
+        -- local slang = require "mason-registry".get_package("shader-slang")
+        -- configs.slang = {
+        --     default_config = {
+        --         cmd = { slang:get_install_path() }
+        --     }
+        -- }
 
         -- Setup Mason Dap
         mason_nvim_dap.setup {

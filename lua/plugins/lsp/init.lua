@@ -26,7 +26,7 @@ function enable_formatting(bufnr)
         callback = function(ev)
             pcall(vim.lsp.buf.format, { async = true })
             vim.bo[bufnr].modifiable = false -- Disable modifiable so we cannot have desyncs
-            vim.notify("Scheduling write")
+            vim.b[bufnr].write_after_format = true
         end
     })
     vim.notify("Formatting enabled, buffer: " .. bufnr)

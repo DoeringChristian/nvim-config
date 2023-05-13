@@ -119,3 +119,7 @@ nmap("<leader>rr", "<cmd>SnipRun<cr>", "[R]un Current Line")
 nmap("<leader>rp", "vip<cmd>SnipRun<cr><esc>", "[R]un [P]aragraph")
 vmap("<leader>rr", "<cmd>SnipRun<cr>", "[R]un Selection")
 map("o", "<leader>rr", "<Plug>SnipRunOperator", "[R]un for")
+
+-- Gitsigns mappings
+nmap("]g", "<cmd>Gitsigns next_hunk", "Next [G]it Hunk")
+nmap("[g", "<cmd>Gitsigns prev_hunk", "Previous [G]it Hunk")

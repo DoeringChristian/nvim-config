@@ -146,6 +146,10 @@ return {
                     max_type_length = nil, -- Can be integer or nil.
                 }
             })
+            local function dap_hydra_exit()
+                _dap_hydra:exit()
+                _dap_hydra.layer:exit()
+            end
             dap.listeners.after.event_initialized["dapui_config"] = function()
                 require "nvim-tree.api".tree.close() -- Close Nvim-Tree
                 _dap_hydra:activate()
@@ -154,13 +158,13 @@ return {
             dap.listeners.before.event_terminated["dapui_config"] = function()
                 require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
                 require "nvim-tree.api".tree.toggle { focus = false }
-                _dap_hydra:exit()
+                dap_hydra_exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
                 require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
                 require "nvim-tree.api".tree.toggle { focus = false }
-                _dap_hydra:exit()
+                dap_hydra_exit()
                 dapui.close()
             end
         end

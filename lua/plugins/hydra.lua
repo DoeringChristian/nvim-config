@@ -51,16 +51,16 @@ return {
 
         local icons = require "user.icons"
         local hint =
-            "  _H_: " .. icons.dbg.step_out ..
-            "  _J_: " .. icons.dbg.step_over ..
-            "  _L_: " .. icons.dbg.step_into ..
-            "  _r_: " .. icons.dbg.play ..
-            "  _c_: " .. icons.dbg.play .. "ⵊ" ..
-            "  _p_: " .. icons.dbg["pause"] ..
-            "  _B_: " .. icons.dbg.breakpoint ..
-            "  _K_: " .. icons.dbg.eval ..
-            "  _d_: " .. icons.dbg.disconnect ..
-            "  _x_: " .. icons.dbg.terminate ..
+            "  _H_: " .. icons.dbg.step_out .. "\n" ..
+            "  _J_: " .. icons.dbg.step_over .. "\n" ..
+            "  _L_: " .. icons.dbg.step_into .. "\n" ..
+            "  _r_: " .. icons.dbg.play .. "\n" ..
+            "  _c_: " .. icons.dbg.play .. "ⵊ" .. "\n" ..
+            "  _p_: " .. icons.dbg["pause"] .. "\n" ..
+            "  _B_: " .. icons.dbg.breakpoint .. "\n" ..
+            "  _K_: " .. icons.dbg.eval .. "\n" ..
+            "  _d_: " .. icons.dbg.disconnect .. "\n" ..
+            "  _x_: " .. icons.dbg.terminate .. "\n" ..
             "  _q_: "
 
         local dap = require 'dap'
@@ -71,8 +71,9 @@ return {
                 color = 'pink',
                 invoke_on_body = true,
                 hint = {
-                    type = "cmdline",
-                    -- position = 'top-right',
+                    -- type = "cmdline",
+                    type = "window",
+                    position = "top-right",
                     -- border = 'rounded'
                 },
                 desc = 'Hydra: Debugger',

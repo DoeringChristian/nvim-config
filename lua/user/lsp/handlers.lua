@@ -155,7 +155,7 @@ local function lsp_keymaps(client, bufnr)
     nmap("gI", vim.lsp.buf.incoming_calls, "[G]oto [I]ncoming Calls")
     nmap("gO", vim.lsp.buf.outgoing_calls, "[G]oto [O]utgoing Calls")
     nmap("gs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
-    nmap("gws", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
+    nmap("gS", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
 
     -- LSP <leader> prefixed commands
     nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
@@ -165,7 +165,10 @@ local function lsp_keymaps(client, bufnr)
     nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
     nmap("<leader>ge", function()
         require 'telescope.builtin'.diagnostics { severity = "error" }
-    end, "[G]oto [D]iagnostics")
+    end, "[G]oto [E]rror")
+    nmap("<leader>gw", function()
+        require 'telescope.builtin'.diagnostics { severity = "warn" }
+    end, "[G]oto [W]arning")
 
     nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Next [D]iagnostic")
     nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Previous [D]iagnostic")
@@ -175,6 +178,10 @@ local function lsp_keymaps(client, bufnr)
         "Next [E]rror")
     nmap("[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded", severity = "error" })<CR>',
         "Previous [E]rror")
+    nmap("]w", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", severity = "warn" })<CR>',
+        "Next [W]arning")
+    nmap("[w", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded", severity = "warn" })<CR>',
+        "Previous [W]arning")
 
 
     -- Lsp keymaps

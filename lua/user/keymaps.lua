@@ -123,3 +123,7 @@ nmap('<space>rs', '<cmd>IronRepl<cr>')
 nmap('<space>rr', '<cmd>IronRestart<cr>')
 nmap('<space>rf', '<cmd>IronFocus<cr>')
 nmap('<space>rh', '<cmd>IronHide<cr>')
+
+-- Gitsigns mappings
+nmap("]g", "<cmd>Gitsigns next_hunk", "Next [G]it Hunk")
+nmap("[g", "<cmd>Gitsigns prev_hunk", "Previous [G]it Hunk")

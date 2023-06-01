@@ -35,7 +35,7 @@ return {
                 "graphql",
                 "hcl",
                 "heex",
-                "help",
+                -- "help",
                 "hjson",
                 "hocon",
                 "html",

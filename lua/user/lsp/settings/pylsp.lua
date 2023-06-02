@@ -15,4 +15,7 @@ return {
             },
         },
     },
+    capabilities = {
+        document_formatting = false
+    }
 }

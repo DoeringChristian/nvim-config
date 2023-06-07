@@ -16,6 +16,9 @@ return {
         },
     },
     capabilities = {
+        textDocument = {
+            formatting = false
+        },
         document_formatting = false
     }
 }

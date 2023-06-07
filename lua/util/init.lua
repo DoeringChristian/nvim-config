@@ -10,4 +10,10 @@ M.on_attach = function(on_attach)
     })
 end
 
+M.format = function(bufnr)
+    pcall(vim.lsp.buf.format, { async = true })
+    vim.bo[bufnr].modifiable = false -- Disable modifiable so we cannot have desyncs
+    vim.b[bufnr].write_after_format = true
+end
+
 return M

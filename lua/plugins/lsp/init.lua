@@ -30,6 +30,43 @@ function enable_formatting(bufnr)
     vim.notify("Formatting enabled, buffer: " .. bufnr)
 end
 
+local function setup_slang()
+    local lspconfig = require "lspconfig"
+    local configs = require 'lspconfig.configs'
+    local util = require "lspconfig/util"
+
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = {
+            "*.slang",
+            "*.slangh",
+            "*.hlsl",
+            "*.usf",
+            "*.ush"
+        },
+        callback = function()
+            vim.cmd [[set filetype=slang]]
+        end
+    })
+
+    configs.slang = {
+        default_config = {
+            cmd = { "shader-slang" },
+            filetypes = { "slang" },
+            root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname)
+            end,
+            settings = {
+            },
+        },
+        docs = {
+            description = [[Language Server Protocoll for Slang]],
+        }
+    }
+
+    -- vim.notify(vim.inspect(configs))
+    lspconfig.slang.setup(require "user.lsp.handlers".config("slang"))
+end
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -48,6 +85,8 @@ return {
         vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
 
         vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]] --wgsl fix
+
+        setup_slang()
 
         --require "user.lsp.lsp-installer"
         require "user.lsp.handlers".setup()

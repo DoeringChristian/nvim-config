@@ -113,6 +113,13 @@ nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")
 -- Leap search for operator pending mode (remove if causes issues)
 map("o", "s", "<Plug>(leap-forward)")
 map("o", "S", "<Plug>(leap-backward)")
+map("n", "<leader>ms", function()
+    require "leap".leap {
+        target_windows = { vim.fn.win_getid() },
+        action = paranormal,
+        multiselect = true,
+    }
+end, "Leap [M]ulti [S]elect")
 
 -- SnipRun mappings
 -- nmap("<leader>rr", "<cmd>SnipRun<cr>", "[R]un Current Line")

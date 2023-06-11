@@ -35,20 +35,34 @@ local function setup_slang()
     local configs = require 'lspconfig.configs'
     local util = require "lspconfig/util"
 
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = {
+            "*.slang",
+            "*.slangh",
+            "*.hlsl",
+            "*.usf",
+            "*.ush"
+        },
+        callback = function()
+            vim.cmd [[set filetype=slang]]
+        end
+    })
+
     configs.slang = {
         default_config = {
-            -- cmd = { "/home/doeringc/.local/share/nvim/mason/packages/shader-slang/bin/linux-x64/release/slangd" },
             cmd = { "shader-slang" },
             filetypes = { "slang" },
             root_dir = function(fname)
                 return lspconfig.util.find_git_ancestor(fname)
             end,
-            settings = {},
+            settings = {
+            },
         },
         docs = {
             description = [[Language Server Protocoll for Slang]],
         }
     }
+
     -- vim.notify(vim.inspect(configs))
     lspconfig.slang.setup(require "user.lsp.handlers".config("slang"))
 end
@@ -70,8 +84,7 @@ return {
         vim.cmd [[command! NFm execute 'lua disable_formatting()']]
         vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
 
-        vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]   --wgsl fix
-        vim.cmd [[au BufNewFile,BufRead *.slang set filetype=slang]] --slang fix
+        vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]] --wgsl fix
 
         setup_slang()
 

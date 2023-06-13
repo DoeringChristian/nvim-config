@@ -23,6 +23,7 @@ M.apply_formatting = function(bufnr, result, client_id)
         return
     end
     local client = vim.lsp.get_client_by_id(client_id)
+    -- vim.notify("formatting with " .. client.name)
     util.apply_text_edits(result, bufnr, client.offset_encoding)
     if vim.b[bufnr].write_after_format then
         vim.cmd("let buf = bufnr('%') | exec '" .. bufnr .. "bufdo :noa w' | exec 'b' buf") -- Save the correct buffer

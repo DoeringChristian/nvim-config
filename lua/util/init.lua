@@ -10,7 +10,7 @@ M.on_attach = function(on_attach)
     })
 end
 
-M.queue_formatting = function(bufnr)
+M.fromat_async = function(bufnr)
     pcall(vim.lsp.buf.format, { async = true })
     vim.bo[bufnr].modifiable = false -- Disable modifiable so we cannot have desyncs
     vim.b[bufnr].write_after_format = true

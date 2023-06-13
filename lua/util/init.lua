@@ -10,10 +10,24 @@ M.on_attach = function(on_attach)
     })
 end
 
-M.format = function(bufnr)
+M.queue_formatting = function(bufnr)
     pcall(vim.lsp.buf.format, { async = true })
     vim.bo[bufnr].modifiable = false -- Disable modifiable so we cannot have desyncs
     vim.b[bufnr].write_after_format = true
+end
+
+M.apply_formatting = function(bufnr, result, client_id)
+    local util = require "vim.lsp.util"
+    vim.bo[bufnr].modifiable = true
+    if not result then
+        return
+    end
+    local client = vim.lsp.get_client_by_id(client_id)
+    util.apply_text_edits(result, bufnr, client.offset_encoding)
+    if vim.b[bufnr].write_after_format then
+        vim.cmd("let buf = bufnr('%') | exec '" .. bufnr .. "bufdo :noa w' | exec 'b' buf") -- Save the correct buffer
+    end
+    vim.b[bufnr].write_after_format = nil
 end
 
 return M

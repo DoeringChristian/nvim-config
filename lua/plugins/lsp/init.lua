@@ -24,7 +24,7 @@ function enable_formatting(bufnr)
         group = ag,
         buffer = bufnr,
         callback = function(ev)
-            require "util".format(bufnr)
+            require "util".queue_formatting(bufnr)
         end
     })
     vim.notify("Formatting enabled, buffer: " .. bufnr)

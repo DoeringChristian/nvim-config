@@ -96,7 +96,7 @@ return {
 
         vim.cmd [[command! Fm execute 'lua enable_formatting()']]
         vim.cmd [[command! NFm execute 'lua disable_formatting()']]
-        -- vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
+        vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
 
         vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]] --wgsl fix
 

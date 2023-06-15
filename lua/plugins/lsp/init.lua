@@ -1,6 +1,20 @@
 -- LSPs excluded from Auto Formatting
 AUTO_FORMAT_EXCLUDED = {}
 
+function DisableFormatting(...)
+    for i, v in ipairs(arg) do
+        AUTO_FORMAT_EXCLUDED[v] = true
+    end
+end
+
+vim.api.nvim_create_user_command("DisableFormatting", function(args)
+    local a = {}
+    for i, v in ipairs(args.fargs) do
+        a[i] = v
+    end
+    DisableFormatting(unpack(a))
+end, {})
+
 function disable_formatting(bufnr)
     if not (type(bufnr) == "int") then
         bufnr = vim.fn.bufnr('%')
@@ -82,7 +96,7 @@ return {
 
         vim.cmd [[command! Fm execute 'lua enable_formatting()']]
         vim.cmd [[command! NFm execute 'lua disable_formatting()']]
-        vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
+        -- vim.cmd [[command! NoFm execute 'lua disable_formatting()']]
 
         vim.cmd [[au BufNewFile,BufRead *.wgsl set filetype=wgsl]] --wgsl fix
 

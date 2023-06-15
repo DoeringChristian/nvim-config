@@ -2,18 +2,20 @@
 AUTO_FORMAT_EXCLUDED = {}
 
 function DisableFormatting(...)
+    local arg = { ... }
     for i, v in ipairs(arg) do
+        vim.notify("Disabling Formatting for " .. v)
         AUTO_FORMAT_EXCLUDED[v] = true
     end
 end
 
-vim.api.nvim_create_user_command("DisableFormatting", function(args)
-    local a = {}
-    for i, v in ipairs(args.fargs) do
-        a[i] = v
-    end
-    DisableFormatting(unpack(a))
-end, {})
+-- vim.api.nvim_create_user_command("DisableFormatting", function(args)
+--     local a = {}
+--     for i, v in ipairs(args.fargs) do
+--         a[i] = v
+--     end
+--     DisableFormatting(table.unpack(a))
+-- end, {})
 
 function disable_formatting(bufnr)
     if not (type(bufnr) == "int") then

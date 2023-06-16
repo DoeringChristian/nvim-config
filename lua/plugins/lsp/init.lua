@@ -40,7 +40,7 @@ function enable_formatting(bufnr)
         group = ag,
         buffer = bufnr,
         callback = function(ev)
-            require "util".fromat_async(bufnr)
+            require "util".format_async(bufnr)
         end
     })
     vim.notify("Formatting enabled, buffer: " .. bufnr)

@@ -1,39 +1,14 @@
--- Declare functions for mapping
-local function map(mode, keys, func, desc)
-    if desc then
-        desc = desc
-    end
-    vim.keymap.set(mode, keys, func, { noremap = true, silent = true, desc = desc })
-end
-
-local function nmap(keys, func, desc)
-    map('n', keys, func, desc)
-end
-
-local function vmap(keys, func, desc)
-    map('v', keys, func, desc)
-end
-
-local function xmap(keys, func, desc)
-    map('x', keys, func, desc)
-end
-
-local function imap(keys, func, desc)
-    map('i', keys, func, desc)
-end
-
 --Remap space as leader key
 -- map("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+local map = require "util".map
+local xmap = require "util".xmap
+local vmap = require "util".vmap
+local nmap = require "util".nmap
+local imap = require "util".imap
+
 
 -- Resize with arrows
 nmap('<C-Up>', ':resize +2<CR>', "Increase vertical size of current Buffer")
@@ -94,18 +69,6 @@ nnoremap <C--> :silent! let &guifont = substitute(
  \ '\=eval(submatch(0)-1)',
  \ '')<CR>
 ]]
-
--- Dap --
--- nmap('<F5>', function()
---     require 'hydra'.spawn('dap-hydra')
---     require 'dapui'.open()
---     require 'dap'.continue()
--- end, "Debug Start")
--- --nmap('<F5>', "<cmd>lua require'dap'.continue()<cr> <cmd>lua require'dapui'.open()<cr>")
--- nmap('<F6>', require 'dapui'.toggle)
--- nmap('<F9>', require 'dap'.toggle_breakpoint)
--- nmap('<F10>', "<cmd>lua require'dap'.step_over()<cr>")
--- nmap('<F11>', "<cmd>lua require'dap'.step_into()<cr>")
 
 -- LuaSnippet --
 nmap('<leader>lse', '<cmd>LuaSnipEdit<CR>', "[L]ua [S]nip [E]dit")

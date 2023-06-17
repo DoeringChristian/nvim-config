@@ -38,7 +38,12 @@ map("x", "<A-j>", ":move '>+1<CR>gv-gv", "Move Line Down")
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", "Move Line Up")
 
 -- Telescope --
-nmap("<leader><Tab>", "<cmd>Telescope live_grep<cr>", "Live Grep")
+nmap("<leader><Tab>",
+    function()
+        return require 'telescope.builtin'.grep_string { shorten_path = true, word_match =
+        "-w", only_sort_text = true, search = '' }
+    end,
+    "Live Grep")
 
 -- Surround --
 -- Need to remap surround.vim mappings to not conflict with leap.nvmi
@@ -95,5 +100,5 @@ nmap('<space>rf', '<cmd>IronFocus<cr>')
 nmap('<space>rh', '<cmd>IronHide<cr>')
 
 -- Gitsigns mappings
-nmap("]g", "<cmd>Gitsigns next_hunk<cr>", "Next [G]it Hunk")
-nmap("[g", "<cmd>Gitsigns prev_hunk<cr>", "Previous [G]it Hunk")
+nmap("]c", "<cmd>Gitsigns next_hunk<cr>", "Next [G]it Hunk")
+nmap("[c", "<cmd>Gitsigns prev_hunk<cr>", "Previous [G]it Hunk")

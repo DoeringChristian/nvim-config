@@ -3,6 +3,7 @@ return {
     { "tpope/vim-sleuth",               event = "VeryLazy" },
     { "tpope/vim-surround",             event = "VeryLazy" },
     { "tpope/vim-repeat",               event = "VeryLazy" },
+    { "tpope/vim-fugitive",             event = "VeryLazy" },
     { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
     { "numToStr/Comment.nvim",          opts = {} },
     { "akinsho/toggleterm.nvim",        opts = {} },

@@ -5,6 +5,7 @@ return {
     { "tpope/vim-repeat",               event = "VeryLazy" },
     { "tpope/vim-fugitive",             event = "VeryLazy" },
     { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
+    { "chentoast/marks.nvim",           event = "VeryLazy",      opts = true },
     { "numToStr/Comment.nvim",          opts = {} },
     { "akinsho/toggleterm.nvim",        opts = {} },
     { "ray-x/lsp_signature.nvim",       opts = { noice = false } },

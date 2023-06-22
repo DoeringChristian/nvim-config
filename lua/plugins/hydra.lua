@@ -158,7 +158,7 @@ return {
                     desc =
                     'vim help'
                 } },
-                { 'm', cmd 'MarksListBuf', {
+                { 'm', cmd 'Telescope marks', {
                     desc =
                     'marks'
                 } },

@@ -1,51 +1,3 @@
--- LSPs excluded from Auto Formatting
-AUTO_FORMAT_EXCLUDED = {}
-
-function DisableFormatting(...)
-    local arg = { ... }
-    for i, v in ipairs(arg) do
-        vim.notify("Disabling Formatting for " .. v)
-        AUTO_FORMAT_EXCLUDED[v] = true
-    end
-end
-
--- vim.api.nvim_create_user_command("DisableFormatting", function(args)
---     local a = {}
---     for i, v in ipairs(args.fargs) do
---         a[i] = v
---     end
---     DisableFormatting(table.unpack(a))
--- end, {})
-
-function disable_formatting(bufnr)
-    if not (type(bufnr) == "int") then
-        bufnr = vim.fn.bufnr('%')
-    end
-
-    vim.cmd([[
-    au! Format BufWritePre <buffer=]] .. bufnr .. [[>
-    ]])
-    vim.notify("Formatting disabled, buffer: " .. bufnr)
-end
-
-function enable_formatting(bufnr)
-    if not (type(bufnr) == "int") then
-        bufnr = vim.fn.bufnr('%')
-    end
-    local ag = vim.api.nvim_create_augroup("Format", {
-        clear = false
-    })
-
-    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        group = ag,
-        buffer = bufnr,
-        callback = function(ev)
-            require "util".format_async(bufnr)
-        end
-    })
-    vim.notify("Formatting enabled, buffer: " .. bufnr)
-end
-
 local function setup_slang()
     local lspconfig = require "lspconfig"
     local configs = require 'lspconfig.configs'
@@ -89,6 +41,7 @@ return {
         "ray-x/lsp_signature.nvim",        -- function signature completions
         "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
+        "lukas-reineke/lsp-format.nvim",
         { "j-hui/fidget.nvim", tag = "legacy" },
     },
     config = function()
@@ -112,5 +65,6 @@ return {
                 spinner = "pipe"
             }
         }
+        require "lsp-format".setup {}
     end
 }

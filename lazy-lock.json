@@ -21,6 +21,7 @@
   "lazy.nvim": { "branch": "main", "commit": "4c8b625bc873ca76b76eee0c28c98f1f7148f17f" },
   "leap-spooky.nvim": { "branch": "main", "commit": "e003f2aa376190148f2e7731a60c89239335013c" },
   "leap.nvim": { "branch": "main", "commit": "f41de5c1cfeb146e4b8c5ed20e5b32230457ff25" },
+  "lsp-format.nvim": { "branch": "master", "commit": "ca0df5c8544e51517209ea7b86ecc522c98d4f0a" },
   "lsp_signature.nvim": { "branch": "master", "commit": "17ff7a405fea8376b015b8ea7910d2e59958bf68" },
   "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
   "marks.nvim": { "branch": "master", "commit": "76aca5069c5ce5c0099e30168649e6393e494f26" },

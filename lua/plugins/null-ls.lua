@@ -3,7 +3,7 @@ return {
     config = function()
         local null_ls = require "null-ls"
         null_ls.setup {
-            on_attach = require("user.lsp.handlers").on_attach,
+            on_attach = require "plugins.lsp.on_attach",
             log_level = "error",
             sources = {
                 --null_ls.builtins.formatting.yapf,

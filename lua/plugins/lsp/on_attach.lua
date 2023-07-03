@@ -105,6 +105,7 @@ local function lsp_keymaps(client, bufnr)
     end
     if client.name == "texlab" then
         nmap("<leader>tb", "<CMD>TexlabBuild<CR>", "[T]ex [B]uild")
+        nmap("<leader>tf", "<CMD>TexlabForward", "[T]exlab [F]orward")
     end
 end
 

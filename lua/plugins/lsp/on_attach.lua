@@ -103,6 +103,9 @@ local function lsp_keymaps(client, bufnr)
         nmap("<leader>ra", require 'rust-tools.hover_actions'.hover_actions, "[R]ust Hover [A]ctions")
         nmap("<leader>rod", require 'rust-tools.external_docs'.open_external_docs, "[R]ust [O]pen External [D]ocs")
     end
+    if client.name == "texlab" then
+        nmap("<leader>tb", "<CMD>TexlabBuild<CR>", "[T]ex [B]uild")
+    end
 end
 
 return function(client, bufnr)

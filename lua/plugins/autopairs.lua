@@ -62,43 +62,59 @@ return {
                 end)
                 :use_key('$'),
         })
-        --[[
-npairs.add_rules({
-    Rule("$$", "$$", "tex")
-        :with_pair(function(opts)
-            print(vim.inspect(opts))
-            if opts.line == "aa $$" then
-                -- don't add pair on that line
-                return false
-            end
-        end)
-})
---]]
-        -- {|} -> { | }
+
+        -- Brace rules
         npairs.add_rules {
+            -- {| -> {|}
+            Rule('<', '>', { "rust" }),
+            -- {|} -> { | }
             Rule(' ', ' ')
                 :with_pair(function(opts)
                     local pair = opts.line:sub(opts.col - 1, opts.col)
-                    return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+                    return pair == "()"
                 end),
+            Rule(' ', ' ', { "-markdown" })
+                :with_pair(function(opts)
+                    local pair = opts.line:sub(opts.col - 1, opts.col)
+                    return pair == "[]"
+                end),
+            Rule(' ', ' ')
+                :with_pair(function(opts)
+                    local pair = opts.line:sub(opts.col - 1, opts.col)
+                    return pair == "{}"
+                end),
+            Rule(' ', ' ', { "rust" })
+                :with_pair(function(opts)
+                    local pair = opts.line:sub(opts.col - 1, opts.col)
+                    return pair == "<>"
+                end),
+            -- { | } -> |
             Rule('( ', ' )')
                 :with_pair(function() return false end)
                 :with_move(function(opts)
                     return opts.prev_char:match('.%)') ~= nil
                 end)
                 :use_key(')'),
-            Rule('{ ', ' }')
-                :with_pair(function() return false end)
-                :with_move(function(opts)
-                    return opts.prev_char:match('.%}') ~= nil
-                end)
-                :use_key('}'),
             Rule('[ ', ' ]')
                 :with_pair(function() return false end)
                 :with_move(function(opts)
                     return opts.prev_char:match('.%]') ~= nil
                 end)
                 :use_key(']'),
+            Rule('{ ', ' }')
+                :with_pair(function() return false end)
+                :with_move(function(opts)
+                    return opts.prev_char:match('.%}') ~= nil
+                end)
+                :use_key('}'),
+            Rule('< ', ' >', { "rust" })
+                :with_pair(function() return false end)
+                :with_move(function(opts)
+                    return opts.prev_char:match('.%>') ~= nil
+                end)
+                :use_key('>'),
+
+            -- =| ->  = |
             Rule('=', '')
                 :with_pair(cond.not_inside_quote())
                 :with_pair(cond.not_filetypes({ "sh", "make", "desktop", "zsh", "conf" }))

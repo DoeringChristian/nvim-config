@@ -2,6 +2,23 @@ return {
     "epwalsh/obsidian.nvim",
     lazy = true,
     event = { "BufReadPre " .. vim.fn.expand "~" .. "/share/notes/obsidian/main/**.md" },
+    cmd = {
+        "ObsidianBacklinks",
+        "ObsidianToday",
+        "ObsidianYesterday",
+        "ObsidianOpen",
+        "ObsidianNew",
+        "ObsidianSearch",
+        "ObsidianQuickSwitch",
+        "ObsidianLink",
+        "ObsidianLinkNew",
+        "ObsidianFollowLink",
+        "ObsidianTemplate",
+    },
+    keys = {
+        { "<leader>os", "<CMD>ObsidianSearch<CR>", desc = "[O]bsidian [S]earch" },
+        { "<leader>ot", "<CMD>ObsidianToday<CR>",  desc = "[O]bsidian [T]oday" },
+    },
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
     dependencies = {
         -- Required.

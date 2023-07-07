@@ -114,6 +114,9 @@ return {
                 end)
                 :use_key('>'),
 
+            -- -[| -> - [  ]
+            Rule('- [', ' ]', { "markdown" }),
+
             -- =| ->  = |
             Rule('=', '')
                 :with_pair(cond.not_inside_quote())

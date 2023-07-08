@@ -20,7 +20,8 @@ return {
             dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
             dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
             dashboard.button("s", "勒" .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
-            dashboard.button("o", "󰎚 " .. " Obsidian", "<CMD>ObsidianSearch<CR>"),
+            dashboard.button("o", "󰎚 " .. " Obsidian",
+                "<CMD>cd ~/share/notes/obsidian/main/<CR> <CMD>ObsidianSearch<CR>"),
             dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }

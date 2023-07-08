@@ -54,7 +54,7 @@ return {
         dir = "~/share/notes/obsidian/main/", -- no need to call 'vim.fn.expand' here
 
         -- Optional, if you keep notes in a specific subdirectory of your vault.
-        notes_subdir = "notes",
+        notes_subdir = "zettelkasten",
 
         -- Optional, set the log level for Obsidian. This is an integer corresponding to one of the log
         -- levels defined by "vim.log.levels.*" or nil, which is equivalent to DEBUG (1).

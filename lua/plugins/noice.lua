@@ -15,13 +15,6 @@ return {
                 },
                 view = "mini",
             },
-            -- {
-            --     filter = {
-            --         event = "msg_show",
-            --         kind = "search_count",
-            --     },
-            --     opts = { skip = true },
-            -- },
         },
         lsp = {
             override = {
@@ -68,15 +61,17 @@ return {
         cmdline = {
             enabled = true, -- enables the Noice cmdline UI
         },
-        -- views = {
-        --     mini = {
-        --         position = {
-        --             row = -2,
-        --             col = "100%",
-        --             -- col = 0,
-        --         },
-        --     }
-        -- },
+        views = {
+            split = {
+                enter = true
+            }
+        },
+        win_options = {
+            winhighlight = {
+                Normal = "NormalFloat",
+                FloatBorder = "FloatBorder"
+            },
+        }
     },
     -- stylua: ignore
     keys = {

@@ -18,7 +18,7 @@ return {
     keys = {
         { "<leader>ob",  "<CMD>ObsidianBacklinks<CR>",   desc = "[O]bsidian [B]acklinks" },
         { "<leader>os",  "<CMD>ObsidianSearch<CR>",      desc = "[O]bsidian [S]earch" },
-        { "<leader>ot",  "<CMD>ObsidianToday<CR>",       desc = "[O]bsidian [T]oday" },
+        -- { "<leader>ot",  "<CMD>ObsidianToday<CR>",       desc = "[O]bsidian [T]oday" },
         { "<leader>oy",  "<CMD>ObsidianYesterday<CR>",   desc = "[O]bsidian [Y]esterday" },
         { "<leader>oo",  "<CMD>ObsidianOpen<CR>",        desc = "[O]bsidian [O]pen" },
         { "<leader>on",  "<CMD>ObsidianNew<CR>",         desc = "[O]bsidian [N]ew" },
@@ -85,17 +85,15 @@ return {
             -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
             -- In this case a note with the title 'My new note' will given an ID that looks
             -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-            local suffix = ""
-            if title ~= nil then
-                -- If title is given, transform it into valid file name.
-                suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+            if title ~= nill then
+                return title:gsub("[^A-Za-z0-9-]", "")
             else
-                -- If title is nil, just add 4 random uppercase letters to the suffix.
+                suffix = ""
                 for _ = 1, 4 do
                     suffix = suffix .. string.char(math.random(65, 90))
                 end
+                return tostring(os.time()) .. "-" .. suffix
             end
-            return tostring(os.time()) .. "-" .. suffix
         end,
 
         -- Optional, set to true if you don't want Obsidian to manage frontmatter.

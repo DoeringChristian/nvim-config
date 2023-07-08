@@ -16,6 +16,7 @@ return {
         "ObsidianTemplate",
     },
     keys = {
+        { "<leader>ob",  "<CMD>ObsidianBacklinks<CR>",   desc = "[O]bsidian [B]acklinks" },
         { "<leader>os",  "<CMD>ObsidianSearch<CR>",      desc = "[O]bsidian [S]earch" },
         { "<leader>ot",  "<CMD>ObsidianToday<CR>",       desc = "[O]bsidian [T]oday" },
         { "<leader>oy",  "<CMD>ObsidianYesterday<CR>",   desc = "[O]bsidian [Y]esterday" },

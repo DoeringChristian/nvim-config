@@ -42,7 +42,6 @@ return {
         "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         "lukas-reineke/lsp-format.nvim",
-        { "j-hui/fidget.nvim", tag = "legacy" },
     },
     config = function()
         -- NOTE: lsp settings are loaded by mason (rust-analyzer is handled by rust-tools)
@@ -60,11 +59,6 @@ return {
         --require "user.lsp.lsp-installer"
         require "user.lsp.handlers".setup()
 
-        require "fidget".setup {
-            text = {
-                spinner = "pipe"
-            }
-        }
         require "lsp-format".setup {}
     end
 }

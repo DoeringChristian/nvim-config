@@ -34,6 +34,9 @@ return {
         sections = {
             lualine_a = {
                 'mode',
+                { function()
+                    return require "recorder".recordingStatus()
+                end },
             },
             lualine_b = {
                 'branch',
@@ -54,14 +57,6 @@ return {
                     file_status = true,
                     path = 1,
                 },
-                {
-                    function()
-                        return require "nvim-navic".get_location()
-                    end,
-                    cond = function()
-                        return require "nvim-navic".is_available()
-                    end
-                }
             },
             lualine_x = {
                 -- -- stylua: ignore
@@ -90,6 +85,6 @@ return {
             lualine_z = {}
         },
         tabline = {},
-        extensions = {}
+        extensions = {},
     }
 }

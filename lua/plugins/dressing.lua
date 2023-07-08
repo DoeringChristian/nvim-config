@@ -4,7 +4,7 @@ return {
     opts = {
         select = {
             enabled = true,
-            backend = "builtin", -- Telescope is brocken atm.
+            -- backend = "builtin", -- Telescope is brocken atm.
             telescope = {
                 initial_mode = "normal",
             }

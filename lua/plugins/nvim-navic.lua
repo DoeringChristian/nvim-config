@@ -8,6 +8,7 @@ return {
         util.on_attach(function(client, buffer)
             if client.server_capabilities.documentSymbolProvider then
                 require("nvim-navic").attach(client, buffer)
+                vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
             end
         end)
     end,

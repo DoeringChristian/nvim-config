@@ -33,7 +33,7 @@ return function(client, bufnr)
     -- LSP <leader> prefixed commands
     nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
 
-    nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
+    -- nmap("<leader>a", "<cmd>CodeActionMenu<CR>", "Code [A]ction")
 
     nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
     nmap("<leader>ge", function()

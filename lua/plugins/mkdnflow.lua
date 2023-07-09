@@ -8,12 +8,12 @@ return {
                 conceal = true,
                 cursor = true,
                 folds = true,
-                links = true,
+                links = false,
                 lists = true,
                 maps = true,
                 paths = true,
                 tables = true,
-                yaml = false
+                yaml = true,
             },
             filetypes = { md = true, rmd = true, markdown = true },
             create_dirs = true,
@@ -81,7 +81,7 @@ Filename: {{ filename }}
                 bib = { override = false }
             },
             mappings = {
-                MkdnEnter = { { 'n', 'v' }, '<CR>' },
+                MkdnEnter = { { 'i', 'n', 'v' }, '<CR>' },
                 MkdnTab = false,
                 MkdnSTab = false,
                 MkdnNextLink = { 'n', '<Tab>' },

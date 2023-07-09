@@ -102,3 +102,4 @@ nmap('<space>rh', '<cmd>IronHide<cr>')
 -- Gitsigns mappings
 nmap("]c", "<cmd>Gitsigns next_hunk<cr>", "Next [G]it Hunk")
 nmap("[c", "<cmd>Gitsigns prev_hunk<cr>", "Previous [G]it Hunk")
+nmap("<leader>gc", "<cmd>Telescope git_commits<cr>", "[G]oto [C]ommits")

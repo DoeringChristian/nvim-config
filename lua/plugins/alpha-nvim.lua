@@ -21,7 +21,7 @@ return {
             dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
             dashboard.button("s", "勒" .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
             dashboard.button("o", "󰎚 " .. " Obsidian",
-                "<CMD>cd ~/share/notes/obsidian/main/<CR> <CMD>ObsidianSearch<CR>"),
+                "<CMD>cd ~/share/notes/obsidian/main/<CR><CMD>lua vim.notify('Switched to Obsidian notes')<CR>"),
             dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }

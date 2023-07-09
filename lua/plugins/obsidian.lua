@@ -85,8 +85,8 @@ return {
             -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
             -- In this case a note with the title 'My new note' will given an ID that looks
             -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-            if title ~= nill then
-                return title:gsub("[^A-Za-z0-9-]", "")
+            if title ~= nil then
+                return title:gsub("[^A-Za-z0-9- ]", "")
             else
                 suffix = ""
                 for _ = 1, 4 do

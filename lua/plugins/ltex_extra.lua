@@ -5,7 +5,6 @@ return {
     config = function()
         local opts = require "user.lsp.handlers".config("ltex")
         require "ltex_extra".setup {
-            log_level = "trace",
             load_langs = { "en-US", "de-DE" },
             path = ".ltex",
             init_check = true,

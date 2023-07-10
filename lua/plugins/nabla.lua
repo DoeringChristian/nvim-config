@@ -1,3 +1,17 @@
+local virt_enabled = false
+function DisableNabla()
+    virt_enabled = false
+    require "nabla".disable_virt()
+end
+
+function EnableNabla()
+    virt_enabled = false
+    require "nabla".enable_virt({
+        autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+        silent = false, -- silents error messages
+    })
+end
+
 return {
     "jbyuki/nabla.nvim",
     config = function()
@@ -12,10 +26,14 @@ return {
                 end
 
                 -- Enable nabla for markdown
-                require "nabla".enable_virt({
-                    autogen = true, -- auto-regenerate ASCII art when exiting insert mode
-                    silent = false, -- silents error messages
-                })
+                if virt_enabled then
+                    require "nabla".enable_virt({
+                        autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+                        silent = false, -- silents error messages
+                    })
+                else
+                    require "nabla".disable_virt()
+                end
                 map("n", "<leader>p", function()
                     return require "nabla".popup()
                 end, "[P]opup")

@@ -8,11 +8,12 @@ return {
         local npairs = require "nvim-autopairs"
         local Rule = require "nvim-autopairs.rule"
         local cond = require "nvim-autopairs.conds"
+        local ignored_next_char = [=[[%w%%%'%[%(%"%.%-%+%/%*]]=]
 
         npairs.setup {
             check_ts = true,
             -- Ignore these chars: w, %, ', [, (, ., -, +, *, /
-            ignored_next_char = [=[[%w%%%'%[%(%"%.%-%+%/%*]]=],
+            ignored_next_char = ignored_next_char,
             ts_config = {
                 lua = { "string", "source" },
                 javascript = { "string", "template_string" },
@@ -66,7 +67,8 @@ return {
         -- Brace rules
         npairs.add_rules {
             -- {| -> {|}
-            Rule('<', '>', { "rust" }),
+            -- Rule('<', '>', { "rust" })
+            --     :with_pair(cond.not_before_regex(ignored_next_char)),
             -- {|} -> { | }
             Rule(' ', ' ')
                 :with_pair(function(opts)

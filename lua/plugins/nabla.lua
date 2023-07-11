@@ -14,9 +14,10 @@ end
 
 return {
     "jbyuki/nabla.nvim",
+    ft = { "markdown" },
     config = function()
         vim.api.nvim_create_autocmd({ "Filetype" }, {
-            pattern = { "markdown", "tex" },
+            pattern = { "markdown" },
             callback = function()
                 local function map(mode, keys, func, desc)
                     if desc then

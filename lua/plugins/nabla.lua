@@ -5,7 +5,7 @@ function DisableNabla()
 end
 
 function EnableNabla()
-    virt_enabled = false
+    virt_enabled = true
     require "nabla".enable_virt({
         autogen = true, -- auto-regenerate ASCII art when exiting insert mode
         silent = false, -- silents error messages

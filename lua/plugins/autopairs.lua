@@ -117,7 +117,7 @@ return {
                 :use_key('>'),
 
             -- -[| -> - [  ]
-            Rule('- [', ' ]', { "markdown" }),
+            -- Rule('- [', ' ]', { "markdown" }),
 
             -- =| ->  = |
             Rule('=', '')

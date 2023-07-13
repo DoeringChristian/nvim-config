@@ -3,17 +3,36 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "tom-anders/telescope-vim-bookmarks.nvim",
-        -- "nvim-telescope/telescope-ui-select.nvim",
         "gbprod/yanky.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        "folke/flash.nvim",
     },
-    config = function()
+    opts = function()
         local telescope = require "telescope"
 
         local R = function(name)
             local RELOAD = require("plenary.reload").reload_module
             RELOAD(name)
             return require(name)
+        end
+
+        local function flash(prompt_bufnr)
+            require "flash".jump {
+                pattern = "^",
+                label = { after = { 0, 0 } },
+                search = {
+                    mode = "search",
+                    exclude = {
+                        function(win)
+                            return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
+                        end,
+                    },
+                },
+                action = function(match)
+                    local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+                    picker:set_selection(match.pos[1] - 1)
+                end,
+            }
         end
 
         --telescope.load_extension('media_files')
@@ -30,6 +49,7 @@ return {
                 path_display = { "smart" },
                 mappings = {
                     i = {
+                        ["<C-s>"] = flash,
                         ["<C-n>"] = actions.cycle_history_next,
                         ["<C-p>"] = actions.cycle_history_prev,
                         -- ["<C-h>"] = R("telescope").extensions.hop.hop,
@@ -54,6 +74,7 @@ return {
                         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
                     },
                     n = {
+                        ["s"] = flash,
                         ["q"] = actions.close,
                         ["<esc>"] = actions.close,
                         --["jk"] = actions.close,

@@ -100,7 +100,7 @@ Filename: {{ filename }}
                 MkdnYankFileAnchorLink = { 'n', 'yfa' },
                 MkdnIncreaseHeading = { 'n', '-' },
                 MkdnDecreaseHeading = { 'n', '=' },
-                MkdnToggleToDo = { { 'n', 'v' }, '<leader>ct' },
+                MkdnToggleToDo = { { 'n', 'v' }, '<leader>tc' },
                 MkdnNewListItem = false,
                 MkdnNewListItemBelowInsert = { 'n', 'o' },
                 MkdnNewListItemAboveInsert = { 'n', 'O' },

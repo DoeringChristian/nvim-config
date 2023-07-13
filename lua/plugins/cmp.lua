@@ -158,6 +158,9 @@ return {
                     { name = "path" },
                     { name = "buffer", keyword_length = 5 },
                     --{ name = "spell" },
+                },
+                {
+                    { name = "neorg" },
                 }
             ),
             confirm_opts = {

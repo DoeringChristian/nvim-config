@@ -82,4 +82,33 @@ function UpdateLspSettings(server_name, settings_patcher)
     })
 end
 
+M.obsidian_dir = "~/share/notes/obsidian/main"
+
+M.fin_obsidian_note = function(input)
+    local note_file_name = input
+
+    if note_file_name:match "|[^%]]*" then
+        note_file_name = note_file_name:sub(1, note_file_name:find "|" - 1)
+    end
+
+    if note_file_name:match "^[%a%d]*%:%/%/" then
+        vim.fn.jobstart({ "open", note_file_name })
+        return
+    end
+
+    if not note_file_name:match "%.md" then
+        note_file_name = note_file_name .. ".md"
+    end
+
+    local notes = require "obsidian.util".find_note(M.obsidian_dir, note_file_name)
+    if #notes < 1 then
+        return note_file_name
+    elseif #notes == 1 then
+        return notes[1].filename
+    else
+        vim.notify("Found multiple notes")
+        return
+    end
+end
+
 return M

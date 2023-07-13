@@ -8,7 +8,7 @@ return {
                 conceal = true,
                 cursor = true,
                 folds = true,
-                links = false,
+                links = true,
                 lists = true,
                 maps = true,
                 paths = true,
@@ -36,7 +36,15 @@ return {
                 conceal = true,
                 context = 0,
                 implicit_extension = nil,
-                transform_implicit = false,
+                transform_implicit = function(input)
+                    -- Find obsidian note if in obsidian dir
+                    local obsidian_dir = require "util".obsidian_dir
+                    if vim.fn.getcwd():find("^" .. obsidian_dir) then
+                        require "util".fin_obsidian_note(input)
+                    else
+                        return input
+                    end
+                end,
                 transform_explicit = function(text)
                     text = text:gsub(" ", "-")
                     text = text:lower()

@@ -1,13 +1,13 @@
 return {
-    { "tpope/vim-sleuth",         event = "VeryLazy" },
-    { "tpope/vim-surround",       event = "VeryLazy" },
-    { "tpope/vim-repeat",         event = "VeryLazy" },
-    { "tpope/vim-fugitive",       event = "VeryLazy" },
-    { "chentoast/marks.nvim",     event = "VeryLazy",    opts = true },
-    { "numToStr/Comment.nvim",    opts = {} },
-    { "akinsho/toggleterm.nvim",  opts = {} },
+    { "tpope/vim-sleuth",        event = "VeryLazy" },
+    { "tpope/vim-surround",      event = "VeryLazy" },
+    { "tpope/vim-repeat",        event = "VeryLazy" },
+    { "tpope/vim-fugitive",      event = "VeryLazy" },
+    { "chentoast/marks.nvim",    event = "VeryLazy", opts = true },
+    { "numToStr/Comment.nvim",   opts = {} },
+    { "akinsho/toggleterm.nvim", opts = {} },
     -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },
-    { "SvanT/lsp_signature.nvim", opts = { noice = false } },
+    -- { "SvanT/lsp_signature.nvim", opts = { noice = false } },
     {
         "klen/nvim-config-local",
         config = function()

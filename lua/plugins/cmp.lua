@@ -12,8 +12,8 @@ return {
         "hrsh7th/cmp-cmdline",      -- cmdline completions
         "saadparwaiz1/cmp_luasnip", -- snippet completions
         "hrsh7th/cmp-nvim-lsp",     -- lsp completions
-        -- "ray-x/lsp_signature.nvim", -- function signature completions
-        "SvanT/lsp_signature.nvim",
+        --"ray-x/lsp_signature.nvim", -- function signature completions
+        -- "SvanT/lsp_signature.nvim",
     },
     opts = function()
         local cmp = require "cmp"
@@ -155,8 +155,8 @@ return {
             },
             sources = cmp.config.sources(
                 {
-                    { name = "nvim_lsp" },
                     { name = "nvim_lsp_signature_help" },
+                    { name = "nvim_lsp" },
                     { name = "luasnip" },
                 },
                 {

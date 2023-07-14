@@ -27,7 +27,7 @@ return {
             hover = {
             },
             signature = {
-                enabled = false,
+                enabled = true,
             },
             documentation = {
                 opts = {

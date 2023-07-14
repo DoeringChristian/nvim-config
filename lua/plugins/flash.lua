@@ -6,6 +6,11 @@ return {
         label = {
             uppercase = false,
             reuse = "all",
+            rainbow = {
+                enabled = true,
+                -- number between 1 and 9
+                shade = 5,
+            },
         },
         remote_op = {
             -- restore = true,
@@ -19,9 +24,16 @@ return {
             function()
                 require("flash").jump {
                     search = {
+                        -- mode = function(str)
+                        --     return "\\<" .. str
+                        -- end,
                         mode = function(str)
-                            return "\\<" .. str
-                        end,
+                            local keywords = vim.o.iskeyword
+                            local keywords = "@0-9192-255-" -- Keywords except Underscore
+                            local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
+                            vim.notify(patern)
+                            return patern
+                        end
                     },
                 }
             end,

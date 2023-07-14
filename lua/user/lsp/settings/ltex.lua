@@ -6,7 +6,12 @@ return {
             enabled = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext",
                 "rsweave", "python", "rust" },
             completionEnabled = true,
-            -- checkFrequency = "save",
+            markdown = {
+                nodes = {
+                    FencedCodeBlock = "ignore",
+                    CodeBlock = "ignore",
+                }
+            }
         }
     }
 }

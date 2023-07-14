@@ -7,7 +7,7 @@ return {
             uppercase = false,
             reuse = "all",
             rainbow = {
-                enabled = true,
+                enabled = false,
                 -- number between 1 and 9
                 shade = 5,
             },

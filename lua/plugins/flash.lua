@@ -31,7 +31,6 @@ return {
                             local keywords = vim.o.iskeyword
                             local keywords = "@0-9192-255-" -- Keywords except Underscore
                             local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
-                            vim.notify(patern)
                             return patern
                         end
                     },

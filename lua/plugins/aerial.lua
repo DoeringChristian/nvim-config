@@ -2,6 +2,13 @@ return {
     'stevearc/aerial.nvim',
     keys = {
         { "<leader>nv", "<CMD>AerialNavOpen<CR>", desc = "[N]a[V] Open" },
+        {
+            "<leader>no",
+            function()
+                return require "aerial".toggle { focus = false }
+            end,
+            desc = "[N]avigation [O]utliner"
+        },
     },
     opts = {
         close_automatic_events = { "unfocus" },

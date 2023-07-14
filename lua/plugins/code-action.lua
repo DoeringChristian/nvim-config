@@ -10,7 +10,8 @@ return {
             function()
                 require "actions-preview".code_actions()
             end,
-            mode = { "v", "n" }
+            mode = { "v", "n" },
+            desc = "Code [A]ction"
         }
     },
     config = function()

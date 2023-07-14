@@ -43,7 +43,7 @@ return function(client, bufnr)
 
     nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Next [D]iagnostic")
     nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Previous [D]iagnostic")
-    nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
+    -- nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
     nmap("]e", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", severity = "error" })<CR>',
         "Next [E]rror")

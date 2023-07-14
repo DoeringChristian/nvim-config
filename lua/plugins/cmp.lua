@@ -30,6 +30,11 @@ return {
             local after = vim.fn.getline('.'):sub(col + 1, -1)
             return vim.fn.getline('.'):sub(1, col):match "[%(%[%{\"']$" -- IMPORTANT: must match characters in autopairs.fast_wrap.chars
         end
+        local has_words_before = function()
+            unpack = unpack or table.unpack
+            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        end
 
         --   פּ ﯟ   some other good icons
         local kind_icons = require "user.icons".kinds
@@ -76,32 +81,31 @@ return {
                     end,
                 },
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
-                --[[
-        ["<CR>"] = cmp.mapping {
-            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
-            c = function(fallback)
-                if cmp.visible() then
-                    cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
-                else
-                    fallback()
-                end
-            end,
-        },
-        --]]
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif check_bracket() ~= nil then
-                        require('nvim-autopairs.fastwrap').show()
-                    elseif check_backspace() then
-                        fallback()
-                    elseif luasnip.expandable() then
-                        luasnip.expand()
-                    elseif luasnip.expand_or_jumpable() then
+                        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                        -- this way you will only jump inside the snippet region
+                    elseif luasnip.expand_or_locally_jumpable() then
                         luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.complete()
                     else
                         fallback()
                     end
+                    -- if cmp.visible() then
+                    --     cmp.select_next_item()
+                    -- elseif check_bracket() ~= nil then
+                    --     require('nvim-autopairs.fastwrap').show()
+                    -- elseif check_backspace() then
+                    --     fallback()
+                    -- elseif luasnip.expandable() then
+                    --     luasnip.expand()
+                    -- elseif luasnip.expand_or_jumpable() then
+                    --     luasnip.expand_or_jump()
+                    -- else
+                    --     fallback()
+                    -- end
                 end, {
                     "i",
                     "s",

@@ -12,7 +12,7 @@ return {
     },
     opts = {
         close_automatic_events = { "unfocus" },
-        autojump = false,
+        autojump = true,
         nav = {
             preview = true,
             keymaps = {

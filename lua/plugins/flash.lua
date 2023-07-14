@@ -5,6 +5,7 @@ return {
     opts = {
         label = {
             uppercase = false,
+            reuse = "all",
         },
         remote_op = {
             -- restore = true,
@@ -12,7 +13,20 @@ return {
     },
     -- stylua: ignore
     keys = {
-        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+        {
+            "s",
+            mode = { "n", "x", "o" },
+            function()
+                require("flash").jump {
+                    search = {
+                        mode = function(str)
+                            return "\\<" .. str
+                        end,
+                    },
+                }
+            end,
+            desc = "Flash"
+        },
         {
             "S",
             mode = { "n", "o", "x" },
@@ -20,7 +34,7 @@ return {
             desc =
             "Flash Treesitter"
         },
-        { "r", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         {
             "R",
             mode = { "o", "x" },

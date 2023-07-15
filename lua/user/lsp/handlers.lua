@@ -55,7 +55,7 @@ M.setup = function()
             -- Enable underline, use default values
             underline = true,
             -- Disable a feature
-            update_in_insert = false,
+            update_in_insert = true,
         })
 
     -- Configure Telescope for lsp handlers

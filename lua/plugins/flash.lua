@@ -29,7 +29,7 @@ return {
                         -- end,
                         mode = function(str)
                             local keywords = vim.o.iskeyword
-                            local keywords = "@0-9192-255-" -- Keywords except Underscore
+                            local keywords = "0-9a-zA-Z" -- Any characters allowed to match
                             local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
                             return patern
                         end

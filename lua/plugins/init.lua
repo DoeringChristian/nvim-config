@@ -2,7 +2,7 @@ return {
     { "tpope/vim-sleuth",        event = "VeryLazy" },
     { "tpope/vim-surround",      event = "VeryLazy" },
     { "tpope/vim-repeat",        event = "VeryLazy" },
-    { "tpope/vim-fugitive",      event = "VeryLazy" },
+    -- { "tpope/vim-fugitive",      event = "VeryLazy" },
     { "chentoast/marks.nvim",    event = "VeryLazy", opts = true },
     { "numToStr/Comment.nvim",   opts = {} },
     { "akinsho/toggleterm.nvim", opts = {} },

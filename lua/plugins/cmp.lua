@@ -44,7 +44,7 @@ return {
         cmp.setup {
             performance = {
                 debounce = 100,
-                fetching_timeout = 200,
+                fetching_timeout = 100,
             },
             -- :h nvim-cmp
             preselect = cmp.PreselectMode.None,

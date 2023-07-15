@@ -8,5 +8,8 @@ return {
         integrations = {
             diffview = true,
         },
-    }
+    },
+    config = function(opts)
+        require "neogit".setup(opts)
+    end,
 }

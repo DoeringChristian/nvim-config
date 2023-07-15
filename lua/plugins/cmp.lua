@@ -44,6 +44,8 @@ return {
         cmp.setup {
             performance = {
                 debounce = 100,
+                -- Controlls the time cmp waits at most before displaying results
+                -- has impact on priority.
                 fetching_timeout = 100,
             },
             -- :h nvim-cmp

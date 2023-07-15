@@ -29,8 +29,9 @@ return {
                         -- end,
                         mode = function(str)
                             local keywords = vim.o.iskeyword
-                            local keywords = "0-9a-zA-Z" -- Any characters allowed to match
+                            local keywords = "0-9a-z" -- Any characters allowed to match (keep case insensitive)
                             local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
+                            vim.notify(patern)
                             return patern
                         end
                     },

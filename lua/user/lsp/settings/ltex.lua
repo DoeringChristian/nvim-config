@@ -5,7 +5,7 @@ return {
         ltex = {
             enabled = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext",
                 "rsweave", "python", "rust" },
-            completionEnabled = false,
+            completionEnabled = true,
             markdown = {
                 nodes = {
                     FencedCodeBlock = "ignore",

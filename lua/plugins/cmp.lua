@@ -42,6 +42,9 @@ return {
         -- find more here: https://www.nerdfonts.com/cheat-sheet
 
         cmp.setup {
+            performance = {
+                debounce = 60,
+            },
             -- :h nvim-cmp
             preselect = cmp.PreselectMode.None,
             snippet = {

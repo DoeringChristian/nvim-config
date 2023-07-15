@@ -27,7 +27,7 @@ return {
             hover = {
             },
             signature = {
-                enabled = false,
+                enabled = true,
             },
             documentation = {
                 opts = {
@@ -57,6 +57,7 @@ return {
             bottom_search = false,
             command_palette = false,
             long_message_to_split = true,
+            inc_rename = true,
         },
         messages = {
             enabled = true,

@@ -5,6 +5,12 @@ return {
     opts = {
         label = {
             uppercase = false,
+            reuse = "all",
+            rainbow = {
+                enabled = false,
+                -- number between 1 and 9
+                shade = 5,
+            },
         },
         remote_op = {
             -- restore = true,
@@ -12,7 +18,26 @@ return {
     },
     -- stylua: ignore
     keys = {
-        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+        {
+            "s",
+            mode = { "n", "x", "o" },
+            function()
+                require("flash").jump {
+                    search = {
+                        -- mode = function(str)
+                        --     return "\\<" .. str
+                        -- end,
+                        mode = function(str)
+                            local keywords = vim.o.iskeyword
+                            local keywords = "@0-9192-255-" -- Keywords except Underscore
+                            local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
+                            return patern
+                        end
+                    },
+                }
+            end,
+            desc = "Flash"
+        },
         {
             "S",
             mode = { "n", "o", "x" },
@@ -20,7 +45,7 @@ return {
             desc =
             "Flash Treesitter"
         },
-        { "r", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         {
             "R",
             mode = { "o", "x" },

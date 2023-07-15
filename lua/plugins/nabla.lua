@@ -38,9 +38,9 @@ return {
                 map("n", "<leader>p", function()
                     return require "nabla".popup()
                 end, "[P]opup")
-                map("n", "<leader>nv", function()
+                map("n", "<leader>nt", function()
                     return require "nabla".toggle_virt()
-                end, "[N]abla [V]irt")
+                end, "[N]abla [T]oggle")
             end
         })
     end

@@ -16,25 +16,19 @@ return {
     keys = {
         {
             "gt",
-            function() require("todo-comments").jump_next() end,
+            "<CMD>TodoTelescope<CR>",
             desc =
-            "Next Special comment"
+            "[G]oto [T]odo comments"
         },
         {
             "]t",
-            function() require("todo-comments").jump_next { keywords = { "TODO" } } end,
+            function() require "todo-comments".jump_next { keywords = { "TODO" } } end,
             desc =
             "Next TODO comment"
         },
         {
-            "gT",
-            function() require("todo-comments").jump_prev() end,
-            desc =
-            "Previous special comment"
-        },
-        {
             "[t",
-            function() require("todo-comments").jump_prev { keywords = { "TODO" } } end,
+            function() require "todo-comments".jump_prev { keywords = { "TODO" } } end,
             desc =
             "Previous TODO comment"
         },

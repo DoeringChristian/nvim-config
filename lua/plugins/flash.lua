@@ -1,8 +1,15 @@
+local mode = function(str)
+    local keywords = vim.o.iskeyword
+    local keywords = "0-9a-z" -- Any characters allowed to match (keep case insensitive)
+    local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
+    return patern
+end
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
+        labels = "sfnutrjklodwehmvgc",
         label = {
             uppercase = false,
             reuse = "all",
@@ -24,16 +31,10 @@ return {
             function()
                 require("flash").jump {
                     search = {
-                        -- mode = function(str)
-                        --     return "\\<" .. str
-                        -- end,
-                        mode = function(str)
-                            local keywords = vim.o.iskeyword
-                            local keywords = "0-9a-z" -- Any characters allowed to match (keep case insensitive)
-                            local patern = "\\(^\\|[^" .. keywords .. "]\\zs\\)" .. str
-                            -- vim.notify(patern)
-                            return patern
-                        end
+                        forward = true,
+                        wrap = false,
+                        multi_window = false,
+                        mode = mode,
                     },
                 }
             end,
@@ -41,11 +42,26 @@ return {
         },
         {
             "S",
-            mode = { "n", "o", "x" },
-            function() require("flash").treesitter() end,
-            desc =
-            "Flash Treesitter"
+            mode = { "n", "x", "o" },
+            function()
+                require("flash").jump {
+                    search = {
+                        forward = false,
+                        wrap = false,
+                        multi_window = false,
+                        mode = mode,
+                    },
+                }
+            end,
+            desc = "Flash"
         },
+        -- {
+        --     "S",
+        --     mode = { "n", "o", "x" },
+        --     function() require("flash").treesitter() end,
+        --     desc =
+        --     "Flash Treesitter"
+        -- },
         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         {
             "R",

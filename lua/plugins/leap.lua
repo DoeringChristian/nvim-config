@@ -1,5 +1,6 @@
 return {
     "ggandor/leap.nvim",
+    enabled = true,
     dependencies = {
         "ggandor/flit.nvim",
         "ggandor/leap-spooky.nvim",

@@ -6,7 +6,7 @@ local mode = function(str)
 end
 return {
     "folke/flash.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
@@ -26,36 +26,42 @@ return {
     },
     -- stylua: ignore
     keys = {
-        {
-            "s",
-            mode = { "n", "x", "o" },
-            function()
-                require("flash").jump {
-                    search = {
-                        forward = true,
-                        wrap = false,
-                        multi_window = false,
-                        mode = mode,
-                    },
-                }
-            end,
-            desc = "Flash"
-        },
-        {
-            "S",
-            mode = { "n", "x", "o" },
-            function()
-                require("flash").jump {
-                    search = {
-                        forward = false,
-                        wrap = false,
-                        multi_window = false,
-                        mode = mode,
-                    },
-                }
-            end,
-            desc = "Flash"
-        },
+        -- {
+        --     "s",
+        --     mode = { "n", "x", "o" },
+        --     function()
+        --         require("flash").jump {
+        --             highlight = { label = { after = false, before = { 0, 2 } } },
+        --             max_length = 2,
+        --             search = {
+        --                 -- incremental = true,
+        --                 forward = true,
+        --                 wrap = false,
+        --                 multi_window = false,
+        --                 mode = mode,
+        --             },
+        --         }
+        --     end,
+        --     desc = "Flash"
+        -- },
+        -- {
+        --     "S",
+        --     mode = { "n", "x", "o" },
+        --     function()
+        --         require("flash").jump {
+        --             highlight = { label = { after = false, before = { 0, 2 } } },
+        --             max_length = 2,
+        --             search = {
+        --                 -- incremental = true,
+        --                 forward = false,
+        --                 wrap = false,
+        --                 multi_window = false,
+        --                 mode = mode,
+        --             },
+        --         }
+        --     end,
+        --     desc = "Flash"
+        -- },
         -- {
         --     "S",
         --     mode = { "n", "o", "x" },
@@ -63,20 +69,20 @@ return {
         --     desc =
         --     "Flash Treesitter"
         -- },
-        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-        {
-            "R",
-            mode = { "o", "x" },
-            function() require("flash").treesitter_search() end,
-            desc =
-            "Treesitter Search"
-        },
-        {
-            "<c-s>",
-            mode = { "c" },
-            function() require("flash").toggle() end,
-            desc =
-            "Toggle Flash Search"
-        },
+        -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        -- {
+        --     "R",
+        --     mode = { "o", "x" },
+        --     function() require("flash").treesitter_search() end,
+        --     desc =
+        --     "Treesitter Search"
+        -- },
+        -- {
+        --     "<c-s>",
+        --     mode = { "c" },
+        --     function() require("flash").toggle() end,
+        --     desc =
+        --     "Toggle Flash Search"
+        -- },
     },
 }

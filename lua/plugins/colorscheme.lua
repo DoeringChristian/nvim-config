@@ -85,7 +85,6 @@ return {
     },
     {
         "luisiacc/gruvbox-baby",
-        enabled = false,
         priority = 1000,
         config = function()
             vim.g.gruvbox_baby_background_color = "dark"

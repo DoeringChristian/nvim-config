@@ -16,7 +16,7 @@ return {
             "toggleterm",
             "lazyterm",
         },
-        show_trailing_blankline_indent = true,
+        show_trailing_blankline_indent = false,
         show_current_context = true,
     },
 }

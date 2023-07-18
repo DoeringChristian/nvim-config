@@ -9,7 +9,7 @@ return {
             diffview = true,
         },
     },
-    config = function(opts)
+    config = function(_, opts)
         require "neogit".setup(opts)
     end,
 }

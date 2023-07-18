@@ -77,7 +77,10 @@ return {
                 notify = true,
                 neotree = true,
                 semantic_tokens = true,
-                telescope = true,
+                telescope = {
+                    enabled = true,
+                    style = "nvchad"
+                },
                 treesitter = true,
                 which_key = true,
             },
@@ -88,6 +91,15 @@ return {
         priority = 1000,
         config = function()
             vim.g.gruvbox_baby_background_color = "dark"
+            vim.g.gruvbox_baby_function_style = "NONE"
+            vim.g.gruvbox_baby_keyword_style = "italic"
+            -- vim.g.gruvbox_baby_telescope_theme = 1
+
+            -- vim.g.gruvbox_baby_color_overrides = {
+            --     dark_gray = "#3c3836",
+            -- }
+
+
             vim.cmd [[set background=dark]]
         end
     }

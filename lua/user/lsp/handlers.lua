@@ -24,7 +24,7 @@ M.setup = function()
         float = {
             focusable = false,
             style = "minimal",
-            -- border = "rounded",
+            border = "rounded",
             source = "always",
             header = "",
             prefix = "",
@@ -39,7 +39,7 @@ M.setup = function()
 
     -- Configure hover window NOTE: Gets overriden by noice.nvim
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        -- border = "rounded",
+        border = "rounded",
     })
     --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 

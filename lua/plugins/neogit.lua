@@ -4,6 +4,10 @@ return {
         "nvim-lua/plenary.nvim",
         "sindrets/diffview.nvim"
     },
+    event = "VeryLazy",
+    keys = {
+        { "<leader>gg", "<CMD>Neogit<CR>", desc = "[G]oto [G]it" },
+    },
     opts = {
         integrations = {
             diffview = true,

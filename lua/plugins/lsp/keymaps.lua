@@ -31,7 +31,7 @@ return function(client, bufnr)
     nmap("gS", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
 
     -- LSP <leader> prefixed commands
-    -- nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
+    nmap("<leader>rn", require 'renamer'.rename, "[R]e[n]ame")
 
     nmap("<leader>gd", require 'telescope.builtin'.diagnostics, "[G]oto [D]iagnostics")
     nmap("<leader>ge", function()

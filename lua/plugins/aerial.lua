@@ -2,6 +2,7 @@ return {
     'stevearc/aerial.nvim',
     keys = {
         { "<leader>nv", "<CMD>AerialNavOpen<CR>", desc = "[N]a[V] Open" },
+        { "gs",         "<CMD>AerialNavOpen<CR>", desc = "[N]a[V] Open" },
         {
             "<leader>no",
             function()

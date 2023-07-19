@@ -27,7 +27,7 @@ return function(client, bufnr)
     nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
     nmap("gI", vim.lsp.buf.incoming_calls, "[G]oto [I]ncoming Calls")
     nmap("gO", vim.lsp.buf.outgoing_calls, "[G]oto [O]utgoing Calls")
-    nmap("gs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
+    nmap("<leader>gs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
     nmap("gS", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
 
     -- LSP <leader> prefixed commands

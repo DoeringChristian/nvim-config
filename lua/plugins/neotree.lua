@@ -9,7 +9,7 @@ return {
         "MunifTanjim/nui.nvim",
     },
     keys = {
-        { "<C-f>", "<CMD>Neotree<CR>", desc = "Open [F]ile Manager" },
+        { "<C-f>", "<CMD>Neotree toggle<CR>", desc = "Open [F]ile Manager" },
     },
     opts = {
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -35,12 +35,12 @@ return {
                 indent_size = 2,
                 padding = 1, -- extra padding on left hand side
                 -- indent guides
-                with_markers = true,
+                with_markers = false,
                 indent_marker = "│",
                 last_indent_marker = "└",
                 highlight = "NeoTreeIndentMarker",
                 -- expander config, needed for nesting files
-                with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+                with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
                 expander_collapsed = "",
                 expander_expanded = "",
                 expander_highlight = "NeoTreeExpander",
@@ -86,6 +86,7 @@ return {
                 ["<2-LeftMouse>"] = "open",
                 ["l"] = "open",
                 ["h"] = "close_node",
+                ["I"] = "hide_gitignored",
                 ["<esc>"] = "cancel", -- close preview or floating neo-tree window
                 ["P"] = { "toggle_preview", config = { use_float = true } },
                 -- ["l"] = "focus_preview",

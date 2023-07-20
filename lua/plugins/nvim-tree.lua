@@ -65,6 +65,7 @@ local function on_attach(bufnr)
 end
 return {
     "nvim-tree/nvim-tree.lua",
+    enabled = true,
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },

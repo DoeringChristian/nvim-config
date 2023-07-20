@@ -56,5 +56,22 @@ return {
         rejected = "",
         stopped = "",
         eval = "",
+    },
+    file = {
+        folder_closed = "",
+        folder_open = "",
+        folder_empty = "󰜌",
+    },
+    git = {
+        added     = "",
+        modified  = "",
+        deleted   = "✖",
+        renamed   = "󰁕",
+        -- Status type
+        untracked = "",
+        ignored   = "",
+        unstaged  = "󰄱",
+        staged    = "",
+        conflict  = "",
     }
 }

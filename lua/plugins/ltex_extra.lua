@@ -13,7 +13,6 @@ return {
 
         local addToDictionary = vim.lsp.commands["_ltex.addToDictionary"]
         vim.lsp.commands["_ltex.addToDictionary"] = function(command)
-            print("test")
             addToDictionary(command)
         end
     end

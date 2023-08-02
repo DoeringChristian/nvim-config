@@ -142,6 +142,10 @@ return {
         -- is not installed, or if it the command does not support it, the
         -- remaining finders will be attempted in the original order.
         finder = "telescope.nvim",
+
+        mappings = {
+            -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+        },
     },
     config = function(_, opts)
         require("obsidian").setup(opts)

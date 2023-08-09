@@ -18,9 +18,9 @@ return {
             map('n', '<leader>hs', gs.stage_hunk, "[H]unk [S]tage")
             map('n', '<leader>hr', gs.reset_hunk, "[H]unk [R]eset")
             map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
-                { "[H]unk [S]tage" })
+                "[H]unk [S]tage")
             map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
-                { "[H]unk [R]eset" })
+                "[H]unk [R]eset")
             map('n', '<leader>hS', gs.stage_buffer, "Stage Buffer")
             map('n', '<leader>hu', gs.undo_stage_hunk, "[H]unk Stage [U]ndo")
             map('n', '<leader>hR', gs.reset_buffer, "[R]eset Buffer")

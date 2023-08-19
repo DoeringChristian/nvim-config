@@ -8,7 +8,7 @@ M.setup = function()
         vim.fn.sign_define(name, { texthl = name, text = icon, numhl = "" })
     end
 
-    local config = {
+    vim.diagnostic.config {
         -- set virtual text
         virtual_text = false,
         -- virtual_text = {
@@ -30,8 +30,6 @@ M.setup = function()
             prefix = "",
         },
     }
-
-    vim.diagnostic.config(config)
 
     -- Diagnostics window:
     vim.o.updatetime = 250

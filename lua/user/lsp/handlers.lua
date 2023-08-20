@@ -9,7 +9,7 @@ M.setup = function()
     end
 
     vim.diagnostic.config {
-        -- set virtual text
+        -- set virtual text WARN: no longer supported
         virtual_text = false,
         -- virtual_text = {
         --     severity = vim.diagnostic.severity.ERROR,
@@ -52,6 +52,8 @@ M.setup = function()
             underline = true,
             -- Disable a feature
             update_in_insert = true,
+            -- Disable Virtual Text
+            virtual_text = false,
         })
 
     -- Configure Telescope for lsp handlers

@@ -3,7 +3,6 @@ return {
     { "tpope/vim-surround",      event = "VeryLazy" },
     { "tpope/vim-repeat",        event = "VeryLazy" },
     { "tpope/vim-fugitive",      event = "VeryLazy" },
-    { "chentoast/marks.nvim",    event = "VeryLazy", opts = true },
     { "numToStr/Comment.nvim",   opts = {} },
     { "akinsho/toggleterm.nvim", opts = {} },
     -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },

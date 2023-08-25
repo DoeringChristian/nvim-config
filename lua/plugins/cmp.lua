@@ -46,7 +46,7 @@ return {
                 debounce = 100,
                 -- Controlls the time cmp waits at most before displaying results
                 -- has impact on priority.
-                fetching_timeout = 100,
+                fetching_timeout = 50,
             },
             -- :h nvim-cmp
             preselect = cmp.PreselectMode.None,

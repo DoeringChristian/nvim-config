@@ -24,6 +24,7 @@ local function setup_slang()
                 return lspconfig.util.find_git_ancestor(fname)
             end,
             settings = {
+                enableCommitCharactersInAutoCompletion = false,
             },
         },
         docs = {

@@ -9,11 +9,9 @@ M.setup = function()
     end
 
     vim.diagnostic.config {
-        -- set virtual text WARN: no longer supported
-        virtual_text = false,
-        virtual_text = {
-            severity = vim.diagnostic.severity.ERROR,
-        },
+        -- virtual_text = {
+        --     severity = vim.diagnostic.severity.ERROR,
+        -- },
         -- show signs
         signs = {
             priority = 8, -- Is 8 so that errors can overwrite debug breakpoints
@@ -42,9 +40,9 @@ M.setup = function()
     --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
     -- Configure signatureHelp handlers
-    -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    --     border = "rounded",
-    -- })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "rounded",
+    })
 
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -53,8 +51,11 @@ M.setup = function()
             underline = true,
             -- Disable a feature
             update_in_insert = true,
-            -- Disable Virtual Text
-            virtual_text = false,
+            -- -- Disable Virtual Text
+            -- virtual_text = false,
+            virtual_text = {
+                severity = vim.diagnostic.severity.ERROR,
+            },
         })
 
     -- Configure Telescope for lsp handlers

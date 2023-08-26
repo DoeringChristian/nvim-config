@@ -18,7 +18,7 @@ local function setup_slang()
 
     configs.slang = {
         default_config = {
-            cmd = { "shader-slang" },
+            cmd = { "slangd" },
             filetypes = { "slang" },
             root_dir = function(fname)
                 return lspconfig.util.find_git_ancestor(fname)

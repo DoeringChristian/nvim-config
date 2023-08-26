@@ -18,7 +18,6 @@ return {
         mason.setup {
             registries = {
                 "github:mason-org/mason-registry",
-                "github:DoeringChristian/mason-registry",
                 -- "github:DoeringChristian/mason-registry",
             },
         }

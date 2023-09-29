@@ -116,12 +116,12 @@ return {
 
         local hint = [[
                  _f_: files       _m_: marks
-   🭇🬭🬭🬭🬭🬭🬭🬭🬭🬼    _o_: old files   _g_: live grep
-  🭉🭁🭠🭘    🭣🭕🭌🬾   _p_: projects    _/_: search in file
-  🭅█ ▁     █🭐   _z_: fzf
-  ██🬿      🭊██
- 🭋█🬝🮄🮄🮄🮄🮄🮄🮄🮄🬆█🭀  _r_: resume      _u_: undotree
- 🭤🭒🬺🬹🬱🬭🬭🬭🬭🬵🬹🬹🭝🭙  _h_: vim help    _c_: execute command
+                 _o_: old files   _g_: live grep
+                 _p_: projects    _/_: search in file
+                 _z_: fzf
+
+                 _r_: resume      _u_: undotree
+                 _h_: vim help    _c_: execute command
                  _k_: keymaps     _;_: commands history
                  _O_: options     _?_: search history
  ^

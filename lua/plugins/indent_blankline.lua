@@ -3,21 +3,23 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
     opts = {
-        char = "▏",
-        -- char = "│",
-        filetype_exclude = {
-            "help",
-            "alpha",
-            "dashboard",
-            "neo-tree",
-            "Trouble",
-            "lazy",
-            "mason",
-            "notify",
-            "toggleterm",
-            "lazyterm",
+        indent = {
+            char = "▏",
         },
-        show_trailing_blankline_indent = false,
-        show_current_context = true,
+        -- char = "│",
+        exclude = {
+            filetypes = {
+                "help",
+                "alpha",
+                "dashboard",
+                "neo-tree",
+                "Trouble",
+                "lazy",
+                "mason",
+                "notify",
+                "toggleterm",
+                "lazyterm",
+            },
+        },
     },
 }

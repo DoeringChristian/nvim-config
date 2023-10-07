@@ -1,10 +1,11 @@
 return {
     "simrat39/rust-tools.nvim",
+    enabled = true,
     dependencies = {
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
     config = function()
-        local rust_tools = require "rust-tools"
+        local rust_tools = require("rust-tools")
         --local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"
         local mason_dir = vim.fn.stdpath("data") .. "/mason"
         local extension_path = mason_dir .. "/packages/codelldb/extension/"
@@ -35,26 +36,15 @@ return {
             hover_actions = {
                 -- the border that is used for the hover window
                 -- see vim.api.nvim_open_win()
-                border = {
-                    { "╭", "FloatBorder" },
-                    { "─", "FloatBorder" },
-                    { "╮", "FloatBorder" },
-                    { "│", "FloatBorder" },
-                    { "╯", "FloatBorder" },
-                    { "─", "FloatBorder" },
-                    { "╰", "FloatBorder" },
-                    { "│", "FloatBorder" },
-                },
 
                 -- whether the hover action window gets automatically focused
                 -- default: false
                 auto_focus = false,
             },
             dap = {
-                adapter = require('rust-tools.dap').get_codelldb_adapter(
-                    codelldb_path, liblldb_path)
+                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
             },
-            server = require "user.lsp.handlers".config("rust_analyzer"),
+            server = require("user.lsp.handlers").config("rust_analyzer"),
         })
-    end
+    end,
 }

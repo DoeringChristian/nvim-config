@@ -15,10 +15,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 
-require "user.options"
+require("user.options")
 
-require "lazy".setup("plugins")
+require("lazy").setup("plugins")
 
-require "user.keymaps"
+require("user.keymaps")
 
-vim.cmd.colorscheme "gruvbox-baby"
+vim.cmd.colorscheme("catppuccin")

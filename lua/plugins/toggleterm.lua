@@ -21,7 +21,7 @@ return {
             terminal_mappings = true,
             direction = "float",
             float_opts = {
-                border = "curved",
+                -- border = "curved",
             },
         }
 

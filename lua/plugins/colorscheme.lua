@@ -8,17 +8,17 @@ return {
             --" Set contrast.
             --" This configuration option should be placed before `colorscheme gruvbox-material`.
             --" Available values: 'hard', 'medium'(default), 'soft'
-            vim.g.gruvbox_material_background = 'hard'
+            vim.g.gruvbox_material_background = "hard"
 
-            vim.g.gruvbox_material_foreground = 'original'
+            vim.g.gruvbox_material_foreground = "original"
 
             --" For better performance
             vim.g.gruvbox_material_better_performance = 1
 
-            vim.g.gruvbox_material_ui_contrast = 'high'
+            vim.g.gruvbox_material_ui_contrast = "high"
 
-            vim.g.gruvbox_material_show_eob = 'false'
-        end
+            vim.g.gruvbox_material_show_eob = "false"
+        end,
     },
     {
         "ellisonleao/gruvbox.nvim",
@@ -40,13 +40,13 @@ return {
             invert_signs = false,
             invert_tabline = false,
             invert_intend_guides = false,
-            inverse = true,    -- invert background for search, diffs, statuslines and errors
+            inverse = true, -- invert background for search, diffs, statuslines and errors
             contrast = "hard", -- can be "hard", "soft" or empty string
             palette_overrides = {},
             overrides = {},
             dim_inactive = false,
             transparent_mode = false,
-        }
+        },
     },
     {
         "catppuccin/nvim",
@@ -79,7 +79,7 @@ return {
                 semantic_tokens = true,
                 telescope = {
                     enabled = true,
-                    style = "nvchad"
+                    style = "nvchad",
                 },
                 treesitter = true,
                 which_key = true,
@@ -99,8 +99,7 @@ return {
             --     dark_gray = "#3c3836",
             -- }
 
-
-            vim.cmd [[set background=dark]]
-        end
-    }
+            vim.cmd([[set background=dark]])
+        end,
+    },
 }

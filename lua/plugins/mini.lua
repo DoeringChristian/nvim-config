@@ -6,6 +6,6 @@ return {
         { "gA", desc = "Align with Preview", mode = { "n", "x" } },
     },
     config = function()
-        require('mini.align').setup {}
-    end
+        require("mini.align").setup({})
+    end,
 }

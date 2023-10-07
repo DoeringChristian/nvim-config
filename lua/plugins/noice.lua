@@ -1,3 +1,4 @@
+local border = require "user.border"
 return {
     "folke/noice.nvim",
     enabled = false,
@@ -32,7 +33,7 @@ return {
             },
             documentation = {
                 opts = {
-                    border = { style = 'rounded' },
+                    border = { style = border.style },
                     relative = 'cursor',
                     position = {
                         row = 2,

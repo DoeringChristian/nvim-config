@@ -1,3 +1,4 @@
+local border = require "user.border"
 return function(client, bufnr)
     local opts = { noremap = true, silent = true }
 
@@ -40,17 +41,17 @@ return function(client, bufnr)
         require 'telescope.builtin'.diagnostics { severity = "warn" }
     end, "[G]oto [W]arning")
 
-    nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Next [D]iagnostic")
-    nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Previous [D]iagnostic")
+    nmap("]d", '<cmd>lua vim.diagnostic.goto_next({ border = "' .. border.style .. '" })<CR>', "Next [D]iagnostic")
+    nmap("[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "' .. border.style .. '" })<CR>', "Previous [D]iagnostic")
     -- nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
-    nmap("]e", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", severity = "error" })<CR>',
+    nmap("]e", '<cmd>lua vim.diagnostic.goto_next({ border = "' .. border.style .. '", severity = "error" })<CR>',
         "Next [E]rror")
-    nmap("[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded", severity = "error" })<CR>',
+    nmap("[e", '<cmd>lua vim.diagnostic.goto_prev({ border = "' .. border.style .. '", severity = "error" })<CR>',
         "Previous [E]rror")
-    nmap("]w", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded", severity = "warn" })<CR>',
+    nmap("]w", '<cmd>lua vim.diagnostic.goto_next({ border = "' .. border.style .. '", severity = "warn" })<CR>',
         "Next [W]arning")
-    nmap("[w", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded", severity = "warn" })<CR>',
+    nmap("[w", '<cmd>lua vim.diagnostic.goto_prev({ border = "' .. border.style .. '", severity = "warn" })<CR>',
         "Previous [W]arning")
 
 

@@ -1,3 +1,4 @@
+local border = require "user.border"
 return {
     "simrat39/rust-tools.nvim",
     dependencies = {
@@ -35,16 +36,7 @@ return {
             hover_actions = {
                 -- the border that is used for the hover window
                 -- see vim.api.nvim_open_win()
-                border = {
-                    { "╭", "FloatBorder" },
-                    { "─", "FloatBorder" },
-                    { "╮", "FloatBorder" },
-                    { "│", "FloatBorder" },
-                    { "╯", "FloatBorder" },
-                    { "─", "FloatBorder" },
-                    { "╰", "FloatBorder" },
-                    { "│", "FloatBorder" },
-                },
+                border = border.style,
 
                 -- whether the hover action window gets automatically focused
                 -- default: false

@@ -1,3 +1,4 @@
+local border = require "user.border"
 return {
     "anuvyklack/hydra.nvim",
     config = function()
@@ -17,7 +18,7 @@ return {
                 color = 'pink',
                 invoke_on_body = true,
                 hint = {
-                    border = 'rounded'
+                    border = border.style
                 },
                 on_enter = function()
                     vim.o.virtualedit = 'all'
@@ -136,7 +137,7 @@ return {
                 invoke_on_body = true,
                 hint = {
                     position = 'middle',
-                    border = 'rounded',
+                    border = border.style,
                 },
                 desc = 'Hydra: [F]ind using Telescope'
             },

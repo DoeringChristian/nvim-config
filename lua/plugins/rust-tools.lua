@@ -12,7 +12,7 @@ return {
         local codelldb_path = extension_path .. "adapter/codelldb"
         local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
-        rust_tools.setup({
+        rust_tools.setup {
             tools = {
                 --executor = require("rust-tools/executors").toggleterm,
                 -- hover_with_actions = true,
@@ -47,6 +47,6 @@ return {
                     codelldb_path, liblldb_path)
             },
             server = require "user.lsp.handlers".config("rust_analyzer"),
-        })
+        }
     end
 }

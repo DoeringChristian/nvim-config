@@ -1,5 +1,6 @@
 local ELLIPSIS_CHAR = '…'
 local MAX_LABEL_WIDTH = 32
+local border = require "user.border"
 
 return {
     "hrsh7th/nvim-cmp",
@@ -176,7 +177,10 @@ return {
                 select = false,
             },
             window = {
-                -- documentation = cmp.config.window.bordered()
+                documentation = {
+                    border = border.style,
+                    winhighlight = "Normal:NormalFloat",
+                }
             },
             experimental = {
                 -- ghost_text = true,

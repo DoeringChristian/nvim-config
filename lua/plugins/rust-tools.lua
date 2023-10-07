@@ -32,14 +32,15 @@ return {
                         end,
                     })
                 end,
-            },
-            hover_actions = {
-                -- the border that is used for the hover window
-                -- see vim.api.nvim_open_win()
+                hover_actions = {
+                    -- the border that is used for the hover window
+                    -- see vim.api.nvim_open_win()
+                    border = "none",
 
-                -- whether the hover action window gets automatically focused
-                -- default: false
-                auto_focus = false,
+                    -- whether the hover action window gets automatically focused
+                    -- default: false
+                    auto_focus = false,
+                },
             },
             dap = {
                 adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),

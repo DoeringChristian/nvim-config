@@ -12,57 +12,57 @@ return {
             "<F5>",
             function()
                 -- require 'hydra'.spawn('dap-hydra')
-                require 'dapui'.open()
-                require 'dap'.continue()
+                require("dapui").open()
+                require("dap").continue()
             end,
-            desc = "Debug Start"
+            desc = "Debug Start",
         },
         {
             "<leader>db",
             function()
-                require 'dapui'.open()
-                require 'dap'.continue()
+                require("dapui").open()
+                require("dap").continue()
             end,
-            desc = "Debug Start"
+            desc = "Debug Start",
         },
         {
             "<leader>dt",
             function()
-                require "dap".toggle_breakpoint()
-            end
+                require("dap").toggle_breakpoint()
+            end,
         },
         {
             "<F6>",
             function()
-                require "dapui".toggle()
+                require("dapui").toggle()
             end,
-            desc = "Toggle Debug Interface"
+            desc = "Toggle Debug Interface",
         },
         {
             "<leader>di",
             function()
-                require "dapui".toggle()
+                require("dapui").toggle()
             end,
-            desc = "Toggle Debug Interface"
+            desc = "Toggle Debug Interface",
         },
         {
             "<F9>",
             function()
-                require "dap".toggle_breakpoint()
+                require("dap").toggle_breakpoint()
             end,
-            desc = "Toggle Breakpoint"
+            desc = "Toggle Breakpoint",
         },
     },
     config = function()
-        local dap = require "dap"
-        local dapui = require "dapui"
+        local dap = require("dap")
+        local dapui = require("dapui")
 
         local mason_dir = vim.fn.stdpath("data") .. "/mason"
         local extension_path = mason_dir .. "/packages/codelldb/extension/"
         local codelldb_path = extension_path .. "adapter/codelldb"
         local lldb_path = extension_path .. "lldb/bin/lldb"
 
-        local icons = require "user.icons"
+        local icons = require("user.icons")
         local function configure()
             local dap_breakpoint = {
                 breakpoint = {
@@ -134,8 +134,8 @@ return {
                     },
                 },
                 floating = {
-                    max_height = nil,  -- These can be integers or a float between 0 and 1.
-                    max_width = nil,   -- Floats will be treated as percentage of your screen.
+                    max_height = nil, -- These can be integers or a float between 0 and 1.
+                    max_width = nil, -- Floats will be treated as percentage of your screen.
                     border = "single", -- Border style. Can be "single", "double" or "rounded"
                     mappings = {
                         close = { "q", "<Esc>" },
@@ -144,26 +144,26 @@ return {
                 windows = { indent = 1 },
                 render = {
                     max_type_length = nil, -- Can be integer or nil.
-                }
+                },
             })
             local function dap_hydra_exit()
                 _dap_hydra:exit()
                 _dap_hydra.layer:exit()
             end
             dap.listeners.after.event_initialized["dapui_config"] = function()
-                require "nvim-tree.api".tree.close() -- Close Nvim-Tree
+                require("nvim-tree.api").tree.close() -- Close Nvim-Tree
                 _dap_hydra:activate()
                 dapui.open()
             end
             dap.listeners.before.event_terminated["dapui_config"] = function()
-                require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
-                require "nvim-tree.api".tree.toggle { focus = false }
+                require("nvim-tree.api").tree.toggle({ focus = false }) -- Refresh Nvim-Tree
+                require("nvim-tree.api").tree.toggle({ focus = false })
                 dap_hydra_exit()
                 dapui.close()
             end
             dap.listeners.before.event_exited["dapui_config"] = function()
-                require "nvim-tree.api".tree.toggle { focus = false } -- Refresh Nvim-Tree
-                require "nvim-tree.api".tree.toggle { focus = false }
+                require("nvim-tree.api").tree.toggle({ focus = false }) -- Refresh Nvim-Tree
+                require("nvim-tree.api").tree.toggle({ focus = false })
                 dap_hydra_exit()
                 dapui.close()
             end
@@ -173,21 +173,21 @@ return {
             dap.adapters.lldb = {
                 type = "executable",
                 command = codelldb_path,
-                name = "lldb"
+                name = "lldb",
             }
 
             dap.configurations.cpp = {
                 {
-                    name = 'Launch',
-                    type = 'lldb',
-                    request = 'launch',
+                    name = "Launch",
+                    type = "lldb",
+                    request = "launch",
                     program = function()
-                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
                     end,
-                    cwd = '${workspaceFolder}',
+                    cwd = "${workspaceFolder}",
                     stopOnEntry = false,
                     args = {},
-                }
+                },
             }
         end
 
@@ -195,5 +195,5 @@ return {
         configure_exts()
         configure_debuggers()
         --require("user.dap.keymaps").setup()
-    end
+    end,
 }

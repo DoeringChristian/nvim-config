@@ -22,7 +22,7 @@ M.setup = function()
         float = {
             focusable = false,
             style = "minimal",
-            border = "rounded",
+            border = "none",
             source = "always",
             header = "",
             prefix = "",
@@ -35,7 +35,6 @@ M.setup = function()
 
     -- Configure hover window NOTE: Gets overriden by noice.nvim
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {})
-    --vim.lsp.handlers["textDocument/hover"] = require('rust-tools.hover_actions').hover_actions
 
     -- Configure signatureHelp handlers
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {})

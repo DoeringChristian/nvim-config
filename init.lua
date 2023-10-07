@@ -21,4 +21,4 @@ require "lazy".setup("plugins")
 
 require "user.keymaps"
 
-vim.cmd.colorscheme "gruvbox-baby"
+vim.cmd.colorscheme "catppuccin"

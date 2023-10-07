@@ -17,12 +17,8 @@ return {
     opts = {
         options = {
             icons_enabled = true,
-            theme = 'gruvbox-baby',
-            -- theme = 'gruvbox-material',
             component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
-            -- component_separators = { left = '╲', right = '╲' },
-            -- section_separators = { left = '◣', right = '◥' },
             disabled_filetypes = { "NvimTree", "aerial" },
             always_divide_middle = true,
             globalstatus = false,
@@ -89,17 +85,6 @@ return {
         extensions = {},
     },
     config = function(_, opts)
-        -- Patch gruvbox-baby theme
-        local theme = require "lualine.themes.gruvbox-baby"
-        local c = require("gruvbox-baby.colors").config()
-
-        theme.inactive = {
-            a = { bg = c.background, fg = c.gray, gui = "bold" },
-            b = { bg = c.background, fg = c.gray },
-            c = { bg = c.background, fg = c.gray },
-        }
-        opts.options.theme = theme
-
         require "lualine".setup(opts)
     end,
 }

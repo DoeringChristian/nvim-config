@@ -52,7 +52,9 @@ return {
         "catppuccin/nvim",
         lazy = true,
         name = "catppuccin",
+        priority = 1000,
         opts = {
+            flavour = "mocha",
             integrations = {
                 alpha = true,
                 cmp = true,

@@ -75,7 +75,6 @@ return {
                     -- type = "cmdline",
                     type = "window",
                     position = "top-right",
-                    -- border = 'rounded'
                 },
                 desc = 'Hydra: Debugger',
             },

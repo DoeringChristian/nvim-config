@@ -31,6 +31,7 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
+    "lukas-reineke/lsp-format.nvim",
   },
 
   config = function(_, opts)
@@ -74,5 +75,6 @@ return {
         }
       end,
     }
+    require("lsp-format").setup{}
   end,
 }

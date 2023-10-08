@@ -1,3 +1,6 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -15,7 +18,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 
-require("user.options")
+require("config.opts")
 
 require("lazy").setup({
     spec = {
@@ -49,6 +52,6 @@ require("lazy").setup({
     },
 })
 
-require("user.keymaps")
+require"config.keymaps"
 
 vim.cmd.colorscheme("catppuccin")

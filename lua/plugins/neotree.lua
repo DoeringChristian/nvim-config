@@ -32,6 +32,10 @@ return {
                 ["t"] = "open_tabnew",
                 ["w"] = "open_with_window_picker",
             },
+            fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+                ["<C-j>"] = "move_cursor_down",
+                ["<C-k>"] = "move_cursor_up",
+            },
         },
     },
 }

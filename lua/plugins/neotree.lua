@@ -13,9 +13,10 @@ return {
     },
     opts = {
         close_if_last_window = true,
+        sort_case_insensitive = true,
         default_component_configs = {
             git_status = {
-                symbols = require "config.icons".git,
+                symbols = icons.git,
             },
         },
         window = {

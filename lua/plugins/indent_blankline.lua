@@ -6,6 +6,7 @@ return {
         indent = {
             char = "▏",
         },
+        scope = { enabled = false },
         -- char = "│",
         exclude = {
             filetypes = {

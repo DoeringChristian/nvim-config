@@ -2,8 +2,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-        local treesitter = require "nvim-treesitter.configs"
-        treesitter.setup {
+        local treesitter = require("nvim-treesitter.configs")
+        treesitter.setup({
             ensure_installed = {
                 "bash",
                 "bibtex",
@@ -102,15 +102,8 @@ return {
 
             sync_install = false,
 
-            highlight = {
-                enable = true,
-                disable = { "" },
-                additional_vim_regex_highlighting = true,
-            },
-            indent = { enable = true, disable = { "yaml", "lua", "rust", "c", "cpp", "python", "latex" } },
-        }
-
-        -- vim.opt.foldmethod = "expr"
-        -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    end
+            highlight = { enable = true },
+            indent = { enable = true },
+        })
+    end,
 }

@@ -39,6 +39,10 @@ local options = {
     guifont = "DroidSansMono Nerd Font Mono:h10", -- the font used in graphical neovim applications
 }
 
+if vim.fn.has("nvim-0.10") == 1 then
+    options.smoothscroll = true
+end
+
 vim.opt.shortmess:append("c")
 vim.cmd([[
 filetype plugin indent on

@@ -36,16 +36,6 @@ vmap("<A-k>", ":m .-2<CR>", "Move Line Up")
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", "Move Line Down")
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", "Move Line Up")
 
--- Telescope --
-nmap("<leader><Tab>", function()
-    return require("telescope.builtin").grep_string({
-        shorten_path = true,
-        word_match = "-w",
-        only_sort_text = true,
-        search = "",
-    })
-end, "Live Grep")
-
 -- Surround --
 -- Need to remap surround.vim mappings to not conflict with leap.nvmi
 vim.g.surround_no_mappings = 1

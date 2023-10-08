@@ -18,33 +18,45 @@ return {
     },
     keys = {
         {
-            '<leader>?',
+            "<leader>?",
             function()
-                require('telescope.builtin').oldfiles()
+                require "telescope.builtin".oldfiles()
             end,
-            desc = 'Old Files',
+            desc = "Old Files",
         },
         {
-            '<leader>ff',
+            "<leader>ff",
             function()
-                require('telescope.builtin').find_files()
+                require "telescope.builtin".find_files()
             end,
-            desc = '[F]ind [F]iles',
+            desc = "[F]ind [F]iles",
         },
         {
-            '<leader>fg',
+            "<leader>fg",
             function()
-                require('telescope.builtin').live_grep()
+                require "telescope.builtin".live_grep()
             end,
-            desc = '[F]ind using [G]rep',
+            desc = "[F]ind using [G]rep",
         },
         {
-            '<leader>fd',
+            "<leader>fd",
             function()
-                require('telescope.builtin').diagnostics()
+                require "telescope.builtin".diagnostics()
             end,
-            desc = '[F]ind [D]iagnostics',
+            desc = "[F]ind [D]iagnostics",
         },
+        {
+            "<leader><Tab>",
+            function()
+                return require 'telescope.builtin'.grep_string {
+                    shorten_path = true,
+                    word_match = "-w",
+                    only_sort_text = true,
+                    search = "",
+                }
+            end,
+            desc = "Fuzzy Find"
+        }
     },
     config = function()
         local actions = require "telescope.actions"

@@ -1,22 +1,3 @@
-local on_attach = function(_, bufnr)
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end
-
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>a', vim.lsp.buf.code_action, 'Code [A]ction')
-
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-end
-
 return {
   -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
@@ -65,6 +46,8 @@ return {
       ensure_installed = vim.tbl_keys(servers),
     }
 
+    local on_attach = require "plugins.lsp.on_attach"
+
     mason_lspconfig.setup_handlers {
       function(server_name)
         require('lspconfig')[server_name].setup {
@@ -75,6 +58,6 @@ return {
         }
       end,
     }
-    require("lsp-format").setup{}
+    require("lsp-format").setup {}
   end,
 }

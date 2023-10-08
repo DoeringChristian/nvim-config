@@ -63,15 +63,15 @@ return {
         folder_empty = "󰜌",
     },
     git = {
-        added     = "",
-        modified  = "",
-        deleted   = "✖",
-        renamed   = "󰁕",
+        added = "",
+        modified = "",
+        deleted = "✖",
+        renamed = "󰁕",
         -- Status type
         untracked = "",
-        ignored   = "",
-        unstaged  = "󰄱",
-        staged    = "",
-        conflict  = "",
-    }
+        ignored = "",
+        unstaged = "󰄱",
+        staged = "",
+        conflict = "",
+    },
 }

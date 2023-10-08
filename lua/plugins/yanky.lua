@@ -25,9 +25,9 @@ return {
             },
             cache_enabled = 1,
         }
-        local yanky = require "yanky"
+        local yanky = require("yanky")
 
-        local mapping = require "yanky.telescope.mapping"
+        local mapping = require("yanky.telescope.mapping")
 
         yanky.setup({
             ring = {
@@ -58,7 +58,7 @@ return {
                             P = mapping.put("P"),
                             d = mapping.delete(),
                         },
-                    }
+                    },
                 },
             },
         })
@@ -69,5 +69,5 @@ return {
         picker.actions.put("gp")
         picker.actions.put("gP")
         picker.actions.delete()
-    end
+    end,
 }

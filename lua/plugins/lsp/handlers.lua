@@ -78,6 +78,9 @@ M.setup = function()
     ]])
 end
 
+--- Generates a config table from a server name
+---@param Name of the server for which the config shall be generated
+---@return returns the config table containing capabilities, on_attach, settings
 M.config = function(server_name)
     local config = {
         capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),

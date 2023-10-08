@@ -52,6 +52,7 @@ return {
         vim.cmd([[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]) --wgsl fix
 
         setup_slang()
+        require 'lspconfig'.glslls.setup {}
 
         require("plugins.lsp.handlers").setup()
 

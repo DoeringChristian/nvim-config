@@ -45,7 +45,7 @@ return {
             dap = {
                 adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
             },
-            server = require("user.lsp.handlers").config("rust_analyzer"),
+            server = require("plugins.lsp.handlers").config("rust_analyzer"),
         })
     end,
 }

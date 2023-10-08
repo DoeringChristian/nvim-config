@@ -17,7 +17,7 @@ return {
             separator = " ",
             -- highlight = true,
             depth_limit = 5,
-            icons = require "user.icons".kinds,
+            icons = require "config.icons".kinds,
         }
     end,
 }

@@ -34,7 +34,7 @@ return {
         {
             '<leader>fg',
             function()
-                require('telescope.builtin').grep_live()
+                require('telescope.builtin').live_grep()
             end,
             desc = '[F]ind using [G]rep',
         },

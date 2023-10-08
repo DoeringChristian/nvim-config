@@ -1,5 +1,5 @@
 local M = {}
-local icons = require("user.icons")
+local icons = require("config.icons")
 
 -- This function configures the common lsp frontend
 M.setup = function()
@@ -85,7 +85,7 @@ M.config = function(server_name)
     }
 
     -- Load settings from usr/lsp/settings/$server_name
-    local ok, server_config = pcall(require, "user.lsp.settings." .. server_name)
+    local ok, server_config = pcall(require, "config.lsp.settings." .. server_name)
 
     -- Deep extend settings with custom lsp server settings
     if ok then

@@ -15,7 +15,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 
-require("user.options")
+require("config.options")
 
 require("lazy").setup({
     spec = {
@@ -49,6 +49,6 @@ require("lazy").setup({
     },
 })
 
-require("user.keymaps")
+require("config.keymaps")
 
 vim.cmd.colorscheme("catppuccin")

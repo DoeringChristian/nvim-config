@@ -1,4 +1,4 @@
-local icons = require("user.icons")
+local icons = require "config.icons"
 return {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,

@@ -33,7 +33,7 @@ local function setup_slang()
     }
 
     -- vim.notify(vim.inspect(configs))
-    lspconfig.slang.setup(require("user.lsp.handlers").config("slang"))
+    lspconfig.slang.setup(require("plugins.lsp.handlers").config("slang"))
 end
 
 return {
@@ -49,17 +49,12 @@ return {
 
         -- Functions for enabling/disabling auto formatting
 
-        vim.cmd([[command! Fm execute 'lua enable_formatting()']])
-        vim.cmd([[command! NFm execute 'lua disable_formatting()']])
-        vim.cmd([[command! NoFm execute 'lua disable_formatting()']])
-
         vim.cmd([[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]) --wgsl fix
 
         setup_slang()
 
-        --require "user.lsp.lsp-installer"
-        require("user.lsp.handlers").setup()
+        require("plugins.lsp.handlers").setup()
 
-        require("lsp-format").setup({})
+        require("lsp-format").setup {}
     end,
 }

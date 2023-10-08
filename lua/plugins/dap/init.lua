@@ -62,7 +62,7 @@ return {
         local codelldb_path = extension_path .. "adapter/codelldb"
         local lldb_path = extension_path .. "lldb/bin/lldb"
 
-        local icons = require("user.icons")
+        local icons = require("config.icons")
         local function configure()
             local dap_breakpoint = {
                 breakpoint = {
@@ -134,8 +134,8 @@ return {
                     },
                 },
                 floating = {
-                    max_height = nil, -- These can be integers or a float between 0 and 1.
-                    max_width = nil, -- Floats will be treated as percentage of your screen.
+                    max_height = nil,  -- These can be integers or a float between 0 and 1.
+                    max_width = nil,   -- Floats will be treated as percentage of your screen.
                     border = "single", -- Border style. Can be "single", "double" or "rounded"
                     mappings = {
                         close = { "q", "<Esc>" },
@@ -194,6 +194,5 @@ return {
         configure()
         configure_exts()
         configure_debuggers()
-        --require("user.dap.keymaps").setup()
     end,
 }

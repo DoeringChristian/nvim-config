@@ -49,7 +49,7 @@ return {
 
         -- LSP Setup Handlers:
         local function lsp_default_handler(server_name)
-            require("lspconfig")[server_name].setup(require("user.lsp.handlers").config(server_name))
+            require("lspconfig")[server_name].setup(require("plugins.lsp.handlers").config(server_name))
         end
 
         mason_lspconfig.setup_handlers({

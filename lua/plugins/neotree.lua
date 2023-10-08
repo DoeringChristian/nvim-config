@@ -7,7 +7,7 @@ return{
       "MunifTanjim/nui.nvim",
     },
     keys = {
-        {"<C-f>", "<CMD>Neotree<CR>", "File explorer"}
+        {"<C-f>", "<CMD>Neotree toggle<CR>", "File explorer"}
     },
     opts = {
         window = {

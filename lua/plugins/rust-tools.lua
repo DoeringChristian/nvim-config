@@ -24,14 +24,14 @@ return {
                     other_hints_prefix = "🠊 ",
                     highlight = "Conceal",
                 },
-                on_initialized = function()
-                    vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-                        pattern = { "*.rs" },
-                        callback = function()
-                            vim.lsp.codelens.refresh()
-                        end,
-                    })
-                end,
+                -- on_initialized = function()
+                --     vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+                --         pattern = { "*.rs" },
+                --         callback = function()
+                --             vim.lsp.codelens.refresh()
+                --         end,
+                --     })
+                -- end,
                 hover_actions = {
                     -- the border that is used for the hover window
                     -- see vim.api.nvim_open_win()

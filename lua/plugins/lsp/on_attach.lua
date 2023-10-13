@@ -14,8 +14,14 @@ end
 
 
 return function(client, bufnr)
+  -- vim.notify("test1")
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.buf.inlay_hint(bufnr, true)
+  end
+
   require "plugins.lsp.keymaps" (client, bufnr)
   lsp_highlight_document(client)
+
 
   -- Auto format on safe (version dependent)
   -- if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and

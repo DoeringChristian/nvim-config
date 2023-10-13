@@ -1,6 +1,6 @@
 return {
     "simrat39/rust-tools.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = {
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },

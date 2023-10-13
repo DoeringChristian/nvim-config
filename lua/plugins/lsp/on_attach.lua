@@ -14,6 +14,10 @@ end
 
 
 return function(client, bufnr)
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, true)
+  end
+
   require "plugins.lsp.keymaps" (client, bufnr)
   lsp_highlight_document(client)
 

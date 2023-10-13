@@ -12,12 +12,13 @@ return {
         local codelldb_path = extension_path .. "adapter/codelldb"
         local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
+
         rust_tools.setup({
             tools = {
                 --executor = require("rust-tools/executors").toggleterm,
                 -- hover_with_actions = true,
                 inlay_hints = {
-                    auto = true,
+                    auto = false,
                     only_current_line = false,
                     show_parameter_hints = true,
                     parameter_hints_prefix = "⯇ ",
@@ -25,6 +26,7 @@ return {
                     highlight = "Conceal",
                 },
                 -- on_initialized = function()
+                -- vim.lsp.inlay_hint(0, true)
                 --     vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
                 --         pattern = { "*.rs" },
                 --         callback = function()

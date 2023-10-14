@@ -54,7 +54,7 @@ return {
 
         mason_lspconfig.setup_handlers({
             lsp_default_handler,
-            ["rust_analyzer"] = function() end,
+            -- ["rust_analyzer"] = function() end,
             ["ltex"] = function() end,
         })
 

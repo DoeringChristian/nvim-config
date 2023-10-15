@@ -14,7 +14,7 @@ M.setup = function()
         -- },
         -- show signs
         signs = {
-            priority = 8, -- Is 8 so that errors can overwrite debug breakpoints
+            priority = 12, -- Is 8 so that errors can overwrite debug breakpoints
         },
         update_in_insert = true,
         underline = true,

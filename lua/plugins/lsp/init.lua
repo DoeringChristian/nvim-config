@@ -50,6 +50,7 @@ return {
         -- Functions for enabling/disabling auto formatting
 
         vim.cmd([[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]) --wgsl fix
+        vim.cmd([[au BufNewFile,BufRead *.pest set filetype=pest]]) --pest fix
 
         setup_slang()
         require 'lspconfig'.glslls.setup {}

@@ -16,7 +16,7 @@ end
 return function(client, bufnr)
   -- vim.notify("test1")
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.buf.inlay_hint(bufnr, true)
+    vim.lsp.inlay_hint(bufnr, true)
   end
 
   require "plugins.lsp.keymaps" (client, bufnr)

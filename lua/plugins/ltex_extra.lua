@@ -1,6 +1,6 @@
 return {
     "barreiroleo/ltex_extra.nvim",
-    -- ft = { "markdown", "tex" },
+    ft = { "markdown", "tex" },
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
         local opts = require "plugins.lsp.handlers".config("ltex")

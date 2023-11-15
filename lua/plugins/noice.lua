@@ -1,13 +1,25 @@
 return {
     "folke/noice.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     opts = {
         lsp = {
             signature = {
                 enabled = false,
             }
-        }
+        },
+        views = {
+            cmdline_popup = {
+                border = {
+                    style = "none",
+                    padding = { 2, 3 },
+                },
+                filter_options = {},
+                win_options = {
+                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                },
+            },
+        },
     },
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

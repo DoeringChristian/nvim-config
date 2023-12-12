@@ -53,16 +53,11 @@ return function(client, bufnr)
     nmap("<leader>lr", "<cmd>LspRestart<CR>", "[L]SP [R]estart")
 
     -- Client specific maps
-    -- if client.name == "rust_analyzer" then
-    --     nmap("K", "<cmd>RustHoverActions<CR>", "Hover Documentation")
-    --     nmap("<F5>", function()
-    --         require("hydra").spawn("dap-hydra")
-    --         vim.cmd([[RustDebuggables]])
-    --     end, "Debug Start")
-    --     nmap("<leader>m", require("rust-tools.expand_macro").expand_macro, "Expand [M]acro")
-    --     nmap("<leader>ra", require("rust-tools.hover_actions").hover_actions, "[R]ust Hover [A]ctions")
-    --     nmap("<leader>rod", require("rust-tools.external_docs").open_external_docs, "[R]ust [O]pen External [D]ocs")
-    -- end
+    if client.name == "rust-analyzer" then
+        nmap("<leader>m", function() vim.cmd.RustLsp("expandMacro") end, "Expand [M]acro")
+        nmap("<leader>rod", function() vim.cmd.RustLsp("externalDocs") end, "[R]ust [O]pen External [D]ocs")
+        nmap("<leader>e", function() vim.cmd.RustLsp("explainError") end, "Explain [E]rror")
+    end
     if client.name == "texlab" then
         nmap("<leader>tb", "<CMD>TexlabBuild<CR>", "[T]ex [B]uild")
         nmap("<leader>tf", "<CMD>TexlabForward<CR>", "[T]exlab [F]orward")

@@ -1,5 +1,6 @@
 local ELLIPSIS_CHAR = '…'
 local MAX_LABEL_WIDTH = 32
+local MAX_MENU_WIDTH = 32
 
 return {
     "hrsh7th/nvim-cmp",
@@ -119,32 +120,24 @@ return {
             },
             formatting = {
                 fields = { "kind", "abbr", "menu" },
-                format = function(entry, vim_item)
-                    -- Kind icons
+                format = function(etnry, vim_item)
                     vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                    -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-                    vim_item.menu = ({
-                        nvim_lsp = "[LSP]",
-                        nvim_lua = "[NVIM_LUA]",
-                        luasnip = "[Snippet]",
-                        spell = "[Spell]",
-                        buffer = "[Buffer]",
-                        path = "[Path]",
-                        cmp_pandoc = "[Pandoc]",
-                        cmp_clippy = "[AI]",
-                        rg = "[RipGrep]",
-                        latex_symbols = "[LaTeX-Symbols]"
-                    })[entry.source.name]
 
-
+                    -- vim_item.menu_hl_group = "LspInlayHint"
+                    -- Truncate menu
+                    local truncated_menu = vim.fn.strcharpart(vim_item.menu, 0, MAX_MENU_WIDTH)
+                    if truncated_menu ~= vim_item.menu then
+                        vim_item.menu = truncated_menu .. ELLIPSIS_CHAR
+                    end
                     -- Truncate label
                     local label = vim_item.abbr
                     local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
                     if truncated_label ~= label then
                         vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
                     end
+
                     return vim_item
-                end,
+                end
             },
             sources = cmp.config.sources(
                 {

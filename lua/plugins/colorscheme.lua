@@ -85,6 +85,11 @@ return {
                 which_key = true,
                 window_picker = true,
             },
+            custom_highlights = function(colors)
+                return {
+                    CmpItemMenu = { fg = colors.overlay0 }
+                }
+            end,
         },
     },
     {

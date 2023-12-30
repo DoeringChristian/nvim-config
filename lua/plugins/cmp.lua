@@ -125,9 +125,11 @@ return {
 
                     -- vim_item.menu_hl_group = "LspInlayHint"
                     -- Truncate menu
-                    local truncated_menu = vim.fn.strcharpart(vim_item.menu, 0, MAX_MENU_WIDTH)
-                    if truncated_menu ~= vim_item.menu then
-                        vim_item.menu = truncated_menu .. ELLIPSIS_CHAR
+                    if vim_item.menu ~= nil then
+                        local truncated_menu = vim.fn.strcharpart(vim_item.menu, 0, MAX_MENU_WIDTH)
+                        if truncated_menu ~= vim_item.menu then
+                            vim_item.menu = truncated_menu .. ELLIPSIS_CHAR
+                        end
                     end
                     -- Truncate label
                     local label = vim_item.abbr

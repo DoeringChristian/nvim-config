@@ -13,7 +13,7 @@ return {
                     .. (diag.warning and icons.Warn .. diag.warning or "")
                 return vim.trim(ret)
             end,
-            always_show_bufferline = false,
+            always_show_bufferline = true,
             offsets = {
                 {
                     filetype = "neo-tree",

@@ -27,5 +27,6 @@ return function(client, bufnr)
   --     AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nil then
   -- end
   require "lsp-format".on_attach(client)
+
   vim.notify("LSP Client: " .. client.name)
 end

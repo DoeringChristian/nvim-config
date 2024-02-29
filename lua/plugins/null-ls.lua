@@ -1,5 +1,8 @@
 return {
     "nvimtools/none-ls.nvim", -- null-ls handles formatters etc.
+    dependencies = {
+        "nvimtools/none-ls-extras.nvim",
+    },
     config = function()
         local null_ls = require("null-ls")
         null_ls.setup({

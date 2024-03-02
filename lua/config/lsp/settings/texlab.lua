@@ -33,7 +33,12 @@ return {
             latexFormatter = "latexindent",
             latexindent = {
                 modifyLineBreaks = false
-            }
+            },
+
+            inlayHints = {
+                labelDefinitions = false,
+                labelReference = false,
+            },
         }
     },
     capabilities = {

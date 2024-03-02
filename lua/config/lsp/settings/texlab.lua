@@ -30,7 +30,7 @@ return {
             },
 
             --latexFormatter = "latexindent",
-            latexFormatter = "texlab",
+            latexFormatter = "latexindent",
             latexindent = {
                 modifyLineBreaks = false
             }

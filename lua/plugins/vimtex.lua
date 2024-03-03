@@ -1,5 +1,6 @@
 return {
     "lervag/vimtex",
+    enabled = false,
     lazy = false, -- lazy-loading will disable inverse search
     config = function()
         vim.api.nvim_create_autocmd({ "FileType" }, {

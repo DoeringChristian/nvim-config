@@ -1,6 +1,6 @@
 return {
     'kaarmu/typst.vim',
-    enabled = false,
+    enabled = true,
     ft = 'typst',
     lazy = false,
 }

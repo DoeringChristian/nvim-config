@@ -22,11 +22,11 @@ return function(client, bufnr)
   require "plugins.lsp.keymaps" (client, bufnr)
   lsp_highlight_document(client)
 
-  -- Auto format on safe (version dependent)
-  -- if client.server_capabilities.documentFormattingProvider and AUTO_FORMAT_EXCLUDED[client.name] == nil and
-  --     AUTO_FORMAT_EXCLUDED[vim.bo[bufnr].filetype] == nil then
-  -- end
-  require "lsp-format".on_attach(client)
+  --- Auto format using lsp-format if enabled
+  local ok, lsp_format = pcall(require, "lsp-format")
+  if ok then
+    lsp_format.on_attach(client)
+  end
 
   vim.notify("LSP Client: " .. client.name)
 end

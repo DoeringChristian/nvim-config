@@ -44,7 +44,30 @@ return {
         "nvim-telescope/telescope.nvim",
         {
             "lukas-reineke/lsp-format.nvim",
+            enabled = false,
             opts = {}
+        },
+        {
+            "stevearc/conform.nvim",
+            enabled = true,
+            event = { "BufWritePre" },
+            cmd = { "ConformInfo" },
+            config = function()
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    pattern = "*",
+                    callback = function(args)
+                        require("conform").format({ bufnr = args.buf })
+                    end,
+                })
+                require "conform".setup {
+                    -- Use LSP and format on after save (async)
+                    formatters_by_ft = {
+                    },
+                    format_after_save = {
+                        lsp_fallback = true,
+                    },
+                }
+            end
         }
     },
     config = function()

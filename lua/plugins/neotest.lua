@@ -9,9 +9,9 @@ return {
         "Neotest"
     },
     keys = {
-        { "<leader>nr", function() require "neotest".run.run() end,        desc = "[N]eotest [R]un" },
-        { "<leader>ns", function() require "neotest".summary.toggle() end, desc = "[N]eotest [S]ummary" },
-        { "<leader>no", function() require "neotest".output.open() end,    desc = "[N]eoutest [O]utput" },
+        { "<leader>nr", function() require "neotest".run.run() end,                    desc = "[N]eotest [R]un" },
+        { "<leader>ns", function() require "neotest".summary.toggle() end,             desc = "[N]eotest [S]ummary" },
+        { "<leader>no", function() require "neotest".output.open { enter = true } end, desc = "[N]eoutest [O]utput" },
     },
     config = function()
         require "neotest".setup {

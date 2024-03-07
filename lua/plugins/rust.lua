@@ -4,6 +4,11 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
+    keys = {
+        { "<leader>cgd", "TSCppDefineClassFunc", desc = "[C]++ [G]enerate [D]efinition" },
+        { "<leader>cr3", "TSRuleOf3",            desc = "[C]++ [R]ule of [3]" },
+        { "<leader>cr5", "TSRuleOf5",            desc = "[C]++ [R]ule of [5]" },
+    },
     config = function()
         -- local rust_tools = require("rusta")
         --local extension_path = require("dap-install.config.settings").options["installation_path"] .. "codelldb/"

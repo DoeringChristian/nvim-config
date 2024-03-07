@@ -59,6 +59,7 @@
   "nvim-spectre": { "branch": "master", "commit": "3712ff0cdf4f9f877d9ca708d835a877d9a0abaf" },
   "nvim-tree.lua": { "branch": "master", "commit": "efafd73efa9bc8c26282aed563ba0f01c7465b06" },
   "nvim-treesitter": { "branch": "master", "commit": "c09932bd2de01dc9c01e870fe83060693c67de13" },
+  "nvim-treesitter-cpp-tools": { "branch": "master", "commit": "3ac14c9b9e0f2364f1bede67da77d500d5bcdb7e" },
   "nvim-web-devicons": { "branch": "master", "commit": "4adea17610d140a99c313e3f79a9dc01825d59ae" },
   "obsidian.nvim": { "branch": "main", "commit": "2814bd2f53b5e77f7db1f136c027bc4e9bffa0ec" },
   "persistence.nvim": { "branch": "main", "commit": "4982499c1636eac254b72923ab826ee7827b3084" },

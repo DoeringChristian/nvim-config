@@ -4,6 +4,12 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
+    cmd = {
+        "TSCppDefineClassFunc",
+        "TSCppMakeConcreteClass",
+        "TSCppRuleOf3",
+        "TSCppRuleOf5",
+    },
     keys = {
         { "<leader>cgd", "TSCppDefineClassFunc", desc = "[C]++ [G]enerate [D]efinition" },
         { "<leader>cr3", "TSRuleOf3",            desc = "[C]++ [R]ule of [3]" },

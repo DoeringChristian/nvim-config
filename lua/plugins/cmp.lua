@@ -151,6 +151,11 @@ return {
                     { name = "path" },
                     { name = "buffer", keyword_length = 5 },
                     --{ name = "spell" },
+                },
+                {
+                    { name = "crates" },
+                    { name = "path" },
+                    { name = "buffer", keyword_length = 5 },
                 }
             ),
             confirm_opts = {

@@ -48,6 +48,7 @@ return {
             opts = {}
         },
         {
+            -- TODO: find out why I wouldn't use this
             "stevearc/conform.nvim",
             enabled = true,
             event = { "BufWritePre" },

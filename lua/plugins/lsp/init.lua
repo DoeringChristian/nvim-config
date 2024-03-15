@@ -44,12 +44,12 @@ return {
         "nvim-telescope/telescope.nvim",
         {
             "lukas-reineke/lsp-format.nvim",
-            enabled = true,
+            enabled = false,
             opts = {}
         },
         {
             "stevearc/conform.nvim",
-            enabled = false,
+            enabled = true,
             event = { "BufWritePre" },
             cmd = { "ConformInfo", "DiffFormat", "FormatEnable", "FormatDisable", "Format" },
             config = function()
@@ -129,12 +129,6 @@ return {
                         -- ...additional logic...
                         return { lsp_fallback = true }
                     end,
-                    -- format_on_save = {
-                    --     lsp_fallback = true,
-                    -- }
-                    -- format_after_save = {
-                    --     lsp_fallback = true,
-                    -- },
                 }
             end
         }
@@ -151,7 +145,5 @@ return {
         require 'lspconfig'.glslls.setup {}
 
         require("plugins.lsp.handlers").setup()
-
-        -- require("lsp-format").setup {}
     end,
 }

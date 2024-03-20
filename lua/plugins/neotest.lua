@@ -5,11 +5,9 @@ return {
         -- "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter"
     },
-    cmd = {
-        "Neotest"
-    },
     keys = {
         { "<leader>nr", function() require "neotest".run.run() end,                    desc = "[N]eotest [R]un" },
+        -- { "<leader>na", function() require "neotest".run.run { enter = true } end,     desc = "[N]eoutest Run [A]ll" },
         { "<leader>ns", function() require "neotest".summary.toggle() end,             desc = "[N]eotest [S]ummary" },
         { "<leader>no", function() require "neotest".output.open { enter = true } end, desc = "[N]eoutest [O]utput" },
     },

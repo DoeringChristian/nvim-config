@@ -7,7 +7,8 @@ return {
                 importPrefix = "self",
             },
             cargo = {
-                loadOutDirsFromCheck = true
+                loadOutDirsFromCheck = true,
+                sysrootQueryMetadata = true,
             },
             procMacro = {
                 enable = true

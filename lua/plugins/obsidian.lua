@@ -4,6 +4,20 @@ return {
     lazy = true,
     event = "VeryLazy",
     ft = "markdown",
+    keys = {
+        { "<leader>ob",  "<CMD>ObsidianBacklinks<CR>",   desc = "[O]bsidian [B]acklinks" },
+        { "<leader>oS",  "<CMD>ObsidianSearch<CR>",      desc = "[O]bsidian [S]earch" },
+        { "<leader>ot",  "<CMD>ObsidianToday<CR>",       desc = "[O]bsidian [T]oday" },
+        { "<leader>oy",  "<CMD>ObsidianYesterday<CR>",   desc = "[O]bsidian [Y]esterday" },
+        { "<leader>oo",  "<CMD>ObsidianOpen<CR>",        desc = "[O]bsidian [O]pen" },
+        { "<leader>on",  "<CMD>ObsidianNew<CR>",         desc = "[O]bsidian [N]ew" },
+        { "<leader>os",  "<CMD>ObsidianSearch<CR>",      desc = "[O]bsidian [S]earch" },
+        { "<leader>oll", "<CMD>ObsidianLink<CR>",        desc = "[O]bsidian [L]ink" },
+        { "<leader>os",  "<CMD>ObsidianQuickSwitch<CR>", desc = "[O]bsidian [S]witch" },
+        { "<leader>oln", "<CMD>ObsidianLinkNew<CR>",     desc = "[O]bsidian [L]ink [N]ew" },
+        { "<leader>ofl", "<CMD>ObsidianFollowLink<CR>",  desc = "[O]bsidian [F]ollow [L]ink" },
+        -- { "<leader>ot",  "<CMD>ObsidianTemplate<CR>",    desc = "[O]bsidian [T]emplate" },
+    },
     -- event = {
     --     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     --     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
@@ -74,7 +88,8 @@ return {
                     return require("obsidian").util.smart_action()
                 end,
                 opts = { buffer = true, expr = true },
-            }
+            },
+
         },
         new_notes_location = "notes_subdir",
 
@@ -115,5 +130,18 @@ return {
             local path = spec.dir / tostring(spec.id)
             return path:with_suffix(".md")
         end,
+
+        picker = {
+            -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+            name = "telescope.nvim",
+            -- Optional, configure key mappings for the picker. These are the defaults.
+            -- Not all pickers support all mappings.
+            mappings = {
+                -- Create a new note from your query.
+                new = "<C-x>",
+                -- Insert a link to the selected note.
+                insert_link = "<C-l>",
+            },
+        },
     },
 }

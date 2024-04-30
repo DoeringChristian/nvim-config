@@ -91,7 +91,7 @@ return {
             },
 
         },
-        new_notes_location = "notes_subdir",
+        new_notes_location = "current_dir",
 
         -- Optional, for templates (see below).
         templates = {

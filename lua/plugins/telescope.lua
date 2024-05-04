@@ -45,18 +45,19 @@ return {
             end,
             desc = "[F]ind [D]iagnostics",
         },
-        {
-            "<leader><Tab>",
-            function()
-                return require 'telescope.builtin'.grep_string {
-                    shorten_path = true,
-                    word_match = "-w",
-                    only_sort_text = true,
-                    search = "",
-                }
-            end,
-            desc = "Fuzzy Find"
-        }
+        -- {
+        --     "<leader><Tab>",
+        --     function()
+        --         return require 'telescope.builtin'.grep_string {
+        --             path_display = { "smart" },
+        --             shorten_path = true,
+        --             word_match = "-w",
+        --             only_sort_text = true,
+        --             search = "",
+        --         }
+        --     end,
+        --     desc = "Fuzzy Find"
+        -- }
     },
     config = function()
         local actions = require "telescope.actions"
@@ -66,10 +67,12 @@ return {
                     i = {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
+                        ["<c-f>"] = actions.to_fuzzy_refine,
                     },
                     n = {
                         ["q"] = "close",
                     }
+
                 },
             },
             pickers = {
@@ -122,6 +125,6 @@ return {
                 }
             },
         }
-        -- require "telescope".load_extension "fzf"
+        require "telescope".load_extension "fzf"
     end
 }

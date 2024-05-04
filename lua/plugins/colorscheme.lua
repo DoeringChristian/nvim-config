@@ -87,7 +87,8 @@ return {
             },
             custom_highlights = function(colors)
                 return {
-                    CmpItemMenu = { fg = colors.overlay0 }
+                    CmpItemMenu = { fg = colors.overlay0 },
+                    FzfLuaNormal = { bg = colors.mantle },
                 }
             end,
         },

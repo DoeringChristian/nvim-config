@@ -8,7 +8,6 @@ return {
         opts = {},
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", }
     },
-    { "echasnovski/mini.ai",     version = false },
     { "akinsho/toggleterm.nvim", opts = {} },
     -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },
     -- { "SvanT/lsp_signature.nvim", opts = { noice = false } },

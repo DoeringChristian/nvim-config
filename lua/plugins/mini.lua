@@ -15,5 +15,12 @@ return {
         enabled = false,
         event = "VeryLazy",
         opts = {},
-    }
+    },
+    {
+        "echasnovski/mini.ai",
+        version = false,
+        config = function()
+            require "mini.ai".setup {}
+        end
+    },
 }

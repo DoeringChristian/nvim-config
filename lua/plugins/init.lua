@@ -1,9 +1,14 @@
 return {
-    { "tpope/vim-sleuth",        event = "VeryLazy" },
-    { "tpope/vim-surround",      event = "VeryLazy" },
-    { "tpope/vim-repeat",        event = "VeryLazy" },
-    { "tpope/vim-fugitive",      event = "VeryLazy" },
-    { "numToStr/Comment.nvim",   opts = {} },
+    { "tpope/vim-sleuth",   event = "VeryLazy" },
+    { "tpope/vim-surround", event = "VeryLazy" },
+    { "tpope/vim-repeat",   event = "VeryLazy" },
+    { "tpope/vim-fugitive", event = "VeryLazy" },
+    {
+        "numToStr/Comment.nvim",
+        opts = {},
+        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", }
+    },
+    { "echasnovski/mini.ai",     version = false },
     { "akinsho/toggleterm.nvim", opts = {} },
     -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },
     -- { "SvanT/lsp_signature.nvim", opts = { noice = false } },

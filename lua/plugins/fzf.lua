@@ -1,8 +1,10 @@
 return {
     "ibhagwan/fzf-lua",
-    build = "./install --bin",
     -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        { "junegunn/fzf", build = "./install --bin" },
+    },
     keys = {
         { "<leader><Tab>", function() require "fzf-lua".live_grep() end, "Fuzzy Live Grep" }
     },

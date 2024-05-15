@@ -20,18 +20,18 @@ return {
             desc =
             "[G]oto [T]odo comments"
         },
-        {
-            "]t",
-            function() require "todo-comments".jump_next { keywords = { "TODO" } } end,
-            desc =
-            "Next TODO comment"
-        },
-        {
-            "[t",
-            function() require "todo-comments".jump_prev { keywords = { "TODO" } } end,
-            desc =
-            "Previous TODO comment"
-        },
+        -- {
+        --     "]t",
+        --     function() require "todo-comments".jump_next { keywords = { "TODO" } } end,
+        --     desc =
+        --     "Next TODO comment"
+        -- },
+        -- {
+        --     "[t",
+        --     function() require "todo-comments".jump_prev { keywords = { "TODO" } } end,
+        --     desc =
+        --     "Previous TODO comment"
+        -- },
         { "<leader>gt", "<cmd>TodoTelescope<cr>", desc = "[G]oto [T]odo" },
     },
 }

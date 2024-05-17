@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         -- "antoinemadec/FixCursorHold.nvim",
-        "nvim-treesitter/nvim-treesitter"
+        "nvim-treesitter/nvim-treesitter",
     },
     keys = {
         { "<leader>nr", function() require "neotest".run.run() end,                    desc = "[N]eotest [R]un" },
@@ -14,7 +14,10 @@ return {
     config = function()
         require "neotest".setup {
             adapters = {
-                require "rustaceanvim.neotest"
+                require "rustaceanvim.neotest",
+                require "neotest-python" {
+                    args = { "--log-level", "DEBUG", "--verbose", "-s" },
+                },
             },
             summary = {
                 mappings = {

@@ -96,5 +96,6 @@ nmap("[c", "<cmd>Gitsigns prev_hunk<cr>", "Previous [G]it Hunk")
 nmap("<leader>gc", "<cmd>Telescope git_commits<cr>", "[G]oto [C]ommits")
 
 -- Tab-page mapping
-nmap("]t", "<cmd>:tabnext<cr>", "Next [T]ab Page")
-nmap("[t", "<cmd>:-tabnext<cr>", "Previous [T]ab Page")
+nmap("]t", "<cmd>tabnext<cr>", "Next [T]ab Page")
+nmap("[t", "<cmd>-tabnext<cr>", "Previous [T]ab Page")
+nmap("<leader>tc", "<cmd>tabclose<cr>", "[T]ab [C]lose")

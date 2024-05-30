@@ -1,15 +1,13 @@
 return {
     settings = {
-        pyright = {
+        basedpyright = {
             disableOrganizeImports = true,
-        },
-        python = {
             analysis = {
+                typeCheckingMode = "off",
                 diagnosticSeverityOverrides = {
                     reportGeneralTypeIssues = "information",
-                },
-                typeCheckingMode = "off"
-            },
+                }
+            }
         },
     },
     capabilities = {

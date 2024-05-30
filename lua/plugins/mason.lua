@@ -57,50 +57,5 @@ return {
             ["rust_analyzer"] = function() end, -- NOTE: When removing rust-tools or rustaceanvim remove this as well
             ["ltex"] = function() end,
         })
-
-        -- Slang setup:
-
-        -- local configs = require "lspconfig.configs"
-        -- local slang = require "mason-registry".get_package("shader-slang")
-        -- configs.slang = {
-        --     default_config = {
-        --         cmd = { slang:get_install_path() }
-        --     }
-        -- }
-
-        -- Setup Mason Dap
-        -- mason_nvim_dap.setup({
-        --     automatic_setup = true,
-        --     handlers = {
-        --         function(config)
-        --             -- all sources with no handler get passed here
-        --
-        --             -- Keep original functionality of `automatic_setup = true`
-        --             require("mason-nvim-dap.automatic_setup")(config)
-        --             require("mason-nvim-dap").default_setup(config)
-        --         end,
-        --         python = function(config)
-        --             local dap = require("dap")
-        --             dap.adapters.python = {
-        --                 type = "executable",
-        --                 command = "/usr/bin/python3",
-        --                 args = {
-        --                     "-m",
-        --                     "debugpy.adapter",
-        --                 },
-        --             }
-        --
-        --             dap.configurations.python = {
-        --                 {
-        --                     type = "python",
-        --                     request = "launch",
-        --                     name = "Launch file",
-        --                     program = "${file}", -- This configuration will launch the current file if used.
-        --                 },
-        --             }
-        --             require("mason-nvim-dap").default_setup(config)
-        --         end,
-        --     },
-        -- })
     end,
 }

@@ -40,7 +40,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- "ray-x/lsp_signature.nvim",        -- function signature completions
-        "jose-elias-alvarez/null-ls.nvim", -- null-ls handles formatters etc.
+        "nvimtools/none-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         {
             "lukas-reineke/lsp-format.nvim",
@@ -145,6 +145,6 @@ return {
         setup_slang()
         require 'lspconfig'.glslls.setup {}
 
-        require("plugins.lsp.handlers").setup()
+        require "plugins.lsp.handlers".setup()
     end,
 }

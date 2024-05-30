@@ -99,3 +99,9 @@ nmap("<leader>gc", "<cmd>Telescope git_commits<cr>", "[G]oto [C]ommits")
 nmap("]t", "<cmd>tabnext<cr>", "Next [T]ab Page")
 nmap("[t", "<cmd>-tabnext<cr>", "Previous [T]ab Page")
 nmap("<leader>tc", "<cmd>tabclose<cr>", "[T]ab [C]lose")
+
+-- Navigate
+nmap("<C-h>", "<C-w>h", "")
+nmap("<C-j>", "<C-w>j", "")
+nmap("<C-k>", "<C-w>k", "")
+nmap("<C-l>", "<C-w>l", "")

@@ -5,8 +5,8 @@ return {
         "jose-elias-alvarez/null-ls.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "jayp0521/mason-null-ls.nvim",
-        "jayp0521/mason-nvim-dap.nvim",
+        "jay-babu/mason-null-ls.nvim",
+        "jay-babu/mason-nvim-dap.nvim",
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
     config = function()

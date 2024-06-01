@@ -44,7 +44,10 @@ function UpdateLspSettings(server_name, settings_patcher)
         })
     end
 
-    local clients = vim.lsp.get_active_clients({ name = server_name })
+    local ok, clients = pcall(vim.lsp.get_clients, { name = server_name })
+    if not ok then
+        ok, clients = pcall(vim.lsp.get_client_by_id, { name = server_name })
+    end
     if #clients > 0 then
         patch_settings(clients[1])
         return

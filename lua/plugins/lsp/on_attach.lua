@@ -15,8 +15,10 @@ end
 
 return function(client, bufnr)
   if client.server_capabilities.inlayHintProvider then
+    -- There are multiple ways to enable inlay hits
     pcall(vim.lsp.inlay_hint, bufnr, true)
     pcall(vim.lsp.inlay_hint.enable, bufnr, true)
+    pcall(vim.lsp.inlay_hint.enable, true, { bufnr = bufnr })
   end
 
   require "plugins.lsp.keymaps" (client, bufnr)

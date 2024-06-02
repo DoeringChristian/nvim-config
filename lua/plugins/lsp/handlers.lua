@@ -14,6 +14,18 @@ M.setup = function()
         -- },
         -- show signs
         signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+                [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+                [vim.diagnostic.severity.INFO] = icons.diagnostics.Hint,
+                [vim.diagnostic.severity.HINT] = icons.diagnostics.Info,
+            },
+            texthl = {
+                [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+            },
             -- TODO: fix priority mixup
             priority = 12, -- Is 8 so that errors can overwrite debug breakpoints
         },

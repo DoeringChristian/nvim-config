@@ -82,18 +82,18 @@ return {
                 end,
                 opts = { noremap = false, expr = true, buffer = true },
             },
+            ["gr"] = {
+                action = function()
+                    return [[<cmd>ObsidianBacklinks<CR>]]
+                end,
+                opts = { noremap = false, expr = true, buffer = true },
+            },
             -- Smart action depending on context, either follow link or toggle checkbox.
             ["<cr>"] = {
                 action = function()
                     return require("obsidian").util.smart_action()
                 end,
                 opts = { buffer = true, expr = true },
-            },
-            ["gr"] = {
-                action = function()
-                    return [[<cmd>ObsidianBacklinks<CR>]]
-                end,
-                opts = { noremap = false, expr = true, buffer = true },
             },
 
         },

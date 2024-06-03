@@ -44,13 +44,13 @@ return {
         "nvim-telescope/telescope.nvim",
         {
             "lukas-reineke/lsp-format.nvim",
-            enabled = true,
+            enabled = false,
             opts = {}
         },
         {
             -- TODO: find out why I wouldn't use this
             "stevearc/conform.nvim",
-            enabled = false,
+            enabled = true,
             event = { "BufWritePre" },
             cmd = { "ConformInfo", "DiffFormat", "FormatEnable", "FormatDisable", "Format" },
             config = function()

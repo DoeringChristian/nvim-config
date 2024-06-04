@@ -118,7 +118,7 @@ return {
             local prefix = ""
             if title ~= nil then
                 -- If title is given, transform it into valid file name.
-                prefix = title:gsub("[^A-Za-z0-9-]", "")
+                prefix = title:gsub("[^A-Za-z0-9- ]", "")
             else
                 -- If title is nil, just add 4 random uppercase letters to the suffix.
                 for _ = 1, 4 do

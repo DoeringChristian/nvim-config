@@ -1,5 +1,6 @@
 return {
     "nvimtools/none-ls.nvim", -- null-ls handles formatters etc.
+    enabled = false,
     dependencies = {
         "nvimtools/none-ls-extras.nvim",
     },

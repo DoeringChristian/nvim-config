@@ -86,7 +86,11 @@ return {
                 require "conform".setup {
                     -- Use LSP and format after save (async)
                     formatters_by_ft = {
-                        ["markdown"] = { "prettier" },
+                        markdown = { "prettier" },
+                        lua = { "stylua" },
+                        fish = { "fish_indent" },
+                        sh = { "shfmt" },
+                        python = { "black" },
                     },
                     format_after_save = function(bufnr)
                         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

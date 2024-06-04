@@ -32,20 +32,20 @@ return {
                 "ruff_lsp",
             },
         })
-        local function null_ls_default_handler(source_name, methods)
-            local null_ls = require("null-ls")
-
-            for k, v in pairs(methods) do
-                null_ls.register(null_ls.builtins[v][source_name])
-            end
-        end
-        mason_null_ls.setup({
-            automatic_installation = true,
-            ensure_installed = {
-                "black",
-            },
-            handlers = { null_ls_default_handler },
-        })
+        -- local function null_ls_default_handler(source_name, methods)
+        --     local null_ls = require("null-ls")
+        --
+        --     for k, v in pairs(methods) do
+        --         null_ls.register(null_ls.builtins[v][source_name])
+        --     end
+        -- end
+        -- mason_null_ls.setup({
+        --     automatic_installation = true,
+        --     ensure_installed = {
+        --         "black",
+        --     },
+        --     handlers = { null_ls_default_handler },
+        -- })
 
         -- LSP Setup Handlers:
         local function lsp_default_handler(server_name)

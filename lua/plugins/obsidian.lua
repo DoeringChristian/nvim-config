@@ -88,6 +88,12 @@ return {
                 end,
                 opts = { noremap = false, expr = true, buffer = true },
             },
+            ["<leader>rn"] = {
+                action = function()
+                    return [[<cmd>ObsidianRename<CR>]]
+                end,
+                opts = { noremap = false, expr = true, buffer = true },
+            },
             -- Smart action depending on context, either follow link or toggle checkbox.
             ["<cr>"] = {
                 action = function()

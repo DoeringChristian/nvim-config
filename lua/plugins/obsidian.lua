@@ -154,7 +154,7 @@ return {
                     prefix = prefix .. string.char(math.random(65, 90))
                 end
             end
-            return prefix .. "-" .. tostring(os.time())
+            return prefix .. "-" .. os.date("%y%m%d") .. os.date("%H%M%S")
         end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.

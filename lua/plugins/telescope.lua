@@ -45,6 +45,13 @@ return {
             end,
             desc = "[F]ind [D]iagnostics",
         },
+        {
+            "<leader>fn",
+            function()
+                require "telescope.builtin".resume { initial_mode = "normal" }
+            end,
+            desc = "[F]ind [N]ext",
+        },
         -- {
         --     "<leader><Tab>",
         --     function()

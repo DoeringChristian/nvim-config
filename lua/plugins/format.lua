@@ -11,6 +11,9 @@ return {
         event = { "BufWritePre" },
         cmd = { "ConformInfo", "DiffFormat", "FormatEnable", "FormatDisable", "Format" },
         config = function()
+            -- Load disable_autoformat from env var
+            vim.g.disable_autoformat = vim.env.DISABLE_AUTOFORMAT
+
             local diff_format = function()
                 local ignore_filetypes = { "lua" }
                 if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then

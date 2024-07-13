@@ -15,3 +15,7 @@ vim.cmd.colorscheme "catppuccin"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
+
+vim.opt.runtimepath:append(vim.fn.stdpath "data" .. "/lazy/better-escape.vim") -- lazy.nvim
+vim.g.better_escape_shortcut = { "jk", "jK", "JK", "Jk" }
+vim.g.better_escape_interval = 1000

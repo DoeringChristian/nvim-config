@@ -105,12 +105,12 @@ return {
                 end,
                 opts = { noremap = false, expr = true, buffer = true },
             },
-            -- ["<leader>rn"] = {
-            --     action = function()
-            --         return [[<cmd>ObsidianRename<CR>]]
-            --     end,
-            --     opts = { noremap = false, expr = true, buffer = true },
-            -- },
+            ["<leader>rn"] = {
+                action = function()
+                    return [[<cmd>ObsidianRename<CR>]]
+                end,
+                opts = { noremap = false, expr = true, buffer = true },
+            },
             ["<cr>"] = {
                 action = function()
                     return require("obsidian").util.toggle_checkbox()

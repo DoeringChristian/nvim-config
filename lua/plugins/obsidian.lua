@@ -157,7 +157,9 @@ return {
             -- This is equivalent to the default behavior.
             local path = spec.dir / tostring(spec.title)
             path = path:with_suffix(".md")
+
             if path:exists() then
+                -- File already exists, therefore use unique id
                 path = spec.dir / tostring(spec.id)
                 path = path:with_suffix(".md")
             end

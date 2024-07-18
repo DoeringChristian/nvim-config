@@ -21,6 +21,17 @@ return function(client, bufnr)
     pcall(vim.lsp.inlay_hint.enable, true, { bufnr = bufnr })
   end
 
+  if client.server_capabilities.codeLensProvider then
+    -- refresh codelens on TextChanged and InsertLeave as well
+    vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'CursorHold', 'LspAttach', 'BufEnter' }, {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.codelens.refresh({ bufnr = bufnr })
+      end
+    })
+    vim.api.nvim_exec_autocmds("User", { pattern = "LspAttach" })
+  end
+
   require "plugins.lsp.keymaps" (client, bufnr)
   lsp_highlight_document(client)
 

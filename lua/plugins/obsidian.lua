@@ -93,12 +93,6 @@ return {
         },
 
         mappings = {
-            ["gf"] = {
-                action = function()
-                    return require("obsidian").util.gf_passthrough()
-                end,
-                opts = { noremap = false, expr = true, buffer = true },
-            },
             ["gd"] = {
                 action = function()
                     return require("obsidian").util.gf_passthrough()
@@ -111,12 +105,12 @@ return {
                 end,
                 opts = { noremap = false, expr = true, buffer = true },
             },
-            ["<leader>rn"] = {
-                action = function()
-                    return [[<cmd>ObsidianRename<CR>]]
-                end,
-                opts = { noremap = false, expr = true, buffer = true },
-            },
+            -- ["<leader>rn"] = {
+            --     action = function()
+            --         return [[<cmd>ObsidianRename<CR>]]
+            --     end,
+            --     opts = { noremap = false, expr = true, buffer = true },
+            -- },
             ["<cr>"] = {
                 action = function()
                     return require("obsidian").util.toggle_checkbox()
@@ -161,8 +155,14 @@ return {
         ---@return string|obsidian.Path The full path to the new note.
         note_path_func = function(spec)
             -- This is equivalent to the default behavior.
-            local path = spec.dir / tostring(spec.id)
-            return path:with_suffix(".md")
+            local path = spec.dir / tostring(spec.title)
+            path = path:with_suffix(".md")
+            if path:exists() then
+                path = spec.dir / tostring(spec.id)
+                path = path:with_suffix(".md")
+            end
+
+            return path
         end,
 
         -- Optional, alternatively you can customize the frontmatter data.

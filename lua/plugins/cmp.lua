@@ -156,6 +156,14 @@ return {
                     { name = "crates" },
                     { name = "path" },
                     { name = "buffer", keyword_length = 5 },
+                },
+                {
+                    name = "nvim_lsp",
+                    option = {
+                        markdown_oxide = {
+                            keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+                        }
+                    }
                 }
             ),
             confirm_opts = {

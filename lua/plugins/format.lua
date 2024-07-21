@@ -55,22 +55,6 @@ return {
                 format_range()
             end
 
-            -- local diff_format = function()
-            --     local hunks = require("gitsigns").get_hunks()
-            --     local format = require("conform").format
-            --     for i = #hunks, 1, -1 do
-            --         local hunk = hunks[i]
-            --         if hunk ~= nil and hunk.type ~= "delete" then
-            --             local start = hunk.added.start
-            --             local last = start + hunk.added.count
-            --             -- nvim_buf_get_lines uses zero-based indexing -> subtract from last
-            --             local last_hunk_line = vim.api.nvim_buf_get_lines(0, last - 2, last - 1, true)[1]
-            --             local range = { start = { start, 0 }, ["end"] = { last - 1, last_hunk_line:len() } }
-            --             format({ async = true, lsp_fallback = true, range = range })
-            --         end
-            --     end
-            -- end
-
             -- DiffFormat
             vim.api.nvim_create_user_command('DiffFormat', diff_format, { desc = 'Format changed lines' })
 
@@ -110,6 +94,8 @@ return {
 
             require "conform".setup {
                 -- Use LSP and format after save (async)
+                formatters = {
+                },
                 formatters_by_ft = {
                     markdown = { "prettier" },
                     lua = { "stylua" },

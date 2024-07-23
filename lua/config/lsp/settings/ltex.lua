@@ -11,7 +11,9 @@ return {
                     FencedCodeBlock = "ignore",
                     CodeBlock = "ignore",
                 }
-            }
+            },
+            checkFrequency = "save",
+
         }
     }
 }

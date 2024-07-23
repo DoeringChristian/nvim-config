@@ -169,6 +169,13 @@ return {
             return path
         end,
 
+        -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
+        ---@return string
+        image_name_func = function()
+            -- Prefix image names with timestamp.
+            return string.format("%s-", os.time())
+        end,
+
         -- Optional, alternatively you can customize the frontmatter data.
         ---@return table
         note_frontmatter_func = function(note)

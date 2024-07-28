@@ -48,8 +48,6 @@ return {
     config = function()
         -- NOTE: lsp settings are loaded by mason (rust-analyzer is handled by rust-tools)
 
-        -- Functions for enabling/disabling auto formatting
-
         vim.cmd([[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]) --wgsl fix
         vim.cmd([[au BufNewFile,BufRead *.pest set filetype=pest]]) --pest fix
 

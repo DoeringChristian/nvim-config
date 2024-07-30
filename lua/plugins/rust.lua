@@ -28,6 +28,7 @@ return {
     {
         "mrcjkb/rustaceanvim",
         enabled = true,
+        version = "^5",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp", -- lsp completions
         },

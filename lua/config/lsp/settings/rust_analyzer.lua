@@ -2,13 +2,24 @@ return {
     settings = {
         ["rust-analyzer"] = {
             inlayHints = { locationLinks = false },
-            assist = {
-                importGranularity = "module",
-                importPrefix = "self",
+            -- assist = {
+            --     importGranularity = "module",
+            --     importPrefix = "self",
+            -- },
+            -- cargo = {
+            --     loadOutDirsFromCheck = true,
+            --     sysrootQueryMetadata = true,
+            -- },
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
             },
             cargo = {
-                loadOutDirsFromCheck = true,
-                sysrootQueryMetadata = true,
+                buildScripts = {
+                    enable = true,
+                },
             },
             procMacro = {
                 enable = true

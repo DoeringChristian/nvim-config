@@ -1,7 +1,6 @@
 return {
     "williamboman/mason.nvim",
     dependencies = {
-        "neovim/nvim-lspconfig",
         "jose-elias-alvarez/null-ls.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -22,15 +21,16 @@ return {
             },
         })
         mason_lspconfig.setup({
-            ensure_installed = {
-                "rust_analyzer",
-                "ltex",
-                "lua_ls",
-                -- 'pylsp',
-                -- 'pyright',
-                "texlab",
-                "ruff_lsp",
-            },
+            -- ensure_installed = {
+            --     "rust_analyzer",
+            --     "ltex",
+            --     "lua_ls",
+            --     -- 'pylsp',
+            --     -- 'pyright',
+            --     "texlab",
+            --     "ruff_lsp",
+            -- },
+            -- automatic_instalation = true,
         })
 
         -- LSP Setup Handlers:

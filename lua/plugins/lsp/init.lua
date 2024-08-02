@@ -91,7 +91,7 @@ return {
         -- Handled by rustaceanvim
         -- setup("rust_analyzer")
 
-        -- Setup lspconfig: --
+        -- Setup lsp stuff: --
         local icons = require("config.icons")
         for name, icon in pairs(icons.diagnostics) do
             name = "DiagnosticSign" .. name

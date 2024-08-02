@@ -20,4 +20,9 @@ M.config = function(server_name)
     return config
 end
 
+M.setup = function(server_name)
+    local lspconfig = require "lspconfig"
+    lspconfig[server_name].setup(M.config(server_name))
+end
+
 return M

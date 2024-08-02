@@ -3,7 +3,7 @@ return {
     ft = { "markdown", "tex" },
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
-        local opts = require "plugins.lsp.handlers".config("ltex")
+        local opts = require "plugins.lsp.server".config("ltex")
         require "ltex_extra".setup {
             load_langs = { "en-US", "de-DE" },
             path = ".ltex",

@@ -33,7 +33,6 @@ local function setup_slang()
     }
 
     -- vim.notify(vim.inspect(configs))
-    lspconfig.slang.setup(require("plugins.lsp.handlers").config("slang"))
 end
 
 -- Fix for bug https://github.com/neovim/neovim/issues/12970
@@ -45,23 +44,6 @@ vim.lsp.util.apply_text_document_edit = function(text_document_edit, index, offs
     end
 
     vim.lsp.util.apply_text_edits(text_document_edit.edits, bufnr, offset_encoding)
-end
-
-local function server(server_name)
-    local config = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-        on_attach = require("plugins.lsp.on_attach"),
-    }
-
-    -- Load settings from usr/lsp/settings/$server_name
-    local ok, server_config = pcall(require, "config.lsp.settings." .. server_name)
-
-    -- Deep extend settings with custom lsp server settings
-    if ok then
-        config = vim.tbl_deep_extend("force", config, server_config)
-    end
-
-    return config
 end
 
 return {
@@ -81,31 +63,33 @@ return {
         vim.cmd([[au BufNewFile,BufRead *.wgsl set filetype=wgsl]]) --wgsl fix
         vim.cmd([[au BufNewFile,BufRead *.pest set filetype=pest]]) --pest fix
 
-        local lspconfig = require "lspconfig"
-
         setup_slang()
-        lspconfig.glslls.setup {}
 
-        -- -- lspconfig.rust_analyzer.setup(server("rust_analyzer"))
-        -- lspconfig.ast_grep.setup(server("ast_grep"))
-        -- lspconfig.basedpyright.setup(server("basedpyright"))
-        -- -- lspconfig.clangd.setup(server("clangd"))
-        -- lspconfig.cmake.setup(server("cmake-language-server"))
-        -- lspconfig.esbonio.setup(server("esbonio"))
-        -- lspconfig.glsl_analyzer.setup(server("glsl_analyzer"))
-        -- lspconfig.jsonls.setup(server("json-lsp"))
-        -- lspconfig.lua_ls.setup(server("luals"))
-        -- lspconfig.matlab_ls.setup(server("matlab_ls"))
-        -- lspconfig.nickel_ls.setup(server("nickel_ls"))
-        -- lspconfig.nil_ls.setup(server("nil_ls"))
-        -- lspconfig.ocamlls.setup(server("ocamlls"))
-        -- lspconfig.pest_ls.setup(server("pest_ls"))
-        -- lspconfig.ruff_lsp.setup(server("ruff_lsp"))
-        -- lspconfig.ltex.setup(server("ltex"))
-        -- lspconfig.texlab.setup(server("texlab"))
-        -- lspconfig.markdown_oxide.setup(server("markdown_oxide"))
-        -- lspconfig.typst_lsp.setup(server("typst_lsp"))
-        -- lspconfig.wgsl_analyzer.setup(server("wgsl_analyzer"))
+        local setup = require "plugins.lsp.server".setup
+
+        setup("ast_grep")
+        setup("basedpyright")
+        setup("clangd")
+        setup("cmake")
+        setup("esbonio")
+        setup("glsl_analyzer")
+        setup("jsonls")
+        setup("lua_ls")
+        setup("matlab_ls")
+        setup("nickel_ls")
+        setup("nil_ls")
+        setup("ocamlls")
+        setup("ruff_lsp")
+        setup("texlab")
+        setup("markdown_oxide")
+        setup("typst_lsp")
+        setup("wgsl_analyzer")
+        setup("slang")
+        setup("glslls")
+        -- Handled by ltex_extra
+        -- setup("ltex")
+        -- Handled by rustaceanvim
+        -- setup("rust_analyzer")
 
         -- Setup lspconfig: --
         local icons = require("config.icons")

@@ -54,7 +54,7 @@ return {
                         border = { "", "", "", "", "", "", "", "" },
                     }
                 },
-                server = require("plugins.lsp.handlers").config("rust_analyzer"),
+                server = require "plugins.lsp.server".config("rust_analyzer"),
                 dap = {
                     adapter = adapter,
                 },

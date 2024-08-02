@@ -15,6 +15,7 @@ return {
                 return vim.fn.executable "make" == 1
             end,
         },
+        { "Marskey/telescope-sg" },
     },
     keys = {
         {
@@ -44,6 +45,11 @@ return {
                 require "telescope.builtin".diagnostics()
             end,
             desc = "[F]ind [D]iagnostics",
+        },
+        {
+            "<leader>fa",
+            "<CMD>Telescope ast_grep<CR>",
+            desc = "[F]ind [A]st",
         },
         {
             "<leader>fn",
@@ -129,7 +135,17 @@ return {
                     override_file_sorter = true,    -- override the file sorter
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
-                }
+                },
+                extensions = {
+                    ast_grep = {
+                        command = {
+                            "ast-grep",
+                            "--json=stream",
+                        },                       -- must have --json=stream
+                        grep_open_files = false, -- search in opened files
+                        lang = nil,              -- string value, specify language for ast-grep `nil` for default
+                    }
+                },
             },
         }
         require "telescope".load_extension "fzf"

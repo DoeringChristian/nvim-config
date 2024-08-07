@@ -44,6 +44,12 @@ ksb.setup {
             { noremap = true, silent = true, desc = "[Q]uit" })
         vim.keymap.set("n", "i", function() ksb_api.close_or_quit_all() end,
             { noremap = true, silent = true, desc = "[Q]uit" })
+
+        -- Navigate
+        vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "" })
+        vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "" })
+        vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "" })
+        vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "" })
         return {
             paste_window = { yank_register = 'a' },
         }

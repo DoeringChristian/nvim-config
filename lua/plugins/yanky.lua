@@ -34,6 +34,7 @@ return {
                 history_length = 10,
                 storage = "shada",
                 sync_with_numbered_registers = true,
+                update_register_on_cycle = true,
             },
             system_clipboard = {
                 sync_with_ring = true,

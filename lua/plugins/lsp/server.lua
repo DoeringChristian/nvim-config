@@ -25,4 +25,15 @@ M.setup = function(server_name)
     lspconfig[server_name].setup(M.config(server_name))
 end
 
+M.extend = function(config)
+    local default = {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        on_attach = require("plugins.lsp.on_attach"),
+    }
+
+    config = vim.tbl_deep_extend("force", default, config)
+
+    return config
+end
+
 return M

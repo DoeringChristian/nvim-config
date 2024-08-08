@@ -14,6 +14,7 @@ end
 
 
 return function(client, bufnr)
+  -- Enable Inlay hints
   if client.server_capabilities.inlayHintProvider then
     -- There are multiple ways to enable inlay hits
     pcall(vim.lsp.inlay_hint, bufnr, true)
@@ -21,6 +22,7 @@ return function(client, bufnr)
     pcall(vim.lsp.inlay_hint.enable, true, { bufnr = bufnr })
   end
 
+  -- CodeLens support
   if client.server_capabilities.codeLensProvider then
     -- refresh codelens on TextChanged and InsertLeave as well
     vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'CursorHold', 'LspAttach', 'BufEnter' }, {

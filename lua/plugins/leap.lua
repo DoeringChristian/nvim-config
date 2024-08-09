@@ -10,6 +10,9 @@ return {
         local leap = require "leap"
 
         leap.set_default_keymaps()
+        vim.keymap.set({ 'n', 'x', 'o' }, "ga", function()
+            require "leap.treesitter".select()
+        end)
         leap.setup({
             max_phase_one_targets = nil,
             highlight_unlabeled_phase_one_targets = false,

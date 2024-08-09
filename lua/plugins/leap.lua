@@ -10,7 +10,7 @@ return {
         local leap = require "leap"
 
         leap.set_default_keymaps()
-        vim.keymap.set({ 'n', 'x', 'o' }, "o", function()
+        vim.keymap.set({ 'x', 'o' }, "o", function()
             require "leap.treesitter".select()
         end, { desc = "[O]mni select" })
 

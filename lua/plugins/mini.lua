@@ -3,7 +3,7 @@ return {
         "echasnovski/mini.align",
         version = false,
         keys = {
-            -- { "ga", desc = "Align",              mode = { "n", "x" } },
+            { "ga", desc = "Align",              mode = { "n", "x" } },
             { "gA", desc = "Align with Preview", mode = { "n", "x" } },
         },
         config = function()
@@ -33,10 +33,10 @@ return {
                         a = { "@function.outer" },
                         i = { "@function.inner" }
                     },
-                    o = gen_spec.treesitter {
-                        a = { "@function.outer", "@class.outer", "@loop.outer", "@conditional.outer", "@comment.outer" },
-                        i = { "@function.inner", "@class.inner", "@loop.inner", "@conditional.inner", "@comment.inner" }
-                    },
+                    -- o = gen_spec.treesitter {
+                    --     a = { "@function.outer", "@class.outer", "@loop.outer", "@conditional.outer", "@comment.outer" },
+                    --     i = { "@function.inner", "@class.inner", "@loop.inner", "@conditional.inner", "@comment.inner" }
+                    -- },
                 }
             }
         end

@@ -14,6 +14,8 @@ return {
             require "leap.treesitter".select()
         end, { desc = "[O]mni select" })
 
+        leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
+
         leap.setup({
             max_phase_one_targets = nil,
             highlight_unlabeled_phase_one_targets = false,

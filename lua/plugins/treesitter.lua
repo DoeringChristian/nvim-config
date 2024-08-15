@@ -15,6 +15,7 @@ return {
                     "cmake",
                     "cpp",
                     "cuda",
+                    "diff",
                     "dockerfile",
                     "eex",
                     "gdscript",

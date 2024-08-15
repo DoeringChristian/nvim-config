@@ -51,12 +51,14 @@ return {
     {
         "catppuccin/nvim",
         lazy = true,
+        priority = 1000,
         name = "catppuccin",
         opts = {
             integrations = {
                 alpha = true,
                 cmp = true,
                 gitsigns = true,
+                headlines = true,
                 illuminate = true,
                 indent_blankline = { enabled = true },
                 lsp_trouble = true,

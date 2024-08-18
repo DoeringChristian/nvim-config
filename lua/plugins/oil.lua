@@ -4,7 +4,7 @@ local function open_in_tab()
 end
 return {
     "stevearc/oil.nvim",
-    enabled = true,
+    enabled = false,
     opts = {},
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },

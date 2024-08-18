@@ -76,12 +76,5 @@ return {
                 },
             },
         })
-
-        local picker = require("yanky.picker")
-        picker.actions.put("p")
-        picker.actions.put("P")
-        picker.actions.put("gp")
-        picker.actions.put("gP")
-        picker.actions.delete()
     end,
 }

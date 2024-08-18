@@ -3,6 +3,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
         "jay-babu/mason-nvim-dap.nvim",
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
@@ -10,14 +11,43 @@ return {
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
 
-        mason.setup {
-            -- registries = {
-            --     "github:mason-org/mason-registry",
-            --     -- "github:DoeringChristian/mason-registry",
-            -- },
+        mason.setup {}
+        require "mason-tool-installer".setup {
+            run_on_start = false,
+            ensure_installed = {
+                "ast-grep",
+                "basedpyright",
+                "black",
+                "clang-format",
+                "clangd",
+                "cmake-language-server",
+                "cmakelang",
+                "cmakelint",
+                "codelldb",
+                "erb-formatter",
+                "esbonio",
+                "glsl_analyzer",
+                "json-lsp",
+                "latexindent",
+                "ltex-ls",
+                "lua-language-server",
+                "markdown-oxide",
+                "matlab-language-server",
+                "nickel-lang-lsp",
+                "nil",
+                "nixpkgs-fmt",
+                "pest-language-server",
+                "prettier",
+                "prettierd",
+                "ruff-lsp",
+                "rust-analyzer",
+                "texlab",
+                "typst-lsp",
+                "wgsl-analyzer",
+            }
         }
         mason_lspconfig.setup {
-            automatic_instalation = true,
+            automatic_installation = true,
         }
 
         -- Enable this if we want auto-setup

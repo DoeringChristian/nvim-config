@@ -77,7 +77,6 @@ return {
         setup("matlab_ls")
         setup("nickel_ls")
         setup("nil_ls")
-        setup("ocamlls")
         setup("ruff_lsp")
         setup("texlab")
         setup("markdown_oxide")

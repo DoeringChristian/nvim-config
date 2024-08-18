@@ -1,18 +1,22 @@
+local function open_in_tab()
+    vim.cmd("tabnew")
+    require "oil".open()
+end
 return {
     "stevearc/oil.nvim",
+    enabled = true,
     opts = {},
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
+    keys = {
+        { "-", open_in_tab, desc = "Open oil in parrent directory" },
+    },
     config = function()
-        local function open_in_tab()
-            vim.cmd("tabnew")
-            require "oil".open()
-        end
         -- vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })
         -- vim.keymap.set("n", "-", function() require "oil".open() end, { desc = "Open parent directory" })
-        vim.keymap.set("n", "-", open_in_tab, { desc = "Open parent directory" })
+        -- vim.keymap.set("n", "-", open_in_tab, { desc = "Open parent directory" })
 
         require "oil".setup {
             use_default_keymaps = false,

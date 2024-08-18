@@ -1,24 +1,20 @@
 return {
     "williamboman/mason.nvim",
     dependencies = {
-        "jose-elias-alvarez/null-ls.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "jay-babu/mason-null-ls.nvim",
         "jay-babu/mason-nvim-dap.nvim",
         "hrsh7th/cmp-nvim-lsp", -- lsp completions
     },
     config = function()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
-        local mason_null_ls = require("mason-null-ls")
-        local mason_nvim_dap = require("mason-nvim-dap")
 
         mason.setup {
-            registries = {
-                "github:mason-org/mason-registry",
-                -- "github:DoeringChristian/mason-registry",
-            },
+            -- registries = {
+            --     "github:mason-org/mason-registry",
+            --     -- "github:DoeringChristian/mason-registry",
+            -- },
         }
         mason_lspconfig.setup {
             automatic_instalation = true,

@@ -50,7 +50,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- "ray-x/lsp_signature.nvim",        -- function signature completions
-        -- "nvimtools/none-ls.nvim", -- null-ls handles formatters etc.
         "nvim-telescope/telescope.nvim",
         "lukas-reineke/lsp-format.nvim",
         "stevearc/conform.nvim",

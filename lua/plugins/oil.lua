@@ -4,14 +4,14 @@ local function open_in_tab()
 end
 return {
     "stevearc/oil.nvim",
-    enabled = false,
+    enabled = true,
     opts = {},
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
     keys = {
-        { "-", open_in_tab, desc = "Open oil in parrent directory" },
+        -- { "-", open_in_tab, desc = "Open oil in parrent directory" },
     },
     config = function()
         -- vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })

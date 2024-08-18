@@ -6,12 +6,35 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
     config = function()
-        vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })
+        local function open_in_tab()
+            vim.cmd("tabnew")
+            require "oil".open()
+        end
+        -- vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })
+        -- vim.keymap.set("n", "-", function() require "oil".open() end, { desc = "Open parent directory" })
+        vim.keymap.set("n", "-", open_in_tab, { desc = "Open parent directory" })
+
         require "oil".setup {
+            use_default_keymaps = false,
             keymaps = {
                 ["q"] = "<CMD>q!<CR>",
                 -- [".."] = "actions.parent",
                 ["<C-p>"] = "<Plug>(YankyCycleForward)",
+
+                -- Default
+                ["g?"] = "actions.show_help",
+                ["<CR>"] = "actions.select",
+                ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+                ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+                ["<C-c>"] = "actions.close",
+                ["-"] = "actions.parent",
+                ["_"] = "actions.open_cwd",
+                ["`"] = "actions.cd",
+                ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
+                ["gs"] = "actions.change_sort",
+                ["gx"] = "actions.open_external",
+                ["g."] = "actions.toggle_hidden",
+                ["g\\"] = "actions.toggle_trash",
             },
             delete_to_trash = true,
         }

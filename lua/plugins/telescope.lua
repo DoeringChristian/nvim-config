@@ -16,6 +16,7 @@ return {
             end,
         },
         { "Marskey/telescope-sg" },
+        { "gbprod/yanky.nvim" },
     },
     keys = {
         {
@@ -149,5 +150,6 @@ return {
             },
         }
         require "telescope".load_extension "fzf"
+        require "telescope".load_extension "yank_history"
     end
 }

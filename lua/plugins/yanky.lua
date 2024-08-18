@@ -11,6 +11,16 @@ return {
         { "gP",    "<Plug>(YankyGPutBefore)",    mode = { "n", "x" }, desc = "[G]oto end [P]aste Before" },
         { "<c-n>", "<Plug>(YankyCycleBackward)", mode = "n",          desc = "Next Paste Element" },
         { "<c-p>", "<Plug>(YankyCycleForward)",  mode = "n",          desc = "Previous Paste Element" },
+        {
+            "<leader>p",
+            function()
+                require "telescope".extensions.yank_history.yank_history {
+                    initial_mode = "normal",
+                }
+            end,
+            mode = "n",
+            desc = "[P]aste Telescope"
+        },
     },
     config = function()
         vim.g.clipboard = {
@@ -25,9 +35,10 @@ return {
             },
             cache_enabled = 1,
         }
-        local yanky = require("yanky")
+        local yanky = require "yanky"
 
-        local mapping = require("yanky.telescope.mapping")
+        local mapping = require "yanky.telescope.mapping"
+        local actions = require "telescope.actions"
 
         yanky.setup({
             ring = {
@@ -47,15 +58,17 @@ return {
                     action = nil,
                 },
                 telescope = {
+                    use_default_mappings = false,
                     mappings = {
-                        default = mapping.put("p"),
                         i = {
                             ["<c-p>"] = mapping.put("p"),
                             ["<c-P>"] = mapping.put("P"),
                             ["<c-x>"] = mapping.delete(),
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
                         },
                         n = {
-                            p = mapping.put("p"),
+                            p = mapping.put("p"), -- put after cursor
                             P = mapping.put("P"),
                             d = mapping.delete(),
                         },

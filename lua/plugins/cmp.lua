@@ -137,11 +137,11 @@ return {
                     { name = "luasnip" },
                 },
                 {
-                    { name = "cmp_yanky" },
-                },
-                {
                     { name = "path" },
                     { name = "buffer", keyword_length = 5 },
+                },
+                {
+                    { name = "cmp_yanky" },
                 }
             ),
             confirm_opts = {

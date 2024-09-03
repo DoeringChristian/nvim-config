@@ -5,7 +5,11 @@ return {
     { "tpope/vim-fugitive", event = "VeryLazy" },
     {
         "numToStr/Comment.nvim",
-        opts = {},
+        opts = {
+            mappings = {
+                extra = false,
+            }
+        },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", }
     },
     { "akinsho/toggleterm.nvim", opts = {} },

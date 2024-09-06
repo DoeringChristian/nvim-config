@@ -11,19 +11,18 @@ return {
     -- ft = "markdown",
     keys = {
         { "<leader>ob",  "<CMD>ObsidianBacklinks<CR>",     desc = "[O]bsidian [B]acklinks" },
-        { "<leader>oS",  "<CMD>ObsidianSearch<CR>",        desc = "[O]bsidian [S]earch" },
+        { "<leader>os",  "<CMD>ObsidianSearch<CR>",        desc = "[O]bsidian [S]earch" },
+        { "<leader>oS",  "<CMD>ObsidianQuickSwitch<CR>",   desc = "[O]bsidian [S]witch" },
         { "<leader>ot",  "<CMD>ObsidianToday<CR>",         desc = "[O]bsidian [T]oday" },
         { "<leader>o2w", "<CMD>ObsidianDailies -14 1<CR>", desc = "[O]bsidian [F]ollow [L]ink" },
         { "<leader>ow",  "<CMD>ObsidianDailies -7 1<CR>",  desc = "[O]bsidian [F]ollow [L]ink" },
         { "<leader>oy",  "<CMD>ObsidianYesterday<CR>",     desc = "[O]bsidian [Y]esterday" },
         { "<leader>oo",  "<CMD>ObsidianOpen<CR>",          desc = "[O]bsidian [O]pen" },
         { "<leader>on",  "<CMD>ObsidianNew<CR>",           desc = "[O]bsidian [N]ew" },
-        { "<leader>os",  "<CMD>ObsidianSearch<CR>",        desc = "[O]bsidian [S]earch" },
         { "<leader>oll", "<CMD>ObsidianLink<CR>",          desc = "[O]bsidian [L]ink" },
-        { "<leader>os",  "<CMD>ObsidianQuickSwitch<CR>",   desc = "[O]bsidian [S]witch" },
         { "<leader>oln", "<CMD>ObsidianLinkNew<CR>",       desc = "[O]bsidian [L]ink [N]ew" },
         { "<leader>ofl", "<CMD>ObsidianFollowLink<CR>",    desc = "[O]bsidian [F]ollow [L]ink" },
-        -- { "<leader>ot",  "<CMD>ObsidianTemplate<CR>",    desc = "[O]bsidian [T]emplate" },
+        { "<leader>oT",  "<CMD>ObsidianTemplate<CR>",      desc = "[O]bsidian [T]emplate" },
     },
     -- event = {
     --     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.

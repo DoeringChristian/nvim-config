@@ -9,6 +9,12 @@ M.config = function(server_name)
         on_attach = require("plugins.lsp.on_attach"),
     }
 
+    -- Extend default capabilites
+    config.capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
+
     -- Load settings from usr/lsp/settings/$server_name
     local ok, server_config = pcall(require, "config.lsp.settings." .. server_name)
 

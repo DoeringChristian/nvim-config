@@ -141,7 +141,7 @@ return {
                 -- If title is given, transform it into valid file name.
                 local id = title:gsub("[^A-Za-z0-9- ]", "")
                 -- id = id:sub(1, 20)
-                id = id .. " " .. os.date("%y%m%d%H%M%S")
+                id = id .. " " .. os.date("%y%m%d-%H%M%S")
                 return id
             else
                 -- If title is nil, just add 4 random uppercase letters to the suffix.

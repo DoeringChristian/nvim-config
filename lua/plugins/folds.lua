@@ -20,7 +20,12 @@ return {
                 provider_selector = function(bufnr, filetype, buftype)
                     return { "treesitter", "indent" }
                 end,
-                enable_get_fold_virt_text = true,
+                close_fold_kinds_for_ft = {
+                    default = {},
+                    -- rust = { "function_item", },
+                    -- python = { "function_definition" },
+                    -- cpp = { "function_definition" },
+                },
                 preview = {
                     win_config = {
                         border = { '', '─', '', '', '', '─', '', '' },

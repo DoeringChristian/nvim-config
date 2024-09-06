@@ -10,10 +10,10 @@ M.config = function(server_name)
     }
 
     -- Extend default capabilites
-    config.capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true
-    }
+    local ok, default_config = pcall(require, "config.lsp.settings.default")
+    if ok then
+        config = vim.tbl_deep_extend("force", config, default_config)
+    end
 
     -- Load settings from usr/lsp/settings/$server_name
     local ok, server_config = pcall(require, "config.lsp.settings." .. server_name)

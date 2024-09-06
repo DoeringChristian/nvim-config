@@ -108,3 +108,11 @@ nmap("<C-l>", "<C-w>l", "")
 vim.keymap.del("n", "grn")
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "grr")
+
+-- Hover (ufo else lsp)
+map("n", "K", function()
+    local winid = require "ufo".peekFoldedLinesUnderCursor()
+    if not winid then
+        vim.lsp.buf.hover()
+    end
+end, "Hover")

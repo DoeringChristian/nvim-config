@@ -17,7 +17,8 @@ return function(client, bufnr)
         map("v", keys, func, desc)
     end
 
-    nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+    -- NOTE: handled by keymaps.lua
+    -- nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     -- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     -- LSP Goto functions prefixed with 'g'

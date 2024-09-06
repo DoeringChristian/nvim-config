@@ -38,6 +38,10 @@ local options = {
 	scrolloff = 8,                        -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "FiraCode Nerd Font:h10",   -- the font used in graphical neovim applications
+	foldcolumn = "0",                     -- An extra column, showing the foldlevel
+	foldlevel = 99,                       -- Using ufo provider need a large value, feel free to decrease the value
+	foldlevelstart = 99,
+	foldenable = true,
 }
 
 if vim.fn.has("nvim-0.10") == 1 then
@@ -48,7 +52,6 @@ vim.opt.shortmess:append("c")
 vim.cmd([[
 filetype plugin indent on
 syntax on
-" set nofoldenable
 ]])
 
 for k, v in pairs(options) do

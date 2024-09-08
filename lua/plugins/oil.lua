@@ -11,7 +11,7 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
     keys = {
-        -- { "-", open_in_tab, desc = "Open oil in parrent directory" },
+        { "-", open_in_tab, desc = "Open oil in parrent directory" },
     },
     config = function()
         -- vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })
@@ -25,6 +25,9 @@ return {
                 -- [".."] = "actions.parent",
                 ["<C-p>"] = "<Plug>(YankyCycleForward)",
 
+                -- More like mini.files
+                ["h"] = "actions.parent",
+                ["l"] = "actions.select",
                 -- Default
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",

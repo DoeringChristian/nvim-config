@@ -11,8 +11,16 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
     keys = {
-        { "-", open_in_tab, desc = "Open oil in parrent directory" },
+        -- { "-", open_in_tab, desc = "Open oil in parrent directory" },
+        {
+            "-",
+            function()
+                require "oil".open()
+            end,
+            desc = "Open oil in parrent directory"
+        },
     },
+    cmd = { "Oil" },
     config = function()
         -- vim.keymap.set("n", "-", function() require "oil".open_float() end, { desc = "Open parent directory" })
         -- vim.keymap.set("n", "-", function() require "oil".open() end, { desc = "Open parent directory" })
@@ -20,14 +28,18 @@ return {
 
         require "oil".setup {
             use_default_keymaps = false,
+            default_file_explorer = true, -- Beware might break `gx` mapping
+            delete_to_trash = true,
             keymaps = {
-                ["q"] = "<CMD>q!<CR>",
+                -- ["q"] = "<CMD>q!<CR>",
+                ["q"] = "actions.close",
                 -- [".."] = "actions.parent",
                 ["<C-p>"] = "<Plug>(YankyCycleForward)",
 
                 -- More like mini.files
                 ["h"] = "actions.parent",
                 ["l"] = "actions.select",
+                ["r"] = "actions.refresh",
                 -- Default
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
@@ -43,7 +55,6 @@ return {
                 ["g."] = "actions.toggle_hidden",
                 ["g\\"] = "actions.toggle_trash",
             },
-            delete_to_trash = true,
         }
     end
 }

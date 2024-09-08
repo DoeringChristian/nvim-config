@@ -43,7 +43,7 @@ return {
     },
     {
         "echasnovski/mini.files",
-        enabled = true,
+        enabled = false,
         version = false,
         lazy = false,
         keys = {

@@ -98,6 +98,7 @@ return {
                 },
                 formatters_by_ft = {
                     markdown = { "prettier" },
+                    html = { "prettier" },
                     lua = { "stylua" },
                     fish = { "fish_indent" },
                     sh = { "shfmt" },

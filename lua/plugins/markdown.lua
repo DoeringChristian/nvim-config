@@ -7,13 +7,11 @@ return {
                 border = true,
             },
             bullet = {
-                -- Handled by obsidian.nvim
                 enabled = true,
                 icons = { '●', '○', '◆', '◇' },
                 right_pad = 1,
             },
             checkbox = {
-                -- Handled by obsidian.nvim
                 enabled = true,
             }
         },

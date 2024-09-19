@@ -3,6 +3,8 @@ return {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         opts = {
+            -- render_modes = { "i", "n", "c" },
+            render_modes = { "n", "c" },
             heading = {
                 border = true,
             },

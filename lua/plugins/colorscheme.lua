@@ -92,6 +92,8 @@ return {
                 return {
                     CmpItemMenu = { fg = colors.overlay0 },
                     FzfLuaNormal = { bg = colors.mantle },
+                    RenderMarkdownCode = { bg = colors.mantle },
+                    RenderMarkdownCodeInline = { bg = colors.mantle },
                 }
             end,
         },

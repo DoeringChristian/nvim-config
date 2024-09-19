@@ -86,6 +86,7 @@ return {
                 treesitter = true,
                 which_key = true,
                 window_picker = true,
+                render_markdown = true,
             },
             custom_highlights = function(colors)
                 return {

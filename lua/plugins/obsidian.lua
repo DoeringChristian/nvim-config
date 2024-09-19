@@ -200,5 +200,8 @@ return {
                 insert_link = "<C-l>",
             },
         },
+        ui = {
+            -- bullets = { enabled = false },
+        },
     },
 }

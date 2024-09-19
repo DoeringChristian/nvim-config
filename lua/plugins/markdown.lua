@@ -11,6 +11,7 @@ return {
             -- },
             heading = {
                 border = true,
+                sign = false,
             },
             bullet = {
                 enabled = true,

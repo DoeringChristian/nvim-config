@@ -5,6 +5,10 @@ return {
         opts = {
             -- render_modes = { "i", "n", "c" },
             render_modes = { "n", "c" },
+            -- NOTE: require pylatexenc
+            -- latex = {
+            --     enabled = true,
+            -- },
             heading = {
                 border = true,
             },

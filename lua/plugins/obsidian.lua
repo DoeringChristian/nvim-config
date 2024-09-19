@@ -201,7 +201,8 @@ return {
             },
         },
         ui = {
-            -- bullets = { enabled = false },
+            -- Handled by render-markdown.nvim
+            enabled = false,
         },
     },
 }

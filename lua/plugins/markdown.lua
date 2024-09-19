@@ -11,11 +11,11 @@ return {
             -- },
             heading = {
                 border = true,
-                sign = false,
+                -- sign = false,
             },
             bullet = {
                 enabled = true,
-                icons = { '●', '○', '◆', '◇' },
+                icons = { '•', '•', '•', '•' },
                 right_pad = 1,
             },
             checkbox = {

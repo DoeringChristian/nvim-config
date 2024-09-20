@@ -1,6 +1,7 @@
 return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
+        enabled = true,
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         opts = {
             anti_conceal = { enabled = true },
@@ -20,7 +21,10 @@ return {
                 right_pad = 1,
             },
             pipe_table = {
-                enabled = true,
+                enabled = false,
+            },
+            link = {
+                enabled = false,
             },
             checkbox = {
                 enabled = true,

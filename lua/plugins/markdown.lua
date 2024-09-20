@@ -27,11 +27,12 @@ return {
         opts = {
             anti_conceal = { enabled = true },
             -- render_modes = { "i", "n", "c" },
-            render_modes = { "n", "c" },
+            render_modes = { "i", "n", "c" },
             -- NOTE: require pylatexenc
-            -- latex = {
-            --     enabled = true,
-            -- },
+            latex = { enabled = true },
+            win_options = {
+                conceallevel = { rendered = 2 }, -- Important to see obsidian.nvim
+            },
             heading = {
                 border = true,
                 sign = false,
@@ -40,7 +41,7 @@ return {
                 sign = false,
             },
             bullet = {
-                enabled = true,
+                enabled = false,
                 icons = { '•', '•', '•', '•' },
                 right_pad = 1,
             },
@@ -51,7 +52,7 @@ return {
                 enabled = false,
             },
             checkbox = {
-                enabled = true,
+                enabled = false,
                 unchecked = {
                     icon = "󰄱",
                     highlight = "RenderMarkdownTodo",

@@ -18,10 +18,14 @@ return {
                 icons = { '•', '•', '•', '•' },
                 right_pad = 1,
             },
+            pipe_table = {
+                enabled = false,
+            },
             checkbox = {
                 enabled = true,
                 unchecked = {
                     icon = "󰄱",
+                    highlight = "RenderMarkdownTodo",
                 },
                 checked = {
                     icon = "",

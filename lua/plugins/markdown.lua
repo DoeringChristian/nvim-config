@@ -20,6 +20,18 @@ return {
             },
             checkbox = {
                 enabled = true,
+                unchecked = {
+                    icon = "󰄱",
+                },
+                checked = {
+                    icon = "",
+                },
+                custom = {
+                    follow_up = { raw = '[>]', rendered = '', highlight = "RenderMarkdownTodo" },
+                    cancled = { raw = '[~]', rendered = '󰰱', highlight = "RenderMarkdownWarn" },
+                    important = { raw = '[!]', rendered = '', highlight = "RenderMarkdownError" },
+
+                }
             }
         },
     },

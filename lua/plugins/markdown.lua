@@ -19,7 +19,7 @@ return {
                 right_pad = 1,
             },
             pipe_table = {
-                enabled = false,
+                enabled = true,
             },
             checkbox = {
                 enabled = true,

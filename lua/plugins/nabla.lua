@@ -14,7 +14,7 @@
 
 return {
     "jbyuki/nabla.nvim",
-    enabled = true,
+    enabled = false,
     ft = { "markdown" },
     config = function()
         vim.api.nvim_create_autocmd({ "Filetype" }, {

@@ -29,7 +29,7 @@ return {
             -- render_modes = { "i", "n", "c" },
             render_modes = { "i", "n", "c" },
             -- NOTE: require pylatexenc
-            latex = { enabled = false },
+            latex = { enabled = true },
             win_options = {
                 conceallevel = { rendered = 2 }, -- Important to see obsidian.nvim
             },

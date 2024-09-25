@@ -1,20 +1,20 @@
-local virt_enabled = false
-function DisableNabla()
-    virt_enabled = false
-    require "nabla".disable_virt()
-end
-
-function EnableNabla()
-    virt_enabled = true
-    require "nabla".enable_virt({
-        autogen = true, -- auto-regenerate ASCII art when exiting insert mode
-        silent = false, -- silents error messages
-    })
-end
+-- local virt_enabled = false
+-- function DisableNabla()
+--     virt_enabled = false
+--     require "nabla".disable_virt()
+-- end
+--
+-- function EnableNabla()
+--     virt_enabled = true
+--     require "nabla".enable_virt({
+--         autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+--         silent = false, -- silents error messages
+--     })
+-- end
 
 return {
     "jbyuki/nabla.nvim",
-    enabled = false,
+    enabled = true,
     ft = { "markdown" },
     config = function()
         vim.api.nvim_create_autocmd({ "Filetype" }, {
@@ -27,15 +27,18 @@ return {
                     vim.keymap.set(mode, keys, func, { noremap = true, silent = true, buffer = bufnr, desc = desc })
                 end
 
-                -- Enable nabla for markdown
-                if virt_enabled then
-                    require "nabla".enable_virt({
+                vim.api.nvim_create_user_command("NablaToggle", function()
+                    require "nabla".toggle_virt({
                         autogen = true, -- auto-regenerate ASCII art when exiting insert mode
                         silent = false, -- silents error messages
                     })
-                else
-                    require "nabla".disable_virt()
-                end
+                end, {})
+
+                -- Enable nabla for markdown
+                require "nabla".enable_virt({
+                    autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+                    silent = false, -- silents error messages
+                })
                 map("n", "<leader>p", function()
                     return require "nabla".popup()
                 end, "[P]opup")

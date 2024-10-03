@@ -17,6 +17,32 @@ return {
 
             leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
 
+            -- We have to increase the anti-conceal level of render-markdown when jumping
+            -- vim.api.nvim_create_autocmd('User', {
+            --     pattern = 'LeapEnter',
+            --     callback = function()
+            --         local api = require "render-markdown.api"
+            --         print("enable")
+            --         for i = 1, 100, 1 do
+            --             api.expand()
+            --             api.disable()
+            --         end
+            --     end,
+            -- }
+            -- )
+            -- vim.api.nvim_create_autocmd('User', {
+            --     pattern = 'LeapLeave',
+            --     callback = function()
+            --         local api = require "render-markdown.api"
+            --         print("disable")
+            --         for i = 1, 100, 1 do
+            --             api.contract()
+            --             api.enable()
+            --         end
+            --     end,
+            -- }
+            -- )
+
             leap.setup({
                 max_phase_one_targets = nil,
                 highlight_unlabeled_phase_one_targets = false,

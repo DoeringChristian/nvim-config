@@ -27,7 +27,7 @@ return {
         opts = {
             anti_conceal = { enabled = true },
             -- render_modes = { "i", "n", "c" },
-            render_modes = { "i", "n", "c" },
+            render_modes = { "n", "c" },
             -- NOTE: require pylatexenc
             latex = { enabled = false },
             win_options = {
@@ -41,15 +41,15 @@ return {
                 sign = false,
             },
             bullet = {
-                enabled = false,
-                icons = { '•', '•', '•', '•' },
+                enabled = true,
+                -- icons = { '•', '•', '•', '•' },
                 right_pad = 1,
             },
             pipe_table = {
                 enabled = false,
             },
             link = {
-                enabled = false,
+                enabled = true,
             },
             checkbox = {
                 enabled = false,

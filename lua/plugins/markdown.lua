@@ -52,7 +52,7 @@ return {
                 enabled = true,
             },
             checkbox = {
-                enabled = false,
+                enabled = true,
                 unchecked = {
                     icon = "󰄱",
                     highlight = "RenderMarkdownTodo",

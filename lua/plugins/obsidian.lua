@@ -202,7 +202,7 @@ return {
         },
         ui = {
             -- Handled by render-markdown.nvim
-            enable = false,
+            enable = true,
         },
     },
 }

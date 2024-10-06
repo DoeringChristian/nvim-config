@@ -59,6 +59,13 @@ return {
             end,
             desc = "[F]ind [N]ext",
         },
+        {
+            "<leader>fl",
+            function()
+                require "telescope.builtin".pickers { initial_mode = "normal" }
+            end,
+            desc = "[F]ind [L]ast",
+        },
         -- {
         --     "<leader><Tab>",
         --     function()
@@ -77,11 +84,16 @@ return {
         local actions = require "telescope.actions"
         require "telescope".setup {
             defaults = {
+                cache_picker = {
+                    num_pickers = 100,
+                },
                 mappings = {
                     i = {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
-                        ["<c-f>"] = actions.to_fuzzy_refine,
+                        ["<C-f>"] = actions.to_fuzzy_refine,
+                        ["<C-n>"] = actions.cycle_history_next,
+                        ["<C-p>"] = actions.cycle_history_prev,
                     },
                     n = {
                         ["q"] = "close",

@@ -103,6 +103,7 @@ return {
                     fish = { "fish_indent" },
                     sh = { "shfmt" },
                     python = { "black" },
+                    typst = { "typstfmt" },
                 },
                 format_after_save = function(bufnr)
                     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

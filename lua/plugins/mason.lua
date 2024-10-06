@@ -43,6 +43,7 @@ return {
                 "rust-analyzer",
                 "texlab",
                 "typst-lsp",
+                "typstfmt",
                 "wgsl-analyzer",
             }
         }

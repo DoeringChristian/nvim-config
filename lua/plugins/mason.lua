@@ -45,6 +45,7 @@ return {
                 "typst-lsp",
                 "typstfmt",
                 "wgsl-analyzer",
+                "taplo",
             }
         }
         mason_lspconfig.setup {

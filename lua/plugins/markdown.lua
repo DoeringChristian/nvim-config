@@ -27,7 +27,7 @@ return {
         opts = {
             anti_conceal = { enabled = true },
             -- render_modes = { "i", "n", "c" },
-            render_modes = { "i", "n", "c" },
+            render_modes = { "i", "n", "c", "v" },
             -- NOTE: require pylatexenc
             latex = { enabled = false },
             win_options = {

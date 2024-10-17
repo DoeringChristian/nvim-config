@@ -84,6 +84,8 @@ return {
         setup("texlab")
         setup("typst_lsp")
         setup("wgsl_analyzer")
+        setup("harper_ls")
+        setup("taplo")
         -- Handled by ltex_extra
         -- setup("ltex")
         -- Handled by rustaceanvim

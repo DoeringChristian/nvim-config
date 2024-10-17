@@ -42,10 +42,12 @@ return {
                 "ruff-lsp",
                 "rust-analyzer",
                 "texlab",
-                "typst-lsp",
-                "typstfmt",
                 "wgsl-analyzer",
                 "taplo",
+                "harper-ls",
+                -- "tinymist",
+                "typst-lsp",
+                "typstfmt",
             }
         }
         mason_lspconfig.setup {

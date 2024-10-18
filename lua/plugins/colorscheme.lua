@@ -94,6 +94,7 @@ return {
                     FzfLuaNormal = { bg = colors.mantle },
                     RenderMarkdownCode = { bg = colors.mantle },
                     RenderMarkdownCodeInline = { bg = colors.mantle },
+                    MarkviewCode = { bg = colors.mantle },
                 }
             end,
         },

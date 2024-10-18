@@ -1,7 +1,7 @@
 return {
     {
         "OXY2DEV/markview.nvim",
-        enabled = false,
+        enabled = true,
         lazy = false, -- Recommended
         -- ft = "markdown" -- If you decide to lazy-load anyway
 
@@ -14,15 +14,85 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
 
-        opts = {
-            tables = {
-                enable = false,
+        config = function()
+            local presets = require "markview.presets"
+            require "markview".setup {
+                modes = { "n", "v", "c", "nc" },
+                hybrid_modes = { "n" },
+                horizontal_rules = presets.horizontal_rules.thin,
+                code_blocks = {
+                    sign = false,
+                },
+                headings = {
+                    heading_1 = { hl = "Headline1" },
+                    heading_2 = { hl = "Headline2" },
+                    heading_3 = { hl = "Headline3" },
+                    heading_4 = { hl = "Headline4" },
+                    heading_5 = { hl = "Headline5" },
+                    heading_6 = { hl = "Headline6" },
+                },
+                latex = {
+                    enable = false,
+                },
+                tables = {
+                    enable = false,
+                },
+                list_items = {
+                    enable = true,
+                    indent_size = 0,
+                    shift_width = 2,
+                    marker_dot = {
+                        add_padding = true
+                    },
+                    marker_minus = {
+                        add_padding = false,
+
+                        text = "",
+                        hl = "MarkviewListItemMinus"
+                    },
+                },
+                block_quotes = {
+                    enable = true,
+                    callouts = {
+                        {
+                            match_string = "note",
+                            hl = "MarkviewBlockQuoteNote",
+                            preview = "󰋽 Note",
+                            preview_hl = nil,
+                            title = true,
+                            icon = "󰋽 ",
+                            border = "▋",
+                            border_hl = nil
+                        },
+                        {
+                            match_string = "warning",
+                            hl = "MarkviewBlockQuoteWarn",
+                            preview = "󰀪 Warning",
+                            preview_hl = nil,
+                            title = true,
+                            icon = "󰀪 ",
+                            border = "▋",
+                            border_hl = nil
+                        },
+                        {
+                            match_string = "error",
+                            hl = "MarkviewBlockQuoteError",
+                            preview = "󱐌 Error",
+                            preview_hl = nil,
+                            title = true,
+                            icon = "󱐌 ",
+                            border = "▋",
+                            border_hl = nil
+                        },
+                    }
+                },
+
             }
-        }
+        end,
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        enabled = true,
+        enabled = false,
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         opts = {
             anti_conceal = { enabled = true },

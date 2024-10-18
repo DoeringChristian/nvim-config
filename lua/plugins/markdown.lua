@@ -1,7 +1,7 @@
 return {
     {
         "OXY2DEV/markview.nvim",
-        enabled = true,
+        enabled = false,
         lazy = false, -- Recommended
         -- ft = "markdown" -- If you decide to lazy-load anyway
 
@@ -84,7 +84,7 @@ return {
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        enabled = false,
+        enabled = true,
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         opts = {
             anti_conceal = { enabled = true },

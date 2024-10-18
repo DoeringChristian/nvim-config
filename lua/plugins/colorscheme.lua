@@ -95,6 +95,7 @@ return {
                     RenderMarkdownCode = { bg = colors.mantle },
                     RenderMarkdownCodeInline = { bg = colors.mantle },
                     MarkviewCode = { bg = colors.mantle },
+                    MarkviewInlineCode = { bg = colors.mantle },
                 }
             end,
         },

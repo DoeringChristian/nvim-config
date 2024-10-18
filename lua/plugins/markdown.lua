@@ -23,14 +23,6 @@ return {
                 code_blocks = {
                     sign = false,
                 },
-                headings = {
-                    heading_1 = { hl = "Headline1" },
-                    heading_2 = { hl = "Headline2" },
-                    heading_3 = { hl = "Headline3" },
-                    heading_4 = { hl = "Headline4" },
-                    heading_5 = { hl = "Headline5" },
-                    heading_6 = { hl = "Headline6" },
-                },
                 latex = {
                     enable = false,
                 },

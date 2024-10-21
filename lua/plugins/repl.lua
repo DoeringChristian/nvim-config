@@ -44,15 +44,19 @@ local function select_cell()
     if not end_line then
         end_line = line_count
     end
-    print(end_line)
-    return current_row, current_col, start_line, end_line
+
+    -- Get length of last line
+    local line_content = vim.api.nvim_buf_get_lines(bufnr, end_line - 1, end_line, false)[1]
+    local end_col = #line_content
+
+    return current_row, current_col, start_line, end_line, end_col
 end
 
 local function execute_cell()
-    local current_row, current_col, start_line, end_line = select_cell()
+    local current_row, current_col, start_line, end_line, end_col = select_cell()
     if start_line and end_line then
         vim.fn.setpos("'<", { 0, start_line + 1, 0, 0 })
-        vim.fn.setpos("'>", { 0, end_line, 0, 0 })
+        vim.fn.setpos("'>", { 0, end_line, end_col, 0 })
         require("iron.core").visual_send()
         vim.api.nvim_win_set_cursor(0, { current_row, current_col })
     end
@@ -60,7 +64,7 @@ end
 
 local function navigate_cell(up)
     local is_up = up or false
-    local _, _, start_line, end_line = select_cell()
+    local _, _, start_line, end_line, _ = select_cell()
     if is_up and start_line ~= 1 then
         vim.api.nvim_win_set_cursor(0, { start_line - 1, 0 })
         _, _, start_line, end_line = select_cell()

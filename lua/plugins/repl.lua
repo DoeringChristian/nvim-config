@@ -33,7 +33,7 @@ local function select_cell()
     for line = current_row + 1, line_count do
         local line_content = vim.api.nvim_buf_get_lines(bufnr, line - 1, line, false)[1]
         if line_content:find("^" .. CELL_MARKER) then
-            end_line = line
+            end_line = line - 1
             break
         end
     end

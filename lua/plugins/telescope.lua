@@ -66,6 +66,13 @@ return {
             end,
             desc = "[F]ind [L]ast",
         },
+        {
+            "<leader>fm",
+            function()
+                require "telescope.builtin".marks { initial_mode = "insert" }
+            end,
+            desc = "[F]ind [M]arks",
+        },
         -- {
         --     "<leader><Tab>",
         --     function()

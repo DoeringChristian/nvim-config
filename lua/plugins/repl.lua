@@ -127,7 +127,7 @@ return {
                             format = require "iron.fts.common".bracketed_paste_python
                         }
                     },
-                    repl_open_cmd = view.split("40%"),
+                    repl_open_cmd = view.split.vertical("40%"),
                 },
                 keymaps = {
                     send_motion = "<leader>rc",

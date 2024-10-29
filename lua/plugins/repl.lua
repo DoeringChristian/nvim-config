@@ -107,29 +107,15 @@ return {
                 end,
                 desc = "[R]epl operator",
             },
-            {
-                "<leader>rr",
-                mode = { "n" },
-                function()
-                    execute_cell()
-                    navigate_cell(false)
-                end,
-                desc = "[R]epl [R]un"
-            },
-            {
-                "<leader>r]",
-                function()
-                    navigate_cell(false)
-                end,
-                desc = "[R]epl next Block"
-            },
-            {
-                "<leader>r[",
-                function()
-                    navigate_cell(true)
-                end,
-                desc = "[R]epl prev Block"
-            },
+            -- {
+            --     "<leader>rr",
+            --     mode = { "n" },
+            --     function()
+            --         execute_cell()
+            --         navigate_cell(false)
+            --     end,
+            --     desc = "[R]epl [R]un"
+            -- },
         },
         config = function()
             local view = require "iron.view"
@@ -156,6 +142,20 @@ return {
                     clear = "<leader>rd",
                 }
             }
+        end
+    },
+    {
+        "GCBallesteros/NotebookNavigator.nvim",
+        event = "VeryLazy",
+        keys = {
+            { "]r",         function() require("notebook-navigator").move_cell "d" end },
+            { "[r",         function() require("notebook-navigator").move_cell "u" end },
+            { "<leader>rr", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
+            -- { "<leader>x", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
+        },
+        config = function()
+            local nn = require "notebook-navigator"
+            nn.setup {}
         end
     },
     {

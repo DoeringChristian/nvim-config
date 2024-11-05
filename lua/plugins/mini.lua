@@ -43,11 +43,11 @@ return {
     },
     {
         "echasnovski/mini.files",
-        enabled = false,
+        enabled = true,
         version = false,
         lazy = false,
         keys = {
-            -- { "-", function() require "mini.files".open(vim.api.nvim_buf_get_name(0)) end, desc = "Open mini.files in parrent directory" }
+            { "-", function() require "mini.files".open(vim.api.nvim_buf_get_name(0)) end, desc = "Open mini.files in parrent directory" }
         },
         config = function()
             local map_split = function(buf_id, lhs, direction)

@@ -5,6 +5,7 @@ local options = {
 	cmdheight = 1,                        -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 2,                     -- concealed text is compleatly hidden except if it has a character assigned (see `:h conceallevel`)
+	colorcolumn = "80",                   -- Set a line at the 80 character mark
 	fileencoding = "utf-8",               -- the encoding written to a file
 	hlsearch = true,                      -- highlight all matches on previous search pattern
 	ignorecase = true,                    -- ignore case in search patterns

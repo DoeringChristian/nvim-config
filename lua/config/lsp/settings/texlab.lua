@@ -12,9 +12,9 @@ return {
                     "--synctex",
                     "--keep-logs",
                     "--keep-intermediates",
-                    "--outdir build",
+                    "--outdir",
+                    "build"
                 },
-                forwardSearchAfter = true,
                 onSave = true
             },
             chktex = {

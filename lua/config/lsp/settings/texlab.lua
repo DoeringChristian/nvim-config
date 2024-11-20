@@ -1,7 +1,7 @@
 return {
     settings = {
         texlab = {
-            auxDirectory = ".",
+            auxDirectory = "build",
             bibtexFormatter = "texlab",
             build = {
                 executable = "tectonic",
@@ -11,10 +11,11 @@ return {
                     "%f",
                     "--synctex",
                     "--keep-logs",
-                    "--keep-intermediates"
+                    "--keep-intermediates",
+                    "--outdir build",
                 },
                 forwardSearchAfter = true,
-                onSave = false
+                onSave = true
             },
             chktex = {
                 onEdit = false,

@@ -4,8 +4,13 @@ local M = {}
 ---@param Name of the server for which the config shall be generated
 ---@return returns the config table containing capabilities, on_attach, settings
 M.config = function(server_name)
+    local capabilities = require "cmp_nvim_lsp".default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
     local config = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = capabilities,
         on_attach = require("plugins.lsp.on_attach"),
     }
 

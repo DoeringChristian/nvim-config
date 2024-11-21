@@ -84,6 +84,7 @@ return {
                     style = "nvchad",
                 },
                 treesitter = true,
+                ufo = true,
                 which_key = true,
                 window_picker = true,
                 render_markdown = true,

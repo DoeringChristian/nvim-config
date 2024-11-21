@@ -4,6 +4,11 @@ return {
         dependencies = {
             "kevinhwang91/promise-async"
         },
+        lazy = false,
+        keys = {
+            { "zR", function() require "ufo".openAllFolds() end,  desc = "[R]eveal all Folds" },
+            { "zM", function() require "ufo".closeAllFolds() end, desc = "Close all Folds" },
+        },
         config = function()
             -- local group = vim.api.nvim_create_augroup("ufo_hover", {})
             -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -21,10 +26,18 @@ return {
                     return { "treesitter", "indent" }
                 end,
                 close_fold_kinds_for_ft = {
-                    default = {},
+                    -- default = { "comment" },
                     -- rust = { "function_item", },
                     -- python = { "function_definition" },
-                    -- cpp = { "function_definition" },
+                    -- cpp = {
+                    --     "comment",
+                    --     "region",
+                    --     "function_definition",
+                    --     "struct_specifier",
+                    --     "union_specifier",
+                    --     "class_specifier",
+                    --     "enum_specifier",
+                    -- },
                 },
                 preview = {
                     win_config = {

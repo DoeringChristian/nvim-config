@@ -42,6 +42,7 @@ local options = {
 	foldcolumn = "0",                     -- An extra column, showing the foldlevel
 	foldlevel = 99,                       -- Using ufo provider need a large value, feel free to decrease the value
 	foldlevelstart = 99,
+	foldnestmax = 4,
 	foldenable = true,
 }
 

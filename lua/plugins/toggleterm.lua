@@ -1,5 +1,6 @@
 return {
     "akinsho/toggleterm.nvim",
+    enabled = false,
     keys = {
         { "<leader>tt", "<cmd>lua _TERM_TOGGLE()<cr>",    desc = "[T]oggle [T]erminal" },
         { "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "[T]erminal [L]azyGit" },

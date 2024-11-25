@@ -12,7 +12,6 @@ return {
         },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", }
     },
-    { "akinsho/toggleterm.nvim", opts = {} },
     -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },
     -- { "SvanT/lsp_signature.nvim", opts = { noice = false } },
     {

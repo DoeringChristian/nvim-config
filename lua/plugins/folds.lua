@@ -6,8 +6,8 @@ return {
         },
         lazy = false,
         keys = {
-            -- { "zR", function() require "ufo".openAllFolds() end,  desc = "[R]eveal all Folds" },
-            -- { "zM", function() require "ufo".closeAllFolds() end, desc = "Close all Folds" },
+            { "zR", function() require "ufo".openAllFolds() end,  desc = "[R]eveal all Folds" },
+            { "zM", function() require "ufo".closeAllFolds() end, desc = "Close all Folds" },
         },
         config = function()
             -- local group = vim.api.nvim_create_augroup("ufo_hover", {})

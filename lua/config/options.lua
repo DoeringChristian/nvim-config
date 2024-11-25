@@ -42,8 +42,6 @@ local options = {
 	foldcolumn = "0",                     -- An extra column, showing the foldlevel
 	foldlevel = 99,                       -- Using ufo provider need a large value, feel free to decrease the value
 	foldlevelstart = 99,
-	foldnestmax = 1,
-	foldenable = true,
 }
 
 if vim.fn.has("nvim-0.10") == 1 then

@@ -79,10 +79,10 @@ return {
         setup("matlab_ls")
         setup("nickel_ls")
         setup("nil_ls")
-        setup("ruff_lsp")
+        setup("ruff")
         setup("slang")
         setup("texlab")
-        setup("typst_lsp")
+        setup("tinymist")
         setup("wgsl_analyzer")
         setup("harper_ls")
         setup("taplo")
@@ -99,9 +99,6 @@ return {
         end
 
         vim.diagnostic.config({
-            -- virtual_text = {
-            --     severity = vim.diagnostic.severity.ERROR,
-            -- },
             -- show signs
             signs = {
                 text = {
@@ -122,6 +119,9 @@ return {
             update_in_insert = true,
             underline = true,
             severity_sort = true,
+            virtual_text = {
+                severity = vim.diagnostic.severity.ERROR,
+            },
             float = {
                 focusable = false,
                 style = "minimal",
@@ -139,20 +139,11 @@ return {
         -- Configure hover window NOTE: Gets overriden by noice.nvim
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {})
 
-        -- Configure signatureHelp handlers
-        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {})
-
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            -- Enable underline, use default values
-            underline = true,
-            -- Disable a feature
-            update_in_insert = true,
-            -- -- Disable Virtual Text
-            -- virtual_text = false,
-            virtual_text = {
-                severity = vim.diagnostic.severity.ERROR,
-            },
-        })
+        -- -- Configure signatureHelp handlers
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.buf.signature_help(), {})
+        -- vim.keymap.set({ "i" }, "h", function()
+        --     require "lsp_signature".signature()
+        -- end)
 
         -- Configure Telescope for lsp handlers
 

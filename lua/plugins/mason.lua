@@ -39,14 +39,14 @@ return {
                 "pest-language-server",
                 "prettier",
                 "prettierd",
-                "ruff-lsp",
+                "ruff",
                 "rust-analyzer",
                 "texlab",
                 "wgsl-analyzer",
                 "taplo",
                 "harper-ls",
-                -- "tinymist",
-                "typst-lsp",
+                "tinymist",
+                -- "typst-lsp",
                 "typstfmt",
             }
         }

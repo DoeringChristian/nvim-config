@@ -11,6 +11,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",     -- lsp completions
         "chrisgrieser/cmp_yanky",
         "onsails/lspkind.nvim",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     opts = function()
         local cmp = require "cmp"

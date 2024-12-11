@@ -23,7 +23,7 @@ return function(client, bufnr)
 
     -- LSP Goto functions prefixed with 'g'
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-    nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+    nmap("gd", function() require "telescope.builtin".lsp_definitions() end, "[G]oto [D]efinition")
     nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     -- nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
     -- TODO: figure out why overwriting the handler doesn't work

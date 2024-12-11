@@ -1,57 +1,44 @@
 snippet pyneural Python Experiment
-	from omegaconf import OmegaConf, DictConfig
-	from datetime import datetime
-	from pathlib import Path
-	import mitsuba as mi
-	import drjit as dr
-	import os
-	import torch
-	import torch.cuda.nvtx as nvtx
-	import torch.nn as nn
-	import tinycudann as tcnn
-	import tqdm
-	from tensorboardX import SummaryWriter
+    from omegaconf import OmegaConf, DictConfig
+    from datetime import datetime
+    from pathlib import Path
+    import os
+    from tensorboardX import SummaryWriter
 
-	mi.set_variant("cuda_ad_rgb")
-
-	now = datetime.now()
-	now = now.strftime("%Y%m%d-%H%M%S")
-
-	__seed = 0
+    now = datetime.now()
+    now = now.strftime("%Y%m%d-%H%M%S")
 
 
-	def seed():
-		global __seed
-		__seed += 1
-		return __seed
+    def experiment(cfg: DictConfig):
+        cfg_yaml = OmegaConf.to_yaml(cfg, resolve=True)
+        print(cfg_yaml)
+        os.makedirs(f"{cfg.outdir}/", exist_ok=True)
+        OmegaConf.save(cfg, f"{cfg.outdir}/config.yaml", resolve=True)
 
-	def experiment(cfg: DictConfig):
-		cfg_yaml = OmegaConf.to_yaml(cfg, resolve=True)
-		print(cfg_yaml)
-		os.makedirs(f"{cfg.outdir}/", exist_ok=True)
-		OmegaConf.save(cfg, f"{cfg.outdir}/config.yaml", resolve=True)
+        writer = SummaryWriter(f"{cfg.outdir}")
+        writer.add_text("config", cfg_yaml)
 
-		writer = SummaryWriter(f"{cfg.outdir}")
-		writer.add_text("config", cfg_yaml)
-
-		${0}
+        ...
 
 
-	def run(params: dict):
-		cfg = OmegaConf.load("cfg/${1:config}.yaml")
-		cfg.update(params.items())
-		cfg.update([("run", f"{now}"), ("experiment", Path(__file__).stem)])
+    def run(params: dict):
+        cfg = OmegaConf.load(f"cfg/{Path(__file__).stem}.yaml")
+        cfg.update(params.items())
+        cfg.update([("date", f"{now}"), ("experiment", Path(__file__).stem)])
 
-		for k, v in params.items():
-			if k == "name":
-				continue
-			cfg.name = f"{cfg.name} {k}={v}"
+        for k, v in params.items():
+            if k == "params":
+                continue
+            if cfg.params == "":
+                cfg.params = f"{k}={v}"
+            else:
+                cfg.params = f"{cfg.params} {k}={v}"
 
-		return experiment(cfg)
+        return experiment(cfg)
 
 
-	if __name__ == "__main__":
-		run({})
+    if __name__ == "__main__":
+        run({})
 
 snippet main Python Main function
 	def main():

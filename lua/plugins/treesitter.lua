@@ -39,6 +39,7 @@ return {
                     "vim",
                     "wgsl",
                     "yaml",
+                    "toml",
                 },
 
                 sync_install = false,

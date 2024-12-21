@@ -95,7 +95,7 @@ return {
                     FzfLuaNormal = { bg = colors.mantle },
                     RenderMarkdownCode = { bg = colors.mantle },
                     RenderMarkdownCodeInline = { bg = colors.mantle },
-                    RenderMarkdownInlineHighlight = { bg = colors.yellow, fg = colors.mantle },
+                    RenderMarkdownInlineHighlight = { fg = colors.yellow, bg = colors.mantle },
                     MarkviewCode = { bg = colors.mantle },
                     MarkviewInlineCode = { bg = colors.mantle },
                 }

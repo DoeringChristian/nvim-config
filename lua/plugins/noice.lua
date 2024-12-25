@@ -10,6 +10,9 @@ return {
             hover = {
                 enabled = false,
             },
+            progress = {
+                enabled = false,
+            }
         },
         cmdline = {
             enabled = false,

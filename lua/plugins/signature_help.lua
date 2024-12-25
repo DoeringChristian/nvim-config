@@ -1,4 +1,6 @@
 return {
+    -- NOTE: we are using noice for signature help, since this plugin seems to
+    -- be broken on nvim 0.11
     "ray-x/lsp_signature.nvim",
     enabled = false,
     event = "VeryLazy",

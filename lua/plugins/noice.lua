@@ -8,6 +8,12 @@ return {
                 enabled = true,
             }
         },
+        cmdline = {
+            enabled = false,
+        },
+        messages = {
+            enabled = false,
+        },
         views = {
             cmdline_popup = {
                 border = {

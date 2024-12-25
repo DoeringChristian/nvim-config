@@ -6,7 +6,10 @@ return {
         lsp = {
             signature = {
                 enabled = true,
-            }
+            },
+            hover = {
+                enabled = false,
+            },
         },
         cmdline = {
             enabled = false,

@@ -1,11 +1,11 @@
 return {
     "folke/noice.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     opts = {
         lsp = {
             signature = {
-                enabled = false,
+                enabled = true,
             }
         },
         views = {

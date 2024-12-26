@@ -65,7 +65,7 @@ return {
         })
 
         -- \left[| -> \left[|\right]
-        local brackets = { { "(", ")" }, { "[", "]" }, { "\\{", "\\}" } }
+        local brackets = { { "(", ")" }, { "[", "]" }, { "\\{", "\\}" }, { "\\vert", "\\vert" }, { "\\Vert", "\\Vert" } }
         for _, bracket in pairs(brackets) do
             npairs.add_rules({
                 Rule("\\left" .. bracket[1], "\\right" .. bracket[2], { "tex", "latex", "markdown" })

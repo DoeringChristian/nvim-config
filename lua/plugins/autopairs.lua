@@ -64,6 +64,38 @@ return {
                 :use_key('$'),
         })
 
+        -- \left[| -> \left[|\right]
+        local brackets = { { "(", ")" }, { "[", "]" }, { "\\{", "\\}" } }
+        for _, bracket in pairs(brackets) do
+            npairs.add_rules({
+                Rule("\\left" .. bracket[1], "\\right" .. bracket[2], { "tex", "latex", "markdown" })
+            })
+        end
+
+        -- \begin{*}| (<CR>)->
+        -- \begin{*}
+        --     |
+        -- \end{*}
+        npairs.add_rules({
+            Rule("\\begin{(%w*)}$", "", { "tex", "latex", "markdown" })
+                :use_regex(true)
+                :replace_endpair(function(opts)
+                    local before = string.sub(opts.line, 0, opts.col)
+                    local _, _, match = before:find("\\begin{(%w*)}")
+                    vim.notify(match)
+                    if match and #match > 0 then
+                        return "\\end{" .. match .. "}"
+                    end
+                    return ""
+                end)
+                :end_wise()
+        })
+
+        -- Default endwise rules
+        npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
+
+        -- Custom endwise rules
+
         -- Brace rules
         npairs.add_rules {
             -- {| -> {|}

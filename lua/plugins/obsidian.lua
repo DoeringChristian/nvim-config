@@ -145,7 +145,7 @@ return {
                 return id
             else
                 -- If title is nil, just add 4 random uppercase letters to the suffix.
-                local id = "" .. os.date("%y%m%d%H%M%S")
+                local id = "" .. os.date("%y%m%d-%H%M%S")
                 return id
             end
         end,

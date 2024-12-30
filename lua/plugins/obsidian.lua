@@ -175,8 +175,8 @@ return {
                 note:add_alias(note.title)
             end
 
-            if note:get_field("created") == nil then
-                note:add_field("created", os.date("%Y-%m-%d %H:%m"))
+            if note:get_field("date") == nil then
+                note:add_field("date", os.date("%Y-%m-%d %H:%m"))
             end
 
             local out = { id = note.id, aliases = note.aliases, tags = note.tags }

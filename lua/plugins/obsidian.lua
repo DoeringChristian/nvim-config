@@ -175,6 +175,10 @@ return {
                 note:add_alias(note.title)
             end
 
+            if note:get_field("created") == nil then
+                note:add_field("created", os.date("%Y-%m-%d %H:%m"))
+            end
+
             local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
             -- `note.metadata` contains any manually added fields in the frontmatter.

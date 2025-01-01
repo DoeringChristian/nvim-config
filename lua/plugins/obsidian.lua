@@ -143,11 +143,11 @@ return {
                 -- id = id:sub(1, 20)
                 id = id -- .. " " .. os.date("%y%m%d-%H%M%S")
                 return id
-            else
-                -- If title is nil, just add 4 random uppercase letters to the suffix.
-                local id = "" .. os.date("%y%m%d-%H%M%S")
-                return id
             end
+
+            -- If title is nil, just add 4 random uppercase letters to the suffix.
+            local id = "" .. os.date("%y%m%d-%H%M%S")
+            return id
         end,
 
         -- Optional, customize how note file names are generated given the ID, target directory, and title.

@@ -98,6 +98,7 @@ return {
             heading = {
                 border = true,
                 sign = false,
+                width = "block",
             },
             code = {
                 sign = false,

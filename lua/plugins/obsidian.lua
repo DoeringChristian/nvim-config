@@ -24,6 +24,9 @@ return {
         { "<leader>ofl", "<CMD>ObsidianFollowLink<CR>",    desc = "[O]bsidian [F]ollow [L]ink" },
         { "<leader>oT",  "<CMD>ObsidianTemplate<CR>",      desc = "[O]bsidian [T]emplate" },
     },
+    cmd = {
+        "ObsidianToday",
+    },
     -- event = {
     --     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     --     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"

@@ -3,6 +3,7 @@ return {
         "mikesmithgh/kitty-scrollback.nvim",
         enabled = true,
         lazy = true,
+        tag = "v6.1.2", -- https://github.com/mikesmithgh/kitty-scrollback.nvim/issues/282
         cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
         event = { "User KittyScrollbackLaunch" },
         -- version = '*', -- latest stable version, may have breaking changes if major version changed

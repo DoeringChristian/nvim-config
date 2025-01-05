@@ -90,4 +90,5 @@ return {
             }
         end
     },
+    { "echasnovski/mini.trailspace", version = false, opts = {} },
 }

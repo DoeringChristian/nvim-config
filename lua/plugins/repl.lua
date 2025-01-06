@@ -96,6 +96,7 @@ return {
             { "<leader>r<cr>", desc = "[R]epl [<CR>]" },
             { "<leader>rq",    desc = "[R]epl [Q]uit" },
             { "<leader>rd",    desc = "[R]epl [D]elete/Clear" },
+            { "<leader>rt",    "<CMD>IronRepl<CR>",                mode = "n", desc = "[R]epl [T]oggle" },
             {
                 "<leader>ro",
                 mode = { "n" },

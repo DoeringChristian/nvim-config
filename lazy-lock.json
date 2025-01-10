@@ -33,7 +33,7 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "259357fa4097e232730341fa60988087d189193a" },
   "iron.nvim": { "branch": "master", "commit": "916538ebf75b8ede8e0feef4f4cd88d5cc82a67e" },
   "kdl.vim": { "branch": "main", "commit": "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" },
-  "kitty-scrollback.nvim": { "branch": "main", "commit": "ea11e3a24b0fd6dca78de3ababc654b79cdfee10" },
+  "kitty-scrollback.nvim": { "branch": "main", "commit": "402a188a5eed41f029849789ad265c932c5ec955" },
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
   "leap-spooky.nvim": { "branch": "main", "commit": "5f44a1f63dc1c4ce50244e92da5bc0d8d1f6eb47" },
   "leap.nvim": { "branch": "main", "commit": "c6bfb191f1161fbabace1f36f578a20ac6c7642c" },

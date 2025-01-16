@@ -11,8 +11,8 @@ return {
     -- ft = "markdown",
     keys = {
         { "<leader>ob",  "<CMD>ObsidianBacklinks<CR>",     desc = "[O]bsidian [B]acklinks" },
-        { "<leader>os",  "<CMD>ObsidianSearch<CR>",        desc = "[O]bsidian [S]earch" },
-        { "<leader>oS",  "<CMD>ObsidianQuickSwitch<CR>",   desc = "[O]bsidian [S]witch" },
+        { "<leader>oS",  "<CMD>ObsidianSearch<CR>",        desc = "[O]bsidian [S]earch" },
+        { "<leader>os",  "<CMD>ObsidianQuickSwitch<CR>",   desc = "[O]bsidian [S]witch" },
         { "<leader>ot",  "<CMD>ObsidianToday<CR>",         desc = "[O]bsidian [T]oday" },
         { "<leader>o2w", "<CMD>ObsidianDailies -14 1<CR>", desc = "[O]bsidian [F]ollow [L]ink" },
         { "<leader>ow",  "<CMD>ObsidianDailies -7 1<CR>",  desc = "[O]bsidian [F]ollow [L]ink" },

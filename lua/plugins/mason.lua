@@ -44,6 +44,7 @@ return {
                 "taplo",
                 "harper-ls",
                 "tinymist",
+                "nil",
                 -- "typst-lsp",
                 "typstfmt",
             }

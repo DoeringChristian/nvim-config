@@ -102,20 +102,21 @@ return {
             },
             code = {
                 sign = false,
+                style = "full",
             },
             bullet = {
-                enabled = false,
-                icons = { '•', '•', '•', '•' },
-                right_pad = 1,
+                enabled = true,
+                icons = { '●' },
+                left_pad = 1,
             },
             pipe_table = {
                 enabled = false,
             },
             link = {
-                enabled = false,
+                enabled = true,
             },
             checkbox = {
-                enabled = false,
+                enabled = true,
                 unchecked = {
                     icon = "󰄱",
                     highlight = "RenderMarkdownTodo",

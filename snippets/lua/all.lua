@@ -29,5 +29,8 @@ local k = require("luasnip.nodes.key_indexer").new_key
 return {
     s(":today:", f(function()
         return os.date("%Y-%m-%d")
+    end)),
+    s(":now:", f(function()
+        return os.date("%Y-%m-%d %H:%m")
     end))
 }

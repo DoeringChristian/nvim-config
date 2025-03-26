@@ -5,7 +5,8 @@ return {
     },
     event = "VeryLazy",
     keys = {
-        { "p",     "<Plug>(YankyPutAfter)",      mode = { "n", "x" }, desc = "[P]aste After" },
+        { "p",     "<Plug>(YankyPutAfter)",      mode = { "n" },      desc = "[P]aste After" },
+        { "p",     "<Plug>(YankyPutBefore)",     mode = { "x" },      desc = "[P]aste After (without copying replaced text)" },
         { "P",     "<Plug>(YankyPutBefore)",     mode = { "n", "x" }, desc = "[P]aste Before" },
         { "gp",    "<Plug>(YankyGPutAfter)",     mode = { "n", "x" }, desc = "[G]oto end [P]aste After" },
         { "gP",    "<Plug>(YankyGPutBefore)",    mode = { "n", "x" }, desc = "[G]oto end [P]aste Before" },
@@ -46,6 +47,7 @@ return {
                 storage = "shada",
                 sync_with_numbered_registers = true,
                 update_register_on_cycle = true,
+                ignore_registers = { "_" },
             },
             system_clipboard = {
                 sync_with_ring = true,

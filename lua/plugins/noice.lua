@@ -1,6 +1,7 @@
 return {
     "folke/noice.nvim",
-    enabled = true,
+    -- Had to disable, was causing to much lag
+    enabled = false,
     event = "VeryLazy",
     opts = {
         lsp = {

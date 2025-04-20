@@ -43,5 +43,8 @@ return function(client, bufnr)
     lsp_format.on_attach(client)
   end
 
+  -- Enable lsp_signature.nvim
+  require "lsp_signature".on_attach({}, bufnr)
+
   vim.notify("LSP Client: " .. client.name)
 end

@@ -33,7 +33,7 @@ return {
                 "markdown-oxide",
                 "matlab-language-server",
                 "nickel-lang-lsp",
-                "nixpkgs-fmt",
+                "alejandra",
                 "pest-language-server",
                 "prettier",
                 "prettierd",

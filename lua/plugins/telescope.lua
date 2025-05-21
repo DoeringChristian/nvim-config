@@ -17,6 +17,7 @@ return {
         },
         { "Marskey/telescope-sg" },
         { "gbprod/yanky.nvim" },
+        { "debugloop/telescope-undo.nvim" }
     },
     keys = {
         {
@@ -72,6 +73,11 @@ return {
                 require "telescope.builtin".marks { initial_mode = "insert" }
             end,
             desc = "[F]ind [M]arks",
+        },
+        {
+            "<leader>fu",
+            "<CMD>Telescope undo<CR>",
+            desc = "[F]ind [U]ndo Tree",
         },
         -- {
         --     "<leader><Tab>",
@@ -158,19 +164,21 @@ return {
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
                 },
-                extensions = {
-                    ast_grep = {
-                        command = {
-                            "ast-grep",
-                            "--json=stream",
-                        },                       -- must have --json=stream
-                        grep_open_files = false, -- search in opened files
-                        lang = nil,              -- string value, specify language for ast-grep `nil` for default
-                    }
+                ast_grep = {
+                    command = {
+                        "ast-grep",
+                        "--json=stream",
+                    },                       -- must have --json=stream
+                    grep_open_files = false, -- search in opened files
+                    lang = nil,              -- string value, specify language for ast-grep `nil` for default
+                },
+                undo = {
+
                 },
             },
         }
         require "telescope".load_extension "fzf"
         require "telescope".load_extension "yank_history"
+        require "telescope".load_extension "undo"
     end
 }

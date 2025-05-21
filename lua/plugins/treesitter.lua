@@ -31,7 +31,6 @@ return {
                     "norg",
                     "ocaml",
                     "ocamllex",
-                    "org",
                     "python",
                     "regex",
                     "rst",

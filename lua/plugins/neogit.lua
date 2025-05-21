@@ -7,7 +7,18 @@ return {
     },
     event = "VeryLazy",
     keys = {
-        { "<leader>gg", "<CMD>Neogit<CR>", desc = "[G]oto [G]it" },
+        {
+            "<leader>gg",
+            function()
+                local neogit = require "neogit"
+                local file_dir = vim.fn.expand("%:h")
+                local exec_result = vim.system({ "git", "rev-parse", "--show-toplevel" }, { text = true, cwd = file_dir })
+                    :wait()
+                local root = vim.fn.trim(exec_result.stdout)
+                neogit.open({ kind = "replace", cwd = root })
+            end,
+            desc = "[G]oto [G]it"
+        },
     },
     opts = {
         integrations = {

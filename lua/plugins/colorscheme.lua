@@ -62,6 +62,7 @@ return {
                 illuminate = true,
                 indent_blankline = { enabled = true },
                 lsp_trouble = true,
+                diffview = true,
                 mason = true,
                 mini = true,
                 native_lsp = {
@@ -91,13 +92,13 @@ return {
             },
             custom_highlights = function(colors)
                 local groups = {
-                    CmpItemMenu = { fg = colors.overlay0 },
-                    FzfLuaNormal = { bg = colors.mantle },
-                    RenderMarkdownCode = { bg = colors.mantle },
-                    RenderMarkdownCodeInline = { bg = colors.mantle },
+                    CmpItemMenu                   = { fg = colors.overlay0 },
+                    FzfLuaNormal                  = { bg = colors.mantle },
+                    RenderMarkdownCode            = { bg = colors.mantle },
+                    RenderMarkdownCodeInline      = { bg = colors.mantle },
                     RenderMarkdownInlineHighlight = { fg = colors.yellow, bg = colors.mantle },
-                    MarkviewCode = { bg = colors.mantle },
-                    MarkviewInlineCode = { bg = colors.mantle },
+                    MarkviewCode                  = { bg = colors.mantle },
+                    MarkviewInlineCode            = { bg = colors.mantle },
                 }
 
                 local U = require "catppuccin.utils.colors"

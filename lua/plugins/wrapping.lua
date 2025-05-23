@@ -1,7 +1,7 @@
 return {
     {
         "andrewferrier/wrapping.nvim",
-        enabled = false,
+        enabled = true,
         config = function()
             require "wrapping".setup()
         end

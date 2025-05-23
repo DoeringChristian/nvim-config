@@ -2,9 +2,6 @@
 
 vim.o.fileencoding = "utf-8"
 
-vim.o.autoindent = true
-vim.o.smartindent = true
-
 -- Highlight the line number on which the cursor currently is to make it easier to spot. Don't highlight the line itself
 -- as that messes with transparent background.
 vim.o.cursorline = true
@@ -15,7 +12,7 @@ vim.o.cursorlineopt = "number"
 vim.o.list = true
 vim.o.listchars = "tab:→ ,lead:·,trail:·,precedes:←,extends:→"
 vim.o.fillchars = "vert: ,eob:~"
-vim.o.virtualedit = "all"
+vim.o.virtualedit = "block"
 vim.o.conceallevel = 2
 
 -- Actual line number on current line, relative line numbers otherwise to make precise jumps possible.
@@ -29,6 +26,9 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4
 vim.o.signcolumn = "yes:1"
+
+vim.o.showtabline = 2
+vim.o.smarttab = false
 
 -- Infinite undo, persistent undo
 vim.o.swapfile = false

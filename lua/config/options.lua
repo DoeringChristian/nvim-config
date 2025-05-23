@@ -24,7 +24,7 @@ vim.o.relativenumber = true
 vim.o.numberwidth = 2 -- set number column width to 2 {default 4}
 
 -- Various "widths" and "heights" that the editor should respect.
-vim.o.scrolloff = 16
+vim.o.scrolloff = 8
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4
@@ -49,12 +49,11 @@ vim.o.hidden = true
 vim.o.updatetime = 50
 vim.o.colorcolumn = "80" -- Set a line at the 80 character mark
 vim.o.wrap = true
+vim.o.pumheight = 10
 
 vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.cindent = false
-
-vim.o.pumheight = 10
 
 -- Lowercase search: insensitive
 -- Uppercase letters in search: sensitive
@@ -63,11 +62,13 @@ vim.o.smartcase = true
 
 vim.o.guifont = "FiraCode Nerd Font:h10"
 
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 
 
 if vim.fn.has("nvim-0.10") == 1 then
-	options.smoothscroll = true
+	vim.o.smoothscroll = true
 end
 
 vim.opt.shortmess:append("c")

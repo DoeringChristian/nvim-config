@@ -109,6 +109,11 @@ vim.keymap.del("n", "grn")
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "grr")
 
+
+-- j/k should move in visual lines, not actual lines
+vim.keymap.set({ "n", "v" }, "j", "gj", { silent = true, desc = "Move down" })
+vim.keymap.set({ "n", "v" }, "k", "gk", { silent = true, desc = "Move up" })
+
 -- Hover (ufo else lsp)
 map("n", "K", function()
     local winid = require "ufo".peekFoldedLinesUnderCursor()

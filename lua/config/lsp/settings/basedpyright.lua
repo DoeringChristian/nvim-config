@@ -6,7 +6,7 @@ return {
                 typeCheckingMode = "off",
                 diagnosticSeverityOverrides = {
                     reportGeneralTypeIssues = "information",
-                }
+                },
             }
         },
     },

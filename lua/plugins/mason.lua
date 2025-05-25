@@ -2,7 +2,12 @@ return {
     "williamboman/mason.nvim",
     dependencies = {
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        {
+            "williamboman/mason-lspconfig.nvim",
+            -- Pinned for now, to prevent errors in python
+            -- TODO: test in a few weeks
+            commit = "1a31f82",
+        },
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         "jay-babu/mason-nvim-dap.nvim",
         "hrsh7th/cmp-nvim-lsp", -- lsp completions

@@ -30,16 +30,15 @@ return function(client, bufnr)
     nmap("gr", function() require "telescope.builtin".lsp_references() end, "[G]oto [R]eferences")
     nmap("gI", vim.lsp.buf.incoming_calls, "[G]oto [I]ncoming Calls")
     nmap("gO", vim.lsp.buf.outgoing_calls, "[G]oto [O]utgoing Calls")
-    nmap("<leader>gs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
+    nmap("<leader>fs", vim.lsp.buf.document_symbol, "[G]oto Document [S]ymbol")
     nmap("gS", vim.lsp.buf.workspace_symbol, "[G]oto [W]orkspace [S]ymbol")
 
     -- LSP <leader> prefixed commands
 
-    nmap("<leader>gd", require("telescope.builtin").diagnostics, "[G]oto [D]iagnostics")
-    nmap("<leader>ge", function()
+    nmap("<leader>fe", function()
         require("telescope.builtin").diagnostics({ severity = "error" })
     end, "[G]oto [E]rror")
-    nmap("<leader>gw", function()
+    nmap("<leader>fw", function()
         require("telescope.builtin").diagnostics({ severity = "warn" })
     end, "[G]oto [W]arning")
 

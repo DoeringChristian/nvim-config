@@ -90,9 +90,6 @@ map("o", "S", "<Plug>(leap-backward)")
 -- nmap("<space>rf", "<cmd>IronFocus<cr>")
 -- nmap("<space>rh", "<cmd>IronHide<cr>")
 
--- Gitsigns mappings
-nmap("<leader>gc", "<cmd>Telescope git_commits<cr>", "[G]oto [C]ommits")
-
 -- Tab-page mapping
 nmap("]t", "<cmd>tabnext<cr>", "Next [T]ab Page")
 nmap("[t", "<cmd>-tabnext<cr>", "Previous [T]ab Page")

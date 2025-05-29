@@ -4,7 +4,6 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
             "jay-babu/mason-nvim-dap.nvim",
             "hrsh7th/cmp-nvim-lsp", -- lsp completions
         },
@@ -13,46 +12,55 @@ return {
             local mason_lspconfig = require("mason-lspconfig")
 
             mason.setup {}
-            require "mason-tool-installer".setup {
-                run_on_start = false,
-                ensure_installed = {
-                    "ast-grep",
-                    "basedpyright",
-                    "black",
-                    "clang-format",
-                    "clangd",
-                    "cmake-language-server",
-                    "cmakelang",
-                    "cmakelint",
-                    "codelldb",
-                    "esbonio",
-                    "glsl_analyzer",
-                    "json-lsp",
-                    "latexindent",
-                    "ltex-ls",
-                    "lua-language-server",
-                    "markdown-oxide",
-                    "matlab-language-server",
-                    "nickel-lang-lsp",
-                    "alejandra",
-                    "pest-language-server",
-                    "prettier",
-                    "prettierd",
-                    "ruff",
-                    "rust-analyzer",
-                    "texlab",
-                    "wgsl-analyzer",
-                    "taplo",
-                    "harper-ls",
-                    "tinymist",
-                    "nil",
-                    -- "typst-lsp",
-                    "typstfmt",
-                }
-            }
             mason_lspconfig.setup {
                 automatic_installation = true,
             }
+
+            local ensure_installed = {
+                "ast-grep",
+                "basedpyright",
+                "black",
+                "clang-format",
+                "clangd",
+                "cmake-language-server",
+                "cmakelang",
+                "cmakelint",
+                "codelldb",
+                "esbonio",
+                "glsl_analyzer",
+                "json-lsp",
+                "latexindent",
+                "ltex-ls",
+                "lua-language-server",
+                "markdown-oxide",
+                "matlab-language-server",
+                "nickel-lang-lsp",
+                "alejandra",
+                "pest-language-server",
+                "prettier",
+                "prettierd",
+                "ruff",
+                "rust-analyzer",
+                "texlab",
+                "wgsl-analyzer",
+                "taplo",
+                "harper-ls",
+                "tinymist",
+                "nil",
+            }
+
+            local installed = require "mason-registry".get_installed_package_names()
+            local installed_set = {}
+            for _, pkg in ipairs(installed) do
+                installed_set[pkg] = true
+            end
+
+            -- Install default tools, if not already installed
+            for i, pkg in ipairs(ensure_installed) do
+                if not installed_set[pkg] then
+                    vim.cmd("MasonInstall " .. pkg)
+                end
+            end
 
             -- Enable this if we want auto-setup
             -- -- LSP Setup Handlers:

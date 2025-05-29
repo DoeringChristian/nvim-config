@@ -28,6 +28,7 @@ return {
                     "markdown",
                     "markdown_inline",
                     "ninja",
+                    "nix",
                     "norg",
                     "ocaml",
                     "ocamllex",

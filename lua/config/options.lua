@@ -22,6 +22,7 @@ vim.o.numberwidth = 2 -- set number column width to 2 {default 4}
 
 -- Various "widths" and "heights" that the editor should respect.
 vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4

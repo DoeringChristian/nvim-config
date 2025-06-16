@@ -38,6 +38,7 @@ return {
                 use_cwd_as_project_root = true,
                 enable_claude_text_editor_tool_mode = true,
             },
+            hints = { enabled = false },
         }
     }
 }

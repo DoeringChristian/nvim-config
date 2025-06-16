@@ -24,6 +24,9 @@ return {
                     __inherited_from = "ollama",
                     model = "qwen2.5-coder:1.5b",
                 },
+            },
+            behaviour = {
+                auto_set_keymaps = false,
             }
         }
     }

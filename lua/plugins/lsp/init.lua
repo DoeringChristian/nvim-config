@@ -86,7 +86,7 @@ return {
         setup("wgsl_analyzer")
         setup("harper_ls")
         setup("taplo")
-        setup("ltex-ls-plus")
+        setup("ltex-plus")
         -- Handled by ltex_extra
         -- setup("ltex")
         -- Handled by rustaceanvim

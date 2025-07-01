@@ -1,4 +1,4 @@
 return {
-    filetypes = { "markdown", "md", "tex" },
+    filetypes = { "tex" },
     flags = { debounce_text_changes = 500 },
 }

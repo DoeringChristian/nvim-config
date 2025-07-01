@@ -31,6 +31,7 @@ return {
                 "json-lsp",
                 "latexindent",
                 "ltex-ls",
+                "ltex-ls-plus",
                 "lua-language-server",
                 "markdown-oxide",
                 "matlab-language-server",

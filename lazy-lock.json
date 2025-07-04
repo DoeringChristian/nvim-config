@@ -34,6 +34,7 @@
   "hardtime.nvim": { "branch": "main", "commit": "7c7434003ab527918c2b1c072befa23978c7c49d" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "iron.nvim": { "branch": "master", "commit": "c005b01b779f1b6c038e11248db403bb3df6a7f3" },
+  "jupytext.nvim": { "branch": "master", "commit": "2e86acfa4345f611c86f57116db0c06ffecb721d" },
   "kdl.vim": { "branch": "main", "commit": "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" },
   "kitty-scrollback.nvim": { "branch": "main", "commit": "6c24f1979afe4c6b0310117b76d59d672224afd7" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },

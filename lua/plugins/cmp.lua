@@ -118,6 +118,7 @@ return {
                         nvim_lua = "[Lua]",
                         nvim_lsp_signature_help = "[Sig]",
                         crates = "[Crates]",
+                        copilot = "[Copilot]",
                     }
                 },
             },
@@ -132,6 +133,7 @@ return {
                             }
                         },
                     },
+                    { name = "copilot" },
                     { name = "crates" },
                 },
                 {

@@ -70,8 +70,8 @@ nnoremap <C--> :silent! let &guifont = substitute(
 nmap("<leader>lse", "<cmd>LuaSnipEdit<CR>", "[L]ua [S]nip [E]dit")
 
 -- Leap search for operator pending mode (remove if causes issues)
-map("o", "s", "<Plug>(leap-forward)")
-map("o", "S", "<Plug>(leap-backward)")
+vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
 -- map("n", "<leader>ms", function()
 --     require "leap".leap {
 --         target_windows = { vim.fn.win_getid() },

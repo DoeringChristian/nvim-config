@@ -59,6 +59,10 @@ return {
                 name = "main",
                 path = "~/share/notes/obsidian/main"
             },
+            {
+                name = "notes",
+                path = "~/workspace/mthesis/notes"
+            }
             -- {
             --     name = "no-vault",
             --     path = function()

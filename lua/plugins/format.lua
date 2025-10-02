@@ -104,7 +104,8 @@ return {
                     sh = { "shfmt" },
                     python = { "black" },
                     typst = { "typstfmt" },
-                    nix = { "alejandra" }
+                    nix = { "alejandra" },
+                    yaml = { "prettier" },
                 },
                 format_after_save = function(bufnr)
                     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

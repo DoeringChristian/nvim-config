@@ -1,10 +1,10 @@
 return {
-    capabilities = {
-        -- textDocument = {
-        --     foldingRange = {
-        --         dynamicRegistration = false,
-        --         lineFoldingOnly = true
-        --     }
-        -- }
-    }
+  capabilities = {
+    -- textDocument = {
+    --     foldingRange = {
+    --         dynamicRegistration = false,
+    --         lineFoldingOnly = true
+    --     }
+    -- }
+  },
 }

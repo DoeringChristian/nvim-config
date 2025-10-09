@@ -1,5 +1,5 @@
 return {
-    settings = {
-        exportPdf = "onSave",
-    }
+  settings = {
+    exportPdf = 'onSave',
+  },
 }

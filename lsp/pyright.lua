@@ -1,18 +1,18 @@
 return {
-    settings = {
-        pyright = {
-            disableOrganizeImports = true,
-        },
-        python = {
-            analysis = {
-                diagnosticSeverityOverrides = {
-                    reportGeneralTypeIssues = "information",
-                },
-                typeCheckingMode = "off"
-            },
-        },
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
     },
-    capabilities = {
-        document_formatting = false
-    }
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportGeneralTypeIssues = 'information',
+        },
+        typeCheckingMode = 'off',
+      },
+    },
+  },
+  capabilities = {
+    document_formatting = false,
+  },
 }

@@ -1,7 +1,7 @@
 return {
-    settings = {
-        jedi = {
-            enabled = true,
-        }
+  settings = {
+    jedi = {
+      enabled = true,
     },
+  },
 }

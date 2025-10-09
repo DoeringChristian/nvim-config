@@ -1,18 +1,18 @@
 -- This file is automatically loaded -- :help options
 
-vim.o.fileencoding = "utf-8"
+vim.o.fileencoding = 'utf-8'
 
 -- Highlight the line number on which the cursor currently is to make it easier to spot. Don't highlight the line itself
 -- as that messes with transparent background.
 vim.o.cursorline = true
-vim.o.cursorlineopt = "number"
+vim.o.cursorlineopt = 'number'
 
 -- Show trailing spaces and tabs. Also, setting non-trailing tabs as "  " makes the cursor go to their beginning rather
 -- than end.
 vim.o.list = true
-vim.o.listchars = "tab:→ ,lead:·,trail:·,precedes:←,extends:→"
-vim.o.fillchars = "vert: ,eob:~"
-vim.o.virtualedit = "block"
+vim.o.listchars = 'tab:→ ,lead:·,trail:·,precedes:←,extends:→'
+vim.o.fillchars = 'vert: ,eob:~'
+vim.o.virtualedit = 'block'
 vim.o.conceallevel = 2
 
 -- Actual line number on current line, relative line numbers otherwise to make precise jumps possible.
@@ -26,7 +26,7 @@ vim.o.sidescrolloff = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.tabstop = 4
-vim.o.signcolumn = "yes:1"
+vim.o.signcolumn = 'yes:1'
 
 vim.o.showtabline = 2
 vim.o.smarttab = false
@@ -34,21 +34,21 @@ vim.o.smarttab = false
 -- Infinite undo, persistent undo
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.o.undodir = vim.fn.stdpath 'data' .. '/undodir'
 vim.o.undofile = true
 
 -- Folding
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
-vim.o.foldcolumn = "0"
+vim.o.foldcolumn = '0'
 
 -- Misc
 vim.o.showmode = false
-vim.o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.o.clipboard = 'unnamedplus' -- allows neovim to access the system clipboard
 vim.o.hidden = true
 vim.o.updatetime = 50
-vim.o.colorcolumn = "80" -- Set a line at the 80 character mark
+vim.o.colorcolumn = '80' -- Set a line at the 80 character mark
 vim.o.wrap = true
 vim.o.pumheight = 10
 
@@ -61,33 +61,31 @@ vim.o.cindent = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.guifont = "FiraCode Nerd Font:h10"
+vim.o.guifont = 'FiraCode Nerd Font:h10'
 
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-
-
-if vim.fn.has("nvim-0.10") == 1 then
-	vim.o.smoothscroll = true
+if vim.fn.has 'nvim-0.10' == 1 then
+  vim.o.smoothscroll = true
 end
 
-vim.opt.shortmess:append("c")
-vim.cmd([[
+vim.opt.shortmess:append 'c'
+vim.cmd [[
 filetype plugin indent on
 syntax on
-]])
+]]
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+vim.cmd 'set whichwrap+=<,>,[,],h,l'
+vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
-if vim.fn.has("nvim-0.10") == 1 then
-	vim.opt.foldmethod = "expr"
-	vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+if vim.fn.has 'nvim-0.10' == 1 then
+  vim.opt.foldmethod = 'expr'
+  vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 else
-	vim.opt.foldmethod = "indent"
+  vim.opt.foldmethod = 'indent'
 end
 
 -- Old config

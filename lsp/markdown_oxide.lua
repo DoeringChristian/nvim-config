@@ -1,17 +1,15 @@
 return {
-    settings = {
-
+  settings = {},
+  capabilities = {
+    didChangeWatchedFiles = {
+      dynamicRegistration = true,
     },
-    capabilities = {
-        didChangeWatchedFiles = {
-            dynamicRegistration = true,
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = false,
         },
-        textDocument = {
-            completion = {
-                completionItem = {
-                    snippetSupport = false
-                }
-            }
-        }
+      },
     },
+  },
 }

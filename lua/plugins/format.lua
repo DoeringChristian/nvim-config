@@ -1,10 +1,5 @@
 return {
   {
-    'lukas-reineke/lsp-format.nvim',
-    enabled = false,
-    opts = {},
-  },
-  {
     -- TODO: find out why I wouldn't use this
     'stevearc/conform.nvim',
     enabled = true,

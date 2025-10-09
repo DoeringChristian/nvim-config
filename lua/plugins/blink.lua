@@ -5,6 +5,7 @@ return {
     dependencies = {
       'rafamadriz/friendly-snippets',
       'fang2hou/blink-copilot',
+      'saghen/blink.compat',
     },
 
     -- use a release tag to download pre-built binaries
@@ -70,13 +71,34 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'copilot', 'path', 'snippets', 'buffer' },
+        default = {
+          'lsp',
+          'copilot',
+          'path',
+          'snippets',
+          'buffer',
+          'obsidian',
+          'obsidian_new',
+          'obsidian_tags',
+        },
         providers = {
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
             score_offset = 100,
             async = true,
+          },
+          obsidian = {
+            name = 'obsidian',
+            module = 'blink.compat.source',
+          },
+          obsidian_new = {
+            name = 'obsidian_new',
+            module = 'blink.compat.source',
+          },
+          obsidian_tags = {
+            name = 'obsidian_tags',
+            module = 'blink.compat.source',
           },
         },
       },

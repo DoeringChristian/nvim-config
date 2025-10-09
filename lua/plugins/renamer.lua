@@ -51,7 +51,7 @@ return {
         ['<c-c>'] = mappings_utils.clear_line,
         ['<c-u>'] = mappings_utils.undo,
         ['<c-r>'] = mappings_utils.redo,
-        ['jk'] = function()
+        ['<Enter>'] = function()
           vim.api.nvim_input '<esc>'
         end,
       },

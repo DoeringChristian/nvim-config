@@ -80,6 +80,7 @@ return {
         notify = true,
         neotree = true,
         semantic_tokens = true,
+        blink = true,
         telescope = {
           enabled = true,
           style = 'nvchad',

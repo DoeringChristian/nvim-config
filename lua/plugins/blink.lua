@@ -23,7 +23,7 @@ return {
         ['<Tab>'] = { 'select_next', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<C-l>'] = { 'select_and_accept', 'fallback' },
-        ['<Enter>'] = {},
+        ['<Enter>'] = { 'accept', 'fallback' },
       },
 
       cmdline = {

@@ -2,23 +2,16 @@ return {
   {
     'williamboman/mason.nvim',
     dependencies = {
+      'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'jay-babu/mason-nvim-dap.nvim',
     },
     config = function()
-      vim.lsp.config('*', {
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
-      })
+      -- vim.lsp.config('*', {
+      --   capabilities = vim.lsp.protocol.make_client_capabilities(),
+      -- })
 
       local mason = require 'mason'
-      local mason_lspconfig = require 'mason-lspconfig'
-
       mason.setup {}
-      mason_lspconfig.setup {
-        automatic_enable = true,
-      }
-
       local ensure_installed = {
         'ast-grep',
         'basedpyright',
@@ -85,6 +78,12 @@ return {
     -- Pinned for now, to prevent errors in python
     -- TODO: test in a few weeks
     version = '2.*',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    opts = {
+      automatic_enable = true,
+    },
   },
-  'neovim/nvim-lspconfig',
 }

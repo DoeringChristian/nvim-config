@@ -1,8 +1,6 @@
 return {
   settings = {
     texlab = {
-      auxDirectory = 'build',
-      bibtexFormatter = 'texlab',
       build = {
         executable = 'tectonic',
         args = {
@@ -17,6 +15,8 @@ return {
         },
         onSave = true,
       },
+      auxDirectory = 'build',
+      bibtexFormatter = 'texlab',
       chktex = {
         onEdit = false,
         onOpenAndSave = false,

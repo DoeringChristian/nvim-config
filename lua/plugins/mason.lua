@@ -45,6 +45,7 @@ return {
         'tinymist',
         'nil',
         'stylua',
+        'shfmt',
       }
 
       local installed = require('mason-registry').get_installed_package_names()

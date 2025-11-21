@@ -22,7 +22,7 @@ return {
   },
   {
     'ellisonleao/gruvbox.nvim',
-    enabled = true,
+    enabled = false,
     lazy = true,
     priority = 1000,
     opts = {

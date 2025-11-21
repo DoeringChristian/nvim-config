@@ -56,6 +56,7 @@ return {
     opts = {
       integrations = {
         alpha = true,
+        flash = true,
         cmp = true,
         gitsigns = true,
         headlines = true,

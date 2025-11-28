@@ -22,8 +22,9 @@ return {
         preset = 'default',
         ['<Tab>'] = { 'select_next', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
-        ['<C-l>'] = { 'select_and_accept', 'fallback' },
+        ['<C-l>'] = { 'select_and_accept', 'show_signature', 'hide_signature', 'fallback' },
         ['<Enter>'] = { 'accept', 'fallback' },
+        ['<C-k>'] = {},
       },
 
       cmdline = {

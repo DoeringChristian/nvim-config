@@ -8,7 +8,7 @@ return {
     'BufReadPre ' .. vim.fn.resolve(vim.fn.expand(vaults_dir)) .. '/*',
     'BufNewFile ' .. vim.fn.resolve(vim.fn.expand(vaults_dir)) .. '/*',
   },
-  -- ft = "markdown",
+  ft = 'markdown',
   keys = {
     { '<leader>ob', '<CMD>ObsidianBacklinks<CR>', desc = '[O]bsidian [B]acklinks' },
     { '<leader>oS', '<CMD>ObsidianSearch<CR>', desc = '[O]bsidian [S]earch' },

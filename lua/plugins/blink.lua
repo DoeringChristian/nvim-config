@@ -78,9 +78,6 @@ return {
           'path',
           'snippets',
           'buffer',
-          'obsidian',
-          'obsidian_new',
-          'obsidian_tags',
         },
         per_filetype = {
           markdown = {

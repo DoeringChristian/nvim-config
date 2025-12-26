@@ -4,12 +4,6 @@ return {
   enabled = true,
   dependencies = {
     'nvim-lua/plenary.nvim',
-    {
-      'purarue/gitsigns-yadm.nvim',
-      opts = {
-        shell_timeout_ms = 1000,
-      },
-    },
   },
   opts = {
     -- signs_staged_enable = false,
@@ -18,9 +12,6 @@ return {
     -- sign_priority = 1,
     current_line_blame = true,
     current_line_blame_formatter = '<author>, <author_time:%R> - <abbrev_sha> <summary>',
-    _on_attach_pre = function(_, callback)
-      require('gitsigns-yadm').yadm_signs(callback)
-    end,
     on_attach = function(bufnr)
       local gitsigns = require 'gitsigns'
 

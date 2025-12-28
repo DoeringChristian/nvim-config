@@ -1,5 +1,13 @@
 return {
   {
+    'nvim-mini/mini.icons',
+    lazy = false,
+    config = function()
+      require('mini.icons').setup()
+      MiniIcons.mock_nvim_web_devicons()
+    end,
+  },
+  {
     'echasnovski/mini.align',
     version = false,
     keys = {
@@ -46,7 +54,7 @@ return {
     enabled = true,
     version = false,
     lazy = false,
-    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+    dependencies = { 'nvim-mini/mini.icons' },
     keys = {
       {
         '-',

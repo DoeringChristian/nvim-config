@@ -2,7 +2,7 @@ return {
   'ibhagwan/fzf-lua',
   -- optional for icon support
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
+    'nvim-mini/mini.icons',
     { 'junegunn/fzf', build = './install --bin' },
   },
   keys = {

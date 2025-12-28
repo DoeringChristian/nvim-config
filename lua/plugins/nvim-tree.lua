@@ -67,7 +67,7 @@ return {
   'nvim-tree/nvim-tree.lua',
   enabled = true,
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
+    'nvim-mini/mini.icons',
   },
   keys = {
     { '<C-f>', '<cmd>NvimTreeToggle<cr>', desc = 'Toggle file manager' },

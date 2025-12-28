@@ -11,7 +11,7 @@ return {
       -- Or if the parsers are in your $RUNTIMEPATH
       'nvim-treesitter/nvim-treesitter',
 
-      'nvim-tree/nvim-web-devicons',
+      'nvim-mini/mini.icons',
     },
 
     config = function()
@@ -84,7 +84,7 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     enabled = false,
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
     opts = {
       anti_conceal = { enabled = true },
       -- render_modes = { "i", "n", "c" },

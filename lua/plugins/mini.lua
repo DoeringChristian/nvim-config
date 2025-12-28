@@ -46,6 +46,7 @@ return {
     enabled = true,
     version = false,
     lazy = false,
+    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
     keys = {
       {
         '-',

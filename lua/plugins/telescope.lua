@@ -14,6 +14,10 @@ return {
       cond = function()
         return vim.fn.executable 'make' == 1
       end,
+      config = function()
+        vim.notify 'Test'
+        require('telescope').load_extension 'fzf'
+      end,
     },
     { 'Marskey/telescope-sg' },
     { 'gbprod/yanky.nvim' },
@@ -174,7 +178,7 @@ return {
         undo = {},
       },
     }
-    require('telescope').load_extension 'fzf'
+    -- pcall(require('telescope').load_extension, 'fzf')
     require('telescope').load_extension 'yank_history'
     require('telescope').load_extension 'undo'
   end,

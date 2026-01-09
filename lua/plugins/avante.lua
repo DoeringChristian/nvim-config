@@ -8,6 +8,21 @@ return {
     dependencies = {
       'github/copilot.vim',
     },
+
+    keys = {
+      {
+        '<leader>va',
+        '<CMD>AvanteAsk<CR>',
+        mode = { 'n', 'v' },
+        desc = 'Ask Avante',
+      },
+      {
+        '<leader>ve',
+        '<CMD>AvanteEdit<CR>',
+        mode = { 'n', 'v' },
+        desc = 'Ask Avante',
+      },
+    },
     opts = {
       provider = 'claude-code',
       behaviour = {

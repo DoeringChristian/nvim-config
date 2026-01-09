@@ -2,20 +2,14 @@ return {
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
-    enabled = false,
+    enabled = true,
     version = false, -- Never set this value to "*"! Never!
     build = 'make',
     dependencies = {
       'github/copilot.vim',
     },
     opts = {
-      provider = 'gemini-cli',
-      providers = {
-        ['gemini-cli'] = {
-          command = 'gemini',
-          args = { '--experimental-acp' },
-        },
-      },
+      provider = 'claude-code',
       behaviour = {
         auto_focus_sidebar = false,
         auto_suggestions = false,

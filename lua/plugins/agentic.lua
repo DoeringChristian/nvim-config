@@ -3,6 +3,7 @@ return {
     'carlos-algms/agentic.nvim',
 
     event = 'VeryLazy',
+    enabled = false,
 
     keys = {
       {

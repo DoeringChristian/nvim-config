@@ -2,21 +2,18 @@ return {
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
+    enabled = false,
     version = false, -- Never set this value to "*"! Never!
     build = 'make',
     dependencies = {
       'github/copilot.vim',
     },
     opts = {
-      provider = 'copilot',
+      provider = 'gemini-cli',
       providers = {
         ['gemini-cli'] = {
           command = 'gemini',
           args = { '--experimental-acp' },
-          env = {
-            NODE_NO_WARNINGS = '1',
-            GEMINI_API_KEY = os.getenv 'GEMINI_API_KEY',
-          },
         },
       },
       behaviour = {

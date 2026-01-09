@@ -15,7 +15,6 @@ return {
         return vim.fn.executable 'make' == 1
       end,
       config = function()
-        vim.notify 'Test'
         require('telescope').load_extension 'fzf'
       end,
     },

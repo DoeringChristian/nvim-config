@@ -4,8 +4,11 @@ return {
     event = 'VeryLazy',
     version = false, -- Never set this value to "*"! Never!
     build = 'make',
+    dependencies = {
+      'github/copilot.vim',
+    },
     opts = {
-      provider = 'gemini-cli',
+      provider = 'copilot',
       providers = {
         ['gemini-cli'] = {
           command = 'gemini',

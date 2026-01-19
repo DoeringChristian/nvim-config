@@ -11,20 +11,20 @@ return {
 
     keys = {
       {
-        '<leader>va',
+        '<leader>aa',
         '<CMD>AvanteAsk<CR>',
         mode = { 'n', 'v' },
         desc = 'Ask Avante',
       },
       {
-        '<leader>ve',
+        '<leader>ae',
         '<CMD>AvanteEdit<CR>',
         mode = { 'n', 'v' },
         desc = 'Ask Avante',
       },
     },
     opts = {
-      provider = 'claude-code',
+      provider = 'copilot',
       behaviour = {
         auto_focus_sidebar = false,
         auto_suggestions = false,

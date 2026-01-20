@@ -6,7 +6,7 @@ return {
   },
   keys = {
     {
-      '<leader>ca',
+      '<leader>a',
       function()
         require('actions-preview').code_actions()
       end,

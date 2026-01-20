@@ -11,13 +11,13 @@ return {
 
     keys = {
       {
-        '<leader>aa',
+        '<leader>va',
         '<CMD>AvanteAsk<CR>',
         mode = { 'n', 'v' },
         desc = 'Ask Avante',
       },
       {
-        '<leader>ae',
+        '<leader>ve',
         '<CMD>AvanteEdit<CR>',
         mode = { 'n', 'v' },
         desc = 'Ask Avante',

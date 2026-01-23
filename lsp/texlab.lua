@@ -23,12 +23,9 @@ return {
           '--synctex',
           '--keep-logs',
           '--keep-intermediates',
-          '--outdir',
-          'build',
         },
         onSave = true,
       },
-      auxDirectory = 'build',
       bibtexFormatter = 'texlab',
       chktex = {
         onEdit = false,

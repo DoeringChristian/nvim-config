@@ -24,18 +24,17 @@ return {
     },
   },
   config = function()
-    -- vim.g.clipboard = {
-    --   name = 'xsel_override',
-    --   copy = {
-    --     ['+'] = 'xsel --input --clipboard',
-    --     ['*'] = 'xsel --input --primary',
-    --   },
-    --   paste = {
-    --     ['+'] = 'xsel --output --clipboard',
-    --     ['*'] = 'xsel --output --primary',
-    --   },
-    --   cache_enabled = 1,
-    -- }
+    vim.g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+        ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+      },
+      paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+        ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+      },
+    }
     local yanky = require 'yanky'
 
     local mapping = require 'yanky.telescope.mapping'

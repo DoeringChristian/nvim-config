@@ -38,7 +38,7 @@ return {
 
       inlayHints = {
         labelDefinitions = false,
-        labelReference = false,
+        labelReferences = false,
       },
     },
   },

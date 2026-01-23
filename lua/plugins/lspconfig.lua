@@ -4,8 +4,8 @@ return {
     vim.lsp.config('*', {
       capabilities = vim.lsp.protocol.make_client_capabilities(),
     })
-    -- TODO: figure out why this is not working through lsp/ folder
-    vim.lsp.config('texlab', require 'lsp.texlab')
+    -- -- TODO: figure out why this is not working through lsp/ folder
+    -- vim.lsp.config('texlab', require 'lsp.texlab')
 
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(ev)

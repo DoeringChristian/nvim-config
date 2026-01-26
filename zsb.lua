@@ -3,6 +3,14 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.termguicolors = true
 
+-- Load catppuccin colorscheme
+vim.opt.runtimepath:append(vim.fn.stdpath 'data' .. '/lazy/catppuccin')
+local ok_cat, _ = pcall(vim.cmd.colorscheme, 'catppuccin-mocha')
+if not ok_cat then
+  -- Fallback: set colors manually if plugin not available
+  vim.api.nvim_set_hl(0, 'Normal', { bg = '#1e1e2e', fg = '#cdd6f4' })
+end
+
 -- Visual settings
 vim.opt.swapfile = false
 vim.opt.number = false
@@ -48,6 +56,7 @@ end
 -- Quit keybindings
 vim.keymap.set('n', 'q', '<cmd>q!<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', 'i', '<cmd>q!<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Esc>', '<cmd>q!<cr>', { noremap = true, silent = true })
 
 -- Scroll to bottom on open
 vim.api.nvim_create_autocmd('VimEnter', {

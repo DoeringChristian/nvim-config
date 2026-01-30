@@ -1,6 +1,6 @@
 return {
   {
-    'ggandor/leap.nvim',
+    url = 'https://codeberg.org/andyg/leap.nvim',
     enabled = true,
     lazy = false,
     dependencies = {
@@ -96,7 +96,7 @@ return {
     enabled = true,
     lazy = false,
     dependencies = {
-      'ggandor/leap.nvim',
+      { url = 'https://codeberg.org/andyg/leap.nvim' },
     },
     config = function()
       require('leap-spooky').setup {

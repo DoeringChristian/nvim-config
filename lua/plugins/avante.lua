@@ -24,7 +24,8 @@ return {
       },
     },
     opts = {
-      provider = 'copilot',
+      -- provider = 'copilot',
+      provider = 'claude-code',
       behaviour = {
         auto_focus_sidebar = false,
         auto_suggestions = false,

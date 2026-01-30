@@ -37,14 +37,14 @@ return {
             --   desc = 'Hide',
             -- },
             claude_close = { 'Q', 'close', mode = 'n', desc = 'Close' },
-            claude_hide = {
-              'q',
-              function(self)
-                self:hide()
-              end,
-              mode = 'n',
-              desc = 'Hide',
-            },
+            -- claude_hide = {
+            --   'q',
+            --   function(self)
+            --     self:hide()
+            --   end,
+            --   mode = 'n',
+            --   desc = 'Hide',
+            -- },
           },
         },
       },

@@ -2,7 +2,6 @@ return {
   {
     'coder/claudecode.nvim',
     dependencies = { 'folke/snacks.nvim' },
-    config = true,
     keys = {
       { '<leader>cc', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
       { '<leader>cf', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude' },
@@ -23,6 +22,32 @@ return {
     },
     cmd = {
       'ClaudeCode',
+    },
+
+    opts = {
+      terminal = {
+        snacks_win_opts = {
+          keys = {
+            -- claude_hide = {
+            --   '<Esc>',
+            --   function(self)
+            --     self:hide()
+            --   end,
+            --   mode = 't',
+            --   desc = 'Hide',
+            -- },
+            claude_close = { 'Q', 'close', mode = 'n', desc = 'Close' },
+            claude_hide = {
+              'q',
+              function(self)
+                self:hide()
+              end,
+              mode = 'n',
+              desc = 'Hide',
+            },
+          },
+        },
+      },
     },
   },
 }

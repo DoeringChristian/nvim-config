@@ -26,6 +26,17 @@ return {
     opts = {
       -- provider = 'copilot',
       provider = 'claude-code',
+      mode = 'legacy',
+      providers = {
+        claude = {
+          endpoint = 'https://api.anthropic.com',
+          auth_type = 'max', -- Set to "max" to sign in with Claude Pro/Max subscription
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 4096,
+          },
+        },
+      },
       behaviour = {
         auto_focus_sidebar = false,
         auto_suggestions = false,
@@ -37,7 +48,7 @@ return {
         enable_token_counting = true,
         enable_cursor_planning_mode = false,
         use_cwd_as_project_root = true,
-        enable_claude_text_editor_tool_mode = true,
+        enable_claude_text_editor_tool_mode = false,
       },
       hints = { enabled = false },
     },

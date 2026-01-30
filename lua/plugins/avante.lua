@@ -25,12 +25,13 @@ return {
     },
     opts = {
       -- provider = 'copilot',
-      provider = 'claude-code',
+      provider = 'claude',
       mode = 'legacy',
       providers = {
         claude = {
           endpoint = 'https://api.anthropic.com',
           auth_type = 'max', -- Set to "max" to sign in with Claude Pro/Max subscription
+          model = 'claude-opus-4-5-20251101', -- Claude Opus 4.5 (latest)
           extra_request_body = {
             temperature = 0.75,
             max_tokens = 4096,

@@ -37,6 +37,14 @@ return {
             --   desc = 'Hide',
             -- },
             claude_close = { 'Q', 'close', mode = 'n', desc = 'Close' },
+            claude_switch = {
+              '<C-h>',
+              function()
+                vim.cmd 'wincmd p'
+              end,
+              mode = 't',
+              desc = 'Switch to buffer',
+            },
             -- claude_hide = {
             --   'q',
             --   function(self)

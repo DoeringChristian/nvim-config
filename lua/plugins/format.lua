@@ -95,7 +95,7 @@ return {
           fish = { 'fish_indent' },
           sh = { 'shfmt' },
           python = { 'black' },
-          typst = { 'typstfmt' },
+          typst = { 'typstyle' },
           nix = { 'alejandra' },
           yaml = { 'prettier' },
         },

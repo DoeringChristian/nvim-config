@@ -43,6 +43,7 @@ return {
         'taplo',
         'harper-ls',
         'tinymist',
+        'typstyle',
         'nil',
         'stylua',
         'shfmt',

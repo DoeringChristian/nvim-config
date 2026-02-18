@@ -48,6 +48,14 @@ return {
               mode = 't',
               desc = 'Switch to buffer',
             },
+            claude_switch_top = {
+              '<C-k>',
+              function()
+                vim.cmd 'wincmd p'
+              end,
+              mode = 't',
+              desc = 'Switch to buffer',
+            },
             -- claude_hide = {
             --   'q',
             --   function(self)

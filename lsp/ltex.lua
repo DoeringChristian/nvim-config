@@ -3,6 +3,7 @@ return {
   flags = { debounce_text_changes = 500 },
   settings = {
     ltex = {
+      language = 'en-US',
       enabled = { 'bibtex', 'context', 'context.tex', 'html', 'latex', 'markdown', 'org', 'restructuredtext', 'rsweave' },
       -- completionEnabled = true,
       markdown = {

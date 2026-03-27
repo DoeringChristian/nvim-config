@@ -51,9 +51,4 @@ require('lazy').setup {
 
 require 'config.keymaps'
 
-vim.cmd.colorscheme 'catppuccin'
-
--- Temporary fix for nvim nightly
-vim.defer_fn(function()
-  vim.cmd.colorscheme 'catppuccin'
-end, 100)
+vim.cmd.colorscheme 'catppuccin-nvim'

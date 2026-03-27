@@ -5,7 +5,7 @@ vim.opt.termguicolors = true
 
 -- Load catppuccin colorscheme
 vim.opt.runtimepath:append(vim.fn.stdpath 'data' .. '/lazy/catppuccin')
-local ok_cat, _ = pcall(vim.cmd.colorscheme, 'catppuccin-mocha')
+local ok_cat, _ = pcall(vim.cmd.colorscheme, 'catppuccin-mocha-nvim')
 if not ok_cat then
   -- Fallback: set colors manually if plugin not available
   vim.api.nvim_set_hl(0, 'Normal', { bg = '#1e1e2e', fg = '#cdd6f4' })

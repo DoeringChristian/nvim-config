@@ -5,12 +5,20 @@ return {
   { 'tpope/vim-fugitive', event = 'VeryLazy' },
   {
     'numToStr/Comment.nvim',
-    opts = {
-      mappings = {
-        extra = false,
+    opts = function()
+      return {
+        mappings = {
+          extra = false,
+        },
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
+    end,
+    dependencies = {
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        opts = { enable_autocmd = false },
       },
     },
-    dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   },
   -- { "ray-x/lsp_signature.nvim", opts = { noice = false } },
   -- { "SvanT/lsp_signature.nvim", opts = { noice = false } },

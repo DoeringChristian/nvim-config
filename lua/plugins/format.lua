@@ -87,7 +87,12 @@ return {
 
       require('conform').setup {
         -- Use LSP and format after save (async)
-        formatters = {},
+        formatters = {
+          latexindent = {
+            prepend_args = { '-m', '-l' },
+            cwd = require('conform.util').root_file { '.latexindent.yaml', '.latexindent.yml' },
+          },
+        },
         formatters_by_ft = {
           markdown = { 'prettier' },
           html = { 'prettier' },
@@ -98,6 +103,7 @@ return {
           typst = { 'typstyle' },
           nix = { 'alejandra' },
           yaml = { 'prettier' },
+          tex = { 'latexindent' },
         },
         format_after_save = function(bufnr)
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

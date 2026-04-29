@@ -20,7 +20,6 @@ return {
     },
     { 'Marskey/telescope-sg' },
     { 'gbprod/yanky.nvim' },
-    { 'debugloop/telescope-undo.nvim' },
   },
   keys = {
     {
@@ -79,7 +78,6 @@ return {
     },
     {
       '<leader>fu',
-      '<CMD>Telescope undo<CR>',
       desc = '[F]ind [U]ndo Tree',
     },
     -- {
@@ -174,11 +172,9 @@ return {
           grep_open_files = false, -- search in opened files
           lang = nil, -- string value, specify language for ast-grep `nil` for default
         },
-        undo = {},
       },
     }
     -- pcall(require('telescope').load_extension, 'fzf')
     require('telescope').load_extension 'yank_history'
-    require('telescope').load_extension 'undo'
   end,
 }

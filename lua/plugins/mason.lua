@@ -16,6 +16,7 @@ return {
         'ast-grep',
         'basedpyright',
         'black',
+        'bibtex-tidy',
         'clang-format',
         'clangd',
         'cmake-language-server',

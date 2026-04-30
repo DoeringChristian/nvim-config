@@ -3,8 +3,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client.name == 'texlab' then
-      client.server_capabilities.documentFormattingProvider = false
-      client.server_capabilities.documentRangeFormattingProvider = false
       vim.defer_fn(function()
         vim.lsp.inlay_hint.enable(false, { bufnr = ev.buf })
         vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })

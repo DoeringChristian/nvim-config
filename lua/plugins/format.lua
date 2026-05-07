@@ -104,6 +104,7 @@ return {
           nix = { 'alejandra' },
           yaml = { 'prettier' },
           tex = { 'latexindent', lsp_format = 'never' },
+          bib = { 'latexindent', lsp_format = 'never' },
         },
         format_after_save = function(bufnr)
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

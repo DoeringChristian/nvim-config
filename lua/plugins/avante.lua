@@ -2,7 +2,7 @@ return {
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
-    enabled = true,
+    enabled = false,
     version = false, -- Never set this value to "*"! Never!
     build = 'make',
     dependencies = {

@@ -125,8 +125,6 @@ return {
     -- Diagnostics window:
     vim.o.updatetime = 250
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focusable = false})]]
-    -- Configure hover window NOTE: Gets overriden by noice.nvim
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {})
     -- Configure Telescope for lsp handlers
     vim.lsp.handlers['textDocument/references'] = require('telescope.builtin').lsp_references
     vim.lsp.handlers['textDocument/definition'] = require('telescope.builtin').lsp_definitions

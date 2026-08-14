@@ -53,7 +53,16 @@ return {
 
     ls.config.setup {
       -- This one is cool cause if you have dynamic snippets, it updates as you type!
-      updateevents = 'TextChanged,TextChangedI',
+      -- NOTE: insert-mode only. Normal-mode TextChanged also fires on undo, which makes
+      -- LuaSnip rewrite its nodes mid-undo and spawn a new undo branch every press -- undo
+      -- then never makes progress. See :undolist (constant `changes` depth, climbing `number`).
+      update_events = 'TextChangedI',
+
+      -- Terminate stale snippet sessions. Without these the session from the first expansion
+      -- stays active forever, so the update_events handler keeps firing long after you've
+      -- left the snippet.
+      region_check_events = 'CursorMoved,InsertEnter',
+      delete_check_events = 'TextChanged,InsertLeave',
 
       -- Autosnippets:
       enable_autosnippets = true,

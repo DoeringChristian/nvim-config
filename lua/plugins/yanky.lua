@@ -24,17 +24,14 @@ return {
     },
   },
   config = function()
-    vim.g.clipboard = {
-      name = 'OSC 52',
-      copy = {
-        ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-        ['*'] = require('vim.ui.clipboard.osc52').copy '*',
-      },
-      paste = {
-        ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-        ['*'] = require('vim.ui.clipboard.osc52').paste '*',
-      },
-    }
+    -- Locally (macOS) the builtin pbcopy/pbpaste provider is used: always readable, no
+    -- terminal round-trip. Over SSH we install a bounded OSC 52 provider instead.
+    -- Both keep yanky's put and sync on '+', so text copied in another app lands on top
+    -- of the ring and plain `p` returns it. See lua/util/osc52.lua for why the provider
+    -- must not be named 'OSC 52'.
+    if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+      require('util.osc52').setup()
+    end
     local yanky = require 'yanky'
 
     local mapping = require 'yanky.telescope.mapping'

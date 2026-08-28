@@ -88,7 +88,25 @@ return {
         },
       }
 
-      vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+      -- Grey out the active search area while Leap is waiting for a target.
+      -- `LeapBackdrop` is deprecated upstream; registering the helper is what
+      -- actually installs the LeapRedraw autocmd that applies the backdrop.
+      local function set_leap_backdrop()
+        require('leap.user').set_backdrop_highlight 'Comment'
+      end
+
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        group = vim.api.nvim_create_augroup('LeapBackdrop', { clear = true }),
+        callback = function()
+          vim.schedule(set_leap_backdrop)
+        end,
+      })
+      vim.api.nvim_create_autocmd('VimEnter', {
+        group = vim.api.nvim_create_augroup('LeapBackdropVimEnter', { clear = true }),
+        once = true,
+        callback = set_leap_backdrop,
+      })
+      vim.schedule(set_leap_backdrop)
     end,
   },
   {

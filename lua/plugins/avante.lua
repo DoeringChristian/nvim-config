@@ -2,7 +2,7 @@ return {
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
-    enabled = false,
+    enabled = true,
     version = false, -- Never set this value to "*"! Never!
     build = 'make',
     dependencies = {
@@ -24,17 +24,19 @@ return {
       },
     },
     opts = {
-      -- provider = 'copilot',
-      provider = 'claude',
-      mode = 'legacy',
-      providers = {
-        claude = {
-          endpoint = 'https://api.anthropic.com',
-          auth_type = 'max', -- Set to "max" to sign in with Claude Pro/Max subscription
-          model = 'claude-opus-4-5-20251101', -- Claude Opus 4.5 (latest)
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 4096,
+      -- Use Codex via ACP so Avante reuses the local Codex CLI ChatGPT
+      -- subscription login instead of requiring an OpenAI API token.
+      provider = 'codex',
+      acp_providers = {
+        codex = {
+          -- Run through `env -u` so any OPENAI_API_KEY in the shell does not
+          -- force API-token auth; codex-acp will use `codex login` state.
+          command = 'env',
+          args = { '-u', 'OPENAI_API_KEY', 'codex-acp' },
+          env = {
+            NODE_NO_WARNINGS = '1',
+            HOME = os.getenv 'HOME',
+            PATH = os.getenv 'PATH',
           },
         },
       },

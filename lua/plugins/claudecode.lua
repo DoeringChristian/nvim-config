@@ -1,7 +1,7 @@
 return {
   {
     'coder/claudecode.nvim',
-    enabled = true,
+    enabled = false,
     dependencies = { 'folke/snacks.nvim' },
     keys = {
       { '<leader>cc', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },

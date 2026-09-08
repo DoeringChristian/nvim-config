@@ -49,7 +49,6 @@ return {
         support_paste_from_clipboard = false,
         minimize_diff = false,
         enable_token_counting = true,
-        jump_result_buffer_on_finish = true,
         enable_cursor_planning_mode = false,
         use_cwd_as_project_root = true,
         enable_claude_text_editor_tool_mode = false,
@@ -64,20 +63,6 @@ return {
       if ok then
         Sidebar.show_input_hint = function(self)
           self:close_input_hint()
-        end
-
-        -- Keep the response pane following new output while the prompt/code
-        -- window is focused. If you manually focus and scroll the response
-        -- pane, Avante can still leave it where you put it.
-        local original_should_auto_scroll = Sidebar.should_auto_scroll
-        Sidebar.should_auto_scroll = function(self)
-          if self.containers and self.containers.result and self.containers.result.winid then
-            local current = vim.api.nvim_get_current_win()
-            if current ~= self.containers.result.winid then
-              return true
-            end
-          end
-          return original_should_auto_scroll(self)
         end
       end
 

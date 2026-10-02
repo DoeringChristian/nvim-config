@@ -54,6 +54,14 @@ return {
         enable_claude_text_editor_tool_mode = false,
       },
       hints = { enabled = false },
+      windows = {
+        -- Avante sizes the chat pane as `lines - input.height - strips` without
+        -- counting each pane's winbar header and statusline (~2 rows per pane), so
+        -- the shortfall is taken from the input window. With the default of 8 and
+        -- a visual selection the input collapsed to a single text line; 14 leaves
+        -- ~7-8 visible lines.
+        input = { height = 14 },
+      },
     },
     config = function(_, opts)
       -- Avante draws a floating "Tokens: ...; <CR>: submit" hint in the

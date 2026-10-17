@@ -94,28 +94,14 @@ return {
       },
       custom_highlights = function(colors)
         local groups = {
+          -- Keep code blocks dark in both raw and rendered Markdown.
+          ['@markup.raw.block.markdown'] = { bg = colors.mantle },
           CmpItemMenu = { fg = colors.overlay0 },
           FzfLuaNormal = { bg = colors.mantle },
           RenderMarkdownCode = { bg = colors.mantle },
           RenderMarkdownCodeInline = { bg = colors.mantle },
           RenderMarkdownInlineHighlight = { fg = colors.yellow, bg = colors.mantle },
-          MarkviewCode = { bg = colors.mantle },
-          MarkviewInlineCode = { bg = colors.mantle },
         }
-
-        local U = require 'catppuccin.utils.colors'
-        local rainbow = {
-          colors.red,
-          colors.peach,
-          colors.yellow,
-          colors.green,
-          colors.sapphire,
-          colors.lavender,
-        }
-        for i = 1, 6 do
-          local color = rainbow[i]
-          groups['MarkviewHeading' .. i] = { fg = color, bg = U.darken(color, 0.30, colors.base) }
-        end
 
         return groups
       end,

@@ -1,6 +1,7 @@
 local vaults_dir = '~/share/notes/obsidian'
 return {
   'epwalsh/obsidian.nvim',
+  enabled = false, -- Markdown rendering is handled by render-markdown.nvim.
   version = '*',
   -- lazy = true,
   -- event = "VeryLazy",

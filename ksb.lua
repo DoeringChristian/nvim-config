@@ -104,11 +104,13 @@ ksb.setup {
 
           -- Never open the paste/command window. kitty-scrollback opens it on TermEnter in
           -- the scrollback buffer (a/A/I/<Insert>/clicks...), which was always accidental.
-          -- Re-creating its augroup clears that autocmd; leave terminal mode right away instead.
+          -- Re-creating its augroup clears that autocmd; quit back to the terminal instead,
+          -- same as `i` and `q`.
           vim.api.nvim_create_autocmd('TermEnter', {
             group = vim.api.nvim_create_augroup('KittyScrollBackNvimTermEnter', { clear = true }),
             callback = function()
               vim.cmd.stopinsert()
+              vim.schedule(ksb_api.close_or_quit_all)
             end,
           })
         end,

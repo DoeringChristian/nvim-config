@@ -101,6 +101,16 @@ ksb.setup {
           -- Disable Yank post autocmd
           -- https://github.com/mikesmithgh/kitty-scrollback.nvim/blob/dc101d0a8356db9c7290dfbfa82c27ec35e3b55a/lua/kitty-scrollback/autocommands.lua#L138
           vim.api.nvim_del_augroup_by_name 'KittyScrollBackNvimTextYankPost'
+
+          -- Never open the paste/command window. kitty-scrollback opens it on TermEnter in
+          -- the scrollback buffer (a/A/I/<Insert>/clicks...), which was always accidental.
+          -- Re-creating its augroup clears that autocmd; leave terminal mode right away instead.
+          vim.api.nvim_create_autocmd('TermEnter', {
+            group = vim.api.nvim_create_augroup('KittyScrollBackNvimTermEnter', { clear = true }),
+            callback = function()
+              vim.cmd.stopinsert()
+            end,
+          })
         end,
       },
       keymaps_enabled = false,
